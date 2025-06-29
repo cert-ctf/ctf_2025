@@ -1,0 +1,76 @@
+#helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: 2px solid #000E52;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 0; /* Kein Padding, damit das Bild komplett in den Button passt */
+    transition: border 0.3s ease;
+    float: right;
+    overflow: hidden; /* Verhindert, dass der Puls-Effekt über den Button hinausgeht */
+    animation: pulse 3s ease-in-out infinite; /* Längere und sanftere Puls-Animation */
+    background: none; /* Entfernt Hintergrundfarbe, damit SVG sichtbar ist */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.9); /* Leuchtet stärker bei 50% */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+    }
+}
+
+#helpButton img {
+    width: 100%; /* Reduziert die Bildgröße innerhalb des Buttons */
+    height: 100%; /* Passt die Höhe proportional an */
+    object-fit: contain; /* Sorgt dafür, dass das Bild nicht verzerrt wird */
+    border-radius: 50%;
+    margin-top: 5%; /* Zentriert das Bild innerhalb des Buttons */
+}
+
+/* Hover-Effekt mit grünem Rand */
+#helpButton:hover {
+    border: 2px solid #01FF63; /* Grüner Rahmen beim Hover */
+}
+
+/* Eingebettetes Hilfefenster */
+#helpOverlay {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 20;
+}
+
+#helpOverlay img {
+    max-width: 100%;
+    height: auto;
+}
+
+#helpOverlay .close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}

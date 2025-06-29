@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		
+		<!-- CustomCSS -->
+		<link rel="stylesheet" href="./css/custom_blue.css">
+
+		<title>Mission (K)IMpossible</title>
+	</head>
+	<body>		
+			
+		<main class="container" role="main">
+			<nav class="navbar navbar-custom" >
+				<div>
+					<h6>Die Abenteuer von KIM & TIM</h6>
+					<h4>Kapt. II – To TI-Mfinity and Beyond</h4>					
+				</div>
+				
+				<img width="15%" src="./img/logo.svg"</img>								
+			</nav>
+		
+			<div class="container" >
+				<p><h3>Mission completed</h3></p>
+				<br>
+				
+				<div class="card" >
+				<div class="card-header">
+					<b>5T4TU5 [200]</b>
+				</div>
+				<h5 class="card-title"></h5>
+				<br>
+					<!-- <img class="rounded mx-auto d-block card-img-top" style="width: 80%;" src="./img_main/kim_logo.png" id="computer"> -->
+					<div class="container">
+						<div class="row">
+							<div class="col-12 d-flex justify-content-center">
+								<canvas id="canvas" style="max-width: 100%;height: auto;"></canvas>
+							</div>
+						</div>
+					</div>
+					<hr>
+					
+					<div class="card-body" style="text-align: justify ">
+						<p>Du hast die Herausforderungen gemeistert und die Radarstation auf dem Mond erfolgreich gefunden und deaktiviert! Damit haben wir herausgefunden, wer hinter der Faxflut steckt und konnten seine weiteren perfiden Pläne durchkreuzen. 
+							In einem epischen Duell hast du den Supercomputer in einer galaktischen Runde Pong besiegt. Deine Geschicklichkeit und Entschlossenheit haben den Unterschied gemacht und die Mission zum Erfolg geführt!</p>
+						<p>Danke, dass du Teil dieses aufregenden Kapitels warst. Deine Fähigkeiten haben die Welt ein Stück sicherer gemacht - doch das nächste Abenteuer wartet schon im Kapitel III auf dich! Doch für heute geht als Agent:innen eure Ermittlung nun in CTFd weiter...</p>
+							
+						<p>Als Agent:innen geht eure Ermittlung nun in CTFd weiter.... </p>
+						<hr>
+					</div>
+					
+                
+                <div id="info_text" style="display: block;">
+                    <div class="col-md-12" style="align-items: center; justify-content: center; display:flex; text-align: center;">                            
+                        <img width="6%" src="./img/tim_head.png" style="padding-right: 10px;" draggable="false" oncontextmenu="return false;"></img>        
+                        <div class="border p-3 rounded" style="border: 1px dashed #1C1A54!important;">                            
+                            <p id="info_text_field" class="bottom_text" style="padding-left: 30px; padding-right: 30px;">Die Aufgabe <i>To TI-Mfinity and Beyond</i> in <a href="https://ctfd.gematik.de" target="_blank">CTFd</a> kann mit folgender Flag gelöst werden: <b><span id="displayValue"></span></b> </p>
+                        </div>
+                        <img width="6%" src="./img/tim_head.png" style="padding-left: 10px;" draggable="false" oncontextmenu="return false;"></img>        
+                    </div>
+                    <br>
+                </div>	
+					<br>							
+				</div>
+		</main>		
+
+		<script>
+			function getQueryParam(param) {
+				const urlParams = new URLSearchParams(window.location.search);
+				return urlParams.get(param);
+			}
+
+			const wert = getQueryParam('wert');
+			document.getElementById('displayValue').textContent = "tim_ti{"+`${wert}`+"}";
+		</script>
+
+		
+		<script src="js/fireworks.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh6U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+
+        
+.ssh-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 480px; /* Höhe des Containers, um den Inhalt zu zentrieren */
+    margin: 0 auto; /* Für zentrierte Positionierung auf der Seite */
+}
+
+#starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Verhindert, dass das Canvas Interaktionen blockiert */
+    z-index: 1; /* Sorgt dafür, dass das Canvas hinter dem Inhalt liegt */
+    background-color: transparent;
+}
+
+#cockpit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Verhindert, dass das Canvas Interaktionen blockiert */
+    z-index: 1; /* Sorgt dafür, dass das Canvas hinter dem Inhalt liegt */
+    background-color: transparent;
+}
+
+
+.ssh-screen {
+    background-color: 333549; /* Dunkelblauer Hintergrund wie beim ssh */
+    width: 95%; /* Feste Breite wie angegeben */
+    height: 480px; /* Feste Höhe wie angegeben */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 0px solid #98AC7B;
+    color: #f8f8f2; /* Weiße Schrift */
+    font-family: 'Courier New ', monospace; /* ssh-ähnliche Schriftart */
+    font-size: 20px;
+    overflow-y: auto;
+    line-height: 1.2;
+    position: relative; /* Positionierung für das Eingabefeld */
+}
+
+#monitors {
+    padding: 25px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    color: #f8f8f2; /* Weiße Schrift */
+    font-family: 'Courier New ', monospace; /* ssh-ähnliche Schriftart */
+    font-size: 20px;
+    overflow-y: auto;
+    line-height: 1.2;
+    position: relative; /* Positionierung für das Eingabefeld */
+}
+
+.monitor-image {
+    align-self: flex-start;
+}
+
+
+#output {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: #f8f8f2; /* Hellblauer Text wie beim ssh */
+    font-family: 'Courier New', monospace; /* ssh-ähnliche Schriftart */
+    font-size: 15;
+    line-height: 1.2;
+    overflow-y: auto;
+    margin: 0; /* Entfernt zusätzlichen Margin */
+    padding: 0; /* Entfernt zusätzliches Padding */
+    z-index: 2;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px; /* Positionierung am unteren Rand der Box */
+    width: calc(100% - 40px); /* Breite an den Rand des Containers anpassen */
+}
+
+.cursor {    
+    margin-right: 5px;
+    color: #f8f8f2; /* Hellblauer Text wie beim ssh */
+    font-family: 'Courier New', monospace;  /* Erbt die Schriftart */
+    font-size: 15; /* Erbt die Schriftgröße */
+}
+
+.sshheader {
+    text-align: left;
+    margin: 0;  /* Entfernt zusätzlichen Margin */
+    padding: 0; /* Entfernt zusätzliches Padding */
+    background: none; /* Kein Hintergrund */
+    border: none; /* Keine Rahmen */
+    color: #f8f8f2; /* Hellblauer Text wie beim ssh */
+    font-family: 'Courier New', monospace;  /* Erbt die Schriftart */
+    font-size: 15; /* Erbt die Schriftgröße */
+    white-space: pre-wrap; /* Zeilenumbruch innerhalb des pre-Tags */
+    overflow-wrap: break-word; /* Text wird bei Bedarf umgebrochen */
+    outline: none; /* Kein Umriss */
+    display: block;
+}    
+    
+
+input[type="text"] {
+    background: none;
+    border: none;
+    color: #f8f8f2; /* Eingabefeld ebenfalls in Weiß */
+    font-family: 'Courier New', monospace;
+    font-size: 15;
+    width: 60%;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #2ad42a;
+}
