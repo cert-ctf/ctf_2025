@@ -1,0 +1,86 @@
+
+        
+.c64-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 480px; /* Höhe des Containers, um den Inhalt zu zentrieren */
+    margin: 0 auto; /* Für zentrierte Positionierung auf der Seite */
+}
+
+.c64-screen {
+    background-color: #493BAA; /* Dunkelblauer Hintergrund wie beim C64 */
+    width: 95%; /* Feste Breite wie angegeben */
+    height: 480px; /* Feste Höhe wie angegeben */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 15px solid #a0a0ff;
+    color: #ffffff; /* Weiße Schrift */
+    font-family: 'C64 Pro Mono', monospace; /* C64-ähnliche Schriftart */
+    font-size: 20px;
+    overflow-y: auto;
+    line-height: 1.2;
+    position: relative; /* Positionierung für das Eingabefeld */
+}
+
+@font-face {
+    font-family: 'C64 Pro Mono';
+    src: url('./fonts/C64_Pro_Mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#output {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    color: #a0a0ff; /* Hellblauer Text wie beim C64 */
+    font-family: 'C64 Pro Mono', monospace; /* C64-ähnliche Schriftart */
+    font-size: 20px;
+    line-height: 1.2;
+    overflow-y: auto;
+    margin: 0; /* Entfernt zusätzlichen Margin */
+    padding: 0; /* Entfernt zusätzliches Padding */
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 20px; /* Positionierung am unteren Rand der Box */
+    width: calc(100% - 40px); /* Breite an den Rand des Containers anpassen */
+}
+
+.cursor {
+    color: #a0a0ff; /* Cursor in der gleichen Farbe wie die Schrift */
+    margin-right: 5px;
+}
+
+.c64header {
+    text-align: center;
+    margin: 0;  /* Entfernt zusätzlichen Margin */
+    padding: 0; /* Entfernt zusätzliches Padding */
+    background: none; /* Kein Hintergrund */
+    border: none; /* Keine Rahmen */
+    color: #a0a0ff; /* Hellblauer Text wie beim C64 */
+    font-family: inherit; /* Erbt die Schriftart */
+    font-size: inherit; /* Erbt die Schriftgröße */
+    white-space: pre-wrap; /* Zeilenumbruch innerhalb des pre-Tags */
+    overflow-wrap: break-word; /* Text wird bei Bedarf umgebrochen */
+    outline: none; /* Kein Umriss */
+}    
+    
+
+input[type="text"] {
+    background: none;
+    border: none;
+    color: #a0a0ff; /* Eingabefeld ebenfalls in Weiß */
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    outline: none;
+}
+
+input[type="text"]::placeholder {
+    color: #a0a0ff;
+}

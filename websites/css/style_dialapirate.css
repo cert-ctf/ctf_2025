@@ -1,0 +1,83 @@
+header.main {
+	padding-top: 4em;
+}
+div#disc_container {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+div#disc_container_inside {
+	cursor: move;
+}
+div.turnable:first-child {
+	/* clip-path: circle(50%); */
+}
+div.turnable {
+	display: grid;			
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+div.turnable > * {
+	grid-row: 1;
+	grid-column: 1;
+}
+div.turnable img {
+	vertical-align: bottom;
+	max-width: 100%;
+	height: auto;
+}
+.relative {
+	position: relative;
+}
+.anim {
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.grabbing {
+	cursor: grabbing;
+}
+.btn-primary{	
+    background-color: #72708E !important;
+    border-color: #72708E !important;
+	
+}
+.btn-primary:focus {
+	box-shadow: none;
+}
+.btn-light-primary{
+    background-color:  #A4A1CC !important;
+    border-color: #A4A1CC !important;
+}
+.btn-light-primary:focus {
+	box-shadow: 0 0 0 0.2rem rgba(114,112,142,.3);
+	transition: 0.2s; 
+}
+.active-btn {
+    background-color: #A4A1CC !important; 
+	border-color: #72708E ;
+	border-width: 2px;
+	color: #fff; 
+	box-shadow: 5px 10px 8px #888888 !important;		
+}
+.fade{
+    width:20px;
+    height: 20px;
+    background: red;
+    opacity:0;
+}
+
+.elementToFadeInAndOut {
+    animation: fadeInOut 4s linear forwards;
+}
+
+@keyframes fadeInOut {
+ 0% { opacity:0; }
+ 50% { opacity:1; } 
+ 100% { opacity:0; } 
+}

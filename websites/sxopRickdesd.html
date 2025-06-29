@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- CustomCSS -->
+		<link rel="stylesheet" href="./css/custom_blue.css">
+		<link rel="stylesheet" href="./css/help.css">
+
+		<title>Mission (K)IMpossible</title>
+
+		<style>
+			#binary_container {
+				width: 200px; /* Breite des sichtbaren Bereichs */
+				overflow: hidden;
+				border: 1px solid black; /* Optional: Rahmen um den Bereich */
+				font-family: monospace;
+				white-space: nowrap;
+				position: relative;
+			}
+
+			#binary {
+				display: inline-block;
+				animation: scroll 100s linear infinite;
+			}
+
+			@keyframes scroll {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+    </style>
+		
+	</head>
+	<body>		
+		<main class="container" role="main">
+			<nav class="navbar navbar-custom" >
+				<div>
+					<h6>Die Abenteuer von KIM & TIM</h6>
+					<h4>Kapt. II – To TI-Mfinity and Beyond</h4>					
+				</div>
+				
+				<img width="15%" src="./img/logo.svg"</img>								
+			</nav>
+		
+
+			<div class="container" >
+				<p><h3>Der Absturz</h3></p>
+				<br>
+				<div class="card" >
+					<div class="card-header" style="text-align: center;">
+						<b>Die Jagd auf den intergalaktischen Schurken</b>
+					</div>
+					<h5 class="card-title" style="text-align: justify "></h5>
+
+					<div class="card-body" style="text-align: justify ">
+						<p>Anscheinend hat das Space Shuttle beim Abflug ein Raumschiff gestreift und es dadurch zum Absturz gebracht.</p>
+						<hr>						
+					</div>
+							
+					<div class="card-body" style="text-align: justify;">	
+						<p>Okay, hört zu! Ich bin stinksauer, weil dieser Schurke mein Raumschiff zum Absturz gebracht hat! <i>*burp*</i>
+							Wie? Ihr seid auf der Jagd nach ihm? Dann seid ihr ja echt inkompetent... sonst wäre er jetzt nicht in mein Raumschiff geflogen... Aber keine Sorge, ich habe einen Plan. Ich werde euch helfen, indem ich einen Teleporter direkt in eure Wohnung installiere. Der bringt euch direkt auf ein Raumschiff. Meinen Berechnungen zufolge - <i>(peilt über den Daumen die Rakete an)</i> - fliegt die Rakete zum Mond. <i>*burp*</i></p>
+						<p>Aber zuerst müssen wir mehr über diesen Bösewicht herausfinden. Es ist Zeit für eine forensische Jagd! Lasst uns alles über diesen Kerl herausfinden und ihm zeigen, dass er sich mit den Falschen angelegt hat. Macht euch bereit für intergalaktische Rache!</p>
+						<br>
+						<img id="fenceimage" src="work/rick.png" class="img-fluid rounded d-block mx-auto" width="50%" alt="">						
+						<hr>
+					</div>
+
+					
+					
+					<div id="info_text" style="display: block;">
+						<div class="col-md-12" style="align-items: center; justify-content: center; display:flex; text-align: center;">							
+							<img width="6%" src="./img/tim_head.png" style="padding-right: 10px;" draggable="false"  oncontextmenu="return false;"></img>		
+							<div class="border p-3 rounded " style="border: 1px dashed #1C1A54!important;">							
+								<p id="info_text_field" class="bottom_text" style="padding-left: 30px; padding-right: 30px;">Wir stehen bereit, die forensische Jagd beginnt. Der Code für den Bus in die Stadt ist 0000.</p>
+							</div>
+							<img width="6%" src="./img/tim_head.png" style="padding-left: 10px;" draggable="false" oncontextmenu="return false;"></img>		
+						</div>
+						<br>
+					</div>
+				</div>
+				<br>
+
+			</div>
+		</main>
+
+		<!-- Hilfe-Button -->
+		<button id="helpButton">
+			<img src="./img/help.svg" alt="Hilfe" />
+		</button>
+
+		<!-- Eingebettetes Hilfefenster -->
+		<div id="helpOverlay">
+			<button class="close-btn">&times;</button>
+			<img src="./img/help.png" alt="Hilfegrafik">
+			<p></p>
+			<p class="text-justify">Log, ich bin Dein Vadder</i>
+		</p>
+		
+		</div>
+		
+		 <!-- Bootstrap JS and dependencies -->
+		 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+		 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		 <script src="./js/help.js"></script>
+	 </body>
+			
+	</body>
+</html>

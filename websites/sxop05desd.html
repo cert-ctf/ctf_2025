@@ -1,0 +1,255 @@
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- CustomCSS -->
+		<link rel="stylesheet" href="./css/custom_blue.css">
+		<link rel="stylesheet" href="./css/help.css">
+
+		<title>Mission (K)IMpossible</title>
+		
+		<style>
+			pre code {								
+				display: block;
+				white-space: pre-wrap; /* Forces line wrap */
+				word-break: break-all; /* Breaks long words */
+				overflow-wrap: break-word; /* Ensures long words break */
+			}
+
+			.form-control {
+				max-width: 150px; /* Maximale Breite der Inputbox */
+			}
+
+			#image {
+				width: 200px;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>		
+		<main class="container" role="main">
+			<nav class="navbar navbar-custom" >
+				<div>
+					<h6>Die Abenteuer von KIM & TIM</h6>
+					<h4>Kapt. II – To TI-Mfinity and Beyond</h4>					
+				</div>
+				
+				<img width="15%" src="./img/logo.svg"</img>								
+			</nav>
+		
+
+			<div class="container" >
+				<p><h3>Hifi Laden</h3></p>
+				<br>
+				<div class="card" >
+					<div class="card-header" style="text-align: center;">
+						<b>Drive-In Data Dive</b>
+					</div>
+					<h5 class="card-title" style="text-align: justify "></h5>
+
+					<div class="card-body" style="text-align: justify ">
+						<p>Wir haben eine PCAP-Datei erfasst, die eine verdächtige FTP-Verbindung zum Autokino dokumentiert. Vermutlich wurden damit Rezepte auf die Leinwand übertragen. Diese Datei könnte entscheidende Hinweise auf die Übertragung der schadhaften Firmware enthalten und sollte dringend analysiert werden, um weitere Informationen zu gewinnen.</p>																		
+						<hr>						
+					</div>
+										
+					<div class="card-body" style="text-align: justify;">		
+						<div class="text-center">
+							<p>Die FTP Verbindung könnte Informationen zum Server, Benutzer, Passwort und der übertragenen Datei enthalten.</p>	
+							<a href="work/ftp.pcap" class="btn btn-primary" download>
+								PCAP herunterladen
+							</a>
+							<hr>
+
+						</div>
+
+						<div id="inputfields" class="d-flex flex-column align-items-center">
+							<label class="mr-2"><b>Timestamp</b></label>
+							<div class="form-group d-flex align-items-center">							
+								<input type="text" id="timestamp" class="form-control mr-2" maxlength="10" placeholder="YYYY-MM-DD"/>							    					
+							</div>
+							<label class="mr-2"><b>FTP User</b></label>
+							<div class="form-group d-flex align-items-center">							
+								<input type="text" id="user" class="form-control mr-2" maxlength="20" placeholder="Username"/>											    														
+							</div>
+							<label class="mr-2"><b>FTP Passwort</b></label>
+							<div class="form-group d-flex align-items-center">							
+								<input type="text" id="password" class="form-control mr-2" maxlength="4" placeholder="Passwort"/>							    														
+							</div>							
+							<label class="mr-2"><b>Übertragene Datei</b></label>
+							<div class="form-group d-flex align-items-center">							
+								<input type="text" id="filename" class="form-control mr-2" maxlength="20" placeholder="Dateiname"/>							    														
+							</div>
+							<button class="btn btn-primary" id="submitButton">Überprüfen</button>	
+						</div>
+						<br>
+					
+						<div class="row justify-content-center">
+							<div class="col-auto">	
+							<table id="table" class="table table-striped text-center mx-auto" style="display:none;">
+								<thead class="thead-dark">
+									<tr>
+										<th>ASCII</th>
+										<th>Nr.</th>
+										<th>ASCII</th>
+										<th>Nr.</th>
+										<th>ASCII</th>
+										<th>Nr.</th>
+										<th>ASCII</th>
+										<th>Nr.</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr><td><strong>a</strong></td><td>12</td><td><strong>b</strong></td><td>7</td><td><strong>c</strong></td><td>4</td><td><strong>d</strong></td><td>11</td></tr>
+									<tr><td><strong>e</strong></td><td>0</td><td><strong>f</strong></td><td>22</td><td><strong>g</strong></td><td>13</td><td><strong>h</strong></td><td>1</td></tr>
+									<tr><td><strong>i</strong></td><td>19</td><td><strong>j</strong></td><td>8</td><td><strong>k</strong></td><td>23</td><td><strong>l</strong></td><td>16</td></tr>
+									<tr><td><strong>m</strong></td><td>3</td><td><strong>n</strong></td><td>14</td><td><strong>o</strong></td><td>5</td><td><strong>p</strong></td><td>10</td></tr>
+									<tr><td><strong>q</strong></td><td>20</td><td><strong>r</strong></td><td>25</td><td><strong>s</strong></td><td>6</td><td><strong>t</strong></td><td>18</td></tr>
+									<tr><td><strong>u</strong></td><td>9</td><td><strong>v</strong></td><td>21</td><td><strong>w</strong></td><td>15</td><td><strong>x</strong></td><td>17</td></tr>
+									<tr><td><strong>y</strong></td><td>24</td><td><strong>z</strong></td><td>2</td><td></td><td></td><td></td><td></td></tr>
+								</tbody>
+							</table>
+							</div>
+						</div>
+						<hr>
+					</div>
+					
+					
+					
+					<div id="info_text" style="display: block;">
+						<div class="col-md-12" style="align-items: center; justify-content: center; display:flex; text-align: center;">							
+							<img width="6%" src="./img/tim_head.png" style="padding-right: 10px;" draggable="false"  oncontextmenu="return false;"></img>		
+							<div class="border p-3 rounded " style="border: 1px dashed #1C1A54!important;">							
+								<p id="info_text_field" class="bottom_text" style="padding-left: 30px; padding-right: 30px;">Untersuche die PCAP-Datei, um entscheidende Informationen über den Angriff aufzudecken.</p>
+							</div>
+							<img width="6%" src="./img/tim_head.png" style="padding-left: 10px;" draggable="false" oncontextmenu="return false;"></img>		
+						</div>
+						<br>
+					</div>
+				</div>
+				<br>
+
+			</div>
+		</main>
+
+		<!-- Hilfe-Button -->
+		<button id="helpButton">
+			<img src="./img/help.svg" alt="Hilfe" />
+		</button>
+
+		<!-- Eingebettetes Hilfefenster -->
+		<div id="helpOverlay">
+			<button class="close-btn">&times;</button>
+			<img src="./img/help.png" alt="Hilfegrafik">
+			<p></p>
+			<p class="text-justify">Zur Analyse empfehlen wir:
+			<ul>
+				<li><a href="https://www.wireshark.org/" target="_blank">Wireshark</a></li>
+				<li><a href="https://apackets.com/" target="_blank">apackets.com</a> (Online)</li>
+			</ul>
+		</p>
+		
+		</div>
+
+
+		
+		 <!-- Bootstrap JS and dependencies -->
+		 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+		 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		 <script src="./js/help.js"></script>
+	 </body>
+			
+		
+	 <script>
+		function calculateChecksum(values) {
+            let checksum = 0;
+            for (let value of values) {
+                for (let char of value) {
+                    checksum += char.charCodeAt(0);
+                }
+            }
+            return checksum;
+        }
+
+        document.getElementById('submitButton').addEventListener('click', function() {
+			const check_a = 488;
+			const check_b = 780;
+			const check_c = 415;
+			const check_d = 1086;
+
+
+
+            const timestamp = document.getElementById('timestamp').value;
+            const user = document.getElementById('user').value;
+            const password = document.getElementById('password').value;
+            const filename = document.getElementById('filename').value;
+
+			if (timestamp != "")
+			{
+				if (calculateChecksum(timestamp) != check_a) {			
+					document.getElementById('timestamp').classList.remove("text-success");
+					document.getElementById('timestamp').classList.add("text-danger");
+				}	
+				else {	
+					document.getElementById('timestamp').classList.remove("text-danger");
+					document.getElementById('timestamp').classList.add("text-success");				
+				
+				}
+			}
+
+			if (user != "")
+			{
+				if (calculateChecksum(user) != check_b) {			
+					document.getElementById('user').classList.remove("text-success");
+					document.getElementById('user').classList.add("text-danger");
+				}	
+				else {	
+					document.getElementById('user').classList.remove("text-danger");
+					document.getElementById('user').classList.add("text-success");				
+				}
+			}
+
+			if (password != "")
+			{
+				if (calculateChecksum(password) != check_c) {			
+					document.getElementById('password').classList.remove("text-success");
+					document.getElementById('password').classList.add("text-danger");
+				}	
+				else {	
+					document.getElementById('password').classList.remove("text-danger");
+					document.getElementById('password').classList.add("text-success");				
+				}
+			}
+
+			if (filename != "")
+			{
+				if (calculateChecksum(filename) != check_d) {			
+					document.getElementById('filename').classList.remove("text-success");
+					document.getElementById('filename').classList.add("text-danger");
+				}	
+				else {	
+					document.getElementById('filename').classList.remove("text-danger");
+					document.getElementById('filename').classList.add("text-success");				
+				}
+			}
+			
+			
+
+			const values = [timestamp, user, password, filename];
+            checksum = calculateChecksum(values);
+
+			if (checksum === 2769) {
+				document.getElementById('table').style.display = "block";
+				document.getElementById('inputfields').style.display = "none";
+
+				document.getElementById('info_text_field').textContent = "Mappe das FTP Passwort auf die in der Tabelle stehenden Zuordnungen, um den Code für die Wohnung zu erhalten.";
+			}
+        });
+    </script>
+	</body>
+</html>
