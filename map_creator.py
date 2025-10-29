@@ -4,7 +4,7 @@ import os
 input_file_map_gematik = 'dist/map_gematik.tmj'
 input_file_map_floor1  = 'dist/map_floor1.tmj'
 input_file_map_floor2  = 'dist/map_floor2.tmj'
-input_file_map_floor3  = 'dist/map_floor3.tmj'  # fix: war 'map_map_floor3.tmj'
+input_file_map_floor3  = 'dist/map_floor3.tmj'  
 input_file_map_epa     = 'dist/map_epa.tmj'
 input_file_map_erx     = 'dist/map_erx.tmj'
 input_file_map_kim     = 'dist/map_kim.tmj'
@@ -127,13 +127,14 @@ for i in range(1, map_count + 1):
     )
 
     # Dateien schreiben
-    write_map(f"{output_folder}/{input_file_map_gematik.replace('.tmj','')}_{str(i).zfill(2)}.tmj", modified_map_gematik)
-    write_map(f"{output_folder}/{input_file_map_floor1.replace('.tmj','')}_{str(i).zfill(2)}.tmj",  modified_map_floor1)
-    write_map(f"{output_folder}/{input_file_map_floor2.replace('.tmj','')}_{str(i).zfill(2)}.tmj",  modified_map_floor2)
-    write_map(f"{output_folder}/{input_file_map_floor3.replace('.tmj','')}_{str(i).zfill(2)}.tmj",  modified_map_floor3)
-    write_map(f"{output_folder}/{input_file_map_epa.replace('.tmj','')}_{str(i).zfill(2)}.tmj",     modified_map_epa)
-    write_map(f"{output_folder}/{input_file_map_erx.replace('.tmj','')}_{str(i).zfill(2)}.tmj",     modified_map_erx)
-    write_map(f"{output_folder}/{input_file_map_kim.replace('.tmj','')}_{str(i).zfill(2)}.tmj",     modified_map_kim)
-    write_map(f"{output_folder}/{input_file_map_tim.replace('.tmj','')}_{str(i).zfill(2)}.tmj",     modified_map_tim)
+    write_map(output_folder + "/" + input_file_map_gematik.replace(".tmj","") + "_" + str(i).zfill(2) + ".tmj", modified_map_gematik)
+    write_map(output_folder + "/" + input_file_map_floor1.replace(".tmj","")  + "_" + str(i).zfill(2) + ".tmj", modified_map_floor1)
+    write_map(output_folder + "/" + input_file_map_floor2.replace(".tmj","")  + "_" + str(i).zfill(2) + ".tmj", modified_map_floor2)
+    write_map(output_folder + "/" + input_file_map_floor3.replace(".tmj","")  + "_" + str(i).zfill(2) + ".tmj", modified_map_floor3)
+    write_map(output_folder + "/" + input_file_map_epa.replace(".tmj","")     + "_" + str(i).zfill(2) + ".tmj", modified_map_epa)
+    write_map(output_folder + "/" + input_file_map_erx.replace(".tmj","")     + "_" + str(i).zfill(2) + ".tmj", modified_map_erx)
+    write_map(output_folder + "/" + input_file_map_kim.replace(".tmj","")     + "_" + str(i).zfill(2) + ".tmj", modified_map_kim)
+    write_map(output_folder + "/" + input_file_map_tim.replace(".tmj","")     + "_" + str(i).zfill(2) + ".tmj", modified_map_tim)
+
 
 exit(0)
