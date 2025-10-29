@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+     <section class="card">
+      <header class="card-header">
+          <h2>TI-Messenger</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <h3>Was ist das?</h3>
+        <p>
+          Der TI-Messenger ist der Kurznachrichtendienst für das Gesundheitswesen in Deutschland
+        </p>
+        <hr>
+        <h3>Funktionen und Vorteile von TIM</h3>
+        <p>
+          TIM bietet viele praktische Funktionen, die den Arbeitsalltag erleichtern: Gruppen-Chats für Teams, Versand von Bildern und Dokumenten, sowie die Möglichkeit, direkt mit Kolleg:innen oder Patient:innen zu kommunizieren. Alle Teilnehmer werden eindeutig über die TI identifiziert, sodass keine unbefugten Personen Zugriff haben.
+        </p>
+        <ul>
+          <li>Ende-zu-Ende-Verschlüsselung für maximale Sicherheit.</li>
+          <li>Gruppen- und Einzelchats für flexible Kommunikation.</li>
+          <li>Integration in bestehende Praxis- und Krankenhaussoftware.</li>
+          <li>Datenschutz und Vertraulichkeit sind jederzeit gewährleistet.</li>
+        </ul>
+        <p>
+          Weitere Informationen und technische Details findest du im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal</a> der gematik.
+        </p>
+        <hr>
+        <section>
+          <h3>Technische Basis</h3>
+          <ul>
+            <li>TIM basiert auf dem offenen Matrix-Protokoll, das von der Matrix.org Foundation entwickelt wurde.</li>
+            <li>Open-Source-Implementierungen sind in Behörden, Bundeswehr und Bildungswesen im Einsatz.</li>
+            <li>Vorteile: moderne Sicherheitsstandards, Interoperabilität, flexible und skalierbare Infrastruktur.</li>
+          </ul>
+        </section>
+        <hr>
+        <h3>der Verzeichnisdienst</h3>
+<p>Der Verzeichnisdienst (VZD) ist das zentrale Adressbuch für die Telematikinfrastruktur (TI). Über den VZD finden Sie die Kontaktdaten anderer medizinischer Einrichtungen schnell und einfach. So können Sie per KIM oder TI-Messenger ohne Umwege in den Austausch mit Kolleginnen oder Kollegen treten. Außerdem werden im VZD Basisdaten (bspw. Adressdaten und Zertifikate) von Leistungserbringern wie Ärztinnen und Ärzten, Apothekerinnen und Apothekern sowie von Organisationen des Gesundheitswesens bereitgestellt.</p>
+        <hr>
+        <h3>TI-Messenger Zukunft</h3>
+        <h4>TI-M Pro</h4>
+        <p>
+          Einfache, sektorenübergreifende Ad-hoc-Kommunikation zwischen den Heilberufen
+        </p>
+        <h4>TI-M ePA</h4>
+        <p>
+          Kommunikation zwischen Heilberufen und Versicherten sowie Austausch zwischen Versicherten und Kassen
+        </p>
+        <h4>TI-M Connect</h4>
+        <p>
+          Austausch per Videochat und Videosprechstunden.
+        </p>
+          <figure>
+          <img src="./img/wa-tim-00-tim_roadmap.png" alt="TIM Nachrichtenversand">
+          <figcaption>
+            Quelle: 
+            <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">
+              Gematik Fachportal – TI-Messenger
+            </a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
+
+  <aside id="helpOverlay" hidden>
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h2>Weitere Infos</h2>
+    <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">gematik Anwendungen TI-Messenger</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal TI-Messenger</a></li>
+      <li><a href="https://www.gematik.de/media/gematik/Medien/Anwendungen/gematik_Onepager_VZD_RGB.pdf" target="_blank" rel="noopener">Verzeichnisdienst</a></li>
+    </ul>
+  </aside>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

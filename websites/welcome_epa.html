@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Elektronische Patientenakte (ePA)</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <p>
+          
+        </p>
+        <p>
+          Im Notfallzentrum wird ein Patient eingeliefert – keine Vorgeschichte, keine Angehörigen, nicht ansprechbar. Die wenigen Hinweise in der elektronischen Patientenakte sind verschlüsselt oder versteckt: eine Allergieliste als Ciphertext, ein Röntgenbild mit ungewöhnlichen Artefakten, ein signierter Befund ohne klare Herkunft. Und die Frage im Raum: Wer hat diesen Patienten zuletzt behandelt – und wen rufen wir im Notfall an? Vielleicht menschlich, vielleicht… ALF…
+        </p>
+          <center>
+            <img src="./img/epa/ePA_Gesundheitsdaten_01_RGB_gematik_20221102.png" width=80%>
+          </center>
+          <p>
+            Hier kommen die TI-Ranger ins Spiel: Im Webinterface führen sie dich Schritt für Schritt durch die Aufgaben – vom Auffinden des Schlüssels in Metadaten oder UI-Hinweisen über das Entschlüsseln der Allergien bis zur Extraktion einer steganografisch versteckten Notiz im Röntgenbild. Parallel prüfst du digitale Signaturen mit dem bereitgestellten öffentlichen Schlüssel, verifizierst die Unverändertheit des Befunds und analysierst das Audit-Log: Wer hat wann worauf zugegriffen, welcher Arzt hat geröntgt, welcher Workflow steckt dahinter?
+          </p>
+          <hr>
+      </div>
+      <div id="info_text">
+        <div class="info-row">
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+              Lerne, wie du in der ePA verschlüsselte Daten sicher zugänglich machst, steganografische Notizen aus Bildern extrahierst, Signaturen verifizierst und Zugriffe im Audit-Log nachvollziehst. Außerdem: zuständigen Arzt ermitteln, Notfallkontakt trotz Verschlüsselung identifizieren und Befunde sauber im Interface dokumentieren.
+            </p>
+          </div>
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
+
+  <div id="helpOverlay" hidden>
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h4>Verweise</h4>
+    Verwende folgende Verweise, um weitere Informationen über ePA zu erhalten:
+    <ul>
+      <li><a href="http://gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal</a></li>
+    </ul>
+  </div>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

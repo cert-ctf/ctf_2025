@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/help.css" />
+  </head>
+
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left">
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM &amp; TIM</h6>
+            <h4>Kapt. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+      </nav>
+
+      <section class="card">
+        <header class="card-header">
+          <h2>Kommunikation im Medizinwesen</h2>
+        </header>
+
+        <h3 class="card-title"></h3>
+
+        <div class="card-body">
+          <h3>Dienstkennungs Bingo</h3>
+          <p>
+            Frau Dr. Müller möchte ein E-Rezept zu einer Apotheke verschicken, doch die Nachricht geht
+            einfach nicht durch! <br />
+            Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei.
+            </p>
+            <p>
+            Welche Dienstkennung hätte sie eintragen müssen?
+          </p>
+          <hr />
+          <h3>Dienstkennungen</h3>
+          <p>
+            Dienstkennungen helfen dem empfangenden System dabei, KIM Nachrichten richtig zuzuordnen und automatisch
+            weiterzuverarbeiten.
+          </p>
+          <p>
+            Du erinnerst dich daran das du dazu schon einmal etwas im Fachportal der gematik gelesen hast?
+          </p>
+          <p>
+            <a href="https://fachportal.gematik.de/" target="_blank" rel="noopener noreferrer">Fachportal der gematik</a>
+          </p>
+          <hr />
+        </div>
+
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Gesucht wird die richtige Dienstkennung für dieses eRezept. <br />
+                Anhang:
+                <a href="./files/zuweisung.eml" target="_blank" rel="noopener noreferrer">zuweisung.eml</a>
+              </p>
+            </div>
+
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+          </div>
+        </div>
+
+        <br />
+      </section>
+    </main>
+
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+      <span class="visually-hidden">?</span>
+    </button>
+
+    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h3>Weitere Infos</h3>
+      <p>Hier findest du weitere Hinweise und Tools:</p>
+      <ul>
+        <li>
+          <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener"
+            >Funktionsweise von KIM</a
+          >
+        </li>
+        <li>
+          <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener"
+            >Dienstkennung KIM</a
+          >
+        </li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+
+    <script src="./js/help.js"></script>
+    <script src="./js/background.js"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+:root {
+  --help-primary: #1c1a54;        /* Primärfarbe (dunkles Blau) */
+  --help-primary-20: rgba(28,26,84,0.2);
+  --help-primary-35: rgba(28,26,84,0.35);
+  --help-bg-glass: rgba(255,255,255,0.22);
+  --help-stroke-glass: rgba(255,255,255,0.35);
+  --help-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  --help-shadow-strong: 0 18px 50px rgba(0,0,0,0.22);
+  --help-blur: 14px;
+}
+
+/* Optional: globaler Backdrop beim Öffnen */
+#helpBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 24, 0.28);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  z-index: 10000;
+}
+#helpBackdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#helpOverlay > p:first-of-type {
+  font-weight: 700;
+  font-size: 16px;
+  color: #0f1230;
+  margin: 0 0 8px 0;
+}
+
+/* Floating Help-Button – größer, moderner, glasig */
+#helpButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  border: 1px solid var(--help-stroke-glass);
+  background: linear-gradient(145deg, rgba(255,255,255,0.6), rgba(240,240,255,0.35));
+  backdrop-filter: blur(var(--help-blur));
+  -webkit-backdrop-filter: blur(var(--help-blur));
+  cursor: pointer;
+  z-index: 10001;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+  font-size: 0;
+  box-shadow: var(--help-shadow);
+  overflow: visible;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+#helpButton::before {
+  content: "?";
+  display: inline-block;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--help-primary);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+#helpButton::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 18px;
+  border: 2px solid var(--help-primary);
+  opacity: 0.45;
+  animation: pulse-ring 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 0.45; }
+  70%  { transform: scale(1.2);  opacity: 0;    }
+  100% { transform: scale(1.2);  opacity: 0;    }
+}
+
+#helpButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--help-shadow-strong);
+}
+#helpButton:active {
+  transform: translateY(0);
+}
+#helpButton:focus-visible {
+  outline: 3px solid var(--help-primary-35);
+  outline-offset: 4px;
+  border-radius: 18px;
+}
+
+/* Overlay – frosted glass Card */
+#helpOverlay {
+  position: fixed;
+  bottom: 104px; /* etwas höher, wegen größerem Button */
+  right: 24px;
+  height: min(380px, 92vw);
+  width: min(380px, 92vw);
+  max-height: min(70vh, 620px);
+  display: none; /* via JS toggeln: block/flex */
+  flex-direction: column;
+  gap: 12px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(245,246,255,0.35));
+  border: 1px solid var(--help-stroke-glass);
+  border-radius: 16px;
+  padding: 16px 16px 18px 16px;
+  box-shadow: var(--help-shadow-strong);
+  backdrop-filter: blur(var(--help-blur));
+  -webkit-backdrop-filter: blur(var(--help-blur));
+  z-index: 10002;
+  overflow: hidden;
+}
+
+/* Overlay Header */
+#helpOverlay .header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 36px; /* Platz für Close-Button */
+}
+#helpOverlay .header .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(28,26,84,0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--help-primary);
+  font-weight: 800;
+}
+#helpOverlay .header .title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f1230;
+}
+
+/* Content Scroll-Area */
+#helpOverlay .content {
+  overflow: auto;
+  max-height: calc(min(70vh, 620px) - 68px);
+  padding-right: 2px; /* für Scrollbar */
+  color: #101231;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-overflow-scrolling: touch;
+}
+#helpOverlay .content img,
+#helpOverlay .content video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Close Button – schwebend, groß genug */
+#helpOverlay .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid var(--help-stroke-glass);
+  color: #0a0b20;
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+#helpOverlay .close-btn:hover {
+  transform: rotate(90deg);
+  background: rgba(255,255,255,0.85);
+}
+
+/* Optional: kleine Pfeilspitze zum Button hin */
+#helpOverlay::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: inherit;
+  border: inherit;
+  transform: rotate(45deg);
+  border-left: none;
+  border-top: none;
+  filter: blur(.2px);
+}
+
+/* Accessibility: hoher Kontrast Modus berücksichtigen */
+@media (prefers-contrast: more) {
+  #helpButton, #helpOverlay, #helpOverlay .close-btn {
+    backdrop-filter: none !important;
+    background: #ffffff !important;
+    border-color: #1c1a54 !important;
+  }
+}
+
+/* Responsiv etwas kompakter auf sehr kleinen Screens */
+@media (max-width: 420px) {
+  #helpButton {
+    width: 58px; height: 58px; border-radius: 14px;
+  }
+  #helpOverlay {
+    right: 12px;
+    bottom: 92px;
+    width: calc(100vw - 24px);
+  }
+}

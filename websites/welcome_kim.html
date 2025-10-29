@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Kommunikation im Medizinwesen (KIM)</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <p>
+          Die Praxis Dr. Müller (Orthopädie) kommuniziert bislang klassisch per E-Mail mit Praxen, Kliniken und Patienten. Doch immer wieder gibt es Zweifel: Ist die E-Mail wirklich sicher? Sind sensible Gesundheitsdaten ausreichend geschützt?        </p>
+        <p>
+          <center>
+            <img src="./img/kim/KIM_Praxisbeispiel_Gastritis_02_RGB_gematik_20221102.png" width=80%"">
+          </center>
+          Hier kommen die TI-Ranger ins Spiel: Sie begleiten die Praxis bei der Umstellung auf den KIM-Fachdienst – für eine nachweislich sichere, standardisierte Kommunikation und die Anbindung an weitere TI-Services. Ergebnis: Ende-zu-Ende-geschützte Nachrichten, geprüfte Identitäten und ein reibungsloser Austausch von eArztbrief, eAU, eRezept und mehr – direkt aus dem PVS.
+        </p>
+        <hr>
+      </div>
+
+      <div id="info_text">
+        <div class="info-row">
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+              Lerne, wie du mit KIM sicher und praxisnah arbeitest: von Beispiel‑KIM‑Adressen aus der Spezifikation über das Entschlüsseln unvollständig konfigurierter Nachrichten bis zum korrekten Ausfüllen von Dienstkennungen für eRezept‑Zuweisungen. Außerdem: Laborbefunde finden (inkl. Bilirubin), versteckte Anhänge erkennen und per QR‑Code eine eEB für die Praxis bereitstellen – schnell, standardkonform und alltagstauglich.
+            </p>
+          </div>
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
+
+  <div id="helpOverlay" hidden>
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h4>Verweise</h4>
+    Verwende folgende Verweise, um weitere Informationen über KIM zu erhalten:
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/kim" target="_blank" rel="noopener">Kommunikation im Medizinwesen</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Fachportal</a></li>
+    </ul>
+  </div>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

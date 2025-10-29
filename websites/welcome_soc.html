@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <!-- Bestehende Styles beibehalten -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+
+  <style>
+    /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
+    .media-text {
+      display: grid;
+      grid-template-columns: 1fr auto; /* Text links, Bild rechts */
+      gap: 24px;
+      align-items: center;
+      padding: 16px 0; /* Einheitliches Innenpadding */
+    }
+
+    .media-text.media-text--image-left {
+      grid-template-columns: auto 1fr; /* Bild links, Text rechts */
+      align-items: center;
+      padding: 16px 0; /* Gleich wie Standard */
+    }
+
+    .media-text__image {
+      width: 160px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-text__content p {
+      margin: 0 0 12px;
+      line-height: 1.6;
+    }
+
+    .media-figure {
+      margin: 0;
+      display: grid;
+      justify-items: center; /* zentriert Bild und Caption untereinander */
+      gap: 8px;
+    }
+
+    .media-caption {
+      font-size: 0.75rem;  /* einheitlich, gut lesbar */
+      color: #888;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Überschriften: einheitliches Spacing */
+    .section-head {
+      margin: 24px 0 12px; /* Einheitlich für alle Abschnitte */
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* Bildraster */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .image-grid__item {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .image-grid__item img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .image-grid { grid-template-columns: repeat(2, 1fr); }
+      .image-grid__item img { height: 160px; }
+    }
+    @media (max-width: 800px) {
+      .media-text,
+      .media-text.media-text--image-left {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .media-text__image {
+        width: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .image-grid { grid-template-columns: 1fr; }
+      .image-grid__item img { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Security Operations Center (SOC)</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+
+        <div class="section-head">Kurzbeschreibung</div>
+        <section class="media-text">
+          <div class="media-text__content">
+            <p>
+              Das Security Operation Center (SOC) der gematik ist die zentrale Einheit für Erkennung, Bewertung und Reaktion auf Sicherheitsvorfälle. Wir überwachen Systeme rund um die Uhr, identifizieren Bedrohungen frühzeitig und koordinieren Gegenmaßnahmen – mit einem klaren Ziel: die Vertraulichkeit, Integrität und Verfügbarkeit unserer IT sicherzustellen und die Reaktionsfähigkeit der Organisation zu stärken.
+            </p>
+          </div>
+          <img
+            class="media-text__image"
+            src="./img/logo_soc.png"
+            alt="Illustration zum TI Capture the Flag"
+          />
+        </section>
+
+        <div class="section-head">Interview</div>
+        <section class="media-text media-text--image-left">
+          <figure class="media-figure">
+            <img class="media-text__image" src="./img/isubay.png" alt="Ismail Subay" />
+            <figcaption class="media-caption">
+              Ismail Subay<br>Incident Responder (SOC)
+            </figcaption>
+          </figure>
+
+          <div class="media-text__content">
+            <i>            
+            <p>Im SOC arbeiten wir täglich an der ruhigen, strukturierten Abwehrlinie unserer Organisation: rund um die Uhr überwachen wir Systeme, triagieren Alarme und reagieren auf Sicherheitsvorfälle. Wir sichten Meldungen im SIEM, prüfen ihre Relevanz und priorisieren sorgfältig, bevor wir – wenn es erforderlich ist – koordinierte Maßnahmen auslösen. Dazu gehören forensische Analysen, gezielte Containment‑Schritte und ein klares Reporting an die Verantwortlichen.</p>
+            <p>Ein gutes SOC lebt von breiten Skills, klaren Prozessen und gelassenen Händen. Jede und jeder bringt eigene Schwerpunkte mit – von Detection Engineering über Forensik bis zu Threat Intelligence – und doch halten wir einen gemeinsamen Wissensstandard, damit Übergaben reibungslos funktionieren und Entscheidungen belastbar bleiben. Regelmäßige Übungen mit praxisnahen Szenarien gehören für uns dazu: Sie schärfen unsere Mustererkennung, helfen unter Zeitdruck ruhig zu bleiben und beschleunigen den Wissenstransfer im Team. Das macht uns im echten Incident spürbar schneller und präziser.</p>
+            <p>Qualität und Transparenz sichern wir mit strukturierter Triage, dokumentierten Playbooks und klaren Kommunikationswegen. Jeder Vorfall hat bei uns einen nachvollziehbaren Lebenszyklus – von der Erkennung über die Analyse und die eingeleiteten Maßnahmen bis zur Nachbetrachtung mit Lessons Learned. So verbessern wir kontinuierlich unsere Use‑Cases und stärken die Resilienz der gesamten Organisation.</p>
+          </i>
+          </div>
+        </section>
+
+        <div class="section-head">Prozessbeschreibung</div>
+        <section class="media-text">
+          <div class="media-text__content">
+            <p>
+              Ein SOC ist die operative Schaltstelle der Informationssicherheit. Hier laufen
+              sicherheitsrelevante Daten und Ereignisse zusammen – von Echtzeit‑Telemetrie bis Forensik.
+              Das SOC überwacht Systeme kontinuierlich, erkennt Anomalien, bewertet Risiken und leitet
+              abgestimmte Gegenmaßnahmen ein.
+            </p>
+
+            <ul>
+              <li>Security Monitoring und Alarm‑Triage</li>
+              <li>Bedrohungserkennung mit SIEM und Detection‑Use‑Cases</li>
+              <li>Incident Response, Containment und Recovery</li>
+              <li>Forensik, Threat Intelligence und Schwachstellen‑Koordination</li>
+              <li>Reporting, Lessons Learned und laufende Verbesserung der Use‑Cases</li>
+            </ul>
+
+            <p>
+              Das SOC hält den Betrieb sicher, reagiert schnell und sorgt dafür, dass
+              Sicherheitsereignisse strukturiert und wirksam behandelt werden – menschlich,
+              transparent und mit Fokus auf das Wesentliche.
+            </p>
+
+
+        </section>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>
