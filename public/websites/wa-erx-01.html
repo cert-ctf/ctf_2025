@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>eRX - E-Rezept</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <p>
+          Du hast vergessen, wie die eindeutige Bezeichnung des Medikaments heißt, das du in der Apotheke abholen sollst. Zum Glück kannst du dir das in deinem Rezept noch einmal ansehen.
+        </p>
+        <p>Dein Rezept:</p>
+        <ul>
+          <li>
+            <a href="files/0428d416-149e-48a4-977c-394887b3d85c.xml" download rel="noopener noreferrer">E‑Rezept (Beispiel)</a>
+          </li>
+        </ul>
+        <hr>
+        <h3>Der schlaue Willy hat noch einen Hinweis für dich</h3>
+        <p>
+          Die Pharmazentralnummer (PZN) ist ein in Deutschland bundeseinheitlicher Identifikationsschlüssel für Arzneimittel, Medizinprodukte und andere sonstige apothekenübliche Produkte. 
+        </p>
+        <hr>
+      </div>
+
+      <div id="info_text">
+        <div class="info-row">
+          <figure>
+            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+          </figure>
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+              Welche PZN hat das verschriebene Medikament?
+            </p>
+          </div>
+          <figure>
+            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+          </figure>
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden" aria-hidden="true">?</span>
+  </button>
+
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Überschrift</h3>
+    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
+      <li><a href="https://de.wikipedia.org/wiki/Pharmazentralnummer" target="_blank" rel="noopener">Pharmazentralnummer (PZN)</a></li>
+      <li><a href="wa-erx-02.html" rel="noopener noreferrer">Aufgabe 2</a></li>
+    </ul>
+  </aside>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

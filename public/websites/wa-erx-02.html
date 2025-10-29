@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>eRX - E-Rezept</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+          <h3>Flow was</h3>
+        <p>
+          Wie war noch einem der E-Rezept Typ (FlowState), der angeben werden muss damit der Richtige Workflow für ein "Apothekenpflichtige Arzneimittel" durchlaufen wird?
+        </p>
+        <hr>
+        <h3>Der schlaue Willy hat noch einen Hinweis für dich</h3>
+
+        <p>Aufbau der E‑Rezept‑ID:
+          <code>aaa.bbb.bbb.bbb.bbb.cc</code>
+        </p>
+
+        <ul>
+          <li><strong>aaa</strong> — E‑Rezept‑Typ</li>
+          <li><strong>bbb.bbb.bbb.bbb</strong> — fortlaufende Rezeptnummer</li>
+          <li><strong>cc</strong> — Prüfziffer</li>
+        </ul>
+        <a href="https://simplifier.net/erezept-workflow" target="_blank" rel="noopener noreferrer">eRezept Workflow definitonen</a>
+        <hr>
+        </div>
+
+      <div id="info_text">
+        <div class="info-row">
+          <figure>
+            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+          </figure>
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+              Welchen FlowState musst du angeben, damit du eine vollständige eRezept ID erhälst?
+            </p>
+          </div>
+          <figure>
+            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+          </figure>
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden" aria-hidden="true">?</span>
+  </button>
+
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Überschrift</h3>
+    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
+      <li><a href="https://gemspec.gematik.de/downloads/gemSpec/gemSpec_DM_eRp/gemSpec_DM_eRp_V1.10.0.pdf" target="_blank" rel="noopener noreferrer">Spezifikation Datenmodell E-Rezept</a></li>
+      <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener">Typen des E-Rezept Workflows</a></li>
+      <li><a href="wa-erx-01.html" rel="noopener noreferrer">Aufgabe 1</a></li>
+      <li><a href="wa-erx-03.html" rel="noopener noreferrer">Aufgabe 3</a></li>
+    </ul>
+  </aside>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

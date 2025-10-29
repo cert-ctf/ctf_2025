@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/help.css" />
+  </head>
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left">
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM &amp; TIM</h6>
+            <h4>Kapt. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+      </nav>
+
+      <section class="card">
+        <header class="card-header">
+          <h2>Kommunikation im Medizinwesen</h2>
+        </header>
+
+        <div class="card-body">
+          <h3>Fachportal-Scout – Wo steht das eigentlich?</h3>
+          <p>
+            Frau Dr. Müller möchte ihre Praxis an KIM anbinden, dafür muss sie eine Adresse festlegen.<br />
+            Sie möchte jetzt gerne wissen, wie eine solche Adresse überhaupt aussieht.
+          </p>
+          <p>Kannst du ihr das Beispiel aus den Spezifikationen zeigen?</p>
+          <hr />
+
+          <section>
+            <h4>Spezifikation durch die gematik</h4>
+            <ul>
+              <li>Die gematik spezifiziert die Funktionsweise jedes Produktes.</li>
+              <li>
+                Die Spezifikationen können im
+                <b><a href="https://gemspec.gematik.de/docs/gemSpec/" target="_blank">gemspec Portal</a></b>
+                der gematik eingesehen werden.
+              </li>
+              <li>
+                Die Spezifikation für KIM findest du unter der Bezeichnung:
+                <ul>
+                  <li><strong>FD_KOMLE</strong> (Fachdienst Kommunikation der Leistungserbringer)</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+        <hr />
+            <div>
+<form id="solutionForm">
+  <label for="solution">Solution:</label>
+  <input type="text" id="solution" name="solution" required>
+  <button type="submit">Submit</button>
+  <div id="error-message" style="color:red;"></div>
+</form>
+
+<div id="success-message" style="display:none; margin-top:20px;">
+  <div id="api-response" style="color:green;"></div>
+  <button id="next-question-btn" style="margin-top:10px;">Next Question</button>
+</div>
+            </div>
+        <hr />
+
+          <div id="info_text">
+            <div class="info-row">
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+              </figure>
+              <div class="info-box">
+                <p id="info_text_field" class="bottom_text">
+                  Gesucht wird die Beispieladresse aus der Spezifikation des Produktes.
+                </p>
+              </div>
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+              </figure>
+            </div>
+        </div>
+      </section>
+
+      <br />
+    </main>
+
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+      <span class="visually-hidden">?</span>
+    </button>
+
+    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h3>Weitere Infos</h3>
+      <p>Hier findest du weitere Hinweise und Tools:</p>
+      <ul>
+        <li>
+          <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a>
+        </li>
+        <li>
+          <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/" target="_blank" rel="noopener">Spezifikation Fachdienst KOM-LE</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+<script>
+url = "kim/wa-1"
+baseURL = "https://gszdbd04.zd.gematik.de/flag-service/"
+nextQuestionURL = "wa-kim-02.html"
+
+
+document.getElementById('solutionForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  // Hide previous messages
+  document.getElementById('error-message').textContent = '';
+  document.getElementById('success-message').style.display = 'none';
+
+  const formData = {
+    solution: document.getElementById('solution').value
+  };
+
+  try {
+    const response = await fetch(baseURL + url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.status === 200) {
+      const data = await response.json();
+      
+      if (data.token) {
+        localStorage.setItem('kim-wa-1', data.token);
+      }
+
+      document.getElementById('api-response').textContent = JSON.stringify(data.token, null, 2);
+      document.getElementById('success-message').style.display = 'block';
+    } else if (response.status === 400) {
+      document.getElementById('error-message').textContent = 'Wrong answer.';
+    } else {
+      document.getElementById('error-message').textContent = 'An unexpected error occurred.';
+    }
+  } catch (error) {
+    document.getElementById('error-message').textContent = 'Network error: ' + error;
+  }
+});
+
+// Next question button handler
+document.getElementById('next-question-btn').addEventListener('click', function() {
+  // Replace with your actual next question logic or URL
+  window.location.href = nextQuestionURL;
+});
+</script>
+    <script src="./js/help.js"></script>
+    <script src="./js/background.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/help.css">
+  </head>
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left">
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM & TIM</h6>
+            <h4>Kapt. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+      </nav>
+      <section class="card">
+        <header class="card-header">
+          <h2>KIM – Kommunikation im Medizinwesen</h2>
+        </header>
+        <div class="card-body">
+          <h3>Was ist das?</h3>
+          <p>
+            <strong>KIM</strong> ist das sichere E-Mail-System für Praxen, Apotheken &amp; Co. in Deutschland. Endlich Schluss mit Faxen und unsicheren Mails: KIM sorgt dafür, dass Arztbriefe, Befunde oder Abrechnungen digital, verschlüsselt und garantiert nur zwischen echten, geprüften Teilnehmern der Telematikinfrastruktur (TI) verschickt werden.
+          </p>
+          <hr>
+          <p>
+            <h4>Technische Basis</h4>
+            <ul>
+              <li>KIM basiert auf den etablierten E-Mail Standards POP3 und SMTP</li>
+              <li>Kontakte werden im zentralen Verzeichnisdienst vorgehalten</li>
+              <li>Lässt sich mit E-Mail-Programme wie Thunderbird oder Outlook verwenden</li>
+            </ul>
+
+          <figure>
+            <img src="./img/wa-kim-00-kim_nachrichtenversand.png" alt="KIM Nachrichtenversand">
+            <figcaption>
+              Quelle: 
+              <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">
+                Gematik Fachportal – Kommunikation im Medizinwesen
+              </a>
+            </figcaption>
+          </figure>
+          </p>
+          <hr>
+            <h4>Aufbau der KIM-Adressen</h4>
+            <ul>
+              <li>
+                <strong>Benutzerteil:</strong> Identifiziert eindeutig den Nutzer oder die Organisation (z. B. Praxisname, Institutionskennzeichen).
+              </li>
+              <li>
+                <strong>Domänenteil:</strong> Gibt an, dass es sich um eine KIM-Adresse handelt, üblicherweise <code>kim.telematik</code> oder eine Subdomain davon (z. B. <code>anbieter.kim.telematik</code>).
+              </li>
+            </ul>
+
+            <div style="margin: 1em 0; padding: 0.5em; background: #f6f6f6; border-radius: 6px;">
+              <strong>Format:</strong> <code>&lt;Benutzer&gt;@&lt;Domäne&gt;</code><br>
+              <strong>Beispiel:</strong> <code>arztpraxis.muster@kim.telematik</code>
+            </div>
+            Wenn du mehr dazu wissen willst: <br><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/#A_21456-01" target="_blank" rel="noopener noreferrer">A_21456-01 - Festlegung des Domainparts einer KIM-Adresse </a>
+        </div>
+      
+    </main>
+
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+      <span class="visually-hidden">?</span>
+    </button>
+
+    <aside id="helpOverlay" hidden>
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h2>Weitere Infos</h2>
+      <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+      <ul>
+        <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a></li>
+        <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener">Dienstkennung KIM</a></li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+
+    <script src="./js/help.js"></script>
+    <script src="./js/background.js"></script>
+  </body>
+</html>

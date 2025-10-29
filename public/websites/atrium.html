@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Atrium</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+          <div id="player-container" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:800px;margin:0 auto;">
+            <!-- Platzhalter für YouTube Player API -->
+            <div id="ytplayer" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+          </div>
+        <hr>
+      </div>
+
+      <div id="info_text">
+        <div class="info-row">
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+                Hier erwarten dich spannende Vorträge von unserem 
+                <a href="https://www.youtube.com/@gematikgmbh" target="_blank" rel="noopener" title="YouTube‑Kanal der gematik">
+                    YouTube‑Kanal
+                </a>
+            </p>
+          </div>
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+
+  <!-- Auto-Play zufälliger Videos mit robuster Fehlerbehandlung -->
+  <script>
+    // 1) Video-IDs
+    const GEMATIK_VIDEO_IDS = [
+      "q1zKMu2xCUk","ORPEEZLxJVw","y3UPTI8YfPw","t3WwYzvaxx8","GMzHTq7E-P0",
+      "Akw_Xocd-To","Q4_e9nQ30uU","uri-Rg9pNOA","YP9ttACkdQI","EqY6tF7UU-c",
+      "7CHDeCeN1E4","imFLomexgbw","f5J4hfFRbHs","hUyCszjeLKo","eRtVQA_uo2I",
+      "Wx8KrtsZRLo","kEDHtlc00UM","nKyc4XZ6KF8","45xeLk7qSpM","Tk7EUDivR9M",
+      "ITHbOIRYi9Q","lrnlcOYym-M","hX612cdoWQ0","9EmcXtugh-I",
+      // "ir2jSlPQvyM", // Hinweis: ggf. nicht einbettbar → auskommentiert
+      "6fLWckVPz4U","IfEH_Y1caLQ","BL-V8RQbO5M","p7RYsVFMrCw","bsk7xptDwHM",
+      "PUtThaDR1gU","2-QAJ-KSaVA","l7Sr-SKm1iU","QmSz8FrlzDU","Eecs7vnJeqY",
+      "WYw38EmlzGw","7K5Ppp5X-No"
+    ].filter(Boolean);
+
+    // Optional: manuelle Blacklist für bekannte „Einbettung gesperrt“-Videos
+    const EMBED_BLACKLIST = new Set([
+      // "ir2jSlPQvyM"
+    ]);
+
+    // 2) Utils
+    function pickRandom(excludeId = null) {
+      const pool = GEMATIK_VIDEO_IDS.filter(id => id !== excludeId && !EMBED_BLACKLIST.has(id));
+      if (!pool.length) return null;
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    function loadNextRandom(currentId) {
+      const nextId = pickRandom(currentId);
+      if (!nextId) return false;
+      try {
+        player.loadVideoById({ videoId: nextId });
+        currentIdRef = nextId;
+        return true;
+      } catch (e) {
+        console.warn("loadVideoById Fehler, versuche nächstes:", e);
+        return false;
+      }
+    }
+
+    // 3) YouTube IFrame API laden
+    (function loadYTAPI() {
+      const s = document.createElement('script');
+      s.src = "https://www.youtube.com/iframe_api";
+      s.onerror = () => console.error("YouTube IFrame API konnte nicht geladen werden (CSP/Netzwerk?)");
+      document.head.appendChild(s);
+    })();
+
+    let player = null;
+    let currentIdRef = null;
+
+    // 4) IFrame API Callback
+    window.onYouTubeIframeAPIReady = function() {
+      currentIdRef = pickRandom(null) || GEMATIK_VIDEO_IDS[0];
+
+      player = new YT.Player('ytplayer', {
+        videoId: currentIdRef,
+        playerVars: {
+          autoplay: 1,      // Autoplay einschalten
+          mute: 1,          // wichtig für Browser-Policy
+          rel: 0,
+          modestbranding: 1,
+          playsinline: 1
+        },
+        events: {
+          onReady: function(e) {
+            try { e.target.playVideo(); } catch {}
+          },
+          onStateChange: function(e) {
+            // 0 = ENDED → nächstes zufälliges Video
+            if (e.data === YT.PlayerState.ENDED) {
+              const ok = loadNextRandom(currentIdRef);
+              if (!ok) console.warn("Kein weiteres einbettbares Video gefunden.");
+            }
+          },
+          onError: function(err) {
+            // Typische Fehlercodes:
+            // 2   = ungültiger Parameter (ID)
+            // 5   = HTML5-Player-Fehler
+            // 101 = Einbetten vom Uploader untersagt
+            // 150 = Einbetten (rechtlich) untersagt – ähnlich zu 101
+            const code = err?.data;
+            console.warn("YouTube Player error:", code, "für ID:", currentIdRef);
+
+            // Problematische ID in Blacklist aufnehmen (optional)
+            if (code === 101 || code === 150) {
+              EMBED_BLACKLIST.add(currentIdRef);
+            }
+
+            // Direkt zum nächsten zufälligen Video springen
+            const ok = loadNextRandom(currentIdRef);
+            if (!ok) {
+              // Fallback: öffne den Link im neuen Tab, damit der Nutzer dennoch schauen kann
+              const url = `https://www.youtube.com/watch?v=${currentIdRef}`;
+              console.warn("Öffne stattdessen im neuen Tab:", url);
+              try { window.open(url, '_blank', 'noopener'); } catch {}
+            }
+          }
+        }
+      });
+    };
+  </script>
+
+  <script src="./js/background.js"></script>
+</body>
+</html>

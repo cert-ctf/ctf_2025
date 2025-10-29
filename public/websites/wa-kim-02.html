@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/help.css">
+  </head>
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left"></div>
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM & TIM</h6>
+            <h4>Kapt. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+      </nav>
+
+      <section class="card">
+        <header class="card-header">
+          <h2>Kommunikation im Medizinwesen</h2>
+        </header>
+        <h3 class="card-title"></h3>
+        <div class="card-body"></div>
+          <h3>KIM-Inspector – Was wurde mir da geschickt?</h3>
+          <p>
+            Nachdem sie sich erfolgreich an KIM angebunden hat, hat Frau Dr. Müller jetzt die erste Nachricht von einem Arzt erhalten.
+          </p>
+          <p>
+            Aber irgendwas muss da bei der Einrichtung schiefgelaufen sein, denn die Nachricht sieht sehr merkwürdig aus. Sie schaut aus wie ein Haufen Kauderwelsch.
+          </p>
+          <p>
+            Leider wartet sie schone auf die dringende Nachricht, von ihrem Kollegen.
+          </p>
+          <p>
+            Kannst du Frau Dr. helfen herauszufinden, was ihr der Arzt da geschickt hat?<br>
+            Entnehme der Nachricht das neue Medikament um das es wohl zu gehen scheint.
+          </p>
+          <hr>
+          <h3>Nachrichten Format</h3>
+          <p>
+            KIM-Nachrichten sind im MIME-Format aufgebaut. MIME (Multipurpose Internet Mail Extensions) ist ein Standard, der es ermöglicht, verschiedene Arten von Inhalten in E-Mails zu übertragen, wie z.B. Text, Bilder, Audio und andere Dateitypen.
+          </p>
+          <hr>
+        </div>
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Gesucht wird das verschriebene Medikament aus dem E-Mail Anhang. <br>
+                Anhang: <a href="./files/excitingMedication.txt" target="_blank" rel="noopener noreferrer">excitingMedication.txt</a>
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+          </div>
+        </div>
+        <br>
+      </section>
+    </main>
+
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+      <span class="visually-hidden">?</span>
+    </button>
+
+    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h3>Weitere Infos</h3>
+      <p>Hier findest du weitere Hinweise und Tools:</p>
+      <ul>
+        <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a></li>
+        <li><a href="https://de.wikipedia.org/wiki/MIME" target="_blank" rel="noopener noreferrer">Wikipedia MIME</a></li>
+        <li><a href="https://cyberchef.io/" target="_blank" rel="noopener">Cyberchef</a></li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+
+    <script src="./js/help.js"></script>
+    <script src="./js/background.js"></script>
+  </body>
+</html>

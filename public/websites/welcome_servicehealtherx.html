@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <!-- Bestehende Styles beibehalten -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+
+  <style>
+    /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
+    .media-text {
+      display: grid;
+      grid-template-columns: 1fr auto; /* Text links, Bild rechts */
+      gap: 24px;
+      align-items: center;
+      padding: 16px 0; /* Einheitliches Innenpadding */
+    }
+
+    .media-text.media-text--image-left {
+      grid-template-columns: auto 1fr; /* Bild links, Text rechts */
+      align-items: center;
+      padding: 16px 0; /* Gleich wie Standard */
+    }
+
+    .media-text__image {
+      width: 160px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-text__image2 {
+      width: 100px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-text__content p {
+      margin: 0 0 12px;
+      line-height: 1.6;
+    }
+
+    .media-figure {
+      margin: 0;
+      display: grid;
+      justify-items: center; /* zentriert Bild und Caption untereinander */
+      gap: 8px;
+    }
+
+    .media-caption {
+      font-size: 0.75rem;  /* einheitlich, gut lesbar */
+      color: #888;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Überschriften: einheitliches Spacing */
+    .section-head {
+      margin: 24px 0 12px; /* Einheitlich für alle Abschnitte */
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* Bildraster (bestehend) */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .image-grid__item {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .image-grid__item img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Neue Produkt-Karten: Grid-Layout */
+    .product-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 360px;
+      position: relative;
+      will-change: transform, box-shadow;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      transform-style: preserve-3d; /* für 3D-Tilt */
+      perspective: 800px;
+    }
+
+    .product-card__title {
+      margin: 18px 18px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .product-card__figure {
+      margin: 16px 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #F7F7F7; /* helles Platzhalterfeld wie auf der Referenzseite */
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .product-card__figure img {
+      display: block;
+      width: 100%;
+      height: 220px; /* fixe Höhe ähnlich der Platzhalter */
+      object-fit: cover;
+      transform: translateZ(0); /* Basis für parallax-layer */
+      transition: transform .18s ease;
+    }
+
+    .product-card__cta {
+      margin: 0 18px 18px;
+      justify-self: start;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      transition: transform .12s ease, background .12s ease, box-shadow .12s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .product-card__cta::after {
+      content: "➔";
+      display: inline-block;
+      transition: transform .12s ease;
+    }
+
+    .product-card:hover .product-card__cta::after {
+      transform: translateX(2px);
+    }
+
+    /* Hover-Effekt: dezentes Tilt + Lift + Shadow-Boost */
+    .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    border-color: rgba(255,255,255,0.14);
+  }
+    .product-card:hover .product-card__figure img {
+      transform: scale(1.02) translateZ(20px);
+    }
+    .product-card:active {
+      transform: translateY(-1px);
+    }
+
+    /* Responsive Anpassungen – konsistent zu deinen Breakpoints */
+    @media (max-width: 900px) {
+      .image-grid { grid-template-columns: repeat(2, 1fr); }
+      .image-grid__item img { height: 160px; }
+
+      .product-cards { grid-template-columns: repeat(2, 1fr); }
+      .product-card__figure img { height: 200px; }
+    }
+    @media (max-width: 800px) {
+      .media-text,
+      .media-text.media-text--image-left {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .media-text__image {
+        width: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .image-grid { grid-template-columns: 1fr; }
+      .image-grid__item img { height: 150px; }
+
+      .product-cards { grid-template-columns: 1fr; }
+      .product-card__figure img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>service health erx GmbH</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+
+        <div class="section-head">Kurzbeschreibung</div>
+        <section class="media-text">
+          <div class="media-text__content">
+            <p>
+              Die service health erx GmbH ist ein spezialisierter Beratungs- und Technologiepartner
+              im Bereich Health-Tech mit Sitz in Berlin. Unser interdisziplinäres Team aus Software
+              Entwickler:innen, IT-Architekt:innen und Zulassungsexpert:innen entwickelt
+              maßgeschneiderte Lösungen für Akteure des deutschen Gesundheitswesens, wie
+              Primärsystemanbieter, Krankenkassen und Kliniken. 
+            </p> 
+            <p>
+              Dabei verfolgen wir den Ansatz
+              alle eigenen Produkte Open Source zu entwickeln. Diese Prinzipien von
+              Zusammenarbeit, Transparenz und Innovation durch Wissenstransfer leiten auch
+              unsere Arbeit als Team. Mit tiefgehender Telematikinfrastruktur-Expertise und
+              praxisnaher Produktentwicklung gestalten wir gemeinsam die Zukunft des digitalen
+              Gesundheitswesens.
+            </p>   
+          </div>
+          <a class=""
+       href="https://www.service-health.de/"
+       target="_blank" rel="noopener noreferrer">
+          <img
+            class="media-text__image"
+            src="./img/service_health_erx_logo.png"
+            alt="service health erx GmbH"
+          /></a>
+        </section>
+
+        
+
+        <div class="section-head">Interview</div>
+        <section class="media-text media-text--image-left" id="interview">
+          <figure class="media-figure">
+            <img class="media-text__image" src="./img/service_health_erx_frame.png" alt="Manuel Blechschmidt & David Matthaei" />
+            <figcaption class="media-caption">
+              Manuel Blechschmidt<br>David Matthaei
+            </figcaption>
+          </figure>
+
+          <div class="media-text__content">
+            <i>
+              <p>
+                Die service health GmbH beteiligt sich in diesem Jahr zum zweiten Mal am TI Capture
+                The Flag (CTF) der gematik GmbH. Wie im letzten Jahr haben wir gemeinsam mit der
+                gematik technische Aufgaben und Challenges entwickelt, die die Teilnehmenden vor
+                spannende sicherheitsrelevante Rätsel rund um die Telematikinfrastruktur (TI) stellen.
+              </p>  
+              <p>
+                Im Sinne unseres Open-Source-Ansatzes, liegt uns als TI-Expert:innen der Austausch
+                mit der Community besonders am Herzen. Wir freuen uns also gemeinsam zu lernen,
+                Wissen zu teilen und die TI noch sicherer zu machen.
+              </p>
+            </i>    
+          </div>
+        </section>
+
+        <div class="section-head">Weitere Informationen</div>
+<section class="product-cards" aria-label="Service-Karten">
+  <!-- Karte 1: Telematikinfrastruktur -->
+  <article class="product-card" data-tilt style="background:#abbbea;">
+    <h3 class="product-card__title">Telematikinfrastruktur</h3>
+    <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
+      <img src="./img/sherx_Telematikinfrastruktur.png" alt="Telematikinfrastruktur">
+    </figure>
+    <a class="product-card__cta"
+       href="https://www.service-health.de/telematikinfrastruktur"
+       target="_blank" rel="noopener noreferrer"
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+      MEHR
+    </a>
+  </article>
+
+  <!-- Karte 2: FHIR API -->
+  <article class="product-card" data-tilt style="background:#97b2e9;">
+    <h3 class="product-card__title">FHIR API</h3>
+    <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
+      <img src="./img/sherx_FHIRAPI.png" alt="FHIR API">
+    </figure>
+    <a class="product-card__cta"
+       href="https://www.service-health.de/fhir-api"
+       target="_blank" rel="noopener noreferrer"
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+      MEHR
+    </a>
+  </article>
+
+  <!-- Karte 3: Telemedizin -->
+  <article class="product-card" data-tilt style="background:#92bbef;">
+    <h3 class="product-card__title">Telemedizin</h3>
+    <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
+      <img src="./img/sherx_Telemedizin.png" alt="Telemedizin">
+    </figure>
+    <a class="product-card__cta"
+       href="https://www.service-health.de/telemedizin"
+       target="_blank" rel="noopener noreferrer"
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+      MEHR
+    </a>
+  </article>
+</section>
+
+
+
+
+
+
+
+
+
+      </div>
+    </section>
+  </main>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+
+    /* Hover-Tilt Effekt: leichtes 3D-Kippen je nach Mausposition
+       - wirkt subtil, ähnelt modernen Card-Hovern
+       - deaktiviert auf Touch-Geräten
+    */
+    (function() {
+      const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      if (isTouch) return;
+
+      const cards = document.querySelectorAll('[data-tilt]');
+      cards.forEach(card => {
+        let rect;
+
+        function handleMove(e) {
+          rect = rect || card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -4;  // nach oben/unten
+          const rotateY = ((x - centerX) / centerX) * 4;   // nach links/rechts
+
+          card.style.transform = `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          card.style.boxShadow = '0 14px 32px rgba(0,0,0,0.5)';
+        }
+
+        function reset() {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+          rect = null;
+        }
+
+        card.addEventListener('mouseenter', () => { rect = card.getBoundingClientRect(); });
+        card.addEventListener('mousemove', handleMove);
+        card.addEventListener('mouseleave', reset);
+        card.addEventListener('blur', reset);
+      });
+    })();
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>

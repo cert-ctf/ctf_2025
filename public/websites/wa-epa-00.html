@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/help.css">
+  </head>
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left">
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM & TIM</h6>
+            <h4>Kap. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+      </nav>
+      <section class="card">
+        <header class="card-header">
+          <h2>ePA - E-Patientenakte</h2>
+        </header>
+        <h3 class="card-title"></h3>
+        <div class="card-body">
+          <h3>Was ist das?</h3>
+          <p>
+            In der ePA für alle sind relevante Daten gebündelt und direkt im Versorgungsalltag nutzbar. Im Behandlungskontext ist ein Zugriff auch ohne erneute Freigabe möglich – sofern kein Widerspruch vorliegt.
+          </p>
+          <hr>
+          <h3>eML - elektronische Medikationsliste</h3>
+          <p>
+            Die elektronische Medikationsliste (eML) stellt eine strukturierte Übersicht über Verordnungs- und Ausgabedaten aus dem E-Rezept-Fachdienst bereit.
+          </p>
+          <hr>
+          <h3>FHIR</h3>
+          <p>
+            FHIR steht für "Fast Healthcare Interoperability Resources" und ist ein Standard für den Austausch von Gesundheitsinformationen. FHIR wurde entwickelt, um die Interoperabilität zwischen verschiedenen Gesundheitssystemen zu verbessern und den Austausch von Daten zu erleichtern. <br>
+            Es basiert auf modernen Web-Technologien wie RESTful APIs und verwendet standardisierte Datenformate wie JSON, XML und RDF.
+          </p>
+          <div id="info_text">
+            <div class="info-row">
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+              </figure>
+              <div class="info-box">
+                <p id="info_text_field" class="bottom_text">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                </p>
+              </div>
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+              </figure>
+            </div>
+          </div>
+          <br>
+        </div>
+      </section>
+    </main>
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button"></button>
+      <span class="visually-hidden" aria-hidden="true">?</span>
+    </button>
+    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h3>Weiterführende Informationen</h3>
+      <p>Verwende folgende Webseiten zur Unterstützung:</p>
+      <ul>
+        <li><a href="https://www.gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA für alle</a></li>
+        <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal ePA für alle</a></li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+
+    <script>
+      document.getElementById('submitButton')?.addEventListener('click', function () {
+        // Add stuff here
+      });
+    </script>
+    <script src="./js/help.js"></script>
+    <script src="./js/background.js"></script>
+  </body>
+</html>

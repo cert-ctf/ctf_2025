@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Guardians of the TI</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <p>
+            <b>KIM & TI-M</b> haben es geschafft – die Drahtzieher sind identifiziert und die Angriffswelle aus <b>Kapitel II: To TI-Mfinity and Beyond</b> wurde gestoppt. Doch die Jagd ist noch nicht vorbei: Die <b>TI‑Ranger</b> bündeln ihre Kräfte an einer zentralen Anlaufstelle und steigen direkt in die <b>Telematikinfrastruktur (TI)</b> ein.           <center>
+            <img src="./img/gem_ctf_illu_2025_weiss_RGB.svg" width=60%"">
+          </center>
+          <p>
+            In unterschiedlichen Sub‑Welten erlebt ihr, wie die <b>TI‑Produkte</b> funktionieren und sicher zusammenspielen. Sichert gemeinsam mit den <b>TI‑Rangern</b> die Datenströme am <b>TI‑Gateway</b>, um die Angriffsfläche zu begrenzen und weitere Attacken der Drahtzieher zu vereiteln.
+          </p>
+        </p>
+        <p>
+        </p>
+        <hr>
+      </div>
+
+      <div id="info_text">
+        <div class="info-row">
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+          <div class="info-box">
+            <p id="info_text_field" class="bottom_text">
+              Die Sub‑Welten sind frei begehbar und können während des Events jederzeit besucht werden. Sammelt in jeder Welt die Codes, um am Ende die Datenströme zu bündeln.
+            </p>
+          </div>
+          <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
+        </div>
+      </div>
+      <br>
+    </section>
+  </main>
+
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
+
+  <div id="helpOverlay" hidden>
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h4>Verweise</h4>
+    <ul>
+      <li><a href="https://www.gematik.de/" target="_blank" rel="noopener">gematik GmbH</a></li>
+      <li><a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Telematikinfrastruktur</a></li>
+      <li><a href="https://www.gematik.de/telematikinfrastruktur/ti-2-0" target="_blank" rel="noopener">TI 2.0</a></li>
+      <li><a href="https://ctf.gematik.de" target="_blank" rel="noopener">TI_ctf </a></li>
+      <li><a href="https://TI_ctf CTFd" target="_blank" rel="noopener">TI_ctf CTFd</a></li>
+      
+    </ul>
+  </div>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script src="./js/help.js"></script>
+  <script src="./js/background.js"></script>
+</body>
+</html>
