@@ -23,31 +23,53 @@
 
     <section class="card">
       <header class="card-header">
-        <p class="subtitle">TI-Messenger</p>
-        </p>
+          <h2>TI-Messenger</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h4>Aufgabe 5</h5>
-        <p>
-          XXX
-        </p>
-        <hr>
-        <p>
-          <h4>TI-Verzeichnis</h4>
-          Damit die Kommunikation im TI-Messenger funktioniert, müssen die Teilnehmer eindeutig identifiziert und gefunden werden können. Dafür gibt es ein spezielles Verzeichnis, in dem alle Kontakte der TI gepflegt werden.
-        </p>
-        <hr>
-      </div>
+       <p>
+        <h3>Chatbot Commotion</h3>
+        TIM will einer Sprechstundenhilfe zeigen wie Patienten den Diensthabenden Arzt finden können, doch der Chatbot wehrt sich! <br>
+        Hilf ihr den diensthabenden Arzt zu finden und überliste den Chatbot!
 
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+        <figure style="text-align: center;">
+            <img class="img-rounded-shadow"
+              src="./img/drwho.png"
+
+              alt="KIM Nachrichtenversand"
+              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
+            >
           </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Wir suchen hier den Namen des zentralen Dienstes, in dem die TI-Kontakte hinterlegt.<br>
+       </p>
+       <hr>
+       <h3>Informationen zur Mission</h3>
+      
+        <hr>
+              <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="Doctor Pepper" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div> 
+
+       <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Die Antwort ist der <br><code>Doctor on duty</code>
             </p>
           </div>
           <figure>
@@ -59,6 +81,8 @@
     </section>
   </main>
 
+  <canvas id="fireworksCanvas"></canvas>
+
   <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
     <span class="visually-hidden">?</span>
   </button>
@@ -68,15 +92,126 @@
     <h3>Weitere Infos</h3>
     <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
-      <li><a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Die Telematikinfrastruktur</a></li>
-      <li><a href="wa-tim-04.html" rel="noopener noreferrer">Aufgabe 4</a></li>
+      <li><a href="https://www.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">TI-Messenger</a></li>
+      <li><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">Gemspec Startseite</a></li>
+      <li><a href="https://matrix.org/" target="_blank" rel="noopener">matrix.org Foundation</a></li>
+      <!-- <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/gemSpec_TI-M_Basis_V1.1.2/" target="_blank" rel="noopener">TIM-Spezifikationen</a></li> -->
     </ul>
-    <em>Tipp:</em> Schau dir einmal die Komponenten der <a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Telematikinfrastruktur</a> an.
+    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
+  <script>
+      const url = "tim/wa-5"
+      const nextQuestionURL = "wa-tim-05.html"
+      const localStorageKey = "tim-wa-5"
+    </script>
+    <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple_FinalTask.js"></script>
+    <script src="./js/flagServiceHelper.js"></script>
+    <script src="./js/help.js"></script>
+    <script src="./js/fireworks.js"></script>
 
-  <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+<script>
+  (function enforceFinalStateWhenSuccessBoxVisible() {
+    const TOKEN_PREFIX = 'TI-M Token: ';
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+
+
+    const formEl = document.getElementById('solutionForm');
+    const successEl = document.getElementById('success-message');
+    const apiResponseEl = document.getElementById('api-response');
+
+    let applied = false;
+
+    function isVisible(el) {
+      if (!el) return false;
+      const style = window.getComputedStyle(el);
+      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    }
+
+    function setTokenHTML() {
+      if (!apiResponseEl) return;
+      
+      //const token = localStorage.getItem(localStorageKey) || '';
+      apiResponseEl.classList.add('token-text');
+      const token = computeWaSolution("tim");
+      apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+    }
+
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+
+      // 1) Hide submit/next button within the form
+      const submitBtn = formEl?.querySelector('.fx-btn');
+      const box = document.getElementById('info_text');
+      if (submitBtn) {
+        submitBtn.style.display = 'none';
+        box.style.display = 'none';
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('fx-btn--next');
+        submitBtn.type = 'button';
+        const glow = submitBtn.querySelector('.fx-btn-glow');
+        if (glow) glow.style.display = 'none';
+      }
+
+      // 2) Hide any separate .fx-next buttons
+      document.querySelectorAll('.fx-next').forEach(btn => {
+        btn.style.display = 'none';
+        btn.classList.remove('fx-next--visible');
+        btn.disabled = true;
+      });
+
+      // 3) Token-Text + Hinweis (mit <br> und kursiv)
+      setTokenHTML();
+      startFireworks();
+    }
+
+    function checkAndApply() {
+      if (isVisible(successEl)) {
+        applyFinalState();
+        return true;
+      }
+      return false;
+    }
+
+    // Initial check
+    checkAndApply();
+
+    // Observe only the success box for style/class changes
+    if (successEl) {
+      const observer = new MutationObserver(() => {
+        if (!applied) checkAndApply();
+      });
+      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    }
+
+    // Short rAF polling fallback (max 2s)
+    let start = performance.now();
+    function timedRafLoop(now) {
+      if (applied) return;
+      if (now - start > 2000) return;
+      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
+    }
+    requestAnimationFrame(timedRafLoop);
+
+    // If token changes later, update only the text
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'solution' && apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+
+    // Same-tab updates
+    document.addEventListener('token-updated', () => {
+      if (apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
+

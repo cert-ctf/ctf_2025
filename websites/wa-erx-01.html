@@ -34,16 +34,34 @@
         <p>Dein Rezept:</p>
         <ul>
           <li>
-            <a href="files/0428d416-149e-48a4-977c-394887b3d85c.xml" download rel="noopener noreferrer">E‑Rezept (Beispiel)</a>
+            <a href="files/erx.wa1/medicationBundle.xml" download rel="noopener noreferrer" target="_blank">E‑Rezept (Beispiel)</a>
           </li>
         </ul>
         <hr>
-        <h3>Der schlaue Willy hat noch einen Hinweis für dich</h3>
+        <h3>Pharmazentralnummer</h3>
         <p>
           Die Pharmazentralnummer (PZN) ist ein in Deutschland bundeseinheitlicher Identifikationsschlüssel für Arzneimittel, Medizinprodukte und andere sonstige apothekenübliche Produkte. 
         </p>
         <hr>
-      </div>
+            <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="1234567" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
+
+            
 
       <div id="info_text">
         <div class="info-row">
@@ -88,6 +106,13 @@
       // Add stuff here
     });
   </script>
+  <script>
+      const url = "erx/wa-1"
+      const nextQuestionURL = "wa-erx-02.html"
+      const localStorageKey = "erx-wa-1"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
 </body>

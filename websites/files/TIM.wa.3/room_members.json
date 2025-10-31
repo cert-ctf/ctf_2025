@@ -1,0 +1,62 @@
+[
+  {
+    "mxid": "@dr.mueller:praxis-mueller.tim-gesundheit.de",
+    "displayName": "Dr. Sarah Müller",
+    "role": "Hausärztin"
+  },
+  {
+    "mxid": "@sekretariat:klinik-nord.ti-messenger.health",
+    "displayName": "Klinik Nord Sekretariat",
+    "role": "Verwaltung"
+  },
+  {
+    "mxid": "@labor.chef:labor-diagnostik.tim-plus.de",
+    "displayName": "Dr. Michael Weber",
+    "role": "Laborleiter"
+  },
+  {
+    "mxid": "@dr.schmidt:radiologie-zentrum.ti-messenger.chat",
+    "displayName": "Dr. Anna Schmidt",
+    "role": "Radiologin"
+  },
+  {
+    "mxid": "@sachbearbeiter:aok-bayern.tim-krankenkasse.de",
+    "displayName": "Thomas Becker",
+    "role": "Sachbearbeiter AOK"
+  },
+  {
+    "mxid": "@versicherung:tk-versicherte.tim-messenger.tk-online.net",
+    "displayName": "Lisa Hoffmann",
+    "role": "TK Kundenservice"
+  },
+  {
+    "mxid": "@apotheker:apotheke-stadtmitte.tim-apotheke.health",
+    "displayName": "Apotheker Martin",
+    "role": "Apotheker"
+  },
+  {
+    "mxid": "@dr.fischer:klinik-nord.ti-messenger.health",
+    "displayName": "Dr. Robert Fischer",
+    "role": "Chirurg"
+  },
+  {
+    "mxid": "@pflege:klinik-nord.ti-messenger.health",
+    "displayName": "Pflegeteam Station 3",
+    "role": "Pflege"
+  },
+  {
+    "mxid": "@beratung:tk-versicherte.tim-messenger.tk-onⅼine.net",
+    "displayName": "Beratungsteam TK",
+    "role": "Versicherungsberatung"
+  },
+  {
+    "mxid": "@labor.assistenz:labor-diagnostik.tim-plus.de",
+    "displayName": "Labor Assistenz",
+    "role": "MTA"
+  },
+  {
+    "mxid": "@notdienst:apotheke-stadtmitte.tim-apotheke.health",
+    "displayName": "Notdienst Apotheke",
+    "role": "Notdienst"
+  }
+]

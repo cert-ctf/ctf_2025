@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Guardians of the TI</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/help.css" />
+  </head>
+  <body>
+    <main class="wrapper" role="main">
+      <nav class="navbar navbar-three">
+        <div class="nav-left">
+          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+          <div class="nav-title">
+            <h6>Die Abenteuer von KIM &amp; TIM</h6>
+            <h4>Kapt. III – Guardians of the TI</h4>
+          </div>
+        </div>
+        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+      </nav>
+
+      <section class="card">
+        <header class="card-header">
+          <h2>ePA - E-Patientenakte</h2>
+        </header>
+        <h3 class="card-title"></h3>
+        <div class="card-body">
+          <p>
+            Alf ist nach einem ziemlich belastenden Klinikbesuch wieder zu Hause. Bevor er zur Ruhe kommt, will er sicher sein:
+            Hat wirklich nur die Klinik seinen Befund gesehen? Also: Auditlog auf, Spuren lesen, Fakten checken.
+          </p>
+          
+          <figure style="text-align: center;">
+            <img
+              class="img-rounded-shadow"
+              src="./img/alf_log.png"
+              alt="Alf bereitet den Zugriff auf seine ePA vor"
+              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
+            >
+          </figure>
+          
+          <hr />
+          <h3>Deine Mission</h3>
+          <ul style="margin:.5rem 0 0 1rem;line-height:1.6;">
+            <li>Analysiere den Auditlog und identifiziere die drei exakt verwendeten Operationen in den relevanten Audit-Events.</li>
+            <li>Trage die Operationen in der richtigen Reihenfolge untereinander in die Textbox ein</li>
+          </ul>
+          <hr>
+            <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <textarea
+                    id="solution"
+                    name="solution"
+ 
+                    required
+                    class="fx-input"
+                    style="resize: none; height: 10.5em; overflow: auto;"
+                  ></textarea>
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
+
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Gefragt sind hier die spezifischen Operationen, genutzt in den drei Audit Events (<code>entity.0.description</code>) <br> <br>
+                Anhang: <a href="./files/ePA.wa.4/auditLog.json" target="_blank" rel="noopener noreferrer">auditLog.json</a>
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+          </div>
+        </div>
+        <br />
+      </section>
+    </main>
+
+    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+      <span class="visually-hidden" aria-hidden="true">?</span>
+    </button>
+
+    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+      <button class="close-btn" aria-label="Schließen">&times;</button>
+      <h3>Überschrift</h3>
+      <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+      <ul>
+        <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
+        <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
+        <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
+      </ul>
+    </aside>
+
+    <div class="flag-tiles" aria-hidden="true"></div>
+
+    <script>
+      document.getElementById('submitButton')?.addEventListener('click', function () {
+        // Add stuff here
+      });
+    </script>
+     <script>
+      const url = "epa/wa-4"
+      const localStorageKey = "epa-wa-4"
+      const nextQuestionURL = "wa-epa-05.html"
+    </script>
+    <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceTextfield.js"></script>
+    <script src="./js/help.js"></script>
+  </body>
+</html>

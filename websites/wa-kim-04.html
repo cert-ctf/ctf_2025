@@ -32,21 +32,42 @@
         	Frau Dr. Müller hat über KIM die Laborergebnisse eines Patienten direkt vom Labor erhalten.
         </p>
         <p>
-Er findet sie aber nicht im Anhang, kannst du ihm helfen die Datei zu finden?
-      </p>
-        <p> 
-Er braucht dringend den <b>Hepatitis B Antigen</b> Wert für seinen Patienten!
+Sie findet die Laborergebnisse aber nicht im Anhang, kannst du ihr helfen die Datei sowie den dringend benötigten <b>Hepatitis B Antigen</b> Wert für den Patienten zu finden!
         </p>
         <hr>
         <p>
-          <h3>Beschreibung der Feldkennungen</h3>
-          Falls du vergessen hast unter welcher Feldkennung (FK) sind der Wert versteckt, findest du hier eine kleine Übersicht: <br>
-          </p>
-          <p>
-          <a href="https://update.kbv.de/ita-update/Labor/Labordatenkommunikation/EXT_ITA_VGEX_LDT_3_2_19_Use_Cases.pdf" target="_blank" rel="noopener noreferrer">Laborauftrag</a>
+          <h3>Feldkennungen</h3>
+          Laborergebnisse folgen stets diesem Aufbau: Feldkennung (FK) gefolgt vom eigentlichen Wert.<br>
+          Falls du die passende FK für einen Wert nicht mehr weißt, findest du hier eine kurze Übersicht:<br>
         </p>
+          <ul>
+  <li>Du erinnerst dich: Die entsprechende Testbezeichnung findest du unter der FK <b>8411</b>.</li>
+  <li>Jetzt musst du nur noch die FK für das Ergebnis ermitteln.</li>
+  <li>
+    <a href="https://update.kbv.de/ita-update/Labor/Labordatenkommunikation/EXT_ITA_VGEX_LDT_3_2_19_Use_Cases.pdf" target="_blank" rel="noopener noreferrer">
+      Dokumentation der Felder eines Laborauftrags
+    </a>
+  </li>
+</ul>
         <hr>
-      </div>
+
+          <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="134,5" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
 
       <div id="info_text">
         <div class="info-row">
@@ -56,7 +77,7 @@ Er braucht dringend den <b>Hepatitis B Antigen</b> Wert für seinen Patienten!
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
               Gesucht wird der Hepatitis B Antigen Wert. <br>
-              Anhang: <a href="./files/ldt.eml" target="_blank" rel="noopener noreferrer">ldt.eml</a>
+              Anhang: <a href="./files/KIM.wa.4/ldt.eml" target="_blank" rel="noopener noreferrer">ldt.eml</a>
             </p>
           </div>
           <figure>
@@ -83,8 +104,19 @@ Er braucht dringend den <b>Hepatitis B Antigen</b> Wert für seinen Patienten!
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
+    
+    <script>
+      const url = "kim/wa-4"
+      const nextQuestionURL = "wa-kim-05.html"
+      const localStorageKey = "kim-wa-4"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
+    <script src="./js/flagServiceHelper.js"></script>
+    <script src="./js/help.js"></script>    
 
-  <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+    <script>
+      initFlagUI();
+    </script> 
 </body>
 </html>

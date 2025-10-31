@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/help.css">
+    <!-- Fallback für lokale Tests (Header hat Vorrang in Prod) -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
   </head>
   <body>
     <main class="wrapper" role="main">
@@ -20,52 +23,78 @@
         </div>
         <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
       </nav>
+
       <section class="card">
         <header class="card-header">
           <h2>KIM – Kommunikation im Medizinwesen</h2>
         </header>
+
         <div class="card-body">
           <h3>Was ist das?</h3>
           <p>
             <strong>KIM</strong> ist das sichere E-Mail-System für Praxen, Apotheken &amp; Co. in Deutschland. Endlich Schluss mit Faxen und unsicheren Mails: KIM sorgt dafür, dass Arztbriefe, Befunde oder Abrechnungen digital, verschlüsselt und garantiert nur zwischen echten, geprüften Teilnehmern der Telematikinfrastruktur (TI) verschickt werden.
           </p>
+
+          <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;overflow:hidden;border-radius:8px;">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/q1zKMu2xCUk"
+              title="YouTube video player"
+              style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+
           <hr>
-          <p>
-            <h4>Technische Basis</h4>
-            <ul>
-              <li>KIM basiert auf den etablierten E-Mail Standards POP3 und SMTP</li>
-              <li>Kontakte werden im zentralen Verzeichnisdienst vorgehalten</li>
-              <li>Lässt sich mit E-Mail-Programme wie Thunderbird oder Outlook verwenden</li>
-            </ul>
+
+          <h3>Technische Basis</h3>
+          <ul>
+            <li><b>KIM</b> basiert auf den etablierten E-Mail Standards POP3 und SMTP</li>
+            <li>Kontakte werden im zentralen Verzeichnisdienst vorgehalten</li>
+            <li>Lässt sich mit E-Mail-Programme wie Thunderbird oder Outlook verwenden</li>
+          </ul>
 
           <figure>
-            <img src="./img/wa-kim-00-kim_nachrichtenversand.png" alt="KIM Nachrichtenversand">
-            <figcaption>
-              Quelle: 
+            <img class="img-rounded-shadow" src="./img/wa-kim-00-kim_nachrichtenversand.png" alt="KIM Nachrichtenversand">
+            <figcaption style="text-align:center">
+              <i>Quelle:
               <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">
                 Gematik Fachportal – Kommunikation im Medizinwesen
               </a>
+              </i>
             </figcaption>
           </figure>
-          </p>
-          <hr>
-            <h4>Aufbau der KIM-Adressen</h4>
-            <ul>
-              <li>
-                <strong>Benutzerteil:</strong> Identifiziert eindeutig den Nutzer oder die Organisation (z. B. Praxisname, Institutionskennzeichen).
-              </li>
-              <li>
-                <strong>Domänenteil:</strong> Gibt an, dass es sich um eine KIM-Adresse handelt, üblicherweise <code>kim.telematik</code> oder eine Subdomain davon (z. B. <code>anbieter.kim.telematik</code>).
-              </li>
-            </ul>
 
-            <div style="margin: 1em 0; padding: 0.5em; background: #f6f6f6; border-radius: 6px;">
-              <strong>Format:</strong> <code>&lt;Benutzer&gt;@&lt;Domäne&gt;</code><br>
-              <strong>Beispiel:</strong> <code>arztpraxis.muster@kim.telematik</code>
-            </div>
-            Wenn du mehr dazu wissen willst: <br><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/#A_21456-01" target="_blank" rel="noopener noreferrer">A_21456-01 - Festlegung des Domainparts einer KIM-Adresse </a>
+          <hr>
+
+          <h3>Aufbau von KIM-Adressen</h3>
+          <ul>
+            <li>
+              <strong>Benutzerteil:</strong> Identifiziert eindeutig den Nutzer oder die Organisation (z. B. Praxisname, Institutionskennzeichen).
+            </li>
+            <li>
+              <strong>Domänenteil:</strong> Gibt an, dass es sich um eine KIM-Adresse handelt, üblicherweise <code>kim.telematik</code> oder eine Subdomain davon (z. B. <code>anbieter.kim.telematik</code>).
+            </li>
+          </ul>
+
+          <div style="margin: 1em 0 1em 3rem; padding: 0.5em; background: #f6f6f6; border-radius: 6px;">
+            <strong>Format:</strong> <code>&lt;Benutzer&gt;@&lt;Domäne&gt;</code><br>
+            <strong>Beispiel:</strong> <code>arztpraxis.muster@kim.telematik</code>
+          </div>
+
+          <hr>
+          <h3>Weitere Informationen</h3>
+          
+          <ul>
+            <li>
+              <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/#A_21456-01" target="_blank" rel="noopener noreferrer">
+                A_21456-01 – Festlegung des Domainparts einer KIM-Adresse
+              </a>
+            </li>
+          </ul>
         </div>
-      
+      </section>
     </main>
 
     <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
@@ -85,6 +114,5 @@
     <div class="flag-tiles" aria-hidden="true"></div>
 
     <script src="./js/help.js"></script>
-    <script src="./js/background.js"></script>
   </body>
 </html>

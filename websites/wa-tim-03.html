@@ -23,43 +23,68 @@
 
     <section class="card">
       <header class="card-header">
-        <p class="subtitle">TI-Messenger</p>
-        </p>
+          <h2>TI-Messenger</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h4>Das Verzeichnis der TI-Kontakte: Wo werden sie gepflegt?</h5>
-        <p>
-          Larissa möchte jetzt eine Nachricht an ihre Ärztin schicken, die App ihrer Krankenkasse unterstützt diese Funktion zum Glück schon.
-        </p>
-        <p>
-          Nachem sie den Namen ihrer Ärztin eingegeben hat, fragt sie sich woher disese Kontaktdaten eigentlich kommen.
-        </p>
-        <p>
-          <strong>Wie heißt der Dienst in dem die Kontakte der TI hinterlegt sind?</strong>
-        </p>
-        <p>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-            irgend ein cooles bild
-          </figure>
-        </p>
-        <hr>
-        <p>
-          <h4>TI-Verzeichnis</h4>
-          Damit die Kommunikation im TI-Messenger funktioniert, müssen die Teilnehmer eindeutig identifiziert und gefunden werden können. Dafür gibt es ein spezielles Verzeichnis, in dem alle Kontakte der TI gepflegt werden.
-        </p>
-        <hr>
-      </div>
 
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+        <h3>Federation Fakes</h3>
+        <p>
+          Alarmstufe Rot! Jemand hat sich in unseren hochsicheren Kommunikationsraum eingeschlichen und liest Staatsgeheimnisse mit. 
+        </p>
+        <figure style="text-align: center;">
+            <img class="img-rounded-shadow"
+              src="./img/maulwurf.png"
+              alt="KIM Nachrichtenversand"
+              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
+            >
           </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Wir suchen hier den Namen des zentralen Dienstes, in dem die TI-Kontakte hinterlegt.<br>
+        <p>
+          <b>Deine Mission:</b> Identifiziere den Maulwurf und melde ihn an die zuständigen Autoritäten. Bleib ruhig, arbeite präzise – und vertraue deinen Augen nicht blind, denn der Angreifer spielt mit subtilen Zeichen.
+        </p>
+        <hr>
+        <h3>Informationen zur Mission</h3>
+        <p>
+          Wir haben Zugriff auf die aktuellen Raumteilnehmer (<code><a href="files/TIM.wa.3/room_members.json" target="_blank" rel="noopener noreferrer">room_members.json</a></code>) und eine signierte, zugelassene Föderationsliste
+          (<code><a href="files/TIM.wa.3/fedlist-jws.txt" target="_blank" rel="noopener noreferrer">fedlist-jws.txt</a></code>). Deine Aufgabe ist es, die Teilnehmer im Raum gegen die zugelassene Föderationsliste abzugleichen und
+          potenzielle Manipulationen aufzudecken.
+        </p>
+
+
+        <ul>
+          <li>Vergleiche alle MXIDs aus <code>room_members.json</code> mit den zulässigen Einträgen aus <code>fedlist-jws.txt</code>.</li>
+          <li>Markiere Teilnehmer, die nicht in der Föderationsliste enthalten sind oder deren MXID von der zugelassenen Schreibweise abweicht.</li>
+          <li>Achte besonders auf Homograph-Angriffe: visuell ähnliche, aber nicht identische Zeichen (z. B. Unicode statt ASCII).</li>
+        </ul>
+       
+       </p>
+        <hr>
+              <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="@username:homeserver.tld" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
+
+       <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Die Antwort ist die <code>mxid</code> des Intruders.
             </p>
           </div>
           <figure>
@@ -80,16 +105,23 @@
     <h3>Weitere Infos</h3>
     <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
-      <li><a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Die Telematikinfrastruktur</a></li>
-      <li><a href="wa-tim-02.html" rel="noopener noreferrer">Aufgabe 2</a></li>
-      <li><a href="wa-tim-04.html" rel="noopener noreferrer">Aufgabe 4</a></li>
+      
+      <li><a href="https://matrix.org/docs/older/faq/" target="_blank" rel="noopener">matrix.org – MXID</a></li>
+      <li><a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener">CyberChef – Datenanalyse, Encoding/Decoding</a></li>
+      <li><a href="https://util.unicode.org/UnicodeJsps/confusables.jsp" target="_blank" rel="noopener">Unicode Confusables – Homoglyphen erkennen (til.unicode.org)</a></li>
     </ul>
-    <em>Tipp:</em> Schau dir einmal die Komponenten der <a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Telematikinfrastruktur</a> an.
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
-
+<script>
+      const url = "tim/wa-3"
+      const nextQuestionURL = "wa-tim-04.html"
+      const localStorageKey = "tim-wa-3"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+</body>
+</html>
 </body>
 </html>

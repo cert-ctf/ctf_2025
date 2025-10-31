@@ -37,15 +37,34 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
         </p>
         <div class="credentials">
           <p>
-            <strong>Task.Id</strong>: <code>Aus der vorherigen Aufgabe</code><br>
+            <strong>Task.Id</strong>: <code>160.265.857.103.443.29</code><br>
             <strong>AccessCode</strong>: <code>d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5</code>
           </p>
           <p>
-            <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank" rel="noopener noreferrer">Spezifikationen zum E-Rezept Datenmodel</a>
+            <h3> Definition der Anfrage:</h3>
+            <ul>
+            <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank" rel="noopener noreferrer">Spezifikationen zum E-Rezept Datenmodel</a> - <b>A_19554</b></li>
+            </ul>
           </p>
         </div>
         <hr>
-        </div>
+          <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="Aufruf" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
 
       <div id="info_text">
         <div class="info-row">
@@ -54,7 +73,8 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
           </figure>
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-              Gesucht wird die Datenstruktur der Einlöseinformationen für ein E-Rezept.
+              Gesucht wird die Datenstruktur der Einlöseinformationen für ein E-Rezept. <br>
+              Alles nach: <code>2D-Code-Daten = </code>
             </p>
           </div>
           <figure>
@@ -92,6 +112,13 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
       // Add stuff here
     });
   </script>
+  <script>
+      const url = "erx/wa-3"
+      const nextQuestionURL = "wa-erx-04.html"
+      const localStorageKey = "erx-wa-3"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
 </body>

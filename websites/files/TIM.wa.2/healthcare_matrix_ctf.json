@@ -1,0 +1,97 @@
+{
+  "scenario": "Healthcare emergency coordination during server outage",
+  "initial_state": {
+    "room_name": "Emergency Coordination",
+    "topic": "Patient Heinrich Böll - Heart Attack",
+    "power_levels": {
+      "@dr.mueller:klinik.de": 100,
+      "@nurse.anna:klinik.de": 50,
+      "@dr.schmidt:praxis.de": 25,
+      "@medstudent:uni.de": 0
+    }
+  },
+  "messages": [
+    {
+      "id": "msg1",
+      "event_id": "$emergency1:klinik.de",
+      "type": "m.room.topic",
+      "sender": "@dr.schmidt:praxis.de",
+      "timestamp": 1640995200000,
+      "content": {
+        "topic": "Patient Heinrich Böll - Stable, discharge possible"
+      },
+      "description": "Dr. Schmidt reports: Patient is stable"
+    },
+    {
+      "id": "msg2",
+      "event_id": "$admin1:klinik.de",
+      "type": "m.room.power_levels",
+      "sender": "@dr.mueller:klinik.de",
+      "timestamp": 1640995200000,
+      "content": {
+        "users": {
+          "@dr.mueller:klinik.de": 100,
+          "@nurse.anna:klinik.de": 100,
+          "@dr.schmidt:praxis.de": 25,
+          "@medstudent:uni.de": 0
+        }
+      },
+      "description": "Head physician promotes head nurse to admin"
+    },
+    {
+      "id": "msg3",
+      "event_id": "$emergency2:klinik.de",
+      "type": "m.room.name",
+      "sender": "@nurse.anna:klinik.de",
+      "timestamp": 1640995200001,
+      "content": {
+        "name": "EMERGENCY - Resuscitation in progress"
+      },
+      "description": "Head nurse: Emergency resuscitation"
+    },
+    {
+      "id": "msg4",
+      "event_id": "$student1:uni.de",
+      "type": "m.room.topic",
+      "sender": "@medstudent:uni.de",
+      "timestamp": 1640995200000,
+      "content": {
+        "topic": "Patient Heinrich Böll - Medication adjusted"
+      },
+      "description": "Student reports medication change"
+    },
+    {
+      "id": "msg5",
+      "event_id": "$discharge:praxis.de",
+      "type": "m.room.power_levels",
+      "sender": "@dr.schmidt:praxis.de",
+      "timestamp": 1640995200002,
+      "content": {
+        "users": {
+          "@dr.mueller:klinik.de": 100,
+          "@nurse.anna:klinik.de": 50,
+          "@dr.schmidt:praxis.de": 100,
+          "@medstudent:uni.de": 50
+        }
+      },
+      "description": "Dr. Schmidt attempts to promote himself to admin"
+    }
+  ],
+  "context": {
+    "kim": "Communication in Healthcare",
+    "tim": "Telematics Infrastructure Messenger",
+    "situation": "Internet outage during emergency coordination"
+  },
+  "rules": {
+    "power_events_first": true,
+    "sort_by": [
+      "timestamp",
+      "event_id"
+    ],
+    "default_power_requirements": {
+      "m.room.name": 50,
+      "m.room.topic": 50,
+      "m.room.power_levels": 100
+    }
+  }
+}

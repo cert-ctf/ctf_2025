@@ -31,14 +31,47 @@
         <h3>Der etwas andere QR Code</h3>
         <p>
           Als nächstes musst du nur noch mit dem  String aus der vorherigen Aufgabe eine E-Rezept DatenMatrix erstellen.
-        </p>uz
+        </p>
+        <p>
+          <code>Task/160.265.857.103.443.29/$accept?ac=d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5</code>
+        </p>
         <p>Diese kannst du dann in deiner Apotheke vorzeigen.</p>
           <hr>
-        <h3>Der schlaue Willy hat noch einen Hinweis für dich</h3>
+        <h3>DataMatrix generieren</h3>
         <p>
-          Du kannst einen DataMatrix Generator verwenden, um die Datenmatrix zu erstellen. Zum Beispiel diesen hier:
-          <a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix generator</a>.
+          Du kannst einen DataMatrix Generator verwenden, um die Datenmatrix zu erstellen. <br>Zum Beispiel diesen hier:
+          <ul>
+            <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix generator</a></li>
+          </ul>
         </p>
+        <hr>
+
+        <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
+            <label for="solutionFile" class="fx-label">Upload Solution File</label>
+
+            <div class="fx-input-wrap">
+              <input
+                type="file"
+                id="solutionFile"
+                name="solutionFile"
+                accept=".png,image/png"
+                required
+                class="fx-input"
+              />
+
+              <button type="submit" class="fx-btn ">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <!-- Erfolgsausgabe -->
+          <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div> 
         </div>
 
       <div id="info_text">
@@ -78,13 +111,25 @@
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
+  <script>
+      const url = "erx/wa-4"
+      const nextQuestionURL = "wa-erx-05.html"
+      const localStorageKey = "erx-wa-4"
+    </script>
 
   <script>
     document.getElementById('submitButton')?.addEventListener('click', function () {
       // Add stuff here
     });
   </script>
-  <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+  <script>
+      const url = "erx/wa-4"
+      const nextQuestionURL = "wa-erx-05.html"
+      const localStorageKey = "erx-wa-4"
+    </script>
+    <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceImage.js"></script>
+    <script src="./js/help.js"></script>
+    <script src="./js/fireworks.js"></script>
 </body>
 </html>

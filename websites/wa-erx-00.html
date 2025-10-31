@@ -1,14 +1,179 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Guardians of the TI</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Guardians of the TI</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/help.css">
 
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/help.css">
+
+<style>
+/* Farb- und Layout-Variablen */
+:root {
+  --seg-a: #2563eb;   /* Blau */
+  --seg-b: #10b981;   /* Grün */
+  --seg-c: #ef4444;   /* Rot */
+  --seg-a-bg: #f5f8ff;
+  --seg-b-bg: #f3fff9;
+  --seg-c-bg: #fff6f6;
+  --code-bg: #f7f7f9;
+  --code-border: #e5e7eb;
+  --tooltip-bg: #ffffff;
+  --tooltip-border: rgba(17, 24, 39, 0.12);
+  --tooltip-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* Code-Karte zentriert */
+.code-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem 0 0.5rem;
+}
+
+/* E-Rezept-ID Darstellung */
+.recipe-id {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  background: var(--code-bg);
+  color: #1f2937;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--code-border);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.seg-a { color: var(--seg-a); }
+.seg-b { color: var(--seg-b); }
+.seg-c { color: var(--seg-c); }
+
+/* Tooltip-Styles (gekürzt, unverändert) */
+.seg,
+.seg-group { position: relative; cursor: help; text-decoration: underline dotted; }
+.seg::after, .seg-group::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  bottom: 100%;
+  background: var(--tooltip-bg);
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--tooltip-border);
+  box-shadow: var(--tooltip-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+.code-colored {
+  background: #f7f7f9;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.code-path { color: #2563eb; }  /* Blau für feste Pfadteile/Strings */
+.code-var  { color: #10b981; }  /* Grün für Variablen */
+.code-op   { color: #6b7280; }  /* Grau für Operatoren/Plus */
+
+.seg:hover::after, .seg-group:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-2px);
+}
+.seg-a::after { color: var(--seg-a); background: var(--seg-a-bg); }
+.seg-b::after { color: var(--seg-b); background: var(--seg-b-bg); }
+.seg-c::after { color: var(--seg-c); background: var(--seg-c-bg); }
+
+/* Steps Layout – untereinander */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.step-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #2563eb10;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.step h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.step-details {
+  list-style: disc;
+  padding-left: 3.5rem;  /* mehr Einzug */
+}
+
+.step-details li::marker {
+  color: var(--seg-a);   /* blau */
+}
+
+@media (min-width: 800px) {
+  .steps { flex-direction: column; } /* bleibt untereinander */
+}
+
+/* Bild und Caption */
+.media-figure {
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+.media-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.media-figure figcaption {
+  margin-top: 0.4rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+</style>
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,75 +189,108 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX – E-Rezept</h2>
       </header>
-      <h3 class="card-title"></h3>
       <div class="card-body">
         <h3>Was ist das?</h3>
         <p>
-          Das elektronische Rezept (E‑Rezept) ersetzt den Papierausdruck für alle Verordnungen apothekenpflichtiger Arzneimittel. Die Praxis lädt das E‑Rezept in die Telematikinfrastruktur. Über Ihre elektronische Gesundheitskarte (eGK), die E‑Rezept‑App oder alternativ den Papierausdruck können Sie Ihre Rezepte in der Apotheke einlösen.
+          Das <b>elektronische Rezept (E-Rezept)</b> ersetzt den Papierausdruck für verschreibungspflichtige Arzneimittel. 
+          Die Praxis lädt das Rezept in die <b>Telematikinfrastruktur (TI)</b>. 
+          Mit <b>eGK</b>, <b>E-Rezept-App</b> oder Ausdruck können Sie es in der Apotheke einlösen.
         </p>
-        <hr>
-        <p>
-          <strong>Der Weg von der Praxis zum Medikament in der Apotheke.</strong>
-          <ul>
-            <li>Praxis erstellt das Rezept</li>
-            <ul>
-              <li>Rezept muss durch Praxis signiert werden, sonst ist es nicht freigegeben</li>
-              <li>Rezept wird in die TI geladen</li>
-            </ul>
-            <ul>
-              <li>Wege zur Einlösung</li>
-              <ul>
-                <li>eGK - Elekronische Gesundheitskarte</li>
-                <li>Ausdruck (DataMatrix) in der Apotheke</li>
-                <li>E‑Rezept‑App mit eGK</li>
-                <li>E‑Rezept‑App mit DataMatrix</li>
-              </ul>
-            </ul>
-            <li>Einlösen des Rezepts</li>
-            <ul>
-              <li>Apotheke ruft das Rezept aus der TI ab</li>
-              <li>Apotheke gibt das Medikament aus</li>
-              <li>Apotheke bestätigt die Abgabe des Medikaments in der TI</li>
-          </ul>
-        </p>
-        <hr>
-        <p>
-          <strong>DataMatrix</strong> <br>
-          Die DataMatrix auf dem Papier ausdruck enthält die TaskID und den AccessCode, um das Rezept aus der TI abzurufen. <br><br>
-          Aufbau:<br>
-          <code>"Task/" +Task.id + "/$accept?ac=" +AccessCode</code>
-        </p>
-        <hr>
-        <p>
-          <strong>Aufbau der E‑Rezept‑ID:</strong><br>
-          <code>aaa.bbb.bbb.bbb.bbb.cc</code><br>
-          <ul>
-            <li><strong>aaa</strong> — E‑Rezept‑Typ</li>
-            <li><strong>bbb.bbb.bbb.bbb</strong> — fortlaufende Rezeptnummer</li>
-            <li><strong>cc</strong> — Prüfziffer</li>
-          </ul>
-        </p>
-        <hr>
-      </div>
 
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Hier gibt es nichts zu sehen. Gehe zur nächsten Aufgabe.
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+        <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;overflow:hidden;border-radius:8px;">
+          <iframe
+            src="https://www.youtube.com/embed/HN0KLDHN4OU?si=NvL9QeIZsWyVWJI7"
+            title="YouTube video player"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
         </div>
+
+        <hr>
+        <h3>Der Weg von der Praxis zum Medikament</h3>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step-header">
+              <span class="step-icon">1</span>
+              <h4>Rezept erstellen</h4>
+            </div>
+            <ul class="step-details">
+              <li>Praxis signiert das Rezept digital</li>
+              <li>Speicherung in der <b>TI</b></li>
+            </ul>
+          </li>
+
+          <li class="step">
+            <div class="step-header">
+              <span class="step-icon">2</span>
+              <h4>Rezept einlösen</h4>
+            </div>
+            <ul class="step-details">
+              <li>Mit <b>eGK</b> in der Apotheke</li>
+              <li>Mit Ausdruck und <b>DataMatrix-Code</b></li>
+              <li>Über <b>E-Rezept-App</b> (mit eGK oder Code)</li>
+            </ul>
+          </li>
+
+          <li class="step">
+            <div class="step-header">
+              <span class="step-icon">3</span>
+              <h4>Medikament erhalten</h4>
+            </div>
+            <ul class="step-details">
+              <li>Apotheke ruft Rezept aus der <b>TI</b> ab</li>
+              <li>Gibt Medikament aus und bestätigt die Abgabe</li>
+            </ul>
+          </li>
+        </ol>
+
+        <hr>
+
+        <h3>DataMatrix</h3>
+        Die <b>DataMatrix</b> auf dem Papierausdruck enthält die TaskID und den AccessCode, um das Rezept aus der <b>TI</b> abzurufen.
+        <ul>
+          <li>
+            Aufbau
+            <ul>
+              <li>
+                <code class="code-colored">
+                  <span class="code-path">"Task/"</span><span class="code-op"> + </span>
+                  <span class="code-var">Task.id</span>
+                  <span class="code-op"> + </span>
+                  <span class="code-path">"/$accept?ac="</span>
+                  <span class="code-op"> + </span>
+                  <span class="code-var">AccessCode</span>
+                </code>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <hr>
+        <h3>Aufbau der E-Rezept-ID:</h3>
+        <p>
+          Die E-Rezept-ID besteht aus drei Teilen: 
+          dem <span class="seg-a"><b>Typ</b> (aaa)</span>, 
+          der <span class="seg-b"><b>Rezeptnummer</b> (bbb.bbb.bbb.bbb)</span> 
+          und der <span class="seg-c"><b>Prüfziffer</b> (cc)</span>.
+        </p>
+        <p>Bewege die Maus über die farbigen Segmente, um mehr zu erfahren:</p>
+
+        <div class="code-card">
+          <code class="recipe-id">
+            <span class="seg seg-a" data-tip="E-Rezept-Typ" tabindex="0">aaa</span>.
+            <span class="seg seg-b" data-tip="Fortlaufende Rezeptnummer" tabindex="0">bbb.bbb.bbb.bbb</span>.
+            <span class="seg seg-c" data-tip="Prüfziffer" tabindex="0">cc</span>
+          </code>
+        </div>
+        <br><br>
+
       </div>
-      <br>
     </section>
   </main>
 
@@ -108,18 +306,12 @@
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
       <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      <li><a href="https://www.adg.de/fileadmin/pdf/apothekenmarkt/info-grafik-erezept-fuer-apotheken.pdf" target="_blank" rel="noopener noreferrer">adg.de: SO FUNKTIONIERT DAS eREZEPT</a></li>
+      <li><a href="https://www.adg.de/fileadmin/pdf/apothekenmarkt/info-grafik-erezept-fuer-apotheken.pdf" target="_blank" rel="noopener noreferrer">adg.de: So funktioniert das eRezept</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
 
-  <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
-  </script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
 </body>
 </html>

@@ -41,6 +41,25 @@
           gesendet werden muss, um die Transaktions‑ID zu erhalten. Mit dieser ID gilt die Aufgabe als abgeschlossen und das Rezept als dispensiert.
         </p>
         <hr>
+
+            <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="mail" id="solution" name="solution" placeholder="12345678910" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
+        <hr />
         </div>
 
       <div id="info_text">
@@ -62,6 +81,8 @@
     </section>
   </main>
 
+  <canvas id="fireworksCanvas"></canvas>
+
   <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
     <span class="visually-hidden" aria-hidden="true">?</span>
   </button>
@@ -74,18 +95,118 @@
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
       <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      <li><a href="wa-erx-04.html" rel="noopener noreferrer">Aufgabe 4</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
+    <script>
+      const url = "erx/wa-5"
+      const localStorageKey = "erx-wa-5"
+    </script>
 
   <script>
     document.getElementById('submitButton')?.addEventListener('click', function () {
       // Add stuff here
     });
   </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+  <script src="./js/fireworks.js"></script>
+  <script>
+  (function enforceFinalStateWhenSuccessBoxVisible() {
+    const TOKEN_PREFIX = 'eRX Token: ';
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+
+
+    const formEl = document.getElementById('solutionForm');
+    const successEl = document.getElementById('success-message');
+    const apiResponseEl = document.getElementById('api-response');
+
+    let applied = false;
+
+    function isVisible(el) {
+      if (!el) return false;
+      const style = window.getComputedStyle(el);
+      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    }
+
+    function setTokenHTML() {
+      if (!apiResponseEl) return;
+      const token = localStorage.getItem(localStorageKey) || '';
+      apiResponseEl.classList.add('token-text');
+      apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+    }
+
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+
+      // 1) Hide submit/next button within the form
+      const submitBtn = formEl?.querySelector('.fx-btn');
+      if (submitBtn) {
+        submitBtn.style.display = 'none';
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('fx-btn--next');
+        submitBtn.type = 'button';
+        const glow = submitBtn.querySelector('.fx-btn-glow');
+        if (glow) glow.style.display = 'none';
+      }
+
+      // 2) Hide any separate .fx-next buttons
+      document.querySelectorAll('.fx-next').forEach(btn => {
+        btn.style.display = 'none';
+        btn.classList.remove('fx-next--visible');
+        btn.disabled = true;
+      });
+
+      // 3) Token-Text + Hinweis (mit <br> und kursiv)
+      setTokenHTML();
+      startFireworks();
+    }
+
+    function checkAndApply() {
+      if (isVisible(successEl)) {
+        applyFinalState();
+        return true;
+      }
+      return false;
+    }
+
+    // Initial check
+    checkAndApply();
+
+    // Observe only the success box for style/class changes
+    if (successEl) {
+      const observer = new MutationObserver(() => {
+        if (!applied) checkAndApply();
+      });
+      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    }
+
+    // Short rAF polling fallback (max 2s)
+    let start = performance.now();
+    function timedRafLoop(now) {
+      if (applied) return;
+      if (now - start > 2000) return;
+      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
+    }
+    requestAnimationFrame(timedRafLoop);
+
+    // If token changes later, update only the text
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'solution' && apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+
+    // Same-tab updates
+    document.addEventListener('token-updated', () => {
+      if (apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+  })();
+</script>
 </body>
 </html>

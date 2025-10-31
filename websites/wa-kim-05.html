@@ -29,10 +29,14 @@
       <div class="card-body">
         <h3>eEB, dat hätt' man jern!</h3>
         <p>
-          "Immer wieder is et dat selbe", sagt Fra Dr. Müller, "Schon widda ham se ihre Karte verjessen!". <br> <br>
-          Kurz bevor Frau Dr. Müller sich dazu entscheidet Imkerinn zu werden und die Praxis zu verlassen, erzählt ihr jemand von der elektronirschen Ersatzbescheinigung (eEB) und dass der Patient sicherlich eine bei seiner Krankenkasse anfordern kann. <br>
+          "Immer wieder is et dat selbe", sagt Frau Dr. Müller, "Schon widda ham se ihre Karte verjessen!".
+        </p>
+        <p>
+          Kurz bevor Frau Dr. Müller sich dazu entscheidet, Imkerin zu werden und die Praxis zu verlassen, erzählt ihr jemand von der elektronischen Ersatzbescheinigung (eEB) und dass der Patient sicherlich eine bei seiner Krankenkasse anfordern kann.
+        </p>
+        <p>
           Wie kann diese jetzt aber an die Praxis geschickt werden?
-          <br>
+        </p>
           Erstelle den Praxis QR-Code, damit der Patient seine eEB über KIM schicken kann, und rette ihren Tag! <br>
           <ul>
           <li><a href="https://simplifier.net/guide/Implementierungsleitfaden-VSDM-Ersatzbescheinigung/Einfuehrung/Interoperabilitaetsvorgaben/QR-VZD.page.md?version=current" target="_blank" rel="noopener noreferrer">Implementierungsleitfaden VSDM-Ersatzbescheinigung</a></li>
@@ -46,10 +50,39 @@
         <hr>
         <h3>elektronische Ersatzbescheinigung (eEB) </h3>
         <p>
-          Gesetzlich Versicherte können der Praxis auf diesem Weg eine elektronische Ersatzbescheinigung (eEB) zukommen lassen. Diese dient dem Versicherungsnachweis, wenn beim Praxisbesuch ausnahmsweise keine elektronische Gesundheitskarte vorgelegt werden kann. <br>
+          Gesetzlich Versicherte können der Praxis auf diesem Weg eine elektronische Ersatzbescheinigung (eEB) zukommen lassen. Diese dient dem Versicherungsnachweis, wenn beim Praxisbesuch ausnahmsweise keine elektronische Gesundheitskarte vorgelegt werden kann.
+        </p>
+        <p>
           Dafür muss ein QR-Code erstellt werden der die KIM-Adresse der Praxis enthält. Dann kann über die App der jeweiligen Krankenkasse die eEB an die Praxis geschickt werden.
         </p>
         <hr>
+ 
+          <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
+            <label for="solutionFile" class="fx-label">Upload Solution File</label>
+
+            <div class="fx-input-wrap">
+              <input
+                type="file"
+                id="solutionFile"
+                name="solutionFile"
+                accept=".png,image/png"
+                required
+                class="fx-input"
+              />
+
+              <button type="submit" class="fx-btn ">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <!-- Erfolgsausgabe -->
+          <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div> 
       </div>
 
       <div id="info_text">
@@ -59,7 +92,7 @@
           </figure>
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-              Erstelle die Data-Matrix und lade sie hoch.
+              Erstelle eine Data-Matrix und lade es hoch.
             </p>
           </div>
           <figure>
@@ -70,6 +103,8 @@
       <br>
     </section>
   </main>
+
+  <canvas id="fireworksCanvas"></canvas>
 
   <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
     <span class="visually-hidden">?</span>
@@ -86,9 +121,130 @@
     </ul>
   </aside>
 
-  <div class="flag-tiles" aria-hidden="true"></div>
 
-  <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+  <div class="flag-tiles" aria-hidden="true"></div>
+  
+
+   <script>
+      const url = "kim/wa-5"
+      const localStorageKey = "kim-wa-5"
+    </script>
+    
+<script src="./js/fireworks.js" defer></script>
+<script src="./js/flagServiceBaseVariable.js" defer></script>
+<script src="./js/flagServiceImage.js" defer></script>
+<script src="./js/flagServiceHelper.js" defer></script>
+<script src="./js/help.js" defer></script>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof initFlagUIImage === 'function') {
+      initFlagUIImage();
+    } else {
+      console.warn('initFlagUIImage ist nicht definiert. Ist flagServiceImage.js geladen und enthält die Funktion?');
+    }
+  });
+</script>   
+
+<script>
+  (function enforceFinalStateWhenSuccessBoxVisible() {
+    const TOKEN_PREFIX = 'KIM Token: ';
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+
+
+    const formEl = document.getElementById('solutionForm');
+    const successEl = document.getElementById('success-message');
+    const apiResponseEl = document.getElementById('api-response');
+
+    let applied = false;
+
+    function isVisible(el) {
+      if (!el) return false;
+      const style = window.getComputedStyle(el);
+      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    }
+
+    function setTokenHTML() {
+      if (!apiResponseEl) return;
+      
+      //const token = localStorage.getItem(localStorageKey) || '';
+      apiResponseEl.classList.add('token-text');
+      const token = computeWaSolution("kim");
+      apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+    }
+
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+
+      // 1) Hide submit/next button within the form
+      const submitBtn = formEl?.querySelector('.fx-btn');
+      const box = document.getElementById('info_text');
+      if (submitBtn) {
+        submitBtn.style.display = 'none';
+        box.style.display = 'none';
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('fx-btn--next');
+        submitBtn.type = 'button';
+        const glow = submitBtn.querySelector('.fx-btn-glow');
+        if (glow) glow.style.display = 'none';
+      }
+
+      // 2) Hide any separate .fx-next buttons
+      document.querySelectorAll('.fx-next').forEach(btn => {
+        btn.style.display = 'none';
+        btn.classList.remove('fx-next--visible');
+        btn.disabled = true;
+      });
+
+      // 3) Token-Text + Hinweis (mit <br> und kursiv)
+      setTokenHTML();
+      startFireworks();
+    }
+
+    function checkAndApply() {
+      if (isVisible(successEl)) {
+        applyFinalState();
+        return true;
+      }
+      return false;
+    }
+
+    // Initial check
+    checkAndApply();
+
+    // Observe only the success box for style/class changes
+    if (successEl) {
+      const observer = new MutationObserver(() => {
+        if (!applied) checkAndApply();
+      });
+      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    }
+
+    // Short rAF polling fallback (max 2s)
+    let start = performance.now();
+    function timedRafLoop(now) {
+      if (applied) return;
+      if (now - start > 2000) return;
+      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
+    }
+    requestAnimationFrame(timedRafLoop);
+
+    // If token changes later, update only the text
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'solution' && apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+
+    // Same-tab updates
+    document.addEventListener('token-updated', () => {
+      if (apiResponseEl && applied) {
+        setTokenHTML();
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>

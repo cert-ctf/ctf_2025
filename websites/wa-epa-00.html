@@ -7,6 +7,69 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/help.css">
+
+    <style>
+      /* Lightbox Overlay */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;           /* initial verborgen */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* sichtbarer Zustand */
+.lightbox-overlay.is-open {
+  display: flex;
+}
+
+/* Lightbox-Container */
+.lightbox-dialog {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  outline: none;
+}
+
+/* Bild in der Lightbox */
+.lightbox-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+}
+
+/* Close-Button */
+.lightbox-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  color: #111827;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.lightbox-close:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Optional: Cursor-Hinweis */
+.img-rounded-shadow {
+  cursor: zoom-in;
+}
+
+    </style>
   </head>
   <body>
     <main class="wrapper" role="main">
@@ -15,7 +78,7 @@
           <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
           <div class="nav-title">
             <h6>Die Abenteuer von KIM & TIM</h6>
-            <h4>Kap. III – Guardians of the TI</h4>
+            <h4>Kapt. III – Guardians of the TI</h4>
           </div>
         </div>
         <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -28,33 +91,44 @@
         <div class="card-body">
           <h3>Was ist das?</h3>
           <p>
-            In der ePA für alle sind relevante Daten gebündelt und direkt im Versorgungsalltag nutzbar. Im Behandlungskontext ist ein Zugriff auch ohne erneute Freigabe möglich – sofern kein Widerspruch vorliegt.
+            In der <b>elektronischen Patientenakte (ePA) „für alle“</b> werden medizinisch relevante Informationen strukturiert gebündelt – von Befunden und Medikation bis hin zu Entlassbriefen. Dadurch sind die Daten im Versorgungsalltag unmittelbar verfügbar und können gezielt in Entscheidungen einfließen. 
           </p>
+          <p>
+            Im Behandlungskontext ist der Zugriff für beteiligte Leistungserbringer ohne erneute Freigabe zulässig, sofern kein dokumentierter Widerspruch vorliegt. Das entlastet Prozesse, verhindert Medienbrüche und verbessert die Kontinuität der Versorgung.
+          </p>
+          <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;overflow:hidden;border-radius:8px;">
+          <iframe
+            src="https://www.youtube.com/embed/bsk7xptDwHM?si=QotB0tvzyPmvMyBO"
+            title="YouTube video player"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
           <hr>
           <h3>eML - elektronische Medikationsliste</h3>
           <p>
-            Die elektronische Medikationsliste (eML) stellt eine strukturierte Übersicht über Verordnungs- und Ausgabedaten aus dem E-Rezept-Fachdienst bereit.
+            Die <b>elektronische Medikationsliste (eML)</b> stellt eine strukturierte Übersicht über Verordnungs- und Ausgabedaten aus dem E-Rezept-Fachdienst bereit. 
           </p>
+          <figure>
+            <img id="emlImage" class="img-rounded-shadow" src="./img/eml.png" alt="Elektronische Medikationsliste" style="cursor: zoom-in;">
+            <figcaption class="visually-hidden">Zur Vergrößerung klicken</figcaption>
+          </figure>
+          <br>
           <hr>
           <h3>FHIR</h3>
           <p>
-            FHIR steht für "Fast Healthcare Interoperability Resources" und ist ein Standard für den Austausch von Gesundheitsinformationen. FHIR wurde entwickelt, um die Interoperabilität zwischen verschiedenen Gesundheitssystemen zu verbessern und den Austausch von Daten zu erleichtern. <br>
+            <b>FHIR</b> steht für "Fast Healthcare Interoperability Resources" und ist ein Standard für den Austausch von Gesundheitsinformationen. <b>FHIR</b> wurde entwickelt, um die Interoperabilität zwischen verschiedenen Gesundheitssystemen zu verbessern und den Austausch von Daten zu erleichtern.
+          </p>
+          <p>
             Es basiert auf modernen Web-Technologien wie RESTful APIs und verwendet standardisierte Datenformate wie JSON, XML und RDF.
           </p>
-          <div id="info_text">
-            <div class="info-row">
-              <figure>
-                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-              </figure>
-              <div class="info-box">
-                <p id="info_text_field" class="bottom_text">
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                </p>
-              </div>
-              <figure>
-                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-              </figure>
-            </div>
+          <figure>
+            <img class="img-rounded-shadow" src="./img/fhir.jpg" alt="">
+          </figure>
+          
           </div>
           <br>
         </div>
@@ -69,9 +143,17 @@
       <p>Verwende folgende Webseiten zur Unterstützung:</p>
       <ul>
         <li><a href="https://www.gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA für alle</a></li>
-        <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal ePA für alle</a></li>
+        <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal <b>ePA</b> für alle</a></li>
       </ul>
     </aside>
+
+    <div class="lightbox-overlay" id="lightboxOverlay" aria-modal="true" role="dialog" aria-label="Bildanzeige" hidden>
+      <div class="lightbox-dialog" tabindex="-1">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">&times;</button>
+      </div>
+    </div>
+
 
     <div class="flag-tiles" aria-hidden="true"></div>
 
@@ -81,6 +163,59 @@
       });
     </script>
     <script src="./js/help.js"></script>
-    <script src="./js/background.js"></script>
+
+    <script>
+(function() {
+  const trigger = document.getElementById('emlImage');
+  const overlay = document.getElementById('lightboxOverlay');
+  const dialog = overlay?.querySelector('.lightbox-dialog');
+  const img = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  if (!trigger || !overlay || !img || !closeBtn || !dialog) return;
+
+  let lastFocused = null;
+
+  function openLightbox() {
+    lastFocused = document.activeElement;
+    img.src = trigger.src;
+    img.alt = trigger.alt || 'Bild';
+    overlay.hidden = false;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    dialog.focus();
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('is-open');
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
+  }
+
+  // Öffnen per Klick
+  trigger.addEventListener('click', openLightbox);
+
+  // Schließen per Button
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // Schließen per Klick auf den dunklen Hintergrund
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      closeLightbox();
+    }
+  });
+
+  // Escape-Taste zum Schließen
+  document.addEventListener('keydown', function(e) {
+    if (overlay.classList.contains('is-open') && e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+})();
+</script>
+
   </body>
 </html>
