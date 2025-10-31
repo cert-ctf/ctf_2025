@@ -23,37 +23,72 @@
 
     <section class="card">
       <header class="card-header">
-        <p class="subtitle">TI-Messenger</p>
-        </p>
+          <h2>TI-Messenger</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h4>DAufgabe 4</h5>
+       
+        <h3>Deprecation Derby</h3>
         <p>
-          XXX
+          TIM hat ein sensibles Bild in einem Matrix Raum hochgeladen, nun will KIM versuchen die Informationen aus den Bildern zu stehlen. KIM weiß, dass es eine Weile her gewesen sein muss...
         </p>
-        <p>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-            irgend ein cooles bild
+        <p> 
+          Finde das Bild und rette die Welt!
+        </p>
+        <figure style="text-align: center;">
+            <img class="img-rounded-shadow"
+              src="./img/matrix_kimtim.png"
+              alt="KIM Nachrichtenversand"
+              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
+            >
           </figure>
-        </p>
+        
         <hr>
-        <p>
-          <h4>TI-Verzeichnis</h4>
-          Damit die Kommunikation im TI-Messenger funktioniert, müssen die Teilnehmer eindeutig identifiziert und gefunden werden können. Dafür gibt es ein spezielles Verzeichnis, in dem alle Kontakte der TI gepflegt werden.
-        </p>
+        <h3>Informationen zur Mission</h3>
+        <p>Du hast eine AttachmentID erhalten und Zugriff auf einen Dienst, der mehrere Endpoints nach Matrix-Spezifikation für den Mediendownload anbietet. <b>Deine Mission:</b> Finde den korrekten Download-Endpoint, hänge die AttachmentID an – und liefere das Bild beim WA-Flag Service ab.</p>
+        <p>Triffst du ins Schwarze, verifiziert der Dienst das Bild per Hash aus. Einfach? Fast. Du musst die richtige Route wählen.</p>
+       
+       <p>
+        <pre>
+Servername/FQDN: (WA-Flag service FQDN)
+MediaID: 83b9eb79-eeca-4975-b520-466665af3a58
+        </pre>
+       </p>
+       <p>
+        TI-Messenger Endpunkte für Medien: 
+        <ul>
+          <li>
+        <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/#A_26262" target="_blank" rel="noopener noreferrer">gemSpec A26262</a>
+        </li>
+        </ul>
+       </p>
         <hr>
-      </div>
+              <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="MD 5 Hash" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
 
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Wir suchen hier den Namen des zentralen Dienstes, in dem die TI-Kontakte hinterlegt.<br>
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
+
+       <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Die Antwort ist der <code>MD5 Hash</code> des Bildes
             </p>
           </div>
           <figure>
@@ -74,16 +109,23 @@
     <h3>Weitere Infos</h3>
     <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
-      <li><a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Die Telematikinfrastruktur</a></li>
-      <li><a href="wa-tim-03.html" rel="noopener noreferrer">Aufgabe 3</a></li>
-      <li><a href="wa-tim-05.html" rel="noopener noreferrer">Aufgabe 5</a></li>
+      <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/#A_26262" target="_blank" rel="noopener">gemSpec_TI-M_Basis</a></li>
+      <li><a href="https://spec.matrix.org/v1.11/client-server-api/#get_matrixmediav3downloadservernamemediaid" target="_blank" rel="noopener">Deprecated API Info</a></li>
     </ul>
-    <em>Tipp:</em> Schau dir einmal die Komponenten der <a href="https://www.gematik.de/telematikinfrastruktur" target="_blank" rel="noopener">Telematikinfrastruktur</a> an.
+    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
-
+  <script>
+      const url = "tim/wa-4"
+      const nextQuestionURL = "wa-tim-05.html"
+      const localStorageKey = "tim-wa-4"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+
+</body>
+</html>
 </body>
 </html>

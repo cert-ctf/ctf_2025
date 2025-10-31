@@ -1,0 +1,645 @@
+{
+    "resourceType": "Bundle",
+    "id": "example-get-medication-list-bundle1",
+    "identifier": {
+        "value": "urn:uuid:9e1f5895-ab0b-4237-856d-fa1065631400",
+        "system": "urn:ietf:rfc:3986"
+    },
+    "timestamp": "2025-11-14T00:00:00Z",
+    "type": "searchset",
+    "total": 12,
+    "link": [
+        {
+            "relation": "self",
+            "url": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/?_query=medication-list&date=le2025-11-14&date=ge2025-01-01&_count=10"
+        },
+        {
+            "relation": "first",
+            "url": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/?_query=medication-list&date=le2025-11-14&date=ge2025-01-01&_count=10"
+        },
+        {
+            "relation": "next",
+            "url": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/?_query=medication-list&date=le2025-11-14&date=ge2025-01-01&_count=10&_offset=10"
+        },
+        {
+            "relation": "last",
+            "url": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/?_query=medication-list&date=le2025-11-14&date=ge2025-01-01&_count=10&_offset=10"
+        }
+    ],
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "8c2c989e-199a-4ca3-994c-e9ac9e69c7be",
+                "meta": {
+                    "profile": [
+                        "https://gematik.de/fhir/epa/StructureDefinition/epa-patient"
+                    ]
+                },
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Alf",
+                        "given": [
+                            "Gordon"
+                        ]
+                    }
+                ],
+                "identifier": [
+                    {
+                        "system": "http://fhir.de/sid/gkv/kvid-10",
+                        "value": "ALF19860728"
+                    }
+                ],
+                "active": true,
+                "gender": "male",
+                "birthDate": "1986-07-28"
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/Patient/8c2c989e-199a-4ca3-994c-e9ac9e69c7be"
+        },
+        {
+            "resource": {
+                "resourceType": "Organization",
+                "id": "151f1697-7512-4e21-9466-1b75207475d8",
+                "meta": {
+                    "tag": [
+                        {
+                            "system": "https://gematik.de/fhir/directory/CodeSystem/Origin",
+                            "code": "ldap"
+                        }
+                    ],
+                    "profile": [
+                        "https://gematik.de/fhir/directory/StructureDefinition/OrganizationDirectory"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://gematik.de/fhir/sid/telematik-id",
+                        "value": "9-2.58.00000113"
+                    }
+                ],
+                "active": true,
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "code": "1.2.276.0.76.4.54",
+                                "system": "https://gematik.de/fhir/directory/CodeSystem/OrganizationProfessionOID",
+                                "display": "Öffentliche Apotheke"
+                            }
+                        ]
+                    }
+                ],
+                "name": "Lindenhof Apotheke",
+                "alias": [
+                    "Apotheke am Lindenhof"
+                ],
+                "address": [
+                    {
+                        "text": "Lindenhof Apotheke\nLindenallee 42, \n10115 Berlin",
+                        "line": [
+                            "Lindenallee 42"
+                        ],
+                        "city": "Berlin",
+                        "district": "Mitte",
+                        "state": "Berlin",
+                        "postalCode": "10115",
+                        "country": "DE"
+                    }
+                ],
+                "contact": [
+                    {
+                        "purpose": {
+                            "coding": [
+                                {
+                                    "code": "ADMIN",
+                                    "system": "http://terminology.hl7.org/CodeSystem/contactentity-type"
+                                }
+                            ]
+                        },
+                        "name": {
+                            "text": "Apotheken Service"
+                        },
+                        "telecom": [
+                            {
+                                "system": "email",
+                                "value": "kontakt@lindenhof-apotheke.de"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/Organization/151f1697-7512-4e21-9466-1b75207475d8"
+        },
+        {
+            "resource": {
+                "resourceType": "Medication",
+                "id": "23764122-1964-4470-9b75-c112cb5a95d8",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2025-01-01T01:01:01.000+00:00",
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://gematik.de/fhir/epa-medication/sid/epa-medication-unique-identifier",
+                        "value": "A7F3C8E2D1B9F5A4E6C8D2F1A3B5E7C9D4F6A8B1C3E5D7F9A2B4C6E8D1F3A5B7"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.de/CodeSystem/ifa/pzn",
+                            "code": "01484678",
+                            "display": "Prednison 20 mg GALEN Tabletten"
+                        },
+                        {
+                            "system": "http://fhir.de/CodeSystem/bfarm/atc",
+                            "code": "H02AB07",
+                            "display": "Prednison",
+                            "version": "2022"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "116602009",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Product containing prednisone (medicinal product)"
+                        }
+                    ]
+                },
+                "form": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_KBV_DARREICHUNGSFORM",
+                            "code": "TAB",
+                            "display": "Tabletten",
+                            "version": "1.10"
+                        },
+                        {
+                            "system": "http://standardterms.edqm.eu",
+                            "code": "12200",
+                            "display": "Tablet"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "385055001",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Tablet (basic dose form)"
+                        }
+                    ]
+                },
+                "amount": {
+                    "numerator": {
+                        "value": 20,
+                        "code": "mg",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "MilliGram"
+                    },
+                    "denominator": {
+                        "value": 1,
+                        "code": "{Tablet}",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "Tablet"
+                    }
+                }
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/Medication/23764122-1964-4470-9b75-c112cb5a95d8"
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "id": "0c8c5bab-19e7-4549-86a6-5738a2c62087",
+                "meta": {
+                    "versionId": "4",
+                    "lastUpdated": "2025-11-14T00:00:00Z",
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication-statement"
+                    ]
+                },
+                "status": "active",
+                "medicationReference": {
+                    "reference": "urn:uuid:23764122-1964-4470-9b75-c112cb5a95d8"
+                },
+                "subject": {
+                    "identifier": {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "KVZ10",
+                                    "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
+                                    "display": "Krankenversichertennummer"
+                                }
+                            ]
+                        },
+                        "value": "ALF19860728",
+                        "system": "http://fhir.de/sid/gkv/kvid-10"
+                    }
+                },
+                "effectiveDateTime": "2025-10-02"
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/MedicationStatement/0c8c5bab-19e7-4549-86a6-5738a2c62087"
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "7c2e81bc-dafa-44ff-8d82-f435937b1eec",
+                "meta": {
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication-request"
+                    ]
+                },
+                "dispenseRequest": {
+                    "quantity": {
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{Package}",
+                        "value": 1
+                    }
+                },
+                "extension": [
+                    {
+                        "extension": [
+                            {
+                                "url": "indicator",
+                                "valueBoolean": false
+                            }
+                        ],
+                        "url": "https://gematik.de/fhir/epa-medication/StructureDefinition/multiple-prescription-extension"
+                    },
+                    {
+                        "url": "https://gematik.de/fhir/epa-medication/StructureDefinition/medication-request-linked-statement-extension",
+                        "valueReference": {
+                            "reference": "urn:uuid:fdb213d9-cd2b-4450-beff-9b88f3fe5475"
+                        }
+                    }
+                ],
+                "status": "completed",
+                "intent": "order",
+                "medicationReference": {
+                    "reference": "urn:uuid:3d994488-c629-44e6-9571-85ec2dec58de"
+                },
+                "subject": {
+                    "identifier": {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "KVZ10",
+                                    "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
+                                    "display": "Krankenversichertennummer"
+                                }
+                            ]
+                        },
+                        "value": "ALF19860728",
+                        "system": "http://fhir.de/sid/gkv/kvid-10"
+                    }
+                },
+                "authoredOn": "2025-10-02",
+                "dosageInstruction": [
+                    {
+                        "text": "1-0-1-0"
+                    }
+                ],
+                "substitution": {
+                    "allowedBoolean": false
+                }
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/MedicationRequest/7c2e81bc-dafa-44ff-8d82-f435937b1eec"
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationDispense",
+                "id": "346b564c-7e93-4082-b59c-fc471273cbea",
+                "meta": {
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication-dispense"
+                    ]
+                },
+                "status": "completed",
+                "category": {
+                    "coding": [
+                        {
+                            "code": "prescription",
+                            "system": "https://gematik.de/fhir/terminology/CodeSystem/EPAMedicationDispenseCategoryCS",
+                            "display": "prescription dispense"
+                        }
+                    ]
+                },
+                "medicationReference": {
+                    "reference": "urn:uuid:3d994488-c629-44e6-9571-85ec2dec58de"
+                },
+                "subject": {
+                    "identifier": {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "KVZ10",
+                                    "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
+                                    "display": "Krankenversichertennummer"
+                                }
+                            ]
+                        },
+                        "value": "ALF19860728",
+                        "system": "http://fhir.de/sid/gkv/kvid-10"
+                    }
+                },
+                "whenHandedOver": "2025-10-02",
+                "performer": [
+                    {
+                        "actor": {
+                            "reference": "urn:uuid:151f1697-7512-4e21-9466-1b75207475d8"
+                        }
+                    }
+                ],
+                "dosageInstruction": [
+                    {
+                        "text": "1-0-1-0"
+                    }
+                ],
+                "substitution": {
+                    "wasSubstituted": false
+                }
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/MedicationDispense/346b564c-7e93-4082-b59c-fc471273cbea"
+        },
+        {
+            "resource": {
+                "resourceType": "Medication",
+                "id": "3d994488-c629-44e6-9571-85ec2dec58de",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2025-01-01T01:01:01.000+00:00",
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://gematik.de/fhir/epa-medication/sid/epa-medication-unique-identifier",
+                        "value": "A7F3C8E2D1B9F5A4E6C8D2F1A3B5E7C9D4F6A8B1C3E5D7F9A2B4C6E8D1F3A5B7"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.de/CodeSystem/ifa/pzn",
+                            "code": "01484678",
+                            "display": "Prednison 20 mg GALEN Tabletten"
+                        },
+                        {
+                            "system": "http://fhir.de/CodeSystem/bfarm/atc",
+                            "code": "H02AB07",
+                            "display": "Prednison",
+                            "version": "2022"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "116602009",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Product containing prednisone (medicinal product)"
+                        }
+                    ]
+                },
+                "form": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_KBV_DARREICHUNGSFORM",
+                            "code": "TAB",
+                            "display": "Tabletten",
+                            "version": "1.10"
+                        },
+                        {
+                            "system": "http://standardterms.edqm.eu",
+                            "code": "12200",
+                            "display": "Tablet"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "385055001",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Tablet (basic dose form)"
+                        }
+                    ]
+                },
+                "amount": {
+                    "numerator": {
+                        "value": 20,
+                        "code": "mg",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "MilliGram"
+                    },
+                    "denominator": {
+                        "value": 1,
+                        "code": "{Tablet}",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "Tablet"
+                    }
+                }
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/Medication/3d994488-c629-44e6-9571-85ec2dec58de"
+        },
+        {
+            "resource": {
+                "resourceType": "Medication",
+                "id": "dbc5f76f-d3d3-4137-9f83-f500286408fe",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2025-01-01T01:01:01.000+00:00",
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication"
+                    ]
+                },
+                "identifier": [
+                    {
+                        "system": "https://gematik.de/fhir/epa-medication/sid/epa-medication-unique-identifier",
+                        "value": "C9E5A7B3F1D8E6A4C2B9F7E5D3A1C8B6F4E2D9A7C5B3F1E8D6A4C2B9F7E5D3A1"
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://fhir.de/CodeSystem/ifa/pzn",
+                            "code": "01001303",
+                            "display": "Theophyllin retard-ratiopharm 375 mg Retardkapseln"
+                        },
+                        {
+                            "system": "http://fhir.de/CodeSystem/bfarm/atc",
+                            "code": "R03DA04",
+                            "display": "Theophyllin",
+                            "version": "2022"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "66493003",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Product containing theophylline (medicinal product)"
+                        }
+                    ]
+                },
+                "form": {
+                    "coding": [
+                        {
+                            "system": "https://fhir.kbv.de/CodeSystem/KBV_CS_SFHIR_KBV_DARREICHUNGSFORM",
+                            "code": "RET",
+                            "display": "Retardkapseln",
+                            "version": "1.10"
+                        },
+                        {
+                            "system": "http://standardterms.edqm.eu",
+                            "code": "10212",
+                            "display": "Prolonged-release capsule, hard"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "385049006",
+                            "version": "http://snomed.info/sct/11000274103/version/20240515",
+                            "display": "Capsule (basic dose form)"
+                        }
+                    ]
+                },
+                "amount": {
+                    "numerator": {
+                        "value": 100,
+                        "code": "{Capsule}",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "Capsule"
+                    },
+                    "denominator": {
+                        "value": 1,
+                        "code": "{Package}",
+                        "system": "http://unitsofmeasure.org",
+                        "unit": "Package"
+                    }
+                },
+                "ingredient": [
+                    {
+                        "itemCodeableConcept": {
+                            "coding": [
+                                {
+                                    "code": "66493003",
+                                    "system": "http://snomed.info/sct",
+                                    "version": "http://snomed.info/sct/11000274103/version/20240515",
+                                    "display": "Theophylline (substance)"
+                                }
+                            ]
+                        },
+                        "strength": {
+                            "numerator": {
+                                "value": 375,
+                                "code": "mg",
+                                "system": "http://unitsofmeasure.org",
+                                "unit": "MilliGram"
+                            },
+                            "denominator": {
+                                "value": 1,
+                                "code": "{Capsule}",
+                                "system": "http://unitsofmeasure.org",
+                                "unit": "Capsule"
+                            }
+                        }
+                    }
+                ]
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/Medication/dbc5f76f-d3d3-4137-9f83-f500286408fe"
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationStatement",
+                "id": "f4a5c85f-30f3-474e-9ed5-9464be6f37f8",
+                "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2025-11-13T00:00:00Z",
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication-statement"
+                    ]
+                },
+                "status": "active",
+                "medicationReference": {
+                    "reference": "urn:uuid:dbc5f76f-d3d3-4137-9f83-f500286408fe"
+                },
+                "subject": {
+                    "identifier": {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "KVZ10",
+                                    "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
+                                    "display": "Krankenversichertennummer"
+                                }
+                            ]
+                        },
+                        "value": "ALF19860728",
+                        "system": "http://fhir.de/sid/gkv/kvid-10"
+                    }
+                },
+                "effectiveDateTime": "2025-01-01"
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/MedicationStatement/f4a5c85f-30f3-474e-9ed5-9464be6f37f8"
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "759afdce-4f99-44f7-963b-45fbefcfe194",
+                "meta": {
+                    "profile": [
+                        "https://gematik.de/fhir/epa-medication/StructureDefinition/epa-medication-request"
+                    ]
+                },
+                "dispenseRequest": {
+                    "quantity": {
+                        "system": "http://unitsofmeasure.org",
+                        "code": "{Package}",
+                        "value": 1
+                    }
+                },
+                "extension": [
+                    {
+                        "extension": [
+                            {
+                                "url": "indicator",
+                                "valueBoolean": false
+                            }
+                        ],
+                        "url": "https://gematik.de/fhir/epa-medication/StructureDefinition/multiple-prescription-extension"
+                    },
+                    {
+                        "url": "https://gematik.de/fhir/epa-medication/StructureDefinition/medication-request-linked-statement-extension",
+                        "valueReference": {
+                            "reference": "urn:uuid:56ff3154-5890-47c9-af94-f21efe2c4ef2"
+                        }
+                    }
+                ],
+                "status": "completed",
+                "intent": "order",
+                "medicationReference": {
+                    "reference": "urn:uuid:93dce248-91c5-49c7-870b-6d64e6df346f"
+                },
+                "subject": {
+                    "identifier": {
+                        "type": {
+                            "coding": [
+                                {
+                                    "code": "KVZ10",
+                                    "system": "http://fhir.de/CodeSystem/identifier-type-de-basis",
+                                    "display": "Krankenversichertennummer"
+                                }
+                            ]
+                        },
+                        "value": "ALF19860728",
+                        "system": "http://fhir.de/sid/gkv/kvid-10"
+                    }
+                },
+                "authoredOn": "2025-11-14",
+                "dosageInstruction": [
+                    {
+                        "text": "1-0-1-0"
+                    }
+                ],
+                "substitution": {
+                    "allowedBoolean": true
+                }
+            },
+            "fullUrl": "https://epa-as-0.prod.epa4all.de/vau-cid-1234/epa/medication/api/v1/fhir/MedicationRequest/759afdce-4f99-44f7-963b-45fbefcfe194"
+        }
+    ]
+}

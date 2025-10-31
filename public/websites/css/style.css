@@ -226,3 +226,344 @@ pre code {
   overflow: hidden; clip: rect(0,0,0,0);
   white-space: nowrap; border: 0;
 }
+
+
+
+
+/* ========== Form Grundlayout ========== */
+.fx-form {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0 6px;
+}
+
+.fx-label {
+  font-weight: 700;
+  letter-spacing: .02em;
+  opacity: .92;
+}
+
+/* Input + Button nebeneinander, perfekt ausgerichtet */
+.fx-input-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center; /* vertikal zentriert */
+}
+
+/* ========== Input (hell) ========== */
+.fx-input {
+  width: 100%;
+  padding: 12px 14px;
+  height: 44px;               /* gemeinsame Höhe mit Button */
+  line-height: 1;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: #ffffff;        /* helles Feld */
+  color: #0b0f1f;             /* dunkler Text */
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease, transform .08s ease;
+  caret-color: #0b0f1f;
+}
+.fx-input::placeholder { color: rgba(0,0,0,0.5); }
+.fx-input:focus {
+  border-color: rgba(120,180,255,.65);
+  box-shadow: 0 0 0 3px rgba(120,180,255,.18);
+  background: #ffffff;
+  transform: none; /* verhindert optisches Springen */
+}
+
+/* ========== Submit-Button mit Glow ========== */
+.fx-btn {
+  position: relative;
+  padding: 12px 18px;
+  height: 44px;               /* gemeinsame Höhe mit Input */
+  line-height: 1;
+  border-radius: 12px;
+  border: 0;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: .06em;
+  color: #0b0f1f;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+  overflow: hidden;
+
+  display: inline-flex;       /* Inhalt zentrieren */
+  align-items: center;
+  justify-content: center;
+}
+.fx-btn:hover { transform: translateY(-1px); }
+.fx-btn:active { transform: translateY(0); filter: brightness(.96); }
+
+.fx-btn-label { position: relative; z-index: 2; }
+.fx-btn-glow {
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(120px 60px at var(--mx,50%) var(--my,50%), rgba(120,180,255,.25), rgba(120,180,255,0));
+  z-index: 1;
+  pointer-events: none;
+  transition: background-position .06s ease;
+}
+
+/* ========== Fehlermeldung ========== */
+.fx-error {
+  min-height: 18px;
+  color: #ff5a87;
+  font-size: 0.92rem;
+}
+
+/* ========== Erfolgsausgabe ========== */
+.fx-success {
+  display: grid;
+  gap: 12px;
+  margin-top: 1px;
+  padding: 1px;
+  border-radius: 14px;
+  border: 1px solid rgba(34,209,161,.45);
+  background: linear-gradient(180deg, rgba(34,209,161,.10), rgba(34,209,161,.06));
+  text-align: center;
+}
+.fx-response {
+  color: #201e4b;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
+  word-break: break-word;
+}
+
+/* ========== Next-Button (pulsierend, cooler Reveal + Icon) ========== */
+.fx-next {
+  justify-self: start;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 900;
+  letter-spacing: .06em;
+  color: #0b0f1f;
+  background: #22d1a1;
+  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  transition: transform .12s ease, filter .12s ease, opacity .25s ease, translate .25s ease;
+  animation: fxPulse 1.3s ease-in-out infinite;
+
+  /* sanfter Reveal-Startzustand */
+  opacity: 0;
+  translate: 0 6px;
+}
+
+/* sichtbarer Zustand nach Erfolg */
+.fx-next.fx-next--visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Icon-Micro-Interaction (Span im Button mit Klasse .fx-next-icon) */
+.fx-next .fx-next-icon {
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform .12s ease;
+}
+.fx-next:hover .fx-next-icon {
+  transform: translateX(2px) rotate(1deg);
+}
+
+/* Hover/Active bleiben gleich */
+.fx-next:hover { transform: translateY(-1px); }
+.fx-next:active { transform: translateY(0); filter: brightness(.96); }
+
+/* Tastaturfokus deutlich (Barrierefreiheit) */
+.fx-next:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34,209,161,.35), 0 10px 22px rgba(0,0,0,.35);
+}
+
+@keyframes fxPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,209,161,.45); }
+  70%  { box-shadow: 0 0 0 12px rgba(34,209,161,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,209,161,0); }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 520px) {
+  .fx-input-wrap { grid-template-columns: 1fr; }
+  .fx-btn { width: 100%; }
+  .fx-next { width: 100%; justify-self: stretch; text-align: center; }
+}
+
+/* Sanfter Reveal (Startzustand ist unsichtbar) bleibt wie in deinem CSS:
+   .fx-next { opacity: 0; translate: 0 6px; }
+   .fx-next.fx-next--visible { opacity: 1; translate: 0 0; }
+*/
+
+/* Icon im Next-Button + Micro-Interaction */
+.fx-next .fx-next-icon {
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform .12s ease;
+}
+.fx-next:hover .fx-next-icon {
+  transform: translateX(2px) rotate(1deg);
+}
+
+/* Optional: Tastaturfokus deutlicher (falls noch nicht vorhanden) */
+.fx-next:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34,209,161,.35), 0 10px 22px rgba(0,0,0,.35);
+}
+
+/* Fehlerzustand für das Eingabefeld */
+.fx-input.fx-input--error {
+  border-color: rgba(255, 90, 135, 0.9);
+  box-shadow: 0 0 0 3px rgba(255, 90, 135, 0.25);
+  background: #fff5f7;
+}
+
+/* Optional: sanfte Animation beim Fehler-Effekt */
+@keyframes fxInputErrorPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35); }
+  70%  { box-shadow: 0 0 0 6px rgba(255, 90, 135, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0); }
+}
+.fx-input.fx-input--error {
+  animation: fxInputErrorPulse 1.2s ease-out 1;
+}
+
+/* Erfolgszustand für das Eingabefeld (grün) */
+.fx-input.fx-input--success {
+  border-color: rgba(34, 209, 161, 0.9);
+  box-shadow: 0 0 0 3px rgba(34, 209, 161, 0.25);
+  background: #f3fffb;
+  color: #0b0f1f;
+}
+
+/* Fehlerzustand (rot) – wie zuvor */
+.fx-input.fx-input--error {
+  border-color: rgba(255, 90, 135, 0.9);
+  box-shadow: 0 0 0 3px rgba(255, 90, 135, 0.25);
+  background: #fff5f7;
+  animation: fxInputErrorPulse 1.2s ease-out 1;
+}
+@keyframes fxInputErrorPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35); }
+  70%  { box-shadow: 0 0 0 6px rgba(255, 90, 135, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0); }
+}
+
+/* Submit-Button wird zu Next-Button (grüner Style) */
+.fx-btn.fx-btn--next {
+  background: #22d1a1;
+  color: #0b0f1f;
+  letter-spacing: .06em;
+  font-weight: 900;
+  /* leichter „Pulse“ wie dein .fx-next, aber dezent */
+  animation: fxPulse 1.3s ease-in-out infinite;
+}
+
+/* Optional: Wenn du den Glow behalten willst, kann er bleiben.
+   Für Next-Style ist Glow weniger wichtig – du kannst ihn ausblenden: */
+.fx-btn.fx-btn--next .fx-btn-glow {
+  display: none;
+}
+
+/* Optional: Icon im Button, wenn du möchtest */
+.fx-btn.fx-btn--next .fx-next-icon {
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform .12s ease;
+}
+.fx-btn.fx-btn--next:hover .fx-next-icon {
+  transform: translateX(2px) rotate(1deg);
+}
+
+/* Box rechts ausgerichtet */
+.fx-rightbox {
+  display: block;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(34,209,161,.45);
+  background: linear-gradient(180deg, rgba(34,209,161,.10), rgba(34,209,161,.06));
+}
+
+/* Zeile: Text links, Button rechts */
+.fx-rightbox-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Token-Text in Navy-Blau */
+.token-text {
+  color: navy;              /* Navy-Blau */
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.token-hint {
+  font-style: italic;
+  font-weight: 300;        /* dünn */
+  opacity: 0.85;           /* etwas dezenter */
+  letter-spacing: .01em;   /* ruhiger Satz */
+}
+
+/* Mobile: untereinander */
+@media (max-width: 520px) {
+  .fx-rightbox-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+
+/* Pulse-Keyframes nutzt du bereits für .fx-next – hier wiederverwendet */
+@keyframes fxPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,209,161,.45); }
+  70%  { box-shadow: 0 0 0 12px rgba(34,209,161,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,209,161,0); }
+}
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+  background: transparent;
+}
+
+.video-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 */
+        margin: 1rem 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #000;
+      }
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.img-rounded-shadow {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;          /* Eckenradius anpassen (z. B. 8px, 16px) */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* weicher Schatten */
+}
+
+
+

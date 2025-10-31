@@ -30,24 +30,45 @@
       <div class="card-body">
           <h3>Flow was</h3>
         <p>
-          Wie war noch einem der E-Rezept Typ (FlowState), der angeben werden muss damit der Richtige Workflow für ein "Apothekenpflichtige Arzneimittel" durchlaufen wird?
+          
+          Wie war noch einem der E-Rezept Typ (FlowState), <br> 
+          der angeben werden muss damit der Richtige Workflow für ein  <b> "Apothekenpflichtige Arzneimittel"</b> durchlaufen wird?
+          
         </p>
         <hr>
-        <h3>Der schlaue Willy hat noch einen Hinweis für dich</h3>
+        <h3>E-Rezept ID</h3>
 
         <p>Aufbau der E‑Rezept‑ID:
           <code>aaa.bbb.bbb.bbb.bbb.cc</code>
         </p>
 
         <ul>
-          <li><strong>aaa</strong> — E‑Rezept‑Typ</li>
+          <li><strong>aaa</strong> — E‑Rezept‑Typ/FlowState</li>
           <li><strong>bbb.bbb.bbb.bbb</strong> — fortlaufende Rezeptnummer</li>
           <li><strong>cc</strong> — Prüfziffer</li>
         </ul>
-        <a href="https://simplifier.net/erezept-workflow" target="_blank" rel="noopener noreferrer">eRezept Workflow definitonen</a>
+        <ul>
+          <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener noreferrer">eRezept FlowTypes definition</a></li>
+        </ul>
         <hr>
-        </div>
 
+               <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="150" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
       <div id="info_text">
         <div class="info-row">
           <figure>
@@ -93,6 +114,13 @@
       // Add stuff here
     });
   </script>
+  <script>
+      const url = "erx/wa-2"
+      const nextQuestionURL = "wa-erx-03.html"
+      const localStorageKey = "erx-wa-2"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
 </body>

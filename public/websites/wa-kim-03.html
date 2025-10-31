@@ -34,25 +34,48 @@
           <p>
             Frau Dr. Müller möchte ein E-Rezept zu einer Apotheke verschicken, doch die Nachricht geht
             einfach nicht durch! <br />
-            Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei.
+            Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei. Tatsächlich sieht die Nachricht etwas seltsam aus, schau im Fachportal nach und prüfe, woran es liegt.
             </p>
             <p>
             Welche Dienstkennung hätte sie eintragen müssen?
           </p>
+          <ul>
+            <li>
+              <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener noreferrer">
+                Dienstkennungen
+              </a>
+            </li>
+          </ul>
           <hr />
           <h3>Dienstkennungen</h3>
           <p>
             Dienstkennungen helfen dem empfangenden System dabei, KIM Nachrichten richtig zuzuordnen und automatisch
             weiterzuverarbeiten.
           </p>
-          <p>
-            Du erinnerst dich daran das du dazu schon einmal etwas im Fachportal der gematik gelesen hast?
+          <p>Sie werden im Header <code>X-KIM-Dienstkennung</code> definiert.
           </p>
           <p>
-            <a href="https://fachportal.gematik.de/" target="_blank" rel="noopener noreferrer">Fachportal der gematik</a>
+            Hast du dazu nicht schon einmal im Fachportal der gematik etwas gelesen?
           </p>
           <hr />
-        </div>
+
+          <div>
+              <form id="solutionForm" class="fx-form">
+                <label for="solution" class="fx-label">Lösung</label>
+                <div class="fx-input-wrap">
+                  <input type="text" id="solution" name="solution" placeholder="Dienstkennung" required class="fx-input">
+                  <button type="submit" class="fx-btn">
+                    <span class="fx-btn-label">Submit</span>
+                    <span class="fx-btn-glow"></span>
+                  </button>
+                </div>
+                <div id="error-message" class="fx-error" aria-live="polite"></div>
+              </form>
+
+              <div id="success-message" class="fx-success" style="display:none;">
+                <div id="api-response" class="fx-response" aria-live="polite"></div>
+              </div>           
+            </div>
 
         <div id="info_text">
           <div class="info-row">
@@ -62,9 +85,9 @@
 
             <div class="info-box">
               <p id="info_text_field" class="bottom_text">
-                Gesucht wird die richtige Dienstkennung für dieses eRezept. <br />
+                Gesucht wird die richtige Dienstkennung für ein <b>E-Rezept</b>. <br />
                 Anhang:
-                <a href="./files/zuweisung.eml" target="_blank" rel="noopener noreferrer">zuweisung.eml</a>
+                <a href="./files/KIM.wa.3/zuweisung.txt" target="_blank" rel="noopener noreferrer">zuweisung.txt</a>
               </p>
             </div>
 
@@ -102,7 +125,18 @@
 
     <div class="flag-tiles" aria-hidden="true"></div>
 
-    <script src="./js/help.js"></script>
-    <script src="./js/background.js"></script>
+    <script>
+      const url = "kim/wa-3"
+      const nextQuestionURL = "wa-kim-04.html"
+      const localStorageKey = "kim-wa-3"
+    </script>
+     <script src="./js/flagServiceBaseVariable.js"></script>
+    <script src="./js/flagServiceSimple.js"></script>
+    <script src="./js/flagServiceHelper.js"></script>
+    <script src="./js/help.js"></script>    
+
+    <script>
+      initFlagUI();
+    </script> 
   </body>
 </html>

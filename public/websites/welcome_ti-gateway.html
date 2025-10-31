@@ -458,6 +458,22 @@
               width:16px; height:16px; display:inline-block;
               background: currentColor; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>') no-repeat center / contain;
             }
+
+            /* Ready-Indicator für MEGAZORD-Button */
+            #checkBtn.ready {
+              border-color: rgba(34,209,161,.65);
+              background: linear-gradient(180deg, rgba(34,209,161,.15), rgba(34,209,161,.08));
+              color: #d7ffe8;
+              box-shadow: 0 0 18px rgba(34,209,161,.35);
+              animation: readyPulse 1600ms ease-in-out infinite;
+            }
+
+            @keyframes readyPulse {
+              0%   { box-shadow: 0 0 12px rgba(34,209,161,.30); transform: translateY(0); }
+              50%  { box-shadow: 0 0 24px rgba(34,209,161,.45); transform: translateY(-1px); }
+              100% { box-shadow: 0 0 12px rgba(34,209,161,.30); transform: translateY(0); }
+            }
+
           </style>
 
           <div class="morph-scope">
@@ -571,307 +587,11 @@
             </section>
           </div>
 
-          <script>
-            // Alle Codes = 1234
-            const CODES = { erx:'1234', epa:'1234', kim:'1234', tim:'1234' };
+          <script src="./js/flagServiceBaseVariable.js"></script>
+          <script src="./js/megazord.js"></script>
+          <script src="./js/fireworks.js"></script>
 
-            const consoleEl   = document.getElementById('console');
-            const cards       = [...consoleEl.querySelectorAll('.ranger-card')];
-            const checkBtn    = document.getElementById('checkBtn');
-            const flagBox     = document.getElementById('flagBox');
-            const flagValue   = document.getElementById('flagValue');
-            const copyBtn     = document.getElementById('copyBtn');
-
-            const centerLock  = document.getElementById('centerLock');
-            const lockGlyph   = document.getElementById('lockGlyph');
-
-            // Audios
-            const morphAudio   = document.getElementById('morphAudio');
-            const levelUpAudio = document.getElementById('levelUpAudio');
-            const errorAudio   = document.getElementById('errorAudio');
-
-            // Optional: Lautstärke feinjustieren
-            levelUpAudio.volume = 0.9;
-            errorAudio.volume   = 0.85;
-
-            function setEnergy(card, pct){
-              const energy = card.querySelector('.energy');
-              const fill   = card.querySelector('.fill');
-              if (pct > 0) energy.classList.add('active'); else energy.classList.remove('active');
-              fill.style.width = Math.max(0, Math.min(100, pct)) + '%';
-            }
-
-            function setStatusLabel(card, state){
-              const label = card.querySelector('.status');
-              label.classList.remove('ok','err','empty');
-              if (state === 'ok'){ label.textContent = 'Korrekt'; label.classList.add('ok'); }
-              else if (state === 'err'){ label.textContent = 'Falsch'; label.classList.add('err'); }
-              else { label.textContent = '—'; label.classList.add('empty'); }
-            }
-
-            // Morph-Button Logik
-            cards.forEach(card=>{
-              const id    = card.dataset.id;
-              const input = card.querySelector('.code');
-              const btn   = card.querySelector('.morph-btn');
-
-              input.addEventListener('input', ()=>{
-                setEnergy(card, 0);
-                setStatusLabel(card, 'empty');
-                card.dataset.active = '0';
-
-                // UI zurücknehmen, falls Sequenz lief
-                consoleEl.classList.remove('focus-blur');
-                centerLock.classList.remove('visible','closed');
-                lockGlyph.textContent = '🔓';
-                Object.values(wedges).forEach(w => w.classList.remove('visible'));
-
-                // Flag ausblenden, Button zurück
-                flagBox.style.display = 'none';
-                checkBtn.style.display = 'inline-block';
-
-                // Optional: Feuerwerk stoppen, falls du Reset willst
-                // stopFireworks();
-              });
-
-              function morph(){
-                const val = (input.value || '').trim();
-                const ok  = val === (CODES[id]||'');
-
-                btn.classList.remove('pulse-ok','pulse-err'); void btn.offsetWidth;
-                btn.classList.add(ok ? 'pulse-ok' : 'pulse-err');
-
-                if(ok){
-                  setEnergy(card, 100);
-                  setStatusLabel(card, 'ok');
-                  card.dataset.active = '1';
-
-                  // Erfolgssound für richtigen Code
-                  try { levelUpAudio.currentTime = 0; levelUpAudio.play().catch(()=>{}); } catch(e){}
-                }else{
-                  setEnergy(card, 0);
-                  setStatusLabel(card, 'err');
-                  card.dataset.active = '0';
-
-                  // Fehlersound für falschen Code
-                  try { errorAudio.currentTime = 0; errorAudio.play().catch(()=>{}); } catch(e){}
-                }
-              }
-
-              btn.addEventListener('click', morph);
-              input.addEventListener('keydown', e=>{
-                if(e.key === 'Enter'){ e.preventDefault(); morph(); }
-              });
-            });
-
-            function allOk(){ return cards.every(c => c.dataset.active === '1'); }
-
-            // SVG Helpers
-            function polar(cx, cy, r, ang){ return { x: cx + r*Math.cos(ang), y: cy + r*Math.sin(ang) }; }
-            function wedgePath(cx, cy, r, startDeg, endDeg){
-              const a0 = (startDeg-90) * Math.PI/180; // 0° oben
-              const a1 = (endDeg-90)   * Math.PI/180;
-              const p0 = polar(cx, cy, r, a0);
-              const p1 = polar(cx, cy, r, a1);
-              const largeArc = (endDeg - startDeg) > 180 ? 1 : 0;
-              return `M ${cx} ${cy} L ${p0.x} ${p0.y} A ${r} ${r} 0 ${largeArc} 1 ${p1.x} ${p1.y} Z`;
-            }
-
-            const wedges = {
-              erx: document.getElementById('w-erx'), // 0-90
-              epa: document.getElementById('w-epa'), // 90-180
-              kim: document.getElementById('w-kim'), // 180-270
-              tim: document.getElementById('w-tim'), // 270-360
-            };
-
-            function buildWedges(){
-              const cx=100, cy=100, r=80;
-              wedges.erx.setAttribute('d', wedgePath(cx,cy,r,   0,  90));
-              wedges.epa.setAttribute('d', wedgePath(cx,cy,r,  90, 180));
-              wedges.kim.setAttribute('d', wedgePath(cx,cy,r, 180, 270));
-              wedges.tim.setAttribute('d', wedgePath(cx,cy,r, 270, 360));
-            }
-            buildWedges();
-
-            function runSequence(){
-              // Fokus auf Schloss
-              consoleEl.classList.add('focus-blur');
-              centerLock.classList.add('visible');
-
-              const order = [wedges.erx, wedges.epa, wedges.kim, wedges.tim];
-              order.forEach((w,i)=> setTimeout(()=> w.classList.add('visible'), i*160));
-
-              const totalDelay = 160*order.length + 300;
-              setTimeout(()=>{
-                centerLock.classList.add('closed');
-                lockGlyph.textContent = '🔒';
-                // Finale Sound abspielen
-                try { morphAudio.currentTime = 0; morphAudio.play().catch(()=>{}); } catch(e){}
-
-                // Button aus, Flag zentriert anzeigen
-                checkBtn.style.display = 'none';
-                flagBox.style.display = 'inline-flex';
-
-                // >>> Feuerwerk starten (endlos) <<<
-                startFireworks();
-              }, totalDelay);
-            }
-
-            checkBtn.addEventListener('click', ()=>{
-              if(allOk()){
-                checkBtn.classList.remove('pulse-ok'); void checkBtn.offsetWidth;
-                checkBtn.classList.add('pulse-ok');
-                runSequence();
-              }else{
-                checkBtn.classList.remove('pulse-err'); void checkBtn.offsetWidth;
-                checkBtn.classList.add('pulse-err');
-
-                // Fehlersound beim fehlgeschlagenen Megazord-Check
-                try { errorAudio.currentTime = 0; errorAudio.play().catch(()=>{}); } catch(e){}
-
-                // UI zurücksetzen
-                consoleEl.classList.remove('focus-blur');
-                centerLock.classList.remove('visible','closed');
-                lockGlyph.textContent = '🔓';
-                Object.values(wedges).forEach(w => w.classList.remove('visible'));
-                flagBox.style.display = 'none';
-                checkBtn.style.display = 'inline-block';
-
-                // Optional: Feuerwerk stoppen beim Reset
-                // stopFireworks();
-              }
-            });
-
-            // Copy to clipboard
-            copyBtn.addEventListener('click', async ()=>{
-              const text = flagValue.textContent.trim();
-              try{
-                await navigator.clipboard.writeText(text);
-                copyBtn.textContent = 'Copied';
-                setTimeout(()=>{ copyBtn.innerHTML = '<span class="icon" aria-hidden="true"></span>Copy'; }, 1200);
-              }catch(e){
-                const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta);
-                ta.select(); try{ document.execCommand('copy'); }catch(_){}
-                ta.remove();
-                copyBtn.textContent = 'Copied';
-                setTimeout(()=>{ copyBtn.innerHTML = '<span class="icon" aria-hidden="true"></span>Copy'; }, 1200);
-              }
-            });
-
-            // ---------- Feuerwerk (endlos, transparent, ohne Verdunkeln) ----------
-            (function(){
-              const canvas = document.getElementById('fireworksCanvas');
-              const ctx = canvas.getContext('2d');
-              let w = 0, h = 0, rafId = null, running = false;
-              let particles = [];
-              let lastSpawn = 0;
-
-              function resize(){
-                // Saubere Größe ohne Verdunkeln; kein schwarzer Hintergrund
-                const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-                canvas.style.width  = '100vw';
-                canvas.style.height = '100vh';
-                const bw = Math.floor(window.innerWidth  * dpr);
-                const bh = Math.floor(window.innerHeight * dpr);
-                if (canvas.width !== bw || canvas.height !== bh){
-                  canvas.width  = bw;
-                  canvas.height = bh;
-                }
-                w = canvas.width;
-                h = canvas.height;
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-              }
-              window.addEventListener('resize', resize);
-
-              function rand(min, max){ return Math.random()*(max-min)+min; }
-              function hsla(h,s,l,a){ return `hsla(${h},${s}%,${l}%,${a})`; }
-
-              function spawnBurst(x, y){
-                const count = Math.floor(rand(48, 80));
-                const hueBase = rand(0,360);
-                for(let i=0; i<count; i++){
-                  const angle = rand(0, Math.PI*2);
-                  const speed = rand(95, 230); // px/s
-                  particles.push({
-                    x, y,
-                    vx: Math.cos(angle) * speed,
-                    vy: Math.sin(angle) * speed,
-                    life: rand(1.0, 1.6), // leicht kürzer für klare Trails
-                    age: 0,
-                    size: rand(1.2, 2.4),
-                    color: hsla((hueBase + rand(-15, 15)) % 360, 90, 60, 1),
-                  });
-                }
-              }
-
-              function loop(ts){
-                if(!running) return;
-
-                // Transparentes Clear: kein schwarzer Schleier, Seite bleibt sichtbar
-                ctx.save();
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.clearRect(0,0,w,h);
-                ctx.restore();
-
-                // periodisch Bursts spawnen
-                if(ts - lastSpawn > 360){
-                  lastSpawn = ts;
-                  const x = rand(w*0.18, w*0.82);
-                  const y = rand(h*0.18, h*0.55);
-                  spawnBurst(x, y);
-                }
-
-                const dt = 1/60; // ~60fps
-                const gravity = 120; // px/s^2
-
-                // Partikel aktualisieren/zeichnen
-                ctx.globalCompositeOperation = 'lighter'; // Additive Glows
-                particles = particles.filter(p => {
-                  p.age += dt;
-                  if(p.age > p.life) return false;
-
-                  p.vy += gravity * dt;
-                  p.x  += p.vx * dt;
-                  p.y  += p.vy * dt;
-
-                  const alpha = Math.max(0, 1 - (p.age / p.life));
-                  ctx.beginPath();
-                  ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-                  ctx.fillStyle = p.color.replace(/[\d.]+\)$/,(alpha+')'));
-                  ctx.fill();
-                  return true;
-                });
-
-                rafId = requestAnimationFrame(loop);
-              }
-
-              function showCanvas(){
-                canvas.style.display = 'block';
-                resize();
-              }
-              function hideCanvas(){
-                canvas.style.display = 'none';
-              }
-
-              // Öffentlich: Start ohne Stop – läuft endlos
-              window.startFireworks = function(){
-                if(running) return;
-                running = true;
-                showCanvas();
-                lastSpawn = performance.now();
-                rafId = requestAnimationFrame(loop);
-              };
-
-              // Optional: manueller Stop, falls später benötigt
-              window.stopFireworks = function(){
-                running = false;
-                if(rafId) cancelAnimationFrame(rafId);
-                rafId = null;
-                particles = [];
-                hideCanvas();
-              };
-            })();
-          </script>
+          
         </section>
         <!-- Ende Morphin Console -->
         <br>
@@ -880,6 +600,8 @@
       <br>
     </section>
   </main>
+
+  <canvas id="fireworksCanvas"></canvas>
 
   <!--<button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
     <span class="visually-hidden" aria-hidden="true">?</span>

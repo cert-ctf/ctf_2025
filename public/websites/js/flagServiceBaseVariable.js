@@ -1,0 +1,1 @@
+const baseURL = "https://gszdbd04.zd.gematik.de/flag-service/"
