@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,189 +10,11 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
 
-  <style>
-        /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
-    .media-text {
-      display: grid;
-      grid-template-columns: 1fr auto; /* Text links, Bild rechts */
-      gap: 24px;
-      align-items: center;
-      padding: 16px 0; /* Einheitliches Innenpadding */
-    }
-
-    .media-text.media-text--image-left {
-      grid-template-columns: auto 1fr; /* Bild links, Text rechts */
-      align-items: center;
-      padding: 16px 0; /* Gleich wie Standard */
-    }
-
-    .media-text__image {
-      width: 160px;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .media-text__content p {
-      margin: 0 0 12px;
-      line-height: 1.6;
-    }
-
-    .media-figure {
-      margin: 0;
-      display: grid;
-      justify-items: center; /* zentriert Bild und Caption untereinander */
-      gap: 8px;
-    }
-
-    .media-caption {
-      font-size: 0.75rem;  /* einheitlich, gut lesbar */
-      color: #888;
-      line-height: 1.3;
-      text-align: center;
-      width: 100%;
-    }
-
-    /* Überschriften: einheitliches Spacing */
-    .section-head {
-      margin: 24px 0 12px; /* Einheitlich für alle Abschnitte */
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: .03em;
-      text-transform: uppercase;
-      opacity: 0.85;
-    }
-
-    /* Bildraster */
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 12px;
-    }
-    .image-grid__item {
-      margin: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-    .image-grid__item img {
-      display: block;
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .mg-card{
-      margin-top: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 1px;
-      background: rgba(255,255,255,0.03);
-    }
-    .mg-grid{ display:grid; grid-template-columns: 320px 1fr; gap:16px; }
-    @media (max-width: 900px){ .mg-grid{ grid-template-columns: 1fr; } }
-
-    .mg-inputs{ display:grid; gap:10px; }
-    .mg-title{ margin:0; font-size: 1rem; }
-    .mg-hint{ margin:0; opacity:.85; font-size:.9rem; }
-
-    .mg-row{ display:grid; grid-template-columns: 1fr auto; gap:8px; align-items:center; }
-    .mg-row input{
-      width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.15);
-      background: rgba(0,0,0,0.15); color: inherit; outline: none;
-    }
-    .mg-row input:focus{
-      border-color: rgba(100,140,255,.6); box-shadow: 0 0 0 2px rgba(100,140,255,.2);
-    }
-    .mg-row button{
-      padding:10px 12px; border-radius:10px; border:0; cursor:pointer;
-      background: rgba(100,140,255,.9); color:white;
-    }
-    .mg-row button.ok{ background: rgba(60,200,160,.95); }
-    .mg-row button.err{ background: rgba(240,90,120,.95); }
-
-    .mg-actions{ display:flex; gap:8px; margin-top:4px; }
-    .mg-actions button{
-      padding:8px 12px; border-radius:10px; border:0; cursor:pointer;
-      background: rgba(120,140,180,.35); color: inherit;
-    }
-
-    .mg-stage{
-      position:relative; min-height: 420px; border:1px solid rgba(255,255,255,0.08);
-      border-radius:12px; overflow:hidden; background: rgba(255,255,255,0.02);
-    }
-
-    /* Schloss */
-    .mg-lock{
-      position:absolute; left:50%; top:50%; transform:translate(-50%,,-50%);
-      width:110px; height:110px; border-radius:22px;
-      background: rgba(0,0,0,0.35); border:2px solid rgba(255,255,255,0.15);
-      display:grid; place-items:center;
-      z-index: 3;
-      transition: box-shadow .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;
-    }
-    .mg-lock::before{ content:"🔓"; font-size:38px; }
-    .mg-lock.closed{
-      background: rgba(60,200,160,.15);
-      border-color: rgba(60,200,160,.7);
-      box-shadow: 0 0 24px rgba(60,200,160,.35), inset 0 0 18px rgba(60,200,160,.25);
-      transform: translate(-50%,-50%) scale(1.03);
-    }
-    .mg-lock.closed::before{ content:"🔒"; }
-
-    /* Emitterpunkte */
-    .mg-emitter{
-      position:absolute; width:14px; height:14px; border-radius:50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.4);
-      border: 2px solid rgba(255,255,255,0.2);
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
-      z-index: 2;
-    }
-
-    /* Strahl */
-    .mg-beam{ position:absolute; left:0; top:0; width:0; height:0; z-index:1; --op:0; --c:#88aaff; --angle:0deg; --len:0; --bw:4px; }
-    .mg-beam::before{
-      content:""; position:absolute; left:50%; top:50%;
-      width: var(--bw); height: 1px; transform-origin: left center;
-      transform: translate(-50%, -50%) rotate(var(--angle)) scaleX(var(--len));
-      background: linear-gradient(to right, var(--c) 10%, rgba(136,170,255,0.12) 70%, rgba(136,170,255,0) 100%);
-      border-radius:4px; box-shadow: 0 0 12px rgba(255,255,255,.10);
-      opacity: var(--op); transition: opacity .18s ease; will-change: transform, opacity;
-    }
-    .mg-beam.active::before{ opacity: 1; }
-
-    .mg-status{
-      position:absolute; left:10px; bottom:10px; padding:6px 10px; border-radius:10px;
-      background: rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.12);
-      font-size:.85rem; opacity:.9; z-index:4;
-    }
-
-    /* Vollbild-Canvas für Feuerwerk */
-    #fireworksCanvas{
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-      display: none;
-      background: transparent; /* wichtig: transparent, nicht schwärzen */
-    }
-
-    /* Nummern bold */
-    .card-body ol {
-      padding-left: 1.4em; /* etwas Platz für die Nummern */
-    }
-    .card-body ol li::marker {
-      font-weight: 800; /* bold */
-    }
-  </style>
+  <!-- Neu: ausgelagerte Styles -->
+  <link rel="stylesheet" href="./css/ti-gateway.css">
+  <link rel="stylesheet" href="./css/morph-console.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -212,28 +35,26 @@
       <h3 class="card-title"></h3>
       <div class="card-body">
         <div class="section-head">Was ist das TI‑Gateway?</div>
-          <section class="media-text">
-            <div class="media-text__content">
-              <p>
-                Das TI-Gateway ist eine neue, moderne und softwarebasierte Lösung, die den Zugang zur deutschen Telematikinfrastruktur (TI) vereinfacht, indem der herkömmliche Hardware-Konnektor vor Ort entfällt. Stattdessen wird der Anschluss über einen Highspeed-Konnektor in einem gesicherten, zertifizierten Rechenzentrum des TI-Gateway-Anbieters realisiert.</p>
-                <p>Dies entlastet Leistungserbringer von Wartungsarbeiten und erhöht gleichzeitig die Sicherheit und Verfügbarkeit der TI-Anwendungen wie dem E-Rezept, ePA, KIM oder TI-M.</p> 
-              </p>
+        <section class="media-text">
+          <div class="media-text__content">
+            <p>
+              Das TI-Gateway ist eine neue, moderne und softwarebasierte Lösung, die den Zugang zur deutschen
+              Telematikinfrastruktur (TI) vereinfacht, indem der herkömmliche Hardware-Konnektor vor Ort entfällt.
+              Stattdessen wird der Anschluss über einen Highspeed-Konnektor in einem gesicherten, zertifizierten
+              Rechenzentrum des TI-Gateway-Anbieters realisiert.</p>
+            <p>Dies entlastet Leistungserbringer von Wartungsarbeiten und erhöht gleichzeitig die Sicherheit und
+              Verfügbarkeit der TI-Anwendungen wie dem E-Rezept, ePA, KIM oder TI-M.</p>
+            </p>
 
-              Schau dir das Video an:
-  
-              <a href="https://www.youtube.com/watch?v=PUtThaDR1gU" target="_blank" rel="noopener noreferrer">
-                Neuer Zugang zur TI: So funktioniert das TI-Gateway!
-              </a>
-              
-            </div>
-            <img
-              class="media-text__image"
-              src="./img/tigateway.png"
-              alt="Illustration zum TI Capture the Flag"
-            />
-          </section>
+            Schau dir das Video an:
 
+            <a href="https://www.youtube.com/watch?v=PUtThaDR1gU" target="_blank" rel="noopener noreferrer">
+              Neuer Zugang zur TI: So funktioniert das TI-Gateway!
+            </a>
 
+          </div>
+          <img class="media-text__image" src="./img/tigateway.png" alt="Illustration zum TI Capture the Flag" />
+        </section>
 
         <div class="section-head">Merkmale</div>
         <ul>
@@ -244,238 +65,60 @@
         </ul>
         <br>
 
-        <div class="section-head">Deine Mission</div>        
-          <section class="media-text media-text--image-left">
-            <figure class="media-figure">
-              <img class="media-text__image" src="./img/icon_goal.png" alt="" />
-            </figure>
+        <div class="section-head">Deine Mission</div>
+        <section class="media-text media-text--image-left">
+          <figure class="media-figure">
+            <img class="media-text__image" src="./img/icon_goal.png" alt="" />
+          </figure>
 
-            <div class="media-text__content">
-              <p><b>Ziel:</b> Verbinde alle Anwendungen mit dem TI‑Gateway und sichere den Zugang.</p>
-              <ol>
-                <li>Meistere die Subwelten von <strong>ePA</strong>, <strong>eRX</strong>, <strong>TI‑M</strong> und <strong>KIM</strong>. Löse dort alle Aufgaben, um die jeweiligen <strong>finalen Codes</strong> zu erhalten.</li>
-                <li>Aktiviere anschließend die vier Zords – <strong>eRX</strong>, <strong>ePA</strong>, <strong>KIM</strong> und <strong>TIM</strong> – mit genau diesen finalen Codes.</li>
-                <li>Jeder korrekte Code lädt den entsprechenden Zord mit Energie.</li>
-                <li>Sind alle vier Zords aktiv, verriegelt das zentrale Schloss und das TI‑Gateway ist verbunden.</li>
-                <li>Am Ende erhältet ihr dir die Flag zur Freischaltung der StoryLine Aufgabe in <b>CTFd</b>.</li>
-              </ol>
-            </div>
-          </section>
+          <div class="media-text__content">
+            <p><b>Ziel:</b> Verbinde alle Anwendungen mit dem TI‑Gateway und sichere den Zugang.</p>
+            <ol>
+              <li>Meistere die Subwelten von <strong>ePA</strong>, <strong>eRX</strong>, <strong>TI‑M</strong> und
+                <strong>KIM</strong>. Löse dort alle Aufgaben, um die jeweiligen <strong>finalen Codes</strong> zu
+                erhalten.</li>
+              <li>Aktiviere anschließend die vier Zords – <strong>eRX</strong>, <strong>ePA</strong>,
+                <strong>KIM</strong> und <strong>TIM</strong> – mit genau diesen finalen Codes.</li>
+              <li>Jeder korrekte Code lädt den entsprechenden Zord mit Energie.</li>
+              <li>Sind alle vier Zords aktiv, verriegelt das zentrale Schloss und das TI‑Gateway ist verbunden.</li>
+              <li>Am Ende erhältet ihr dir die Flag zur Freischaltung der StoryLine Aufgabe in <b>CTFd</b>.</li>
+            </ol>
+          </div>
+        </section>
 
         <div class="section-head">Hinweise</div>
-          <section class="media-text" style="padding: 0px 0;">
-            <div class="media-text__content">
-                <ul>
-                  <li>Die finalen Codes erhältst du nur, wenn du die jeweiligen Subwelten vollständig abschließt.</li>
-                  <li>Du kannst jeden Zord einzeln aktivieren; falsche Eingaben werden sofort angezeigt.</li>
-                  <li>Erst wenn alle vier Zords „Korrekt“ melden, ist die Verbindung vollständig.</li>
-                  <li>Mit <strong>MEGAZORD PRÜFEN</strong> startest du die finale Sequenz.</li>
-                  <li>Teamwork der Anwendungen + präzise Eingaben = IT’S MORPHIN TIME!</li>
-                </ul>
-              
-            </div>
-            <img
-              class="media-text__image"
-              src="./img/icon_info.png"
-              alt="Illustration zum TI Capture the Flag"
-            />
-          </section>         
+        <section class="media-text">
+          <div class="media-text__content">
+            <ul>
+              <li>Die finalen Codes erhältst du nur, wenn du die jeweiligen Subwelten vollständig abschließt.</li>
+              <li>Du kannst jeden Zord einzeln aktivieren; falsche Eingaben werden sofort angezeigt.</li>
+              <li>Erst wenn alle vier Zords „Korrekt“ melden, ist die Verbindung vollständig.</li>
+              <li>Mit <strong>MEGAZORD PRÜFEN</strong> startest du die finale Sequenz.</li>
+              <li>Teamwork der Anwendungen + präzise Eingaben = IT’S MORPHIN TIME!</li>
+            </ul>
+
+          </div>
+          <img class="media-text__image" src="./img/icon_info.png" alt="Illustration zum TI Capture the Flag" />
+        </section>
 
         <hr>
-        <div class="section-head"><h3>Morphin Console (IT’S MORPHIN TIME!)</h3></div>
+
+
+        <h3>Aufgaben Übersicht</h3>
+        <section class="ranger-progress morph-scope">
+          <div class="rp-list" id="rp-list">
+            <!-- Cards werden per JS erzeugt -->
+          </div>
+        </section>
+        <br>
+
+        <hr>
+        <div class="section-head">
+          <h3>Morphin Console (IT’S MORPHIN TIME!)</h3>
+        </div>
 
         <!-- 1:1 Morphin Console innerhalb der mg-card -->
         <section class="mg-card">
-          <style>
-            /* Kapselung, damit globale Styles nicht überschrieben werden */
-            .mg-card .morph-scope {
-              --bg:#0a0f1c00;
-              --text:#e8ecff;
-              --muted:#9fb0ff;
-              --ok:#22d1a1;
-              --err:#ff5a87;
-              --erx:#9b59b6;
-              --epa:#2ecc71;
-              --tim:#e74c3c;
-              --kim:#f39c12;
-              --flag:#d7ffe8;
-              color: var(--text);
-            }
-            .morph-scope{
-              background: radial-gradient(1200px 600px at 10% -10%, #182246 0%, #0b1024 45%, #070b18 100%), var(--bg);
-              border-radius: 12px;
-              padding: -0;
-            }
-            .morph-console{
-              display:grid; gap:18px;
-              background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(34, 5, 97, 0.02));
-              border:1px solid rgba(255,255,255,.12); border-radius:16px;
-              padding:10px; box-shadow: 0 10px 28px rgba(0,0,0,.45), inset 0 0 32px rgba(255,255,255,.04);
-              position:relative; overflow:hidden; min-height: 620px;
-            }
-            .console-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
-            .console-title{ margin:0; font-variation-settings:"wght" 750; letter-spacing:.02em; font-size:1.25rem; text-shadow: 0 2px 12px rgba(0,0,0,.35); display:flex; align-items:center; gap:10px; }
-            .badge{ display:inline-flex; align-items:center; gap:6px; font-weight:800; letter-spacing:.06em; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); padding:6px 10px; border-radius:999px; }
-
-            .ranger-grid{ display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap:14px; transition: filter .28s ease, opacity .28s ease; }
-            @media (max-width:700px){ .ranger-grid{ grid-template-columns:1fr; } }
-            .focus-blur .ranger-grid{ filter: blur(6px) brightness(.85); opacity:.85; }
-
-            .ranger-card{ position:relative; border-radius:14px; padding:16px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.12); box-shadow: inset 0 0 24px rgba(0,0,0,.25); overflow:hidden; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
-            .ranger-card:hover{ transform: translateY(-3px); box-shadow: 0 14px 28px rgba(0,0,0,.45), inset 0 0 24px rgba(255,255,255,.05); border-color: rgba(255,255,255,.18); }
-            .focus-blur .ranger-card:hover{ transform:none; box-shadow: inset 0 0 24px rgba(0,0,0,.25); border-color: rgba(255,255,255,.12); }
-
-            .ranger-head{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px; }
-            .ranger-left{ display:flex; align-items:center; gap:10px; }
-            .token{ width:42px; height:42px; border-radius:8px; display:grid; place-items:center; font-size:15px; font-weight:900; color:#0b0f1f; background:#fff; box-shadow: 0 0 0 2px rgba(0,0,0,.2) inset; letter-spacing:.02em; text-transform:uppercase; }
-            .ranger-name{ margin:0; font-size:1rem; font-weight:800; letter-spacing:.02em; }
-            .status{ margin:0; font-size:.84rem; font-weight:800; letter-spacing:.02em; }
-            .status.ok{ color: var(--ok); }
-            .status.err{ color: var(--err); }
-            .status.empty{ color: var(--muted); opacity:.85; }
-
-            .io{ display:grid; grid-template-columns: 1fr auto; gap:10px; align-items:center; }
-            .code{ width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.16); background: rgba(8,12,30,.6); color:var(--text); outline:none; transition: box-shadow .15s ease, border-color .15s ease, background .15s ease; caret-color: currentColor; }
-            .code:focus{ border-color: rgba(120,180,255,.65); box-shadow: 0 0 0 3px rgba(120,180,255,.18); background: rgba(12,18,40,.75); }
-            .morph-btn{ padding:12px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:900; letter-spacing:.06em; color:#0b0f1f; background:#fff; box-shadow: 0 6px 14px rgba(0,0,0,.35); transition: transform .12s ease, box-shadow .12s ease, filter .12s ease; }
-            .morph-btn:hover{ transform: translateY(-1px); }
-            .morph-btn:active{ transform: translateY(0); filter: brightness(.95); }
-
-            .erx   { --accent: var(--erx); }
-            .epa   { --accent: var(--epa); }
-            .kim   { --accent: var(--kim); }
-            .tim   { --accent: var(--tim); }
-            .erx .token{ background: var(--erx); }
-            .epa .token{ background: var(--epa); }
-            .kim .token{ background: var(--kim); }
-            .tim .token{ background: var(--tim); }
-            .ranger-card .ranger-name{ color: var(--accent); }
-
-            .energy{ height:8px; border-radius:999px; margin-top:10px; background: linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.12); overflow:hidden; visibility: hidden; }
-            .energy.active{ visibility: visible; }
-            .fill{ height:100%; width:0%; background: linear-gradient(90deg, rgba(255,255,255,.0) 0%, var(--accent) 30%, #fff 100%); box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 60%, transparent); transition: width .35s ease; }
-
-            .console-actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:6px; min-height:48px; }
-            .ghost{ background: transparent; color:var(--text); border:1px solid rgba(255,255,255,.25); padding:10px 16px; border-radius:10px; cursor:pointer; transition: background .12s ease; font-weight:900; letter-spacing:.04em; height:48px; }
-            .ghost:hover{ background: rgba(255,255,255,.06); }
-            .pulse-ok{ box-shadow: 0 0 0 0 rgba(34,209,161,.5); animation:pulseOK .5s ease; }
-            @keyframes pulseOK{ to{ box-shadow:0 0 0 16px rgba(34,209,161,0); } }
-            .pulse-err{ box-shadow: 0 0 0 0 rgba(255,90,135,.5); animation:pulseERR .5s ease; }
-            @keyframes pulseERR{ to{ box-shadow:0 0 0 16px rgba(255,90,135,0); } }
-            .morph-console::after{ content:""; position:absolute; inset:0; background: repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 2px, transparent 2px 6px); pointer-events:none; mix-blend-mode:soft-light; }
-
-            /* Center lock */
-            .center-lock{
-              position:absolute; left:50%; top:40%; transform: translate(-50%,-50%) scale(0.9);
-              width:240px; height:240px; border-radius:28px;
-              background: rgba(0,0,0,0.35);
-              border:2px solid rgba(255,255,255,0.15);
-              display:none; place-items:center; z-index: 5;
-              transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease, opacity .28s ease;
-            }
-            .center-lock.visible{ display:grid; animation: lockPop .26s ease forwards; }
-            @keyframes lockPop{ from{ opacity:0; transform: translate(-50%,-50%) scale(0.8); } to{ opacity:1; transform: translate(-50%,-50%) scale(1); } }
-
-            .lock-icon{ position:absolute; inset:0; display:grid; place-items:center; z-index:3; pointer-events:none; }
-            .lock-icon .glyph{ font-size:84px; filter: drop-shadow(0 4px 10px rgba(0,0,0,.45)); transition: transform .25s ease; }
-            .center-lock.closed .lock-icon .glyph{ transform: scale(1.02); }
-
-            @keyframes glowPulseLoop{
-              0%  { box-shadow: 0 0 20px 7px rgba(34,209,161,.24); }
-              50% { box-shadow: 0 0 38px 15px rgba(34,209,161,.36); }
-              100%{ box-shadow: 0 0 20px 7px rgba(34,209,161,.24); }
-            }
-            @keyframes zoomPulseLoop{
-              0%   { transform: translate(-50%,-50%) scale(1.04); }
-              50%  { transform: translate(-50%,-50%) scale(1.07); }
-              100% { transform: translate(-50%,-50%) scale(1.04); }
-            }
-            .center-lock.closed{
-              background: rgba(60,200,160,.15);
-              border-color: rgba(60,200,160,.7);
-              box-shadow: 0 0 30px rgba(60,200,160,.35), inset 0 0 22px rgba(60,200,160,.25);
-              transform: translate(-50%,-50%) scale(1.04);
-              animation: zoomPulseLoop 1800ms ease-in-out infinite;
-            }
-            .center-glow{ position:absolute; inset:-16px; border-radius:30px; box-shadow: 0 0 20px 7px rgba(34,209,161,.24); pointer-events:none; opacity:0; z-index:2; }
-            .center-lock.closed .center-glow{ opacity:1; animation: glowPulseLoop 1800ms ease-in-out infinite; }
-
-            .lock-svg{ width:180px; height:180px; z-index:1; opacity:0.9; }
-            .wedge{ opacity:0; transition: opacity .18s ease; }
-            .wedge.visible{ opacity:.32; }
-            .wedge.erx{ fill: var(--erx); }
-            .wedge.epa{ fill: var(--epa); }
-            .wedge.kim{ fill: var(--kim); }
-            .wedge.tim{ fill: var(--tim); }
-
-            .charge-glow{
-              position:absolute; inset:8px; border-radius:22px; pointer-events:none; z-index:1; opacity:0;
-              background: conic-gradient(from 0deg,
-                color-mix(in srgb, var(--erx) 40%, transparent) 0 90deg,
-                color-mix(in srgb, var(--epa) 40%, transparent) 90deg 180deg,
-                color-mix(in srgb, var(--kim) 40%, transparent) 180deg 270deg,
-                color-mix(in srgb, var(--tim) 40%, transparent) 270deg 360deg
-              );
-              filter: blur(6px);
-            }
-            .center-lock.visible .charge-glow{ opacity:.9; animation: glowIntro 1200ms ease forwards; }
-            @keyframes glowIntro{
-              0%{ opacity:0; filter: blur(10px); transform: scale(.96); }
-              70%{ opacity:.95; filter: blur(6px); transform: scale(1.02); }
-              100%{ opacity:.85; filter: blur(6px); transform: scale(1); }
-            }
-            .center-lock.closed .charge-glow{ opacity:.25; }
-
-            .console-actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:12px; }
-            .flag-box{
-              display:none; align-items:center; gap:10px; flex-wrap:wrap;
-              padding:10px 14px; border-radius:12px;
-              border:1px solid rgba(34,209,161,.55);
-              background: rgba(34,209,161,.10);
-              color: var(--flag);
-              position:relative;
-              min-height:48px;
-            }
-            .flag-box .label{ font-weight:800; letter-spacing:.03em; color:var(--flag); }
-            .flag-box .value{
-              font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-              font-size:.95rem; padding:6px 10px; border-radius:8px;
-              background: rgba(255,255,255,.06);
-              border:1px solid rgba(255,255,255,.15);
-              color: var(--text);
-              user-select: all;
-            }
-            .copy-btn{
-              display:inline-flex; align-items:center; gap:6px;
-              padding:8px 10px; border-radius:10px; border:0; cursor:pointer;
-              background: rgba(255,255,255,.88); color:#0b0f1f; font-weight:800;
-              transition: transform .1s ease, filter .12s ease;
-              height:38px;
-            }
-            .copy-btn:hover{ transform: translateY(-1px); }
-            .copy-btn:active{ transform: translateY(0); filter: brightness(.95); }
-            .copy-btn .icon{
-              width:16px; height:16px; display:inline-block;
-              background: currentColor; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z"/></svg>') no-repeat center / contain;
-            }
-
-            /* Ready-Indicator für MEGAZORD-Button */
-            #checkBtn.ready {
-              border-color: rgba(34,209,161,.65);
-              background: linear-gradient(180deg, rgba(34,209,161,.15), rgba(34,209,161,.08));
-              color: #d7ffe8;
-              box-shadow: 0 0 18px rgba(34,209,161,.35);
-              animation: readyPulse 1600ms ease-in-out infinite;
-            }
-
-            @keyframes readyPulse {
-              0%   { box-shadow: 0 0 12px rgba(34,209,161,.30); transform: translateY(0); }
-              50%  { box-shadow: 0 0 24px rgba(34,209,161,.45); transform: translateY(-1px); }
-              100% { box-shadow: 0 0 12px rgba(34,209,161,.30); transform: translateY(0); }
-            }
-
-          </style>
-
           <div class="morph-scope">
             <section class="morph-console" id="console">
               <div class="ranger-grid">
@@ -491,7 +134,9 @@
                     <input class="code" type="password" placeholder="eRX Code (1234)" autocomplete="off">
                     <button class="morph-btn">MORPH</button>
                   </div>
-                  <div class="energy"><div class="fill"></div></div>
+                  <div class="energy">
+                    <div class="fill"></div>
+                  </div>
                 </div>
 
                 <div class="ranger-card epa" data-id="epa">
@@ -506,7 +151,9 @@
                     <input class="code" type="password" placeholder="ePA Code (1234)" autocomplete="off">
                     <button class="morph-btn">MORPH</button>
                   </div>
-                  <div class="energy"><div class="fill"></div></div>
+                  <div class="energy">
+                    <div class="fill"></div>
+                  </div>
                 </div>
 
                 <div class="ranger-card kim" data-id="kim">
@@ -521,7 +168,9 @@
                     <input class="code" type="password" placeholder="KIM Code (1234)" autocomplete="off">
                     <button class="morph-btn">MORPH</button>
                   </div>
-                  <div class="energy"><div class="fill"></div></div>
+                  <div class="energy">
+                    <div class="fill"></div>
+                  </div>
                 </div>
 
                 <div class="ranger-card tim" data-id="tim">
@@ -536,7 +185,9 @@
                     <input class="code" type="password" placeholder="TIM Code (1234)" autocomplete="off">
                     <button class="morph-btn">MORPH</button>
                   </div>
-                  <div class="energy"><div class="fill"></div></div>
+                  <div class="energy">
+                    <div class="fill"></div>
+                  </div>
                 </div>
               </div>
 
@@ -557,15 +208,19 @@
                 <div class="charge-glow"></div>
 
                 <svg class="lock-svg" viewBox="0 0 200 200" aria-hidden="true">
-                  <circle cx="100" cy="100" r="88" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="2"></circle>
+                  <circle cx="100" cy="100" r="88" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)"
+                    stroke-width="2"></circle>
                   <path class="wedge erx" id="w-erx" d="" />
                   <path class="wedge epa" id="w-epa" d="" />
                   <path class="wedge kim" id="w-kim" d="" />
                   <path class="wedge tim" id="w-tim" d="" />
-                  <circle cx="100" cy="100" r="28" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.08)" stroke-width="2"></circle>
+                  <circle cx="100" cy="100" r="28" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.08)"
+                    stroke-width="2"></circle>
                 </svg>
 
-                <div class="lock-icon"><div class="glyph" id="lockGlyph" aria-hidden="true">🔓</div></div>
+                <div class="lock-icon">
+                  <div class="glyph" id="lockGlyph" aria-hidden="true">🔓</div>
+                </div>
                 <div class="center-glow"></div>
               </div>
 
@@ -590,8 +245,6 @@
           <script src="./js/flagServiceBaseVariable.js"></script>
           <script src="./js/megazord.js"></script>
           <script src="./js/fireworks.js"></script>
-
-          
         </section>
         <!-- Ende Morphin Console -->
         <br>
@@ -606,10 +259,196 @@
   <!--<button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
     <span class="visually-hidden" aria-hidden="true">?</span>
   </button>
-
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">…</aside>-->
 
   <div class="flag-tiles" aria-hidden="true"></div>
-
 </body>
+
 </html>
+
+
+
+
+<script>
+(function(){
+  const PRODUCTS = [
+    { id: "erx", name: "eRX Zord" },
+    { id: "epa", name: "ePA Zord" },
+    { id: "kim", name: "KIM Zord" },
+    { id: "tim", name: "TIM Zord" }
+  ];
+
+  // 5 Tokens je Produkt
+  const TOTAL = 5;
+
+  // Local-Storage Präfixe
+  const prefixMap = { erx: "erx-wa-", epa: "epa-wa-", kim: "kim-wa-", tim: "tim-wa-" };
+
+  // Anzeige-Symbole
+  const STAR_FILLED = "⭐";
+  const STAR_EMPTY  = "✩";
+
+  // Robust lesen: erst zweistellig (01..05), dann einstellig (1..5)
+  function getKeyValue(prefix, n){
+    const n2 = String(n).padStart(2, "0");
+    return localStorage.getItem(`${prefix}${n2}`) ?? localStorage.getItem(`${prefix}${n}`);
+  }
+
+// Hilfsfunktion: Wert eines Keys holen (erst "01", dann "1")
+function getKeyValue(prefix, n){
+  const n2 = String(n).padStart(2, "0");
+  return localStorage.getItem(`${prefix}${n2}`) ?? localStorage.getItem(`${prefix}${n}`);
+}
+
+// String → Zahl wandeln (alles Nicht-Ziffern entfernen), leere Fälle = 0
+function toInt(val){
+  if (val == null) return 0;
+  const digits = String(val).match(/\d+/g);
+  if (!digits) return 0;
+  try { return parseInt(digits.join(""), 10) || 0; } catch(e){ return 0; }
+}
+
+// Öffentliche Copy-Funktion: Summe(1..5) % 100000
+window.onCopyTokens = function(productId){
+  const prefix = prefixMap[productId];
+  let sum = 0;
+
+  for (let i = 1; i <= TOTAL; i++){
+    const val = getKeyValue(prefix, i);
+    sum += toInt(val);
+  }
+
+  const mod = sum % 100000;
+  const output = String(mod).padStart(5, "0"); // hübsch 5-stellig
+
+  // In die Zwischenablage kopieren
+  const text = `${output}`;
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      // Optional: kleines Toast/Feedback
+      showCopyToast(`${productId.toUpperCase()}: ${output}`);
+    }).catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+};
+
+function fallbackCopy(text){
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch(e) { console.warn("Copy nicht möglich", e); }
+  document.body.removeChild(ta);
+  showCopyToast(text);
+}
+
+// Optional: kleines, unaufdringliches Feedback
+function showCopyToast(msg){
+  const el = document.createElement("div");
+  el.textContent = `Kopiert: ${msg}`;
+  el.style.position = "fixed";
+  el.style.bottom = "16px";
+  el.style.left = "50%";
+  el.style.transform = "translateX(-50%)";
+  el.style.background = "rgba(0,0,0,.7)";
+  el.style.color = "#fff";
+  el.style.padding = "8px 12px";
+  el.style.borderRadius = "10px";
+  el.style.fontSize = ".9rem";
+  el.style.zIndex = "99999";
+  el.style.boxShadow = "0 6px 18px rgba(0,0,0,.4)";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1500);
+}
+
+function getKeyValue(prefix, n){
+  const n2 = String(n).padStart(2, "0");
+  return localStorage.getItem(`${prefix}${n2}`) ?? localStorage.getItem(`${prefix}${n}`);
+}
+
+function makeCard(productId, displayName){
+  const card = document.createElement("div");
+  card.className = "rp-card";
+
+  // Body
+  const body = document.createElement("div");
+  body.className = "rp-card-body";
+
+  const row = document.createElement("div");
+  row.className = "rp-rowbar";
+
+  const left = document.createElement("div");
+  left.className = "rp-left";
+
+  const icon = document.createElement("div");
+  icon.className = `rp-icon ${productId}`;
+  const iconText = document.createElement("span");
+  iconText.textContent = productId.toUpperCase();
+  icon.appendChild(iconText);
+
+  const name = document.createElement("h4");
+  name.className = "rp-name";
+  name.textContent = displayName;
+
+  left.appendChild(icon);
+  left.appendChild(name);
+
+  // Rechte Seite: Sterne
+  const right = document.createElement("div");
+  right.className = "rp-right";
+
+  const prefix = prefixMap[productId];
+  let solvedCount = 0;
+
+  for(let i=1; i<=TOTAL; i++){
+    const val = getKeyValue(prefix, i);
+    const filled = val !== null && val !== "";
+    if (filled) solvedCount++;
+
+    const star = document.createElement("div");
+    star.className = "star " + (filled ? `filled ${productId}` : "empty");
+    const glyph = document.createElement("span");
+    glyph.className = "glyph";
+    glyph.textContent = filled ? "⭐" : "✩";
+    star.appendChild(glyph);
+    right.appendChild(star);
+  }
+
+  row.appendChild(left);
+  row.appendChild(right);
+  body.appendChild(row);
+
+  // Footer-Button (nahtlos), nur aktiv, wenn solvedCount === TOTAL
+  const footer = document.createElement("button");
+  footer.className = `rp-copy-footer ${productId}`;
+  footer.type = "button";
+  footer.textContent = "Token kopieren";
+  footer.disabled = solvedCount !== TOTAL;
+  footer.addEventListener("click", () => {
+    if (footer.disabled) return; // doppelter Schutz
+    window.onCopyTokens(productId);
+  });
+
+  // zusammensetzen
+  card.appendChild(body);
+  card.appendChild(footer);
+  return card;
+}
+
+
+  function render(){
+    const list = document.getElementById("rp-list");
+    list.innerHTML = "";
+    PRODUCTS.forEach(p => {
+      list.appendChild(makeCard(p.id, p.name));
+    });
+  }
+
+  render();
+  window.addEventListener("storage", render);
+})();
+</script>
+
