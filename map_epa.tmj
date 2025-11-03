@@ -1032,7 +1032,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_floor2.tmj#entry_epa"
+                         "value":"map_floor2.tmj#entry_epa"
                         }],
                  "rotation":0,
                  "type":"area",

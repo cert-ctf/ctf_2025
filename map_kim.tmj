@@ -806,7 +806,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_floor1.tmj#entry_kim"
+                         "value":"map_floor1.tmj#entry_kim"
                         }],
                  "rotation":0,
                  "type":"area",

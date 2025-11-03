@@ -1824,7 +1824,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_tim.tmj"
+                         "value":"map_tim.tmj"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -1841,7 +1841,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_kim.tmj"
+                         "value":"map_kim.tmj"
                         }],
                  "rotation":0,
                  "type":"area",

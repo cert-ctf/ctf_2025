@@ -2022,7 +2022,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_epa.tmj"
+                         "value":"map_epa.tmj"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -2039,7 +2039,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/_\/6m19dhq3wh3\/localhost:5173\/map_erx.tmj"
+                         "value":"map_erx.tmj"
                         }],
                  "rotation":0,
                  "type":"area",
