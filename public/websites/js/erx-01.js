@@ -18,7 +18,7 @@ function attr(node, selector, name = 'value') {
 
 // PZN sicher auslesen (Medication.code.coding mit IFA-PZN system)
 function getPZN(medNode) {
-  return 'ZXJyb3I=';
+  return 'ERROR';
 }
 
 // Anwenden der gewünschten Farben/Stile nach dem Befüllen
@@ -159,6 +159,7 @@ $('fileInput')?.addEventListener('change', async (e) => {
     const txt = await readFileAsText(file);
     const xml = parseXMLString(txt);
     parseBundle(xml);
+alert("Error at parsing - PZN konnte nicht korrekt ausgelesen werden!")
   } catch (err) { showError(String(err)); }
 });
 
