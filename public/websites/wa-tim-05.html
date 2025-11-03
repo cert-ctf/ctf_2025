@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -23,61 +25,71 @@
 
     <section class="card">
       <header class="card-header">
-          <h2>TI-Messenger</h2>
+        <h2>TI-Messenger (Aufgabe 5)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-       <p>
+        <p>
         <h3>Chatbot Commotion</h3>
-        TIM will einer Sprechstundenhilfe zeigen wie Patienten den Diensthabenden Arzt finden können, doch der Chatbot wehrt sich! <br>
-        Hilf ihr den diensthabenden Arzt zu finden und überliste den Chatbot!
+        TIM will einer Sprechstundenhilfe zeigen wie Patienten den Diensthabenden Arzt finden können, doch der Chatbot
+        wehrt sich! 
 
         <figure style="text-align: center;">
-            <img class="img-rounded-shadow"
-              src="./img/drwho.png"
+          <img class="img-rounded-shadow" src="./img/drwho.png" alt="KIM Nachrichtenversand"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
 
-              alt="KIM Nachrichtenversand"
-              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
-            >
-          </figure>
-       </p>
-       <hr>
-       <h3>Informationen zur Mission</h3>
-      
         <hr>
-              <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="Doctor Pepper" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-          </div> 
-
-       <div id="info_text">
-          <div class="info-row">
-            <figure>
-              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
-            </figure>
-            <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
-                Die Antwort ist der <br><code>Doctor on duty</code>
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Hilf der Sprechstundenhilfe dabei, den diensthabenden Arzt zu finden und überliste den Chatbot!
+          </p>
         </div>
-      </div>
-      <br>
+        <br>
+
+        
+        </p>
+        <hr>
+          <h3>🗒️ Informationen zur Mission</h3>
+          <p>
+            Bringe den Chatbot dazu, die Informationen zu verraten...
+          </p>
+
+        <hr>
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <label for="solution" class="fx-label">Lösung</label>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="Doctor Pepper" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+
+          <div id="info_text">
+            <div class="info-row">
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+              </figure>
+              <div class="info-box">
+                <p id="info_text_field" class="bottom_text">
+                  Die Antwort ist der <br><code>Doctor on duty</code>
+                </p>
+              </div>
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+              </figure>
+            </div>
+          </div>
+          <br>
     </section>
   </main>
 
@@ -97,121 +109,171 @@
       <li><a href="https://matrix.org/" target="_blank" rel="noopener">matrix.org Foundation</a></li>
       <!-- <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/gemSpec_TI-M_Basis_V1.1.2/" target="_blank" rel="noopener">TIM-Spezifikationen</a></li> -->
     </ul>
-    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
+    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
+      rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
   <script>
-      const url = "tim/wa-5"
-      const nextQuestionURL = "wa-tim-05.html"
-      const localStorageKey = "tim-wa-5"
-    </script>
-    <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple_FinalTask.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>
-    <script src="./js/fireworks.js"></script>
+    const url = "tim/wa-5"
+    const localStorageKey = "tim-wa-5"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple_FinalTask.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
+  <script src="./js/fireworks.js"></script>
 
-<script>
-  (function enforceFinalStateWhenSuccessBoxVisible() {
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  (function finalUIController() {
+    const TOKEN_KEY = 'tim-wa-solution';
     const TOKEN_PREFIX = 'TI-M Token: ';
-    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
-
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
 
     const formEl = document.getElementById('solutionForm');
+    const inputEl = document.getElementById('solution');
     const successEl = document.getElementById('success-message');
     const apiResponseEl = document.getElementById('api-response');
+    const infoBox = document.getElementById('info_text');
+    const inputtext = document.getElementById('solution');
 
     let applied = false;
+    const log = (...a) => console.debug('[FinalUI]', ...a);
 
-    function isVisible(el) {
-      if (!el) return false;
-      const style = window.getComputedStyle(el);
-      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    function showSuccessBox() {
+      if (!successEl) return;
+      // Sichtbar machen – stil-sicher
+      successEl.style.removeProperty('display'); // falls inline display:none
+      if (getComputedStyle(successEl).display === 'none') {
+        successEl.style.display = 'block';
+      }
+    }
+
+    function markInputSuccess() {
+      if (!inputEl) { log('inputEl fehlt'); return; }
+      inputEl.classList.remove('fx-input--error');
+      inputEl.classList.add('fx-input--success'); // Stelle sicher, dass diese Klasse grün färbt
+      inputEl.readOnly = true;
+      inputEl.setAttribute('aria-readonly', 'true');      
     }
 
     function setTokenHTML() {
-      if (!apiResponseEl) return;
-      
-      //const token = localStorage.getItem(localStorageKey) || '';
+      if (!apiResponseEl) { log('#api-response fehlt'); return; }
       apiResponseEl.classList.add('token-text');
-      const token = computeWaSolution("tim");
+      let token = '';
+      try {
+        token = (typeof computeWaSolution === 'function')
+          ? computeWaSolution('tim')
+          : (localStorage.getItem(TOKEN_KEY) || '');
+      } catch (e) {
+        log('computeWaSolution Fehler, Fallback:', e);
+        token = localStorage.getItem(TOKEN_KEY) || '';
+      }
       apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
     }
 
-    function applyFinalState() {
-      if (applied) return;
-      applied = true;
-
-      // 1) Hide submit/next button within the form
+    function hideActions() {
       const submitBtn = formEl?.querySelector('.fx-btn');
-      const box = document.getElementById('info_text');
       if (submitBtn) {
         submitBtn.style.display = 'none';
-        box.style.display = 'none';
         submitBtn.disabled = true;
         submitBtn.classList.remove('fx-btn--next');
         submitBtn.type = 'button';
         const glow = submitBtn.querySelector('.fx-btn-glow');
         if (glow) glow.style.display = 'none';
       }
+      if (infoBox) infoBox.style.display = 'none';
+      if (inputtext) inputtext.style.display = 'none';
 
-      // 2) Hide any separate .fx-next buttons
       document.querySelectorAll('.fx-next').forEach(btn => {
         btn.style.display = 'none';
-        btn.classList.remove('fx-next--visible');
         btn.disabled = true;
+        btn.classList.remove('fx-next--visible');
       });
-
-      // 3) Token-Text + Hinweis (mit <br> und kursiv)
-      setTokenHTML();
-      startFireworks();
     }
 
-    function checkAndApply() {
-      if (isVisible(successEl)) {
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+      log('applyFinalState');
+
+      // 1) Success-Box sichtbar, damit Token-Text gesehen wird
+      showSuccessBox();
+
+      // 2) Input grün
+      markInputSuccess();
+
+      // 3) Aktionen verstecken
+      hideActions();
+
+      // 4) Token anzeigen
+      setTokenHTML();
+
+      // 5) Feuerwerk
+      try { if (typeof startFireworks === 'function') startFireworks(); } catch (e) { console.warn(e); }
+    }
+
+    function successBoxVisible() {
+      if (!successEl) return false;
+      const cs = getComputedStyle(successEl);
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && successEl.offsetParent !== null;
+    }
+
+    function tryApplyBySuccessBox() {
+      if (successBoxVisible()) {
         applyFinalState();
         return true;
       }
       return false;
     }
 
-    // Initial check
-    checkAndApply();
-
-    // Observe only the success box for style/class changes
-    if (successEl) {
-      const observer = new MutationObserver(() => {
-        if (!applied) checkAndApply();
-      });
-      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    // A) Storage-Check
+    let stored = null;
+    try {
+      stored = localStorage.getItem(TOKEN_KEY);
+      log('Storage', TOKEN_KEY, '=>', stored);
+    } catch (e) {
+      console.warn('localStorage Zugriff fehlgeschlagen:', e);
     }
 
-    // Short rAF polling fallback (max 2s)
-    let start = performance.now();
-    function timedRafLoop(now) {
-      if (applied) return;
-      if (now - start > 2000) return;
-      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
-    }
-    requestAnimationFrame(timedRafLoop);
+    if (stored && stored.trim().length > 0) {
+      // Sofort finalisieren UND sichtbar machen
+      applyFinalState();
+    } else {
+      // B) Fallback: Success-Box
+      tryApplyBySuccessBox();
 
-    // If token changes later, update only the text
+      if (successEl) {
+        const observer = new MutationObserver(() => {
+          if (!applied) tryApplyBySuccessBox();
+        });
+        observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+      }
+
+      // rAF Fallback (max 2s)
+      let t0 = performance.now();
+      function raf(now) {
+        if (applied) return;
+        if (now - t0 > 2000) return;
+        if (!tryApplyBySuccessBox()) requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // C) Spätere Updates
     window.addEventListener('storage', (e) => {
-      if (e.key === 'solution' && apiResponseEl && applied) {
+      if (e.key === TOKEN_KEY && applied) {
         setTokenHTML();
       }
     });
-
-    // Same-tab updates
     document.addEventListener('token-updated', () => {
-      if (apiResponseEl && applied) {
-        setTokenHTML();
-      }
+      if (applied) setTokenHTML();
     });
   })();
+});
 </script>
 
 </body>
-</html>
 
+</html>

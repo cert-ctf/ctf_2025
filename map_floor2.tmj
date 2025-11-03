@@ -1799,7 +1799,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/wa-erx-00.html"
+                         "value":"websites\/welcome_erx.html"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -1962,7 +1962,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/wa-epa-00.html"
+                         "value":"websites\/welcome_epa.html"
                         }],
                  "rotation":0,
                  "type":"area",

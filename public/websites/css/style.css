@@ -1,14 +1,14 @@
-:root{
-  --bg:#ffffff;
-  --text:#1c1a54;
-  --muted:#6c6f7a;
-  --primary:#1c1a54;
-  --primary-contrast:#ffffff;
-  --border:#e3e6ee;
-  --card:#f7f8fc;
-  --table-stripe:#f2f4f9;
-  --danger:#c62828;
-  --success:#2e7d32;
+:root {
+  --bg: #ffffff;
+  --text: #1c1a54;
+  --muted: #6c6f7a;
+  --primary: #1c1a54;
+  --primary-contrast: #ffffff;
+  --border: #e3e6ee;
+  --card: #f7f8fc;
+  --table-stripe: #f2f4f9;
+  --danger: #c62828;
+  --success: #2e7d32;
 
   /* Layout-Variablen */
   --container-max: 980px;
@@ -16,14 +16,20 @@
 }
 
 /* 1) Baseline + Responsive Medien */
-html { 
-  box-sizing: border-box; 
+html {
+  box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
 }
-*, *::before, *::after { box-sizing: inherit; }
 
-html, body {
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -31,10 +37,14 @@ html, body {
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: 1.5;
-  overflow-x: hidden; /* iFrame: keine horizontale Scrollbar */
+  overflow-x: hidden;
+  /* iFrame: keine horizontale Scrollbar */
 }
 
-img, video, canvas, svg {
+img,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -58,15 +68,21 @@ p  { margin: 0 0 12px; }
 */
 
 /* 4) Hintergrund-Pattern (körpernah, nicht überdimensional) */
-body { position: relative; z-index: 0; }
+body {
+  position: relative;
+  z-index: 0;
+}
+
 body::before {
   content: "";
   position: fixed;
-  inset: -20vh -20vw;          /* etwas sparsamere Ausdehnung */
+  inset: -20vh -20vw;
+  /* etwas sparsamere Ausdehnung */
   z-index: -1;
   background-image: url("../img/ti_flag.png");
   background-repeat: repeat;
-  background-size: clamp(48px, 6vw, 96px) clamp(48px, 6vw, 96px); /* skaliert mit Viewport */
+  background-size: clamp(48px, 6vw, 96px) clamp(48px, 6vw, 96px);
+  /* skaliert mit Viewport */
   background-position: 0 0;
   transform: rotate(-12deg);
   transform-origin: center;
@@ -74,10 +90,19 @@ body::before {
   opacity: 0.3;
   animation: flag-sway 18s ease-in-out infinite;
 }
+
 @keyframes flag-sway {
-  0%   { background-position: 0   0; }
-  50%  { background-position: 160px 40px; }
-  100% { background-position: 0   0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 160px 40px;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /* 5) Karten */
@@ -86,10 +111,12 @@ body::before {
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.08);
-  padding: 0; /* Inhalt steuert Abstände */
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  /* Inhalt steuert Abstände */
   margin-block: 1rem;
 }
+
 .card-header {
   padding: clamp(10px, 1.2vw, 16px);
   text-align: center;
@@ -97,10 +124,12 @@ body::before {
   border-bottom: 1px solid var(--border);
   font-weight: 700;
 }
+
 .card-title {
   margin: 12px clamp(12px, 2vw, 16px) 0;
   font-size: 18px;
 }
+
 .card-body {
   margin: 12px clamp(12px, 2vw, 16px);
   padding: clamp(12px, 2vw, 20px);
@@ -114,10 +143,21 @@ hr {
   color: rgb(211, 211, 211);
 }
 
-.text-center { text-align: center; }
-.text-justify { text-align: justify; }
-.text-danger { color: var(--danger) !important; }
-.text-success { color: var(--success) !important; }
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+
+.text-success {
+  color: var(--success) !important;
+}
 
 /* 6) Buttons */
 .btn {
@@ -133,16 +173,34 @@ hr {
   transition: filter .15s ease, transform .02s ease;
   text-decoration: none;
 }
-.btn:hover  { filter: brightness(1.05); }
-.btn:active { transform: translateY(1px); }
-.btn-primary { background: var(--primary); border-color: var(--primary); }
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
 
 /* 7) Formulare */
-label { display: block; margin: 8px 0 4px; }
-.form-group { margin-bottom: 10px; }
+label {
+  display: block;
+  margin: 8px 0 4px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
 .form-control {
   width: 100%;
-  max-width: 320px; /* vorher 150px: sehr schmal auf Desktop */
+  max-width: 320px;
+  /* vorher 150px: sehr schmal auf Desktop */
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -155,16 +213,22 @@ table {
   border-collapse: collapse;
   margin: 0.5rem 0;
 }
-th, td {
+
+th,
+td {
   border: 1px solid var(--border);
   padding: 8px 10px;
   text-align: center;
 }
+
 thead th {
   background: #232936;
   color: #fff;
 }
-tbody tr:nth-child(odd) { background: var(--table-stripe); }
+
+tbody tr:nth-child(odd) {
+  background: var(--table-stripe);
+}
 
 /* 9) Info-Row und Icons responsiv */
 .info-row {
@@ -175,10 +239,13 @@ tbody tr:nth-child(odd) { background: var(--table-stripe); }
   text-align: center;
   padding-inline: clamp(8px, 2vw, 16px);
 }
+
 .info-icon {
-  width: clamp(28px, 6vw, 56px); /* statt width: 6% → prozent verursacht iFrame-Überraschungen */
+  width: clamp(28px, 6vw, 56px);
+  /* statt width: 6% → prozent verursacht iFrame-Überraschungen */
   height: auto;
 }
+
 .info-box {
   border: 1px dashed #1C1A54 !important;
   border-radius: 8px;
@@ -187,7 +254,10 @@ tbody tr:nth-child(odd) { background: var(--table-stripe); }
   display: flex;
   align-items: center;
 }
-.info-box > * { margin: 0; }
+
+.info-box>* {
+  margin: 0;
+}
 
 /* 10) Code, Bildhilfen */
 /*
@@ -210,21 +280,36 @@ pre code {
   cursor: pointer;
   padding: 0;
 }
-#helpButton img { width: 48px; height: 48px; }
+
+#helpButton img {
+  width: 48px;
+  height: 48px;
+}
 
 /* 12) Kleinere Screens: engeres Layout */
 @media (max-width: 640px) {
-  :root { --gutter: 12px; }
-  .card-body { text-align: left; } /* auf sehr schmal ist Flattersatz oft besser lesbar */
+  :root {
+    --gutter: 12px;
+  }
+
+  .card-body {
+    text-align: left;
+  }
+
+  /* auf sehr schmal ist Flattersatz oft besser lesbar */
 }
 
 /* 13) Utility: visually hidden */
-.visually-hidden { 
+.visually-hidden {
   position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0,0,0,0);
-  white-space: nowrap; border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 
@@ -248,36 +333,46 @@ pre code {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 10px;
-  align-items: center; /* vertikal zentriert */
+  align-items: center;
+  /* vertikal zentriert */
 }
 
 /* ========== Input (hell) ========== */
 .fx-input {
   width: 100%;
   padding: 12px 14px;
-  height: 44px;               /* gemeinsame Höhe mit Button */
+  height: 55px;
+  /* gemeinsame Höhe mit Button */
   line-height: 1;
   border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.18);
-  background: #ffffff;        /* helles Feld */
-  color: #0b0f1f;             /* dunkler Text */
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #ffffff;
+  /* helles Feld */
+  color: #0b0f1f;
+  /* dunkler Text */
   outline: none;
   transition: box-shadow .15s ease, border-color .15s ease, background .15s ease, transform .08s ease;
   caret-color: #0b0f1f;
 }
-.fx-input::placeholder { color: rgba(0,0,0,0.5); }
+
+.fx-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .fx-input:focus {
-  border-color: rgba(120,180,255,.65);
-  box-shadow: 0 0 0 3px rgba(120,180,255,.18);
+  border-color: rgba(120, 180, 255, .65);
+  box-shadow: 0 0 0 3px rgba(120, 180, 255, .18);
   background: #ffffff;
-  transform: none; /* verhindert optisches Springen */
+  transform: none;
+  /* verhindert optisches Springen */
 }
 
 /* ========== Submit-Button mit Glow ========== */
 .fx-btn {
   position: relative;
   padding: 12px 18px;
-  height: 44px;               /* gemeinsame Höhe mit Input */
+  height: 44px;
+  /* gemeinsame Höhe mit Input */
   line-height: 1;
   border-radius: 12px;
   border: 0;
@@ -288,22 +383,34 @@ pre code {
   letter-spacing: .06em;
   color: #0b0f1f;
   background: #ffffff;
-  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .35);
   transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
   overflow: hidden;
 
-  display: inline-flex;       /* Inhalt zentrieren */
+  display: inline-flex;
+  /* Inhalt zentrieren */
   align-items: center;
   justify-content: center;
 }
-.fx-btn:hover { transform: translateY(-1px); }
-.fx-btn:active { transform: translateY(0); filter: brightness(.96); }
 
-.fx-btn-label { position: relative; z-index: 2; }
+.fx-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fx-btn:active {
+  transform: translateY(0);
+  filter: brightness(.96);
+}
+
+.fx-btn-label {
+  position: relative;
+  z-index: 2;
+}
+
 .fx-btn-glow {
   position: absolute;
   inset: -30%;
-  background: radial-gradient(120px 60px at var(--mx,50%) var(--my,50%), rgba(120,180,255,.25), rgba(120,180,255,0));
+  background: radial-gradient(120px 60px at var(--mx, 50%) var(--my, 50%), rgba(120, 180, 255, .25), rgba(120, 180, 255, 0));
   z-index: 1;
   pointer-events: none;
   transition: background-position .06s ease;
@@ -323,17 +430,18 @@ pre code {
   margin-top: 1px;
   padding: 1px;
   border-radius: 14px;
-  border: 1px solid rgba(34,209,161,.45);
-  background: linear-gradient(180deg, rgba(34,209,161,.10), rgba(34,209,161,.06));
+  border: 1px solid rgba(34, 209, 161, .45);
+  background: linear-gradient(180deg, rgba(34, 209, 161, .10), rgba(34, 209, 161, .06));
   text-align: center;
 }
+
 .fx-response {
   color: #201e4b;
   font-weight: 700;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.15);
-  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255, 255, 255, .15);
+  background: rgba(255, 255, 255, .06);
   word-break: break-word;
 }
 
@@ -348,7 +456,7 @@ pre code {
   letter-spacing: .06em;
   color: #0b0f1f;
   background: #22d1a1;
-  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .35);
   transition: transform .12s ease, filter .12s ease, opacity .25s ease, translate .25s ease;
   animation: fxPulse 1.3s ease-in-out infinite;
 
@@ -369,31 +477,56 @@ pre code {
   margin-right: 8px;
   transition: transform .12s ease;
 }
+
 .fx-next:hover .fx-next-icon {
   transform: translateX(2px) rotate(1deg);
 }
 
 /* Hover/Active bleiben gleich */
-.fx-next:hover { transform: translateY(-1px); }
-.fx-next:active { transform: translateY(0); filter: brightness(.96); }
+.fx-next:hover {
+  transform: translateY(-1px);
+}
+
+.fx-next:active {
+  transform: translateY(0);
+  filter: brightness(.96);
+}
 
 /* Tastaturfokus deutlich (Barrierefreiheit) */
 .fx-next:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34,209,161,.35), 0 10px 22px rgba(0,0,0,.35);
+  box-shadow: 0 0 0 3px rgba(34, 209, 161, .35), 0 10px 22px rgba(0, 0, 0, .35);
 }
 
 @keyframes fxPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(34,209,161,.45); }
-  70%  { box-shadow: 0 0 0 12px rgba(34,209,161,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,209,161,0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 209, 161, .45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 209, 161, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 209, 161, 0);
+  }
 }
 
 /* ========== Responsive ========== */
 @media (max-width: 520px) {
-  .fx-input-wrap { grid-template-columns: 1fr; }
-  .fx-btn { width: 100%; }
-  .fx-next { width: 100%; justify-self: stretch; text-align: center; }
+  .fx-input-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .fx-btn {
+    width: 100%;
+  }
+
+  .fx-next {
+    width: 100%;
+    justify-self: stretch;
+    text-align: center;
+  }
 }
 
 /* Sanfter Reveal (Startzustand ist unsichtbar) bleibt wie in deinem CSS:
@@ -407,6 +540,7 @@ pre code {
   margin-right: 8px;
   transition: transform .12s ease;
 }
+
 .fx-next:hover .fx-next-icon {
   transform: translateX(2px) rotate(1deg);
 }
@@ -414,7 +548,7 @@ pre code {
 /* Optional: Tastaturfokus deutlicher (falls noch nicht vorhanden) */
 .fx-next:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34,209,161,.35), 0 10px 22px rgba(0,0,0,.35);
+  box-shadow: 0 0 0 3px rgba(34, 209, 161, .35), 0 10px 22px rgba(0, 0, 0, .35);
 }
 
 /* Fehlerzustand für das Eingabefeld */
@@ -426,10 +560,19 @@ pre code {
 
 /* Optional: sanfte Animation beim Fehler-Effekt */
 @keyframes fxInputErrorPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35); }
-  70%  { box-shadow: 0 0 0 6px rgba(255, 90, 135, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 90, 135, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 135, 0);
+  }
 }
+
 .fx-input.fx-input--error {
   animation: fxInputErrorPulse 1.2s ease-out 1;
 }
@@ -449,10 +592,19 @@ pre code {
   background: #fff5f7;
   animation: fxInputErrorPulse 1.2s ease-out 1;
 }
+
 @keyframes fxInputErrorPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35); }
-  70%  { box-shadow: 0 0 0 6px rgba(255, 90, 135, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 90, 135, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 135, 0.35);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 90, 135, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 135, 0);
+  }
 }
 
 /* Submit-Button wird zu Next-Button (grüner Style) */
@@ -477,6 +629,7 @@ pre code {
   margin-right: 8px;
   transition: transform .12s ease;
 }
+
 .fx-btn.fx-btn--next:hover .fx-next-icon {
   transform: translateX(2px) rotate(1deg);
 }
@@ -487,8 +640,8 @@ pre code {
   margin-top: 12px;
   padding: 14px;
   border-radius: 14px;
-  border: 1px solid rgba(34,209,161,.45);
-  background: linear-gradient(180deg, rgba(34,209,161,.10), rgba(34,209,161,.06));
+  border: 1px solid rgba(34, 209, 161, .45);
+  background: linear-gradient(180deg, rgba(34, 209, 161, .10), rgba(34, 209, 161, .06));
 }
 
 /* Zeile: Text links, Button rechts */
@@ -501,16 +654,20 @@ pre code {
 
 /* Token-Text in Navy-Blau */
 .token-text {
-  color: navy;              /* Navy-Blau */
+  color: navy;
+  /* Navy-Blau */
   font-weight: 700;
   word-break: break-word;
 }
 
 .token-hint {
   font-style: italic;
-  font-weight: 300;        /* dünn */
-  opacity: 0.85;           /* etwas dezenter */
-  letter-spacing: .01em;   /* ruhiger Satz */
+  font-weight: 300;
+  /* dünn */
+  opacity: 0.85;
+  /* etwas dezenter */
+  letter-spacing: .01em;
+  /* ruhiger Satz */
 }
 
 /* Mobile: untereinander */
@@ -524,9 +681,17 @@ pre code {
 
 /* Pulse-Keyframes nutzt du bereits für .fx-next – hier wiederverwendet */
 @keyframes fxPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(34,209,161,.45); }
-  70%  { box-shadow: 0 0 0 12px rgba(34,209,161,0); }
-  100% { box-shadow: 0 0 0 0 rgba(34,209,161,0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 209, 161, .45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(34, 209, 161, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 209, 161, 0);
+  }
 }
 
 #fireworksCanvas {
@@ -541,14 +706,16 @@ pre code {
 }
 
 .video-wrapper {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 */
-        margin: 1rem 0;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #000;
-      }
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
 .video-wrapper iframe {
   position: absolute;
   inset: 0;
@@ -561,9 +728,195 @@ pre code {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 12px;          /* Eckenradius anpassen (z. B. 8px, 16px) */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* weicher Schatten */
+  border-radius: 12px;
+  /* Eckenradius anpassen (z. B. 8px, 16px) */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  /* weicher Schatten */
+}
+
+.mi-code {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+
+  color: #231b7c;
+
+}
+
+.mi-k {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+
+  color: #e58208;
+
+}
+
+.callout-box {
+    display: block;
+
+    padding: 16px 18px;
+    margin: 12px 0;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #1f2430;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    line-height: 1.55;
+  }
+.callout-box p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
 
+
+  .sr-only {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    white-space: nowrap; border: 0;
+  }
+
+  .file-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: #22305a;
+    color: #e8ecf8;
+    border: 1px solid #334678;
+    box-shadow: 0 6px 16px rgba(0,0,0,.18);
+    cursor: pointer;
+    user-select: none;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    transition: background .2s, border-color .2s, transform .05s;
+  }
+  .file-btn:hover { background: #2a3a6e; border-color: #3b4c86; }
+  .file-btn:active { transform: translateY(1px); }
+  .file-btn:focus-visible { outline: 3px solid rgba(122,162,255,.35); outline-offset: 3px; }
+
+  .file-icon { font-size: 18px; }
+  .file-name {
+    display: inline-block;
+    margin-left: 10px;
+    color: #9aa3b2;
+    font-size: 13px;
+    max-width: 40ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+  }
+
+    .pretty-code.light {
+    border: 1px solid #e6e8ef;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    max-width: 880px;
+  }
+  .pretty-code.light .pc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, #f7faff, #ffffff);
+    border-bottom: 1px solid #e6e8ef;
+  }
+  .pretty-code.light .pc-title {
+    font: 600 13px/1.2 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color: #33406a;
+    letter-spacing: .2px;
+  }
+  .pretty-code.light .pc-copy {
+    appearance: none;
+    border: 1px solid #d9deee;
+    background: #fff;
+    color: #1f2430;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font: 600 12px/1 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .05s;
+  }
+  .pretty-code.light .pc-copy:hover { background: #eef3ff; border-color: #cfd7f2; }
+  .pretty-code.light .pc-copy:active { transform: translateY(1px); }
+
+  /* Heller Codebereich mit „buntem“ JSON */
+  .pretty-code.light .pc-pre {
+    margin: 0;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, #fbfdff, #f5f8ff);
+    color: #1f2430;
+    font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    white-space: pre;
+    overflow: auto;
+    max-height: 420px;
+    border-radius: 0 0 12px 12px;
+  }
+  .pretty-code.light .pc-pre code { color: inherit; }
+
+  /* „bunte“ JSON-Farben */
+  .pretty-code.light .j-key { color: #2d5cf6; font-weight: 600; }
+  .pretty-code.light .j-str { color: #0aa360; }
+  .pretty-code.light .j-num { color: #b54708; }
+
+    .pretty-info {
+    border: 1px solid #e6e8ef;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    max-width: 860px;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  }
+  .pretty-info .pi-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, #f7faff, #ffffff);
+    border-bottom: 1px solid #e6e8ef;
+  }
+  .pretty-info .pi-title {
+    font-weight: 700; font-size: 13px; letter-spacing: .2px; color: #33406a;
+  }
+  .pretty-info .pi-copy {
+    appearance: none; border: 1px solid #d9deee; background: #fff; color: #1f2430;
+    border-radius: 8px; padding: 6px 10px; font-weight: 600; font-size: 12px;
+    cursor: pointer; transition: background .2s, border-color .2s, transform .05s;
+  }
+  .pretty-info .pi-copy:hover { background: #eef3ff; border-color: #cfd7f2; }
+  .pretty-info .pi-copy:active { transform: translateY(1px); }
+
+  .pretty-info .pi-pre {
+    margin: 0; padding: 14px 16px;
+    background: linear-gradient(180deg, #fbfdff, #f5f8ff);
+    border-radius: 0 0 14px 14px;
+    overflow: auto;
+  }
+  .pretty-info .pi-pre code {
+    display: block;
+    font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    color: #1f2430;
+    white-space: pre;
+  }
+
+  /* Bunte Akzente */
+  .pretty-info .pi-k   { color: #2d5cf6; font-weight: 700; }  /* Schlüssel */
+  .pretty-info .pi-str { color: #0aa360; }                    /* Strings/Platzhalter */
+  .pretty-info .pi-id  {
+    color: #b54708;
+    background: rgba(255, 187, 0, 0.08);
+    padding: 2px 6px; border-radius: 6px;                     /* ID als Badge */
+  }
+
+
+  

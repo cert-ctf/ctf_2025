@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,30 +26,63 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Elektronische Patientenakte (ePA)</h2>
+        <h2>ePA für alle (Elektronische Patientenakte)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
+        <h3>👥 Willkommen beim Fachteam ePA für alle</h3>
         <p>
-          
+          Die elektronische Patientenakte (ePA) ist deine persönliche, sichere Gesundheitsakte. Sie bündelt Befunde,
+          Medikationspläne sowie Dokumente – und du steuerst, wer was sehen darf.
         </p>
+
         <p>
-          Im Notfallzentrum wird ein Patient eingeliefert – keine Vorgeschichte, keine Angehörigen, nicht ansprechbar. Die wenigen Hinweise in der elektronischen Patientenakte sind verschlüsselt oder versteckt: eine Allergieliste als Ciphertext, ein Röntgenbild mit ungewöhnlichen Artefakten, ein signierter Befund ohne klare Herkunft. Und die Frage im Raum: Wer hat diesen Patienten zuletzt behandelt – und wen rufen wir im Notfall an? Vielleicht menschlich, vielleicht… ALF…
+
+        <div style="display: flex; justify-content: center;">
+          <img style="max-width: 80%; height: auto;" class="img-rounded-shadow"
+            src="./img/epa/ePA_Gesundheitsdaten_01_RGB_gematik_20221102.png" alt="eRezept">
+        </div>
+        <br>
         </p>
-          <center>
-            <img src="./img/epa/ePA_Gesundheitsdaten_01_RGB_gematik_20221102.png" width=80%>
-          </center>
-          <p>
-            Hier kommen die TI-Ranger ins Spiel: Im Webinterface führen sie dich Schritt für Schritt durch die Aufgaben – vom Auffinden des Schlüssels in Metadaten oder UI-Hinweisen über das Entschlüsseln der Allergien bis zur Extraktion einer steganografisch versteckten Notiz im Röntgenbild. Parallel prüfst du digitale Signaturen mit dem bereitgestellten öffentlichen Schlüssel, verifizierst die Unverändertheit des Befunds und analysierst das Audit-Log: Wer hat wann worauf zugegriffen, welcher Arzt hat geröntgt, welcher Workflow steckt dahinter?
-          </p>
-          <hr>
+
+        <p>
+          In der Sub‑Welt erklären wir dir zuerst die ePA ganz konkret: wie Authentifizierung, Rechtevergabe,
+          Dokumentenformate und Protokollierung zusammenspielen. Danach löst du produkt­spezifische Aufgaben rund um
+          JWT‑Freigaben, Dokumentenmanagement, Auditlogs und feingranulare Zugriffssteuerung. Teleporter bereit? Los
+          geht’s.
+        </p>
+
+        <ul>
+          <li>Über den Teleporter gelangst du in die Aufgabenwelt rund um ePA-Zugriffe, Dokumente und Protokolle.</li>
+          <li>Dort erwartet dich als TI‑Ranger eine interaktive Story mit praxisnahen Aufgaben.</li>
+        </ul>
+
+        <h3>🧩 Story Line</h3>
+        <p>
+          Alf steht kurz vor einem Kliniktermin und möchte, dass die Behandelnden vorbereitet sind – aber nur so viel
+          wie nötig. Du begleitest ihn dabei, seine elektronische Patientenakte (ePA) sicher freizugeben, damit die
+          Klinik vorab einen Überblick bekommt. Vor Ort geht es um schnelle Orientierung: Was wurde wann verordnet,
+          welche Medikamente sind aktuell relevant, und wie lässt sich das sauber in der ePA nachvollziehen, ohne
+          unnötig viel preiszugeben?
+        </p>
+
+        <p>
+          Im Verlauf tauchen neue Befunde auf, die für spätere Behandlungen wichtig sein können. Du hilfst, diese
+          korrekt in der ePA zu verankern, prüfst nach dem Klinikbesuch, wer wirklich Zugriff hatte, und unterstützt Alf
+          dabei, seine Privatsphäre fein zu justieren. Ziel ist, dass er souverän entscheidet, wer seine sensiblen
+          Informationen sieht – und wer nicht. Alles Weitere entdeckst du Schritt für Schritt in der Aufgabenwelt.
+        </p>
+
+        <hr>
       </div>
       <div id="info_text">
         <div class="info-row">
           <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-              Lerne, wie du in der ePA verschlüsselte Daten sicher zugänglich machst, steganografische Notizen aus Bildern extrahierst, Signaturen verifizierst und Zugriffe im Audit-Log nachvollziehst. Außerdem: zuständigen Arzt ermitteln, Notfallkontakt trotz Verschlüsselung identifizieren und Befunde sauber im Interface dokumentieren.
+              Lerne, wie du Alf's ePA verantwortungsvoll freigibst, Medikationsinformationen zielgerichtet nutzt,
+              Befunde korrekt einfügst, Zugriffe im Audit‑Log prüfst und Zugriffsrechte feingranular anpasst – damit die
+              richtigen Personen das Richtige zur richtigen Zeit sehen.
             </p>
           </div>
           <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
@@ -67,18 +102,14 @@
     Verwende folgende Verweise, um weitere Informationen über ePA zu erhalten:
     <ul>
       <li><a href="http://gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank"
+          rel="noopener">Fachportal</a></li>
     </ul>
   </div>
 
   <div class="flag-tiles" aria-hidden="true"></div>
 
-  <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
-  </script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,257 @@
+/* Namespace: message-ui – alle Styles wirken nur innerhalb dieses Containers */
+.message-ui {
+  /* Design-Tokens (nur in diesem Scope) */
+  --mu-bg: #0f1220;
+  --mu-card: #181c2f;
+  --mu-card-hover: #1d2240;
+  --mu-text: #e8ecf8;
+  --mu-muted: #9aa3b2;
+  --mu-accent: #6ea8fe;
+  --mu-success: #4cc38a;
+  --mu-warning: #f7c948;
+  --mu-danger: #ff6b6b;
+  --mu-border: #2a3152;
+  --mu-focus: #7aa2ff;
+  --mu-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* optionaler Container-Hintergrund, NICHT global */
+.message-ui .mu-container {
+
+  padding: 24px;
+
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+/* Liste: strikt eine Spalte – alle Boxen untereinander */
+.message-ui .mu-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Item: links Checkbox, rechts Card */
+.message-ui .mu-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: start;
+  gap: 12px;
+}
+
+/* Checkbox: nur im Namespace */
+.message-ui .mu-checkbox {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--mu-border);
+  border-radius: 6px;
+  background: #fefefe;
+  position: relative;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.message-ui .mu-checkbox:hover {
+  border-color: var(--mu-accent);
+  box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.12);
+}
+
+/* Tri-state Visualisierung (indeterminate) */
+.message-ui .mu-checkbox[data-state="indeterminate"] {
+  background: linear-gradient(180deg, #223, #1c2040);
+  border-color: #7180ff;
+}
+
+.message-ui .mu-checkbox[data-state="indeterminate"]::after {
+  content: "";
+  position: absolute;
+  inset: 6px 4px;
+  height: 4px;
+  border-radius: 3px;
+  background: #9bb0ff;
+}
+
+/* Checked-Style */
+.message-ui .mu-checkbox:checked {
+  background: #ffffff;
+  border-color: var(--mu-accent);
+}
+
+.message-ui .mu-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  width: 7px;
+  height: 12px;
+  border: 3px solid #33be45;
+  border-left: 0;
+  border-top: 0;
+  transform: rotate(45deg);
+}
+
+/* Card */
+.message-ui .mu-card {
+  display: block;
+  background: var(--mu-card);
+  border: 1px solid var(--mu-border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--mu-text);
+  box-shadow: var(--mu-shadow);
+  transition: transform 0.1s ease, background 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+
+  /* Wichtig: keine Scrollbox in der Karte */
+  overflow: visible;
+}
+
+/* Hover */
+.message-ui .mu-card:hover {
+  transform: translateY(-2px);
+  background: var(--mu-card-hover);
+  border-color: #34406c;
+}
+
+/* Fokus: Checkbox steuert Card-Highlight */
+.message-ui .mu-checkbox:focus+.mu-card {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.25);
+  border-color: var(--mu-focus);
+}
+
+/* Header */
+.message-ui .mu-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.message-ui .mu-id {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #0e1430;
+  border: 1px solid var(--mu-border);
+  color: var(--mu-text);
+}
+
+.message-ui .mu-type {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--mu-border);
+  background: #121836;
+  color: var(--mu-muted);
+}
+
+/* Typ-Badges farblich differenzieren */
+.message-ui .mu-type--topic {
+  color: var(--mu-success);
+  border-color: rgba(76, 195, 138, 0.35);
+}
+
+.message-ui .mu-type--power {
+  color: var(--mu-warning);
+  border-color: rgba(247, 201, 72, 0.35);
+}
+
+.message-ui .mu-type--name {
+  color: var(--mu-danger);
+  border-color: rgba(255, 107, 107, 0.35);
+}
+
+/* Meta */
+.message-ui .mu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+  color: var(--mu-muted);
+  font-size: 12px;
+}
+
+.message-ui .mu-event::before {
+  content: "event:";
+  color: #6a7392;
+  margin-right: 6px;
+}
+
+.message-ui .mu-sender::before {
+  content: "sender:";
+  color: #6a7392;
+  margin-right: 6px;
+}
+
+.message-ui .mu-time::before {
+  content: "time:";
+  color: #6a7392;
+  margin-right: 6px;
+}
+
+/* JSON-Block: ohne Scrollbox, wächst mit dem Inhalt */
+.message-ui .mu-pre {
+  margin: 0;
+  max-height: none;
+  /* entfernt die Höhenbegrenzung */
+  overflow: visible;
+  /* kein Scrollen innerhalb des Blocks */
+
+  background: #0f1430;
+  border: 1px solid #262e52;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #dbe3ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 12.5px;
+  line-height: 1.35;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  white-space: pre;
+  /* Formatierung bewahren */
+  word-break: normal;
+}
+
+/* Drag-Visuals (nur im Namespace) */
+.message-ui .mu-item.dragging {
+  opacity: 0.6;
+}
+
+.message-ui .mu-item.drop-target {
+  outline: 2px dashed var(--mu-accent);
+  outline-offset: 6px;
+  border-radius: 14px;
+}
+
+.message-ui .mu-placeholder {
+  height: 56px;
+  /* wird per JS dynamisch gesetzt */
+  border: 2px dashed var(--mu-border);
+  border-radius: 12px;
+  background: rgba(110, 168, 254, 0.06);
+  margin: 4px 0;
+}
+
+/* Optional: kompaktere Darstellung auf sehr kleinen Screens */
+@supports (container-type: inline-size) {
+  .message-ui {
+    container-type: inline-size;
+  }
+
+  @container (max-width: 420px) {
+    .message-ui .mu-item {
+      grid-template-columns: 24px 1fr;
+      gap: 10px;
+    }
+
+    .message-ui .mu-pre {
+      font-size: 12px;
+    }
+  }
+}

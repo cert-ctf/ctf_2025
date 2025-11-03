@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +9,10 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-01.css">
+
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,61 +28,285 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX - E-Rezept (Aufgabe 1)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <p>
-          Du hast vergessen, wie die eindeutige Bezeichnung des Medikaments heißt, das du in der Apotheke abholen sollst. Zum Glück kannst du dir das in deinem Rezept noch einmal ansehen.
+          Ach, endlich Urlaub: Sonne, Strand – und das Medikament liegt zu Hause. Kein Problem! Ab zur Apotheke und
+          nachfragen. Doch vor der Tür fällt dir ein: Der genaue, eindeutige Name des Präparats ist dir entfallen. Keine
+          Panik! Dank des E‑Rezepts kannst du die exakte Bezeichnung jederzeit schnell nachsehen.
         </p>
-        <p>Dein Rezept:</p>
+
+        <figure style="text-align: center;">
+          <img class="img-rounded-shadow" src="./img/erx-01.png" alt="Alf bereitet den Zugriff auf seine ePA vor"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
+
+        <hr />
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Finde die richtige Angabe im E-Rezept, damit es in der Apotheke keine Missverständnisse gibt.
+          </p>
+        </div>
+        <br>
+
+        <hr>
+        <h3>🗒️ Informationen zur Mission</h3>
+        <p>
+          Zum Glück hast du das E‑Rezept als FHIR‑XML vorliegen. Lade die Datei in den E‑Rezept‑Parser und prüfe dort
+          die Werte, insbesondere <code class="mi-k">Bezeichnung</code>, <code class="mi-k">PZN</code>, <code
+            class="mi-k">Darreichungsform</code>, <code class="mi-k">Packungsgröße</code>, <code
+            class="mi-k">Dosierung</code> und <code class="mi-k">Aut‑idem‑Status</code>. So bekommst du in der Apotheke
+          exakt das richtige Medikament.
+        </p>
+
+
+        <h4>Unterlagen</h4>
+        <p>
+          Speichere dein E‑Rezept als FHIR‑XML und lade die Datei anschließend im Parser unten hoch. So werden die
+          relevanten Felder übersichtlich angezeigt:
+        </p>
         <ul>
           <li>
-            <a href="files/erx.wa1/medicationBundle.xml" download rel="noopener noreferrer" target="_blank">E‑Rezept (Beispiel)</a>
+            <a href="files/erx.wa1/medicationBundle.dat" download rel="noopener noreferrer" target="_blank">E‑Rezept
+              FHIR-XML
+              (Beispiel)</a>
           </li>
         </ul>
-        <hr>
-        <h3>Pharmazentralnummer</h3>
-        <p>
-          Die Pharmazentralnummer (PZN) ist ein in Deutschland bundeseinheitlicher Identifikationsschlüssel für Arzneimittel, Medizinprodukte und andere sonstige apothekenübliche Produkte. 
-        </p>
-        <hr>
-            <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="1234567" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
 
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
+        <h4>Weitere Informationen</h4>
+        <div class="ctf-accordion">
+          <!-- Bezeichnung -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Bezeichnung</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Die Bezeichnung ist der eindeutige Arzneimittelname im E‑Rezept. Sie umfasst in der Regel Handelsname,
+                Wirkstärke und Darreichungsform (z. B. „Sumatriptan‑1a Pharma 100 mg Tabletten“).
+              </p>
+            </div>
+          </section>
+
+          <!-- PZN -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Pharmazentralnummer (PZN)</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Die Pharmazentralnummer (PZN) ist ein bundeseinheitlicher Identifikationsschlüssel für Arzneimittel,
+                Medizinprodukte und weitere apothekenübliche Produkte. Sie dient der eindeutigen Zuordnung in der
+                Apotheke.
+              </p>
+            </div>
+          </section>
+
+          <!-- Darreichungsform -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Darreichungsform</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Die Darreichungsform beschreibt, in welcher Form das Arzneimittel verabreicht wird (z. B. Tabletten,
+                Kapseln,
+                Tropfen). Im E‑Rezept wird sie häufig als Code abgebildet (z. B. „TAB“ für Tabletten).
+              </p>
+            </div>
+          </section>
+
+          <!-- Packungsgröße -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Packungsgröße</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Die Packungsgröße gibt an, wie viele Einheiten in einer Packung enthalten sind (z. B. „12 Stück“).
+                Ergänzend kann eine Normgröße (z. B. N1, N2, N3) angegeben sein.
+              </p>
+            </div>
+          </section>
+
+          <!-- Dosierung -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Dosierung</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Die Dosierung beschreibt das Einnahmeschema, etwa in Form eines vierteiligen Tagesrasters (z. B.
+                „1‑0‑1‑0“).
+                Sie legt fest, wie oft und in welcher Menge das Arzneimittel eingenommen werden soll.
+              </p>
+            </div>
+          </section>
+
+          <!-- Aut‑idem‑Status -->
+          <section class="ctf-acc-item" data-acc>
+            <button class="ctf-acc-header" type="button" aria-expanded="false">
+              <span class="ctf-acc-title">Aut‑idem‑Status</span>
+              <span class="ctf-acc-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="ctf-acc-panel" hidden>
+              <p>
+                Der Aut‑idem‑Status gibt an, ob die Apotheke ein wirkstoffgleiches Präparat abgeben darf. „Erlaubt“
+                bedeutet,
+                dass eine Substitution möglich ist; „nicht erlaubt“ verhindert den Austausch.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <hr>
+
+        <h3>📠 FHIR-XML Parser</h3>
+
+        <div class="app-shell">
+          <!-- Uploader-Panel -->
+          <section class="app-panel" id="fairxmlSection">
+            <div class="panel-body">
+              <section class="uploader">
+                <div class="uploader-head">
+                  <div>
+                    <div class="uploader-title">E‑Rezept FHIR‑XML hochladen</div>
+                    <div class="uploader-sub">Datei auswählen oder hier ablegen – wir zeigen die wichtigsten Felder.
+                    </div>
+                  </div>
+                  <div class="uploader-actions">
+                    <button class="btn" id="pickFileBtn">XML auswählen</button>
+                  </div>
+                </div>
+                <input type="file" id="fileInput" class="file-input" accept=".xml,.XML,text/xml" />
+                <div id="dropzone" class="dropzone">Datei hier ablegen oder auf „XML auswählen“ klicken</div>
+                <div id="errorBox" class="error" aria-live="polite"></div>
+              </section>
+            </div>
+          </section>
+
+          <!-- Ergebnis-Karte -->
+          <section class="app-panel rx-card" id="rxCard" aria-live="polite">
+            <header class="rx-header">
+              <div class="rx-title">
+                <h3>E‑Rezept – Verordnung</h3>
+                <p class="rx-sub" id="rxMeta">PrescriptionId: – · Stand: –</p>
+              </div>
+              <span class="rx-badge" id="rxStatus">–</span>
+            </header>
+
+            <div class="rx-body">
+              <div class="rx-row">
+                <div class="rx-label">Arzneimittel</div>
+                <div class="rx-value rx-med" id="rxMedName">–</div>
+              </div>
+
+              <div class="rx-grid">
+                <div class="rx-item">
+                  <div class="rx-label">PZN</div>
+                  <div class="rx-value mono" id="rxPzn">–</div>
+                </div>
+                <div class="rx-item">
+                  <div class="rx-label">Darreichungsform</div>
+                  <div class="rx-value" id="rxForm">–</div>
+                </div>
+                <div class="rx-item">
+                  <div class="rx-label">Packungsgröße</div>
+                  <div class="rx-value" id="rxPack">–</div>
+                </div>
+                <div class="rx-item">
+                  <div class="rx-label">Menge</div>
+                  <div class="rx-value" id="rxQuantity">–</div>
+                </div>
+              </div>
+              <br>
+              <div class="rx-row">
+                <div class="rx-label">Wirkstoff/Stärke</div>
+                <div class="rx-value" id="rxStrength">–</div>
+              </div>
+
+              <div class="rx-row">
+                <div class="rx-label">Dosierung</div>
+                <div class="rx-value"><code id="rxDosage">–</code></div>
+              </div>
+
+              <div class="rx-row">
+                <div class="rx-label">Aut idem</div>
+                <div class="rx-value" id="rxSubstitution">–</div>
+              </div>
+
+              <hr class="rx-sep" />
+
+              <div class="rx-triple-row">
+                <div class="rx-triple-item">
+                  <div class="rx-label">Patient</div>
+                  <div class="rx-value" id="rxPatient">–</div>
+                </div>
+                <div class="rx-triple-item">
+                  <div class="rx-label">Verordnet</div>
+                  <div class="rx-value" id="rxPractitioner">–</div>
+                </div>
+                <div class="rx-triple-item">
+                  <div class="rx-label">Kostenträger</div>
+                  <div class="rx-value" id="rxInsurer">–</div>
+                </div>
+              </div>
             </div>
 
-            
+            <footer class="rx-footer">
 
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Welche PZN hat das verschriebene Medikament?
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+            </footer>
+          </section>
         </div>
-      </div>
-      <br>
+        <br>
+
+
+
+        <hr>
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="1234567" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
+
+
+
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Welche PZN hat das verschriebene Medikament?
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+          </div>
+        </div>
+        <br>
     </section>
   </main>
 
@@ -92,28 +320,32 @@
     <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      <li><a href="https://de.wikipedia.org/wiki/Pharmazentralnummer" target="_blank" rel="noopener">Pharmazentralnummer (PZN)</a></li>
-      <li><a href="wa-erx-02.html" rel="noopener noreferrer">Aufgabe 2</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
+      <li><a href="https://de.wikipedia.org/wiki/Pharmazentralnummer" target="_blank" rel="noopener">Pharmazentralnummer
+          (PZN)</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
 
   <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
+    const url = "erx/wa-1"
+    const nextQuestionURL = "wa-erx-02.html"
+    const localStorageKey = "erx-wa-1"
   </script>
-  <script>
-      const url = "erx/wa-1"
-      const nextQuestionURL = "wa-erx-02.html"
-      const localStorageKey = "erx-wa-1"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+  <script src="./js/erx-01.js"></script>
+
+  <script>
+    initFlagUI();
+  </script>
+
 </body>
+
 </html>

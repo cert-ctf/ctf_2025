@@ -1661,7 +1661,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/wa-kim-00.html"
+                         "value":"websites\/welcome_kim.html"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -1678,7 +1678,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/wa-tim-00.html"
+                         "value":"websites\/welcome_tim.html"
                         }],
                  "rotation":0,
                  "type":"area",

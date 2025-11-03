@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -23,72 +25,87 @@
 
     <section class="card">
       <header class="card-header">
-          <h2>TI-Messenger</h2>
+        <h2>TI-Messenger (Aufgabe 1)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3><p class="subtitle">Mist, verklickt, mal wieder mit dem Finger ausgerutscht...</p></h3>
+        <h3>
+          <p class="subtitle">Mist, verklickt, mal wieder mit dem Finger ausgerutscht...</p>
+        </h3>
         <p>
           Larissa hat aus Versehen ein peinliches Partyfoto an ihre Hautärztin gesendet – statt der Biopsieergebnisse.
-          
+        </p>
+        <p>
+          Sie möchte wissen, ob die Nachricht gelöscht werden kann... Kannst du ihr helfen?
         </p>
         <figure style="text-align: center;">
-            <img class="img-rounded-shadow"
-              src="./img/larissa.png"
-              alt="KIM Nachrichtenversand"
-              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
-            >
-          </figure>
-        <p>
-          Sie möchte wissen, ob die Nachricht gelöscht werden kann. Hilf ihr dabei und prüfe die Anforderungen in der TI‑Messenger‑Basis­spezifikation, um die passende Vorgabe zu finden.
-          <ul>
-            <li>
-              <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/" target="_blank" rel="noopener noreferrer">
-                Spezifikation TI‑Messenger (Basis)
-              </a>
-            </li>
-          </ul>
-        </p>
+          <img class="img-rounded-shadow" src="./img/larissa.png" alt="KIM Nachrichtenversand"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
 
-          
         <hr>
-          <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="A_12345" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
-
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Wir suchen hier die AFO (Anforderung) für diese Funktion.<br>
-              Das Format ist: <strong>A_XXXXX</strong>
-              <br><br>
-              <em>Tipp:</em> Schau mal im <a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">Gemspec Portal</a> der gematik nach der Spezifikation TI-Messenger (Basis).
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Prüfe die Anforderungen in der TI‑Messenger‑Basis­spezifikation, um die passende Vorgabe zu finden, in
+            welcher so eine Funktionalität verankert sein könnte.
+          </p>
         </div>
-      </div>
-      <br>
+        <br>
+
+        <hr>
+        <h3>🗒️ Informationen zur Mission</h3>
+        <ul>
+          <li>
+            <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/" target="_blank"
+              rel="noopener noreferrer">
+              Spezifikation TI‑Messenger (Basis)
+            </a>
+          </li>
+        </ul>
+        <br>
+
+
+
+        <hr>
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="A_12345" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Wir suchen hier die AFO (Anforderung) für diese Funktion.<br>
+                Das Format ist: <strong>A_XXXXX</strong>
+                <br><br>
+                <em>Tipp:</em> Schau mal im <a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">Gemspec
+                  Portal</a> der gematik nach der Spezifikation TI-Messenger (Basis).
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+          </div>
+        </div>
+        <br>
     </section>
   </main>
 
@@ -108,13 +125,19 @@
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
- <script>
-      const url = "tim/wa-1"
-      const nextQuestionURL = "wa-tim-02.html"
-      const localStorageKey = "tim-wa-1"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
+  <script>
+    const url = "tim/wa-1"
+    const nextQuestionURL = "wa-tim-02.html"
+    const localStorageKey = "tim-wa-1"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+
+  <script>
+    initFlagUI();
+  </script>
 </body>
+
 </html>

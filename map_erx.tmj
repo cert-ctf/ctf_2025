@@ -1242,7 +1242,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/welcome_erx.html"
+                         "value":"websites\/wa-erx-00.html"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -1259,7 +1259,7 @@
                         {
                          "name":"openWebsite",
                          "type":"string",
-                         "value":"websites\/welcome_erx.html"
+                         "value":"websites\/wa-erx-00.html"
                         }],
                  "rotation":0,
                  "type":"area",

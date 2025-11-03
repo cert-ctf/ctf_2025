@@ -1,5 +1,5 @@
 function computeWaSolution(value) {
-  const keys = [value+'-wa-1', value+'-wa-2', value+'-wa-3', value+'-wa-4', value+'-wa-5'];
+  const keys = [value + '-wa-1', value + '-wa-2', value + '-wa-3', value + '-wa-4', value + '-wa-5'];
 
   function toNumber(value) {
     const n = Number(value);
@@ -15,7 +15,7 @@ function computeWaSolution(value) {
   const modValue = ((sum % 100000) + 100000) % 100000;
 
   // Ergebnis speichern
-  localStorage.setItem(value+'-wa-solution',modValue);
+  localStorage.setItem(value + '-wa-solution', modValue);
 
   return modValue;
 
@@ -34,7 +34,7 @@ function clearStorage() {
       const m = localStorageKey.match(re);
       if (m) prefix = m[1];
     }
-  } catch (_) {}
+  } catch (_) { }
 
   // Fallback: im localStorage nach passendem Key suchen
   if (!prefix) {
@@ -69,7 +69,7 @@ function clearStorage() {
   });
 
   console.log(`Präfix: "${prefix}" – gelöscht:`, removed.length ? removed : '(nichts gefunden)');
- //return removed;
+  //return removed;
 }
 // Beispiel:
 // clearWaStorageAuto();
@@ -142,6 +142,7 @@ function initFlagUI() {
   const inputEl = document.getElementById('solution');
   const errorEl = document.getElementById('error-message');
   const successEl = document.getElementById('success-message');
+  const infoBox = document.getElementById('info_text');
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl || !inputEl) {
@@ -176,6 +177,8 @@ function initFlagUI() {
 
       const glow = submitBtn.querySelector('.fx-btn-glow');
       if (glow) glow.style.display = 'none';
+
+      if (infoBox) infoBox.style.display = 'none';
 
       submitBtn.type = 'button';
       const cloned = submitBtn.cloneNode(true);
@@ -222,7 +225,7 @@ function initFlagUI() {
       applySuccessUI(storedToken);
       return true;
     } else {
-      console.warn(`[Flag] Kein Eintrag für "${flagKey}" unter localStorageKey="${localStorageKey}" gefunden.`);
+      //console.warn(`[Flag] Kein Eintrag für "${flagKey}" unter localStorageKey="${localStorageKey}" gefunden.`);
       applyNeutralUI();
       return false;
     }
@@ -240,7 +243,7 @@ function initFlagUI() {
 
   // Submit-Handler nur einmal
   if (!formEl.__submitHandlerAttached__) {
-    formEl.addEventListener('submit', async function(event) {
+    formEl.addEventListener('submit', async function (event) {
       event.preventDefault();
 
       if (errorEl) errorEl.textContent = '';
@@ -306,6 +309,7 @@ function initFlagUIImage() {
   const inputEl = document.getElementById('solutionFile'); // Datei-Input
   const errorEl = document.getElementById('error-message');
   const successEl = document.getElementById('success-message');
+  const infoBox = document.getElementById('info_text');
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl || !inputEl) {
@@ -328,12 +332,12 @@ function initFlagUIImage() {
   function applySuccessUI(storedToken) {
     if (errorEl) errorEl.textContent = '';
 
-    if (apiResponseEl) {
-      apiResponseEl.textContent = `Der Token ist: ${String(storedToken)}.`;
-      apiResponseEl.classList.add('token-text'); // CSS: .token-text { color: navy; font-weight: 700; }
-    }
+    //if (apiResponseEl) {
+    //  apiResponseEl.textContent = `Der Token ist: ${String(storedToken)}.`;
+    //  apiResponseEl.classList.add('token-text'); // CSS: .token-text { color: navy; font-weight: 700; }
+    //}
 
-    if (successEl) successEl.style.display = 'block';
+    if (successEl) successEl.style.display = 'none';
 
     inputEl.classList.remove('fx-input--error');
     inputEl.classList.add('fx-input--success');
@@ -346,6 +350,8 @@ function initFlagUIImage() {
 
       const glow = submitBtn.querySelector('.fx-btn-glow');
       if (glow) glow.style.display = 'none';
+
+      if (infoBox) infoBox.style.display = 'none';
 
       // alte Listener entfernen und Next-Click setzen
       submitBtn.type = 'button';
@@ -391,7 +397,7 @@ function initFlagUIImage() {
       applySuccessUI(storedToken);
       return true;
     } else {
-      console.warn(`[Flag(File)] Kein Eintrag für "${flagLabel}" unter localStorageKey="${localStorageKey}" gefunden.`);
+      //console.warn(`[Flag(File)] Kein Eintrag für "${flagLabel}" unter localStorageKey="${localStorageKey}" gefunden.`);
       applyNeutralUI();
       return false;
     }
@@ -414,7 +420,7 @@ function initFlagUIImage() {
 
   // Submit-Handler (Datei-Upload)
   if (!formEl.__submitHandlerAttachedFile__) {
-    formEl.addEventListener('submit', async function(event) {
+    formEl.addEventListener('submit', async function (event) {
       event.preventDefault();
 
       // Reset Meldungen und States
@@ -536,6 +542,7 @@ function initFlagUICheckBox() {
   const inputEl = document.getElementById('solution'); // optional, darf fehlen
   const errorEl = document.getElementById('error-message');
   const successEl = document.getElementById('success-message');
+  const infoBox = document.getElementById('info_text');
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl) {
@@ -556,7 +563,7 @@ function initFlagUICheckBox() {
   }
 
   // Optional: Info-Box
-  const infoBox = document.getElementById('info_text');
+  const infobox = document.getElementById('info_text');
 
   // Lösung aus der UI in aktueller Reihenfolge (falls du den Hidden-Input nicht nutzt)
   function getSolutionFromUI() {
@@ -771,3 +778,193 @@ function initFlagUICheckBox() {
   // Initialer Check
   checkStorage(typeof localStorageKey !== 'undefined' ? localStorageKey : 'flag');
 }
+
+
+
+
+
+function initFlagUITextfield() {
+  // Idempotent-Guard
+  if (initFlagUI.__initialized) return;
+  initFlagUI.__initialized = true;
+
+  // DOM
+  const formEl = document.getElementById('solutionForm');
+  const inputEl = document.getElementById('solution'); // Textarea
+  const errorEl = document.getElementById('error-message');
+  const successEl = document.getElementById('success-message');
+  const infoBox = document.getElementById('info_text');
+  const apiResponseEl = document.getElementById('api-response');
+
+  if (!formEl || !inputEl) {
+    console.warn('[Flag] Formular-Elemente nicht gefunden. Abbruch.');
+    return;
+  }
+
+  let submitBtn = formEl.querySelector('.fx-btn');
+  let submitLabel = submitBtn ? submitBtn.querySelector('.fx-btn-label') : null;
+
+  function handleNextNavigate() {
+    if (typeof nextQuestionURL === 'string' && nextQuestionURL.length > 0) {
+      window.location.href = nextQuestionURL;
+    } else {
+      console.warn('[Flag] nextQuestionURL ist nicht gesetzt.');
+    }
+  }
+
+  // UI nach Token-Status setzen
+  function applySuccessUI(storedToken) {
+    if (errorEl) errorEl.textContent = '';
+
+    // Optional: Success-Box zeigen und Token texten
+    // successEl?.style && (successEl.style.display = 'block');
+    // if (apiResponseEl) {
+    //   apiResponseEl.textContent = `Der Token ist: ${String(storedToken)}.`;
+    //   apiResponseEl.classList.add('token-text');
+    // }
+
+    inputEl.classList.remove('fx-input--error');
+    inputEl.classList.add('fx-input--success');
+    inputEl.readOnly = true;
+    inputEl.setAttribute('aria-readonly', 'true');
+
+    if (submitBtn) {
+      submitBtn.classList.add('fx-btn--next');
+      if (submitLabel) submitLabel.innerHTML = '<span class="fx-next-icon">→</span> Next';
+
+      const glow = submitBtn.querySelector('.fx-btn-glow');
+      if (glow) glow.style.display = 'none';
+
+      if (infoBox) infoBox.style.display = 'none';
+
+      // Button entkoppeln und auf Next klicken lassen
+      submitBtn.type = 'button';
+      const cloned = submitBtn.cloneNode(true);
+      submitBtn.parentNode.replaceChild(cloned, submitBtn);
+      submitBtn = cloned;
+      submitLabel = submitBtn.querySelector('.fx-btn-label');
+      submitBtn.addEventListener('click', handleNextNavigate, { once: true });
+    }
+  }
+
+  function applyNeutralUI() {
+    inputEl.classList.remove('fx-input--success');
+    inputEl.readOnly = false;
+    inputEl.removeAttribute('aria-readonly');
+    inputEl.classList.remove('fx-input--error');
+
+    if (successEl) successEl.style.display = 'none';
+    if (apiResponseEl) {
+      apiResponseEl.textContent = '';
+      apiResponseEl.classList.remove('token-text');
+    }
+
+    if (submitBtn) {
+      submitBtn.classList.remove('fx-btn--next');
+      submitBtn.type = 'submit';
+      const label = submitBtn.querySelector('.fx-btn-label');
+      if (label && label.textContent.includes('Next')) {
+        label.textContent = label.textContent.replace('Next', 'Submit');
+      }
+      const glow = submitBtn.querySelector('.fx-btn-glow');
+      if (glow) glow.style.display = '';
+    }
+  }
+
+  /**
+   * Prüft localStorage und setzt die UI entsprechend.
+   * @param {string} flagKey - nur fürs Logging
+   */
+  function checkStorage(flagKey) {
+    const storedToken = localStorage.getItem(localStorageKey);
+    if (storedToken && String(storedToken).trim() !== '') {
+      applySuccessUI(storedToken);
+      return true;
+    } else {
+      applyNeutralUI();
+      return false;
+    }
+  }
+
+  // Tipp-Listener nur einmal: Fehlerklasse entfernen, wenn der Nutzer tippt
+  if (!inputEl.__errorListenerAttached__) {
+    inputEl.addEventListener('input', () => {
+      if (inputEl.classList.contains('fx-input--error')) {
+        inputEl.classList.remove('fx-input--error');
+      }
+    });
+    inputEl.__errorListenerAttached__ = true;
+  }
+
+  // Submit-Handler nur einmal
+  if (!formEl.__submitHandlerAttached__) {
+    formEl.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      if (errorEl) errorEl.textContent = '';
+      if (successEl) successEl.style.display = 'none';
+
+      // NEU: Textarea-Inhalt in Zeilen splitten und leere Zeilen filtern
+      const lines = (inputEl.value || '')
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+      const payload = { solution: lines };
+
+      try {
+        const endpoint = (baseURL?.endsWith('/') ? baseURL : baseURL + '/') + (url?.startsWith('/') ? url.slice(1) : url);
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.status === 200) {
+          const data = await response.json();
+          if (data.token) localStorage.setItem(localStorageKey, data.token);
+          checkStorage(localStorageKey);
+        } else if (response.status === 400) {
+          if (errorEl) errorEl.textContent = 'Wrong answer.';
+          inputEl.classList.remove('fx-input--success');
+          inputEl.readOnly = false;
+          inputEl.removeAttribute('aria-readonly');
+          inputEl.classList.add('fx-input--error');
+        } else {
+          if (errorEl) errorEl.textContent = 'An unexpected error occurred.';
+        }
+      } catch (error) {
+        if (errorEl) errorEl.textContent = 'Network error: ' + error;
+      }
+    });
+    formEl.__submitHandlerAttached__ = true;
+  }
+
+  // Optional: Glow nur einmal
+  if (submitBtn && !submitBtn.__glowListenerAttached__) {
+    const glow = submitBtn.querySelector('.fx-btn-glow');
+    if (glow) {
+      submitBtn.addEventListener('mousemove', (e) => {
+        const rect = submitBtn.getBoundingClientRect();
+        const mx = ((e.clientX - rect.left) / rect.width) * 100;
+        const my = ((e.clientY - rect.top) / rect.height) * 100;
+        glow.style.setProperty('--mx', mx + '%');
+        glow.style.setProperty('--my', my + '%');
+      });
+      submitBtn.__glowListenerAttached__ = true;
+    }
+  }
+
+  // Initialer Check
+  checkStorage(localStorageKey);
+}
+
+
+
+
+
+
+

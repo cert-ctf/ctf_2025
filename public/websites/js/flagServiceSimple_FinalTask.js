@@ -37,6 +37,10 @@ formEl.addEventListener('submit', async function(event) {
 
       // Box sichtbar lassen
       successEl.style.display = 'block';
+      
+      //Info Box ausblenden
+      const box = document.getElementById('info_text');
+      box.style.display = 'none';
 
       // Input sperren + Success-State
       inputEl.classList.remove('fx-input--error');

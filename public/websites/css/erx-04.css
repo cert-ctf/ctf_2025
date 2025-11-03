@@ -1,0 +1,85 @@
+:root{
+  --navy: #0b1e3a;
+  --white: #ffffff;
+  --muted: #42526e;
+  --badge-bg: rgba(13,189,139,.12);
+  --badge-border: rgba(13,189,139,.45);
+  --badge-fg: #0b7059;
+}
+
+/* Card */
+.mission-info-card{
+  max-width: 920px;
+  margin: 1.25rem auto;
+  border: 1px solid rgba(11, 30, 58, .12);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+/* Header */
+.mission-info-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem 1rem;
+  background: #f7fafc;
+  border-bottom: 1px solid rgba(11,30,58,.12);
+}
+
+.mission-info-title{
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: .02em;
+}
+
+.mission-info-badge{
+  display: inline-block;
+  padding: .25rem .6rem;
+  border-radius: 10px;
+  border: 1px solid var(--badge-border);
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+/* Body */
+.mission-info-body{
+  padding: 1rem 1.1rem 1.2rem;
+  color: var(--navy);
+}
+
+/* Subtitles */
+.mission-info-subtitle{
+  margin: .4rem 0 .3rem 0;
+  font-size: 1rem;
+  color: #1e3a8a;
+}
+
+/* Lists */
+.mission-info-list{
+  margin: .2rem 0 .8rem 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.mission-info-list code{
+  background: #f0f6ff;
+  border: 1px solid #b6ceff;
+  color: #1e40af;
+  padding: .05rem .3rem;
+  border-radius: 6px;
+  font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .mission-info-card{ margin: 1rem; }
+  .mission-info-head{ padding: .8rem .9rem; }
+  .mission-info-body{ padding: .9rem .95rem 1.05rem; }
+}
