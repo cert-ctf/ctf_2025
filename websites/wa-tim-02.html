@@ -8,266 +8,8 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/tim02.css">
 
-  <style>
-    /* Namespace: message-ui – alle Styles wirken nur innerhalb dieses Containers */
-    .message-ui {
-      /* Design-Tokens (nur in diesem Scope) */
-      --mu-bg: #0f1220;
-      --mu-card: #181c2f;
-      --mu-card-hover: #1d2240;
-      --mu-text: #e8ecf8;
-      --mu-muted: #9aa3b2;
-      --mu-accent: #6ea8fe;
-      --mu-success: #4cc38a;
-      --mu-warning: #f7c948;
-      --mu-danger: #ff6b6b;
-      --mu-border: #2a3152;
-      --mu-focus: #7aa2ff;
-      --mu-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    }
-
-    /* optionaler Container-Hintergrund, NICHT global */
-    .message-ui .mu-container {
-
-      padding: 24px;
-
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-    }
-
-    /* Liste: strikt eine Spalte – alle Boxen untereinander */
-    .message-ui .mu-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    /* Item: links Checkbox, rechts Card */
-    .message-ui .mu-item {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      align-items: start;
-      gap: 12px;
-    }
-
-    /* Checkbox: nur im Namespace */
-    .message-ui .mu-checkbox {
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border: 2px solid var(--mu-border);
-      border-radius: 6px;
-      background: #fefefe;
-      position: relative;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-    }
-
-    .message-ui .mu-checkbox:hover {
-      border-color: var(--mu-accent);
-      box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.12);
-    }
-
-    /* Tri-state Visualisierung (indeterminate) */
-    .message-ui .mu-checkbox[data-state="indeterminate"] {
-      background: linear-gradient(180deg, #223, #1c2040);
-      border-color: #7180ff;
-    }
-
-    .message-ui .mu-checkbox[data-state="indeterminate"]::after {
-      content: "";
-      position: absolute;
-      inset: 6px 4px;
-      height: 4px;
-      border-radius: 3px;
-      background: #9bb0ff;
-    }
-
-    /* Checked-Style */
-    .message-ui .mu-checkbox:checked {
-      background: #ffffff;
-      border-color: var(--mu-accent);
-    }
-
-    .message-ui .mu-checkbox:checked::after {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: 0px;
-      width: 7px;
-      height: 12px;
-      border: 3px solid #33be45;
-      border-left: 0;
-      border-top: 0;
-      transform: rotate(45deg);
-    }
-
-    /* Card */
-    .message-ui .mu-card {
-      display: block;
-      background: var(--mu-card);
-      border: 1px solid var(--mu-border);
-      border-radius: 14px;
-      padding: 12px 14px;
-      text-decoration: none;
-      color: var(--mu-text);
-      box-shadow: var(--mu-shadow);
-      transition: transform 0.1s ease, background 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-
-      /* Wichtig: keine Scrollbox in der Karte */
-      overflow: visible;
-    }
-
-    /* Hover */
-    .message-ui .mu-card:hover {
-      transform: translateY(-2px);
-      background: var(--mu-card-hover);
-      border-color: #34406c;
-    }
-
-    /* Fokus: Checkbox steuert Card-Highlight */
-    .message-ui .mu-checkbox:focus+.mu-card {
-      outline: none;
-      box-shadow: 0 0 0 4px rgba(122, 162, 255, 0.25);
-      border-color: var(--mu-focus);
-    }
-
-    /* Header */
-    .message-ui .mu-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .message-ui .mu-id {
-      font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.3px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: #0e1430;
-      border: 1px solid var(--mu-border);
-      color: var(--mu-text);
-    }
-
-    .message-ui .mu-type {
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid var(--mu-border);
-      background: #121836;
-      color: var(--mu-muted);
-    }
-
-    /* Typ-Badges farblich differenzieren */
-    .message-ui .mu-type--topic {
-      color: var(--mu-success);
-      border-color: rgba(76, 195, 138, 0.35);
-    }
-
-    .message-ui .mu-type--power {
-      color: var(--mu-warning);
-      border-color: rgba(247, 201, 72, 0.35);
-    }
-
-    .message-ui .mu-type--name {
-      color: var(--mu-danger);
-      border-color: rgba(255, 107, 107, 0.35);
-    }
-
-    /* Meta */
-    .message-ui .mu-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      margin-bottom: 8px;
-      color: var(--mu-muted);
-      font-size: 12px;
-    }
-
-    .message-ui .mu-event::before {
-      content: "event:";
-      color: #6a7392;
-      margin-right: 6px;
-    }
-
-    .message-ui .mu-sender::before {
-      content: "sender:";
-      color: #6a7392;
-      margin-right: 6px;
-    }
-
-    .message-ui .mu-time::before {
-      content: "time:";
-      color: #6a7392;
-      margin-right: 6px;
-    }
-
-    /* JSON-Block: ohne Scrollbox, wächst mit dem Inhalt */
-    .message-ui .mu-pre {
-      margin: 0;
-      max-height: none;
-      /* entfernt die Höhenbegrenzung */
-      overflow: visible;
-      /* kein Scrollen innerhalb des Blocks */
-
-      background: #0f1430;
-      border: 1px solid #262e52;
-      border-radius: 10px;
-      padding: 10px 12px;
-      color: #dbe3ff;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 12.5px;
-      line-height: 1.35;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      white-space: pre;
-      /* Formatierung bewahren */
-      word-break: normal;
-    }
-
-    /* Drag-Visuals (nur im Namespace) */
-    .message-ui .mu-item.dragging {
-      opacity: 0.6;
-    }
-
-    .message-ui .mu-item.drop-target {
-      outline: 2px dashed var(--mu-accent);
-      outline-offset: 6px;
-      border-radius: 14px;
-    }
-
-    .message-ui .mu-placeholder {
-      height: 56px;
-      /* wird per JS dynamisch gesetzt */
-      border: 2px dashed var(--mu-border);
-      border-radius: 12px;
-      background: rgba(110, 168, 254, 0.06);
-      margin: 4px 0;
-    }
-
-    /* Optional: kompaktere Darstellung auf sehr kleinen Screens */
-    @supports (container-type: inline-size) {
-      .message-ui {
-        container-type: inline-size;
-      }
-
-      @container (max-width: 420px) {
-        .message-ui .mu-item {
-          grid-template-columns: 24px 1fr;
-          gap: 10px;
-        }
-
-        .message-ui .mu-pre {
-          font-size: 12px;
-        }
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -285,28 +27,93 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI-Messenger</h2>
+        <h2>TI-Messenger (Aufgabe 2)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <p>
         <h3>Welche Nachricht ist gültig?</h3>
+        Während eines Serverausfalls koordiniert das Team die Behandlung von Patient Heinrich Böll per TI‑Messenger.
+        Der Chefarzt hebt temporär Berechtigungen an, damit das Pflege-Team den Raum für die Reanimation kennzeichnen
+        kann.
         </p>
         <hr>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Identifiziere aus den eingehenden Events die zulässigen Aktionen.
+          </p>
+        </div>
+        <br>
+
+        <hr>
+        <h3>🗒️ Informationen zur Mission</h3>
         <p>
-        <h3>PowerLevel</h3>
-        m.room.name requires power level ≥ 50
-        m.room.topic requires power level ≥ 50
-        m.room.power_levels requires power level ≥ 100
+        <h4>PowerLevel</h4>
+        Power Level (deutsch: „Berechtigungsstufe“ oder „Machtlevel“) bezeichnet das Rechte- und Rollensystem innerhalb
+        eines Raumes (Room). Es handelt sich um ein numerisches Rechtemodell, das festlegt, welche Aktionen ein Nutzer
+        in einem Raum durchführen darf.
         <ul>
-          <li><a href="https://matrix.org/docs/communities/moderation/">PowerLevel</a></li>
+          <li>m.room.topic requires power level ≥ 25</li>
+          <li>m.room.name requires power level ≥ 50</li>
+          <li>m.room.power_levels requires power level ≥ 100</li>
         </ul>
+
+        Weitere Informationen: <a href="https://matrix.org/docs/communities/moderation/">PowerLevel</a>
+
         </p>
+
+        <p>
+        <h4>Abarbeitung</h4>
+        <h5>1) Sortierung</h5>
+        <div style="margin-left: 24px;">
+          <ol>
+            <li>timestamp (aufsteigend)</li>
+            <li>Power Level Events zuerst</li>
+            <li>Event-ID (alphabetisch)</li>
+          </ol>
+        </div>
+
+        <h5>2) Berechtigungen prüfen</h5>
+
+        <div style="margin-left: 24px;">
+          <ul>
+            <li><code>m.room.power_levels</code> erfordert Power Level ≥ <b>100</b></li>
+            <li><code>m.room.name</code> erfordert Power Level ≥ <b>50</b></li>
+          </ul>
+        </div>
+        Weitere Informationen: <a href="files/TIM.wa.2/general_description.png" target="_blank">Prozessablauf
+          Diagramm</a>
+
+        <br>
+
+        <hr>
+        <br>
+        <div class="pretty-code light">
+          <div class="pc-head">
+            <span class="pc-title">Scenario: Initial State</span>
+          </div>
+          <pre class="pc-pre"><code>{
+  <span class="j-key">"scenario"</span>: <span class="j-str">"Healthcare emergency coordination during server outage"</span>,
+  <span class="j-key">"initial_state"</span>: {
+    <span class="j-key">"room_name"</span>: <span class="j-str">"Emergency Coordination"</span>,
+    <span class="j-key">"topic"</span>: <span class="j-str">"Patient Heinrich Böll - Heart Attack"</span>,
+    <span class="j-key">"power_levels"</span>: {
+      <span class="j-str">"@dr.mueller:klinik.de"</span>: <span class="j-num">100</span>,
+      <span class="j-str">"@nurse.anna:klinik.de"</span>: <span class="j-num">50</span>,
+      <span class="j-str">"@dr.schmidt:praxis.de"</span>: <span class="j-num">25</span>,
+      <span class="j-str">"@medstudent:uni.de"</span>: <span class="j-num">0</span>
+    }
+  }
+}</code></pre>
+        </div>
+        <br>
+
         <hr>
         <div>
           <form id="solutionForm">
             <div>
-              
+
 
               <h3>Messages (Drag & Drop zum Sortieren)</h3>
               <div class="message-ui">
@@ -369,31 +176,6 @@
                       </label>
                     </div>
 
-                    <!-- msg3 -->
-                    <div class="mu-item" draggable="true" data-id="msg3">
-                      <input type="checkbox" id="msg3" class="mu-checkbox tri-state" data-id="msg3">
-                      <label for="msg3" class="mu-card">
-                        <div class="mu-header">
-                          <span class="mu-type mu-type--name">m.room.name</span>
-                        </div>
-                        <div class="mu-meta">
-                          <span class="mu-event">$emergency2:klinik.de</span>
-                          <span class="mu-sender">@nurse.anna:klinik.de</span>
-                          <span class="mu-time">1640995200001</span>
-                        </div>
-                        <pre class="mu-pre">{
-    "event_id": "$emergency2:klinik.de",
-    "type": "m.room.name",
-    "sender": "@nurse.anna:klinik.de",
-    "timestamp": 1640995200001,
-    "content": {
-      "name": "EMERGENCY - Resuscitation in progress"
-    },
-    "description": "Head nurse: Emergency resuscitation"
-  },</pre>
-                      </label>
-                    </div>
-
                     <!-- msg4 -->
                     <div class="mu-item" draggable="true" data-id="msg4">
                       <input type="checkbox" id="msg4" class="mu-checkbox tri-state" data-id="msg4">
@@ -419,6 +201,31 @@
                       </label>
                     </div>
 
+                    <!-- msg3 -->
+                    <div class="mu-item" draggable="true" data-id="msg3">
+                      <input type="checkbox" id="msg3" class="mu-checkbox tri-state" data-id="msg3">
+                      <label for="msg3" class="mu-card">
+                        <div class="mu-header">
+                          <span class="mu-type mu-type--name">m.room.name</span>
+                        </div>
+                        <div class="mu-meta">
+                          <span class="mu-event">$emergency2:klinik.de</span>
+                          <span class="mu-sender">@nurse.anna:klinik.de</span>
+                          <span class="mu-time">1640995200001</span>
+                        </div>
+                        <pre class="mu-pre">{
+    "event_id": "$emergency2:klinik.de",
+    "type": "m.room.name",
+    "sender": "@nurse.anna:klinik.de",
+    "timestamp": 1640995200001,
+    "content": {
+      "name": "EMERGENCY - Resuscitation in progress"
+    },
+    "description": "Head nurse: Emergency resuscitation"
+  },</pre>
+                      </label>
+                    </div>
+
                     <!-- msg5 -->
                     <div class="mu-item" draggable="true" data-id="msg5">
                       <input type="checkbox" id="msg5" class="mu-checkbox tri-state" data-id="msg5">
@@ -430,6 +237,7 @@
                           <span class="mu-event">$discharge:praxis.de</span>
                           <span class="mu-sender">@dr.schmidt:praxis.de</span>
                           <span class="mu-time">1640995200002</span>
+                          <span class="">1640995200002</span>
                         </div>
                         <pre class="mu-pre">{
     "event_id": "$discharge:praxis.de",
@@ -458,22 +266,22 @@
               <hr>
 
 
-                <div class="fx-input-wrap">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
+              <div class="fx-input-wrap">
+                <button type="submit" class="fx-btn">
+                  <span class="fx-btn-label">Submit</span>
+                  <span class="fx-btn-glow"></span>
+                </button>
+              </div>
+              <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
 
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
 
 
-            <br>
+        <br>
         <div id="info_text">
           <div class="info-row">
             <figure>
@@ -481,11 +289,9 @@
             </figure>
             <div class="info-box">
               <p id="info_text_field" class="bottom_text">
-              <ul>
-                <li><a href="files/TIM.wa.2/general_description.png" target="_blank">Prozessablauf Diagramm</a></li>
-                <li><a href="files/TIM.wa.2/healthcare_matrix_ctf.json" target="_blank">healthcare_matrix_ctf.json</a>
-                </li>
-              </ul>
+                Folge den Schritten aus der Abarbeitungsdefinition
+                <!--<li><a href="files/TIM.wa.2/general_description.png" target="_blank">Prozessablauf Diagramm</a></li>-->
+                <!--<li><a href="files/TIM.wa.2/healthcare_matrix_ctf.json" target="_blank">healthcare_matrix_ctf.json</a>-->
               </p>
             </div>
             <figure>
@@ -524,148 +330,14 @@
   </script>
   <script src="./js/flagServiceBaseVariable.js"></script>
   <script src="./js/flagServiceCheckBox.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>    
-
-    <script>
-      initFlagUICheckBox();
-    </script>   
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
 
   <script>
-      (function () {
-        const list = document.getElementById('muList');
-        if (!list) return;
-
-        let draggingEl = null;
-        const placeholder = document.createElement('div');
-        placeholder.className = 'mu-placeholder';
-
-        // Hilfsfunktion: nächstes Einfüge-Element unterhalb des Mauszeigers ermitteln
-        function getDragAfterElement(container, y) {
-          const els = [...container.querySelectorAll('.mu-item:not(.dragging)')];
-          return els.reduce(
-            (closest, child) => {
-              const box = child.getBoundingClientRect();
-              const offset = y - box.top - box.height / 2;
-              if (offset < 0 && offset > closest.offset) {
-                return { offset, element: child };
-              } else {
-                return closest;
-              }
-            },
-            { offset: Number.NEGATIVE_INFINITY, element: null }
-          ).element;
-        }
-
-        // Platzhalterhöhe dynamisch anpassen
-        function setPlaceholderHeight(fromEl) {
-          if (!fromEl) return;
-          const rect = fromEl.getBoundingClientRect();
-          placeholder.style.height = rect.height + 'px';
-        }
-
-        list.addEventListener('dragstart', (e) => {
-          const item = e.target.closest('.mu-item');
-          if (!item) return;
-          draggingEl = item;
-          item.classList.add('dragging');
-          e.dataTransfer.effectAllowed = 'move';
-          try { e.dataTransfer.setData('text/plain', item.dataset.id || ''); } catch { }
-          setPlaceholderHeight(item);
-        });
-
-        list.addEventListener('dragend', () => {
-          if (draggingEl) draggingEl.classList.remove('dragging');
-          draggingEl = null;
-          placeholder.remove();
-          [...list.children].forEach(el => el.classList.remove('drop-target'));
-          // console.log(getOrder());
-        });
-
-        list.addEventListener('dragover', (e) => {
-          e.preventDefault(); // notwendig, damit drop möglich ist
-          const afterElement = getDragAfterElement(list, e.clientY);
-          if (!list.contains(placeholder)) {
-            list.insertBefore(placeholder, afterElement || null);
-          } else {
-            if (afterElement == null) {
-              list.appendChild(placeholder);
-            } else {
-              list.insertBefore(placeholder, afterElement);
-            }
-          }
-          [...list.children].forEach(el => el.classList.remove('drop-target'));
-          if (afterElement) afterElement.classList.add('drop-target');
-        });
-
-        list.addEventListener('drop', (e) => {
-          e.preventDefault();
-          if (!draggingEl) return;
-          if (list.contains(placeholder)) {
-            list.insertBefore(draggingEl, placeholder);
-          }
-          [...list.children].forEach(el => el.classList.remove('drop-target'));
-          placeholder.remove();
-          // console.log('Neue Reihenfolge:', getOrder());
-        });
-
-        // Reihenfolge als Array der data-id auslesen
-        function getOrder() {
-          return [...list.querySelectorAll('.mu-item')].map(el => el.dataset.id);
-        }
-
-      })();
+    initFlagUICheckBox();
   </script>
 
-  <script>
-    (function () {
-    const list = document.getElementById('muList');
-    const submitBtn = document.getElementById('muSubmit');
-    if (!list) return;
-
-    // Reihenfolge aus der DOM-Reihenfolge
-    function getOrder() {
-      return [...list.querySelectorAll('.mu-item')].map(el => el.dataset.id);
-    }
-
-    // Checkbox-Zustände nach ID
-    function getSelection() {
-      const result = {};
-      const items = [...list.querySelectorAll('.mu-item')];
-      for (const item of items) {
-        const id = item.dataset.id; // z. B. "msg2"
-        const cb = item.querySelector('.mu-checkbox');
-        if (!cb || !id) continue;
-        result[id] = {
-          checked: cb.checked,
-          indeterminate: cb.indeterminate
-        };
-      }
-      return result;
-    }
-
-    // Payload exakt in UI-Reihenfolge bauen
-    function buildPayloadFromUI() {
-      const order = getOrder();            // z. B. ["msg3","msg1","msg5","msg2","msg4"]
-      const selection = getSelection();    // Map: { msg1: {checked:...}, ... }
-
-      const solution = order.map(id => {
-        const state = selection[id];
-        const checked = !!(state && state.checked);
-        return { [id]: checked };          // einzelnes Objekt je ID, in aktueller Reihenfolge
-      });
-
-      return { solution };
-    }
-
-    // Submit: Payload erzeugen und senden (oder erstmal loggen)
-    if (submitBtn) {
-      submitBtn.addEventListener('click', async () => {
-        const body = buildPayloadFromUI();
-      });
-    }
-  })();
-  </script>
+  <script src="./js/tim02.js"></script>
 </body>
 
 </html>

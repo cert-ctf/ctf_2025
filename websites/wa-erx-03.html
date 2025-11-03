@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +9,9 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-02.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,47 +27,81 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX - E-Rezept (Aufgabe 3)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Abruf Endpoint</h3>
+        <h3>Abruf am Endpoint</h3>
         <p>
-          Du hast deinen Arzt angeschrieben, weil du morgen ins Bubenheimer Spieleland willst und dafür unbedingt Ibuprofen brauchst. 
-          </p>
-          <p>
-Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <code>AccessCode</code> geschickt. Stelle daraus dein E-Rezept-Token zusammen.
+          Sonne, Sand, Strand – der Urlaub läuft perfekt. Fast. Denn ohne dein Ibuprofen wird der Beach‑Volleyball
+          schnell zur Schmerz‑Olympiade...
         </p>
-        <div class="credentials">
+        <p>
+          Dein Arzt meldet sich fix zurück, aber statt eines fertigen QR‑Codes schickt er dir <code
+            class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode“</code>.
+        </p>
+        <p>
+          Kein Drama: Genau daraus baust du dir am Strand den <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code> selbst und die Apotheke vor Ort kann es direkt einlösen.
+        </p>
+        <figure style=" text-align: center;">
+          <img class="img-rounded-shadow" src="./img/erx-03.png" alt="Alf bereitet den Zugriff auf seine ePA vor"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
+        <hr>
+        <h3>🛰️ Deine Mission</h3>
+        <div class=" callout-box">
           <p>
-            <strong>Task.Id</strong>: <code>160.265.857.103.443.29</code><br>
-            <strong>AccessCode</strong>: <code>d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5</code>
-          </p>
-          <p>
-            <h3> Definition der Anfrage:</h3>
-            <ul>
-            <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank" rel="noopener noreferrer">Spezifikationen zum E-Rezept Datenmodel</a> - <b>A_19554</b></li>
-            </ul>
+             Setze aus <code class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode“</code> den gültigen
+          <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code> zusammen.
           </p>
         </div>
+        <br>
         <hr>
-          <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="Aufruf" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
 
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
+        <h3>🗒️ Informationen zur Mission</h3>
+        <p>
+        <section class="erp-id-card">
+          <header class="erp-id-head">
+            <h4 class="erp-id-title">Aufbau</h4>
+            <span class="erp-id-badge">E‑Rezept‑Token</span>
+          </header>
+
+          <div class="erp-id-body" style="text-align: left;">
+            <span style="color:var(--erp-a-color);font-weight:700;">Task.Id</span>: <code
+              style="color:#1e3a8a;font-weight:700;">160.265.857.103.443.29</code>
+            <span style="color:var(--erp-b-color);font-weight:700;">AccessCode</span>: <code
+              style="color:#0b7059;">d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5</code></pre>
+          </div>
+        </section>
+        <br>
+        <hr>
+
+        <h4>Weitere Informationen</h4>
+        <ul>
+          <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank"
+              rel="noopener noreferrer">Spezifikationen zum E-Rezept Datenmodel</a> - <b>A_19554</b></li>
+        </ul>
+        </p>
+
+      <hr>
+      <div>
+        <form id="solutionForm" class="fx-form">
+          <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+          <div class="fx-input-wrap">
+            <input type="text" id="solution" name="solution" placeholder="Task.id + AccessCode" required
+              class="fx-input">
+            <button type="submit" class="fx-btn">
+              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-glow"></span>
+            </button>
+          </div>
+          <div id="error-message" class="fx-error" aria-live="polite"></div>
+        </form>
+
+        <div id="success-message" class="fx-success" style="display:none;">
+          <div id="api-response" class="fx-response" aria-live="polite"></div>
+        </div>
+      </div>
 
       <div id="info_text">
         <div class="info-row">
@@ -73,8 +110,8 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
           </figure>
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-              Gesucht wird die Datenstruktur der Einlöseinformationen für ein E-Rezept. <br>
-              Alles nach: <code>2D-Code-Daten = </code>
+              Gesucht wird die Datenstruktur der Einlöseinformationen.<br>
+              <i>Alles nach: <code>2D-Code-Daten = </code></i>
             </p>
           </div>
           <figure>
@@ -96,12 +133,14 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
     <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener">Typen des E-Rezept Workflows</a></li>
-      <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank" rel="noopener noreferrer">Spezifikation Datenmodell E-Rezept</a></li>
-      <li><a href="wa-erx-02.html" rel="noopener noreferrer">Aufgabe 2</a></li>
-      <li><a href="wa-erx-04.html" rel="noopener noreferrer">Aufgabe 4</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
+      <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener">Typen des
+          E-Rezept Workflows</a></li>
+      <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank"
+          rel="noopener noreferrer">Spezifikation Datenmodell E-Rezept</a></li>
     </ul>
   </aside>
 
@@ -113,13 +152,18 @@ Dein Arzt hat dir aber statt des Rezepts eine <code>Task.Id</code> und einen <co
     });
   </script>
   <script>
-      const url = "erx/wa-3"
-      const nextQuestionURL = "wa-erx-04.html"
-      const localStorageKey = "erx-wa-3"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
+    const url = "erx/wa-3"
+    const nextQuestionURL = "wa-erx-04.html"
+    const localStorageKey = "erx-wa-3"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+
+  <script>
+    initFlagUI();
+  </script>
 </body>
+
 </html>

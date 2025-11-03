@@ -76,9 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
         //  apiResponseEl.classList.add('token-text');
         // }
 
-        // Button → Next
+        //Info Box ausblenden
         const box = document.getElementById('info_text');
         box.style.display = 'none';
+
         submitBtn.classList.add('fx-btn--next');
         if (submitBtn) submitBtn.innerHTML = '<span class="fx-next-icon">→</span> Next';
         const glow = submitBtn.querySelector('.fx-btn-glow');

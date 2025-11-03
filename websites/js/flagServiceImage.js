@@ -74,11 +74,15 @@ formEl.addEventListener('submit', async function(event) {
       }
 
       // Erfolg anzeigen: Token-Text formatiert und navy-blau
-      apiResponseEl.textContent = `Der Token ist: ${String(data.token ?? '')}.`;
-      apiResponseEl.classList.add('token-text');
+      //apiResponseEl.textContent = `Der Token ist: ${String(data.token ?? '')}.`;
+      //apiResponseEl.classList.add('token-text');
 
       // Box sichtbar machen
-      successEl.style.display = 'block';
+      successEl.style.display = 'none';
+
+      //Info Box ausblenden
+      const box = document.getElementById('info_text');
+      box.style.display = 'none';
 
       // Input sperren + Success-State
       inputEl.classList.remove('fx-input--error');

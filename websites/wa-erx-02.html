@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +9,9 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-02.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,67 +27,107 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX - E-Rezept (Aufgabe 2)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-          <h3>Flow was</h3>
+        <h3>Flow was!</h3>
         <p>
-          
-          Wie war noch einem der E-Rezept Typ (FlowState), <br> 
-          der angeben werden muss damit der Richtige Workflow für ein  <b> "Apothekenpflichtige Arzneimittel"</b> durchlaufen wird?
-          
+          Du hast die erste Hürde gemeistert und dein E‑Rezept erfolgreich analysiert. Jetzt kommt der knifflige Teil:
+          Damit die Apotheke den richtigen Prozess startet, muss der passende <code
+            class="mi-k">E‑Rezept‑FlowType </code> angegeben werden.
         </p>
-        <hr>
-        <h3>E-Rezept ID</h3>
-
-        <p>Aufbau der E‑Rezept‑ID:
-          <code>aaa.bbb.bbb.bbb.bbb.cc</code>
+        <p>
+          Klingt trocken? Keine Sorge – Medikamente gibt es nicht "nur" an der Tiki-Bar....
         </p>
-
-        <ul>
-          <li><strong>aaa</strong> — E‑Rezept‑Typ/FlowState</li>
-          <li><strong>bbb.bbb.bbb.bbb</strong> — fortlaufende Rezeptnummer</li>
-          <li><strong>cc</strong> — Prüfziffer</li>
-        </ul>
-        <ul>
-          <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener noreferrer">eRezept FlowTypes definition</a></li>
-        </ul>
+        <figure style="text-align: center;">
+          <img class="img-rounded-shadow" src="./img/erx-02.png" alt="Alf bereitet den Zugriff auf seine ePA vor"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
         <hr>
 
-               <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="150" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Welchen FlowState musst du angeben, damit du eine vollständige eRezept ID erhälst?
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Bestimme den korrekten <code class="mi-k">E‑Rezept‑FlowType </code> für Medikamente, welche nicht an einer
+            Tiki-Bar erworben werden können.
+          </p>
         </div>
-      </div>
-      <br>
+        <br>
+        <hr>
+
+        <h3>🗒️ Informationen zur Mission</h3>
+
+
+        <section class="erp-id-card">
+          <header class="erp-id-head">
+            <h4 class="erp-id-title">Aufbau</h4>
+            <span class="erp-id-badge">E-Rezept ID</span>
+          </header>
+
+          <div class="erp-id-body">
+
+            <div class="erp-id-code" id="erpIdCode">
+              <code>
+    <span class="seg seg-aaa" data-seg="aaa">aaa</span>.
+    <span class="seg seg-bbb" data-seg="bbb">bbb.bbb.bbb.bbb</span>.
+    <span class="seg seg-cc"  data-seg="cc">cc</span>
+  </code>
+            </div>
+
+
+            <div class="erp-id-grid">
+              <div class="erp-id-item">
+                <div class="erp-id-label">aaa</div>
+                <div class="erp-id-value">FlowState / E‑Rezept‑Typ</div>
+              </div>
+              <div class="erp-id-item">
+                <div class="erp-id-label">bbb.bbb.bbb.bbb</div>
+                <div class="erp-id-value">Fortlaufende Rezeptnummer</div>
+              </div>
+              <div class="erp-id-item">
+                <div class="erp-id-label">cc</div>
+                <div class="erp-id-value">Prüfziffer</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <br>
+        <hr>
+
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="Flow-State" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Welchen E-Rezept FlowType musst du angeben, damit du eine vollständige eRezept ID erhälst?
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+          </div>
+        </div>
+        <br>
     </section>
   </main>
 
@@ -98,30 +141,64 @@
     <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      <li><a href="https://gemspec.gematik.de/downloads/gemSpec/gemSpec_DM_eRp/gemSpec_DM_eRp_V1.10.0.pdf" target="_blank" rel="noopener noreferrer">Spezifikation Datenmodell E-Rezept</a></li>
-      <li><a href="https://simplifier.net/erezept-workflow/gem-erp-cs-flowtype" target="_blank" rel="noopener">Typen des E-Rezept Workflows</a></li>
-      <li><a href="wa-erx-01.html" rel="noopener noreferrer">Aufgabe 1</a></li>
-      <li><a href="wa-erx-03.html" rel="noopener noreferrer">Aufgabe 3</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
+      <li><a href="https://gemspec.gematik.de/downloads/gemSpec/gemSpec_DM_eRp/gemSpec_DM_eRp_V1.10.0.pdf"
+          target="_blank" rel="noopener noreferrer">Spezifikation Datenmodell E-Rezept</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
+  <script>
+    const url = "erx/wa-2"
+    const nextQuestionURL = "wa-erx-03.html"
+    const localStorageKey = "erx-wa-2"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
 
   <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
+    initFlagUI();
   </script>
+
+
+
   <script>
-      const url = "erx/wa-2"
-      const nextQuestionURL = "wa-erx-03.html"
-      const localStorageKey = "erx-wa-2"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
-  <script src="./js/help.js"></script>
-  <script src="./js/background.js"></script>
+    (function erpIdHoverSync() {
+      const grid = document.querySelector('.erp-id-grid');
+      if (!grid) return;
+
+      const items = Array.from(grid.querySelectorAll('.erp-id-item'));
+      const idCode = document.getElementById('erpIdCode');
+      if (!idCode) return;
+
+      // Mapping: aaa -> item 1, bbb -> item 2, cc -> item 3
+      function activate(seg) {
+        items.forEach(i => i.classList.remove('is-active'));
+        if (seg === 'aaa') items[0]?.classList.add('is-active');
+        else if (seg === 'bbb') items[1]?.classList.add('is-active');
+        else if (seg === 'cc') items[2]?.classList.add('is-active');
+      }
+      function clearActive() { items.forEach(i => i.classList.remove('is-active')); }
+
+      // Events auf Segmenten
+      idCode.querySelectorAll('.seg').forEach(s => {
+        const seg = s.getAttribute('data-seg');
+        s.addEventListener('mouseenter', () => activate(seg));
+        s.addEventListener('focus', () => activate(seg)); // a11y falls per Tab Fokus
+        s.addEventListener('mouseleave', clearActive);
+        s.addEventListener('blur', clearActive);
+      });
+
+    })();
+  </script>
+
+
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -7,7 +8,61 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+
+  <style>
+    /* Grundfeld */
+    input.fx-input[type="file"] {
+      font-family: inherit;
+      font-size: 14px;
+      color: inherit;
+      border: 1px solid #e6e8ef;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      /* innen für Text */
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    /* WebKit-Browser (Chrome, Edge, Safari): Button stylen */
+    input.fx-input[type="file"]::file-selector-button {
+      margin-right: 12px;
+      padding: 8px 12px;
+      border: 1px solid #e6e8ef;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #f7f9ff, #ffffff);
+      color: #1f2430;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, border-color .2s, transform .05s;
+    }
+
+    input.fx-input[type="file"]::file-selector-button:hover {
+      background: #eef3ff;
+      border-color: #d8def0;
+    }
+
+    input.fx-input[type="file"]::file-selector-button:active {
+      transform: translateY(1px);
+    }
+
+    /* Fokus-Outline fürs gesamte Feld */
+    input.fx-input[type="file"]:focus-visible {
+      outline: 3px solid rgba(122, 162, 255, 0.35);
+      outline-offset: 2px;
+      border-color: #c9d6ff;
+    }
+
+
+    /* Fallback für Firefox (aktuell unterstützt ::file-selector-button ebenfalls):
+   leicht andere Darstellung, falls nötig */
+    @-moz-document url-prefix() {
+      input.fx-input[type="file"] {
+        padding: 8px 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -23,7 +78,7 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Kommunikation im Medizinwesen</h2>
+        <h2>Kommunikation im Medizinwesen (Aufgabe 5)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
@@ -32,57 +87,70 @@
           "Immer wieder is et dat selbe", sagt Frau Dr. Müller, "Schon widda ham se ihre Karte verjessen!".
         </p>
         <p>
-          Kurz bevor Frau Dr. Müller sich dazu entscheidet, Imkerin zu werden und die Praxis zu verlassen, erzählt ihr jemand von der elektronischen Ersatzbescheinigung (eEB) und dass der Patient sicherlich eine bei seiner Krankenkasse anfordern kann.
+          Kurz bevor Frau Dr. Müller sich dazu entscheidet, Imkerin zu werden und die Praxis zu verlassen, erzählt ihr
+          jemand von der elektronischen Ersatzbescheinigung (eEB) und dass der Patient sicherlich eine bei seiner
+          Krankenkasse anfordern kann.
         </p>
         <p>
           Wie kann diese jetzt aber an die Praxis geschickt werden?
         </p>
-          Erstelle den Praxis QR-Code, damit der Patient seine eEB über KIM schicken kann, und rette ihren Tag! <br>
-          <ul>
-          <li><a href="https://simplifier.net/guide/Implementierungsleitfaden-VSDM-Ersatzbescheinigung/Einfuehrung/Interoperabilitaetsvorgaben/QR-VZD.page.md?version=current" target="_blank" rel="noopener noreferrer">Implementierungsleitfaden VSDM-Ersatzbescheinigung</a></li>
-          </ul>
-          <br>
-          Frau Dr. Müller hat sich inzwischen eine neue KIM Mail besorgt: <br>
-          <ul>
-            <li><code>praxis@mueller.kim.telematik</code></li>
-          </ul>
-        </p>
+
         <hr>
-        <h3>elektronische Ersatzbescheinigung (eEB) </h3>
-        <p>
-          Gesetzlich Versicherte können der Praxis auf diesem Weg eine elektronische Ersatzbescheinigung (eEB) zukommen lassen. Diese dient dem Versicherungsnachweis, wenn beim Praxisbesuch ausnahmsweise keine elektronische Gesundheitskarte vorgelegt werden kann.
-        </p>
-        <p>
-          Dafür muss ein QR-Code erstellt werden der die KIM-Adresse der Praxis enthält. Dann kann über die App der jeweiligen Krankenkasse die eEB an die Praxis geschickt werden.
-        </p>
+        <h3>🛰️ Deine Mission</h3>
+
+        <div class="callout-box">
+          <p>Erstelle den Praxis QR-Code, damit der Patient seine eEB über KIM schicken kann, und rette ihren Tag!</p>
+        </div>
+        <br>
+
+
+
+
         <hr>
- 
-          <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
-            <label for="solutionFile" class="fx-label">Upload Solution File</label>
+        <h3>🗒️ Informationen zur Mission </h3>
+        <p>
+          Frau Dr. Müller hat sich inzwischen eine neue KIM Mail besorgt:
+        </p>
+        <ul>
+          <li><code class="mi-code">praxis@mueller.kim.telematik</code></li>
+        </ul>
+        <h4>elektronische Ersatzbescheinigung (eEB) </h4>
+        <p>
+          Gesetzlich Versicherte können der Praxis auf diesem Weg eine elektronische Ersatzbescheinigung (eEB) zukommen
+          lassen. Diese dient dem Versicherungsnachweis, wenn beim Praxisbesuch ausnahmsweise keine elektronische
+          Gesundheitskarte vorgelegt werden kann.
+        </p>
+        <p>
+          Dafür muss ein QR-Code erstellt werden der die KIM-Adresse der Praxis enthält. Dann kann über die App der
+          jeweiligen Krankenkasse die eEB an die Praxis geschickt werden.
+        </p>
+        <ul>
+          <li><a
+              href="https://simplifier.net/guide/Implementierungsleitfaden-VSDM-Ersatzbescheinigung/Einfuehrung/Interoperabilitaetsvorgaben/QR-VZD.page.md?version=current"
+              target="_blank" rel="noopener noreferrer">Implementierungsleitfaden VSDM-Ersatzbescheinigung</a></li>
+        </ul>
+        <hr>
 
-            <div class="fx-input-wrap">
-              <input
-                type="file"
-                id="solutionFile"
-                name="solutionFile"
-                accept=".png,image/png"
-                required
-                class="fx-input"
-              />
+        <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
+          <h3 for="solution" class="fx-label">🎯 Lösung (Upload Solution File)</h3>
 
-              <button type="submit" class="fx-btn ">
-                <span class="fx-btn-label">Submit</span>
-                <span class="fx-btn-glow"></span>
-              </button>
-            </div>
+          <div class="fx-input-wrap">
+            <input type="file" id="solutionFile" name="solutionFile" accept=".png,image/png" required
+              class="fx-input" />
 
-            <div id="error-message" class="fx-error" aria-live="polite"></div>
-          </form>
+            <button type="submit" class="fx-btn ">
+              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-glow"></span>
+            </button>
+          </div>
 
-          <!-- Erfolgsausgabe -->
-          <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-          </div> 
+          <div id="error-message" class="fx-error" aria-live="polite"></div>
+        </form>
+
+        <!-- Erfolgsausgabe -->
+        <div id="success-message" class="fx-success" style="display:none;">
+          <div id="api-response" class="fx-response" aria-live="polite"></div>
+        </div>
       </div>
 
       <div id="info_text">
@@ -115,94 +183,164 @@
     <h3>Weitere Infos</h3>
     <p>Hier findest du weitere Hinweise und Tools:</p>
     <ul>
-      <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a></li>
-      <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener">Dienstkennung KIM</a></li>
-      <li><a href="https://www.praxis-check-in.de/leistungserbringer" target="_blank" rel="noopener noreferrer">Elektronische Ersatzbescheinigung und Online Check-in</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
+          rel="noopener">Funktionsweise von KIM</a></li>
+      <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank"
+          rel="noopener">Dienstkennung KIM</a></li>
+      <li><a href="https://www.praxis-check-in.de/leistungserbringer" target="_blank"
+          rel="noopener noreferrer">Elektronische Ersatzbescheinigung und Online Check-in</a></li>
     </ul>
   </aside>
 
 
   <div class="flag-tiles" aria-hidden="true"></div>
-  
 
-   <script>
-      const url = "kim/wa-5"
-      const localStorageKey = "kim-wa-5"
-    </script>
-    
-<script src="./js/fireworks.js" defer></script>
-<script src="./js/flagServiceBaseVariable.js" defer></script>
-<script src="./js/flagServiceImage.js" defer></script>
-<script src="./js/flagServiceHelper.js" defer></script>
-<script src="./js/help.js" defer></script>
 
-<script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof initFlagUIImage === 'function') {
-      initFlagUIImage();
-    } else {
-      console.warn('initFlagUIImage ist nicht definiert. Ist flagServiceImage.js geladen und enthält die Funktion?');
-    }
-  });
-</script>   
+  <script>
+    const url = "kim/wa-5"
+    const localStorageKey = "kim-wa-5"
+  </script>
 
-<script>
-  (function enforceFinalStateWhenSuccessBoxVisible() {
+  <script src="./js/fireworks.js" defer></script>
+  <script src="./js/flagServiceBaseVariable.js" defer></script>
+  <script src="./js/flagServiceImage.js" defer></script>
+  <script src="./js/flagServiceHelper.js" defer></script>
+  <script src="./js/help.js" defer></script>
+
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  (function kimFinalUIController() {
+    // WICHTIG: Stelle sicher, dass dieser Key zu deinem KIM-Storage passt.
+    // Wenn du global localStorageKey gesetzt hast (z. B. "kim-wa-..."), nutzen wir ihn.
+    const TOKEN_KEY = typeof localStorageKey === 'string' ? localStorageKey : 'kim-wa-solution';
+
     const TOKEN_PREFIX = 'KIM Token: ';
-    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
 
-
+    // DOM
     const formEl = document.getElementById('solutionForm');
     const successEl = document.getElementById('success-message');
     const apiResponseEl = document.getElementById('api-response');
+    const infoBox = document.getElementById('info_text');
+    const fileInput = document.getElementById('solutionFile');
 
     let applied = false;
 
     function isVisible(el) {
       if (!el) return false;
-      const style = window.getComputedStyle(el);
-      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+      const cs = getComputedStyle(el);
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && el.offsetParent !== null;
+    }
+
+    function showSuccessBox() {
+      if (!successEl) { log('successEl fehlt'); return; }
+      // Inline style entfernen, falls display:none gesetzt war
+      successEl.style.removeProperty('display');
+      // Falls CSS immer noch none ergibt, explizit anzeigen
+      if (getComputedStyle(successEl).display === 'none') {
+        successEl.style.display = 'block';
+      }
+    }
+
+    function markFileInputSuccessAndDisable() {
+      if (!fileInput) { log('solutionFile fehlt'); return; }
+      fileInput.classList.remove('fx-input--error');
+      fileInput.classList.add('fx-input--success'); // Stelle sicher, dass diese Klasse grün färbt
+      fileInput.disabled = true;
+      // Optional: tatsächlich verstecken
+      fileInput.style.display = 'none';
     }
 
     function setTokenHTML() {
-      if (!apiResponseEl) return;
-      
-      //const token = localStorage.getItem(localStorageKey) || '';
+      if (!apiResponseEl) { log('#api-response fehlt'); return; }
+
+      // Success-Box sichtbar machen, bevor wir HTML setzen
+      showSuccessBox();
+
       apiResponseEl.classList.add('token-text');
-      const token = computeWaSolution("kim");
-      apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+
+      // Token bestimmen
+      let token = '';
+      try {
+        token = (typeof computeWaSolution === 'function')
+          ? computeWaSolution('kim')
+          : (localStorage.getItem(TOKEN_KEY) || '');
+      } catch (e) {
+        log('computeWaSolution Fehler, Fallback:', e);
+        token = localStorage.getItem(TOKEN_KEY) || '';
+      }
+
+      // HTML setzen (mit Hint)
+      const html = TOKEN_PREFIX + String(token) + HINT_HTML;
+      apiResponseEl.innerHTML = html;
+
+      // Falls der Container selbst versteckt wäre:
+      const cs = getComputedStyle(apiResponseEl);
+      if (cs.display === 'none' || cs.visibility === 'hidden') {
+        apiResponseEl.style.display = 'block';
+        apiResponseEl.style.visibility = 'visible';
+      }
+
+      //log('Token-HTML gesetzt:', html);
     }
 
-    function applyFinalState() {
-      if (applied) return;
-      applied = true;
-
-      // 1) Hide submit/next button within the form
+    function hideActions() {
       const submitBtn = formEl?.querySelector('.fx-btn');
-      const box = document.getElementById('info_text');
       if (submitBtn) {
         submitBtn.style.display = 'none';
-        box.style.display = 'none';
         submitBtn.disabled = true;
         submitBtn.classList.remove('fx-btn--next');
         submitBtn.type = 'button';
         const glow = submitBtn.querySelector('.fx-btn-glow');
         if (glow) glow.style.display = 'none';
+      } else {
+        log('Kein .fx-btn im formEl gefunden.');
       }
 
-      // 2) Hide any separate .fx-next buttons
+      if (infoBox) infoBox.style.display = 'none';
+
       document.querySelectorAll('.fx-next').forEach(btn => {
         btn.style.display = 'none';
         btn.classList.remove('fx-next--visible');
         btn.disabled = true;
       });
-
-      // 3) Token-Text + Hinweis (mit <br> und kursiv)
-      setTokenHTML();
-      startFireworks();
     }
 
-    function checkAndApply() {
+    function startFireworksSafe() {
+      try {
+        if (typeof startFireworks === 'function') {
+          startFireworks();
+
+        } else {
+          log('startFireworks() ist nicht definiert. Ist fireworks.js eingebunden?');
+        }
+      } catch (e) {
+        console.warn('[KIM Final] Fehler in startFireworks:', e);
+      }
+    }
+
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+      //log('applyFinalState');
+
+      // 1) Success-Box sichtbar machen
+      showSuccessBox();
+
+      // 2) Datei-Input success + deaktivieren (+ optional verstecken)
+      markFileInputSuccessAndDisable();
+
+      // 3) Buttons/Infos ausblenden
+      hideActions();
+
+      // 4) Token + Hinweis setzen
+      setTokenHTML();
+
+      // 5) Feuerwerk
+      startFireworksSafe();
+    }
+
+    function tryApplyBySuccessBox() {
       if (isVisible(successEl)) {
         applyFinalState();
         return true;
@@ -210,41 +348,52 @@
       return false;
     }
 
-    // Initial check
-    checkAndApply();
+    // A) Direkt beim Laden: Storage prüfen
+    let stored = null;
+    try {
+      stored = localStorage.getItem(TOKEN_KEY);
 
-    // Observe only the success box for style/class changes
-    if (successEl) {
-      const observer = new MutationObserver(() => {
-        if (!applied) checkAndApply();
-      });
-      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    } catch (e) {
+      console.warn('[KIM Final] localStorage Zugriff fehlgeschlagen:', e);
     }
 
-    // Short rAF polling fallback (max 2s)
-    let start = performance.now();
-    function timedRafLoop(now) {
-      if (applied) return;
-      if (now - start > 2000) return;
-      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
-    }
-    requestAnimationFrame(timedRafLoop);
+    if (stored && String(stored).trim() !== '') {
+      // Sofort finalisieren (Success-Box sichtbar, Token mit Hint, Feuerwerk)
+      applyFinalState();
+    } else {
+      // B) Fallback: Success-Box Beobachtung
+      tryApplyBySuccessBox();
 
-    // If token changes later, update only the text
+      if (successEl) {
+        const observer = new MutationObserver(() => {
+          if (!applied) tryApplyBySuccessBox();
+        });
+        observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+      }
+
+      // rAF-Polling (max 2s) – falls CSS/Layout verzögert
+      let t0 = performance.now();
+      function raf(now) {
+        if (applied) return;
+        if (now - t0 > 2000) return;
+        if (!tryApplyBySuccessBox()) requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // C) Spätere Token-Updates – nur Text aktualisieren
     window.addEventListener('storage', (e) => {
-      if (e.key === 'solution' && apiResponseEl && applied) {
-        setTokenHTML();
-      }
+      if (e.key === TOKEN_KEY && applied) setTokenHTML();
     });
-
-    // Same-tab updates
     document.addEventListener('token-updated', () => {
-      if (apiResponseEl && applied) {
-        setTokenHTML();
-      }
+      if (applied) setTokenHTML();
     });
   })();
+});
 </script>
 
+
+
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +9,9 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-04.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,43 +27,105 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX - E-Rezept (Aufgabe 5)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <p>
-          Du hast dein Medikament in der Apotheke abgeholt. Jetzt muss die Apotheke noch bestätigen, dass das E‑Rezept eingelöst wurde.
-          Rufe dazu den Endpunkt auf um die Transaktions‑ID zu erhalten.
+          Strandtag gerettet: Dein Ibuprofen ist abgeholt, die Sonne scheint, die Wellen rauschen. Jetzt fehlt nur der
+          letzte Schritt, damit alles offiziell ist: Die Apotheke muss bestätigen, dass dein E‑Rezept tatsächlich
+          eingelöst wurde.
         </p>
-        <hr>
         <p>
-          Du erhältst einen FQDN und Hinweise zur Spezifikation des E‑Rezept‑Dokuments:
-          <a href="https://gemspec.gematik.de/downloads/gemF/gemF_eRp_EU/gemF_eRp_EU_V1.0.0.html#7.4.1" target="_blank" rel="noopener noreferrer">gemSpec – Abschnitt 7.4.1</a>.
-          <br>Dort ist beschrieben, dass eine POST‑Anfrage (auch GET wird akzeptiert) an
-          <code>http(s)://&lt;FQDN&gt;/Task/&lt;id&gt;/$eu-close</code>
-          gesendet werden muss, um die Transaktions‑ID zu erhalten. Mit dieser ID gilt die Aufgabe als abgeschlossen und das Rezept als dispensiert.
+          Keine Sorge – mit einem kurzen Call an den passenden Endpunkt holst du dir die <code
+            class="mi-code">Transaktions‑ID</code> und schließt die Mission ab.
         </p>
+
+
         <hr>
-
-            <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="mail" id="solution" name="solution" placeholder="12345678910" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
-        <hr />
+        <h3>🛰️ Deine Mission</h3>
+        <div class=" callout-box">
+          <p>
+            Fordere die Transaktions‑ID der Apotheke an, um die Einlösung des E‑Rezepts zu bestätigen.
         </div>
+        <br>
+        <hr>
+        <h3>🗒️ Informationen zur Mission</h3>
+
+
+
+        <section class="mission-info-card">
+          <header class="mission-info-head">
+            <h4 class="mission-info-title">Bestätigung der Einlösung</h4>
+            <span class="mission-info-badge">Transaktions‑ID via $eu‑close</span>
+          </header>
+
+          <div class="mission-info-body">
+            <h5 class="mission-info-subtitle">Spezifikation</h5>
+            <ul class="mission-info-list">
+              <li>
+                Spezifikation des E‑Rezept‑Dokuments:
+                <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#741-e-rezept-dokument"
+                  target="_blank" rel="noopener noreferrer">
+                  <strong>gemSpec – Abschnitt 7.4.1</strong>
+                </a>
+              </li>
+            </ul>
+            <!-- Voraussetzungen -->
+            <h5 class="mission-info-subtitle">Voraussetzungen</h5>
+            <ul class="mission-info-list">
+              <li>FQDN der Apotheke/Dispense‑Instanz</li>
+              <li>Task.id deines E‑Rezepts (z. B. aus dem Token)</li>
+              <li>Ggf. erforderliche Authentisierung/Headers gemäß Umgebung</li>
+            </ul>
+
+            <!-- Request -->
+            <h5 class="mission-info-subtitle">Request</h5>
+            <ul class="mission-info-list">
+              <li>URL: <code>http(s)://&lt;FQDN&gt;/Task/&lt;id&gt;/$eu-close</code></li>
+              <li>Methode: <strong>POST</strong> (oder <strong>GET</strong>)</li>
+              <li>Inhalt: Kein Body nötig, sofern Spezifikation und Umgebung dies so vorsehen</li>
+            </ul>
+
+            <!-- Erfolgskriterium -->
+            <h5 class="mission-info-subtitle">Erfolgskriterium</h5>
+            <ul class="mission-info-list">
+              <li>Response enthält die <strong>Transaktions‑ID</strong></li>
+              <li>Mit dieser ID ist der Abschluss dokumentiert und das Rezept als <strong>dispensiert</strong> markiert
+              </li>
+            </ul>
+
+            <!-- Strand-Praxis -->
+            <h5 class="mission-info-subtitle">Strand‑Praxis</h5>
+            <ul class="mission-info-list">
+              <li>Führe den Call aus, prüfe die Transaktions‑ID, bewahre sie sicher auf (Screenshot/Notiz)/li>
+              <li>Bei schlechter Verbindung: Wiederholen oder auf WLAN der Strandbar ausweichen – Hauptsache, die
+                Bestätigung kommt durch</li>
+            </ul>
+          </div>
+        </section>
+
+
+
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="mail" id="solution" name="solution" placeholder="12345678910" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
+        <hr />
+      </div>
 
       <div id="info_text">
         <div class="info-row">
@@ -93,120 +158,173 @@
     <p>Verwende folgende Tools zur Analyse:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
-    <script>
-      const url = "erx/wa-5"
-      const localStorageKey = "erx-wa-5"
-    </script>
-
   <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
+    const url = "erx/wa-5"
+    const localStorageKey = "erx-wa-5"
   </script>
   <script src="./js/flagServiceBaseVariable.js"></script>
-  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceSimple_FinalTask.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/fireworks.js"></script>
+
   <script>
-  (function enforceFinalStateWhenSuccessBoxVisible() {
-    const TOKEN_PREFIX = 'eRX Token: ';
-    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+    document.addEventListener('DOMContentLoaded', () => {
+      (function finalUIController() {
+        const TOKEN_KEY = 'erx-wa-solution';
+        const TOKEN_PREFIX = 'eRX Token: ';
+        const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
 
+        const formEl = document.getElementById('solutionForm');
+        const inputEl = document.getElementById('solution');
+        const successEl = document.getElementById('success-message');
+        const apiResponseEl = document.getElementById('api-response');
+        const infoBox = document.getElementById('info_text');
+        const inputtext = document.getElementById('solution');
 
-    const formEl = document.getElementById('solutionForm');
-    const successEl = document.getElementById('success-message');
-    const apiResponseEl = document.getElementById('api-response');
+        let applied = false;
+        const log = (...a) => console.debug('[FinalUI]', ...a);
 
-    let applied = false;
+        function showSuccessBox() {
+          if (!successEl) return;
+          // Sichtbar machen – stil-sicher
+          successEl.style.removeProperty('display'); // falls inline display:none
+          if (getComputedStyle(successEl).display === 'none') {
+            successEl.style.display = 'block';
+          }
+        }
 
-    function isVisible(el) {
-      if (!el) return false;
-      const style = window.getComputedStyle(el);
-      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
-    }
+        function markInputSuccess() {
+          if (!inputEl) { log('inputEl fehlt'); return; }
+          inputEl.classList.remove('fx-input--error');
+          inputEl.classList.add('fx-input--success'); // Stelle sicher, dass diese Klasse grün färbt
+          inputEl.readOnly = true;
+          inputEl.setAttribute('aria-readonly', 'true');
+        }
 
-    function setTokenHTML() {
-      if (!apiResponseEl) return;
-      const token = localStorage.getItem(localStorageKey) || '';
-      apiResponseEl.classList.add('token-text');
-      apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
-    }
+        function setTokenHTML() {
+          if (!apiResponseEl) { log('#api-response fehlt'); return; }
+          apiResponseEl.classList.add('token-text');
+          let token = '';
+          try {
+            token = (typeof computeWaSolution === 'function')
+              ? computeWaSolution('erx')
+              : (localStorage.getItem(TOKEN_KEY) || '');
+          } catch (e) {
+            log('computeWaSolution Fehler, Fallback:', e);
+            token = localStorage.getItem(TOKEN_KEY) || '';
+          }
+          apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+        }
 
-    function applyFinalState() {
-      if (applied) return;
-      applied = true;
+        function hideActions() {
+          const submitBtn = formEl?.querySelector('.fx-btn');
+          if (submitBtn) {
+            submitBtn.style.display = 'none';
+            submitBtn.disabled = true;
+            submitBtn.classList.remove('fx-btn--next');
+            submitBtn.type = 'button';
+            const glow = submitBtn.querySelector('.fx-btn-glow');
+            if (glow) glow.style.display = 'none';
+          }
+          if (infoBox) infoBox.style.display = 'none';
+          if (inputtext) inputtext.style.display = 'none';
 
-      // 1) Hide submit/next button within the form
-      const submitBtn = formEl?.querySelector('.fx-btn');
-      if (submitBtn) {
-        submitBtn.style.display = 'none';
-        submitBtn.disabled = true;
-        submitBtn.classList.remove('fx-btn--next');
-        submitBtn.type = 'button';
-        const glow = submitBtn.querySelector('.fx-btn-glow');
-        if (glow) glow.style.display = 'none';
-      }
+          document.querySelectorAll('.fx-next').forEach(btn => {
+            btn.style.display = 'none';
+            btn.disabled = true;
+            btn.classList.remove('fx-next--visible');
+          });
+        }
 
-      // 2) Hide any separate .fx-next buttons
-      document.querySelectorAll('.fx-next').forEach(btn => {
-        btn.style.display = 'none';
-        btn.classList.remove('fx-next--visible');
-        btn.disabled = true;
-      });
+        function applyFinalState() {
+          if (applied) return;
+          applied = true;
+          log('applyFinalState');
 
-      // 3) Token-Text + Hinweis (mit <br> und kursiv)
-      setTokenHTML();
-      startFireworks();
-    }
+          // 1) Success-Box sichtbar, damit Token-Text gesehen wird
+          showSuccessBox();
 
-    function checkAndApply() {
-      if (isVisible(successEl)) {
-        applyFinalState();
-        return true;
-      }
-      return false;
-    }
+          // 2) Input grün
+          markInputSuccess();
 
-    // Initial check
-    checkAndApply();
+          // 3) Aktionen verstecken
+          hideActions();
 
-    // Observe only the success box for style/class changes
-    if (successEl) {
-      const observer = new MutationObserver(() => {
-        if (!applied) checkAndApply();
-      });
-      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
-    }
+          // 4) Token anzeigen
+          setTokenHTML();
 
-    // Short rAF polling fallback (max 2s)
-    let start = performance.now();
-    function timedRafLoop(now) {
-      if (applied) return;
-      if (now - start > 2000) return;
-      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
-    }
-    requestAnimationFrame(timedRafLoop);
+          // 5) Feuerwerk
+          try { if (typeof startFireworks === 'function') startFireworks(); } catch (e) { console.warn(e); }
+        }
 
-    // If token changes later, update only the text
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'solution' && apiResponseEl && applied) {
-        setTokenHTML();
-      }
+        function successBoxVisible() {
+          if (!successEl) return false;
+          const cs = getComputedStyle(successEl);
+          return cs.display !== 'none' && cs.visibility !== 'hidden' && successEl.offsetParent !== null;
+        }
+
+        function tryApplyBySuccessBox() {
+          if (successBoxVisible()) {
+            applyFinalState();
+            return true;
+          }
+          return false;
+        }
+
+        // A) Storage-Check
+        let stored = null;
+        try {
+          stored = localStorage.getItem(TOKEN_KEY);
+          //log('Storage', TOKEN_KEY, '=>', stored);
+        } catch (e) {
+          console.warn('localStorage Zugriff fehlgeschlagen:', e);
+        }
+
+        if (stored && stored.trim().length > 0) {
+          // Sofort finalisieren UND sichtbar machen
+          applyFinalState();
+        } else {
+          // B) Fallback: Success-Box
+          tryApplyBySuccessBox();
+
+          if (successEl) {
+            const observer = new MutationObserver(() => {
+              if (!applied) tryApplyBySuccessBox();
+            });
+            observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+          }
+
+          // rAF Fallback (max 2s)
+          let t0 = performance.now();
+          function raf(now) {
+            if (applied) return;
+            if (now - t0 > 2000) return;
+            if (!tryApplyBySuccessBox()) requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+        }
+
+        // C) Spätere Updates
+        window.addEventListener('storage', (e) => {
+          if (e.key === TOKEN_KEY && applied) {
+            setTokenHTML();
+          }
+        });
+        document.addEventListener('token-updated', () => {
+          if (applied) setTokenHTML();
+        });
+      })();
     });
-
-    // Same-tab updates
-    document.addEventListener('token-updated', () => {
-      if (apiResponseEl && applied) {
-        setTokenHTML();
-      }
-    });
-  })();
-</script>
+  </script>
 </body>
+
 </html>

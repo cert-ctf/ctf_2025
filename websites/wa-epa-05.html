@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Guardians of the TI</title>
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="./css/help.css" />
-    <style>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Guardians of the TI</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/help.css" />
+  <style>
     .api-callout {
       --bg: #0f172a;
       --fg: #e5e7eb;
       --muted: #9ca3af;
       --accent: #0DBD8B;
       --panel: #111827;
-      --border: rgba(255,255,255,0.08);
+      --border: rgba(255, 255, 255, 0.08);
       max-width: 820px;
       margin: 1rem auto;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
       border: 1px solid var(--border);
       background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
       color: var(--fg);
     }
+
     .api-head {
       display: flex;
       align-items: center;
@@ -32,22 +34,26 @@
       gap: .75rem;
       padding: 1rem 1.2rem;
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0));
     }
+
     .api-title {
       font-size: 1.05rem;
       font-weight: 700;
       letter-spacing: .02em;
     }
+
     .api-sub {
       font-size: .9rem;
       color: var(--muted);
       margin-top: .25rem;
     }
+
     .api-body {
       padding: 1rem 1.2rem 1.1rem;
       background: var(--panel);
     }
+
     .api-endpoint {
       display: grid;
       grid-template-columns: auto 1fr auto;
@@ -61,32 +67,42 @@
       font-size: .95rem;
       color: var(--fg);
     }
+
     .api-method {
-      background: rgba(13,189,139,.12);
-      border: 1px solid rgba(13,189,139,.45);
+      background: rgba(13, 189, 139, .12);
+      border: 1px solid rgba(13, 189, 139, .45);
       color: #a7f3d0;
       padding: .25rem .5rem;
       border-radius: 8px;
       font-weight: 700;
       letter-spacing: .02em;
     }
+
     .api-path {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     .api-copy {
-      background: rgba(13,189,139,.12);
+      background: rgba(13, 189, 139, .12);
       color: #a7f3d0;
-      border: 1px solid rgba(13,189,139,.45);
+      border: 1px solid rgba(13, 189, 139, .45);
       padding: .35rem .6rem;
       border-radius: 8px;
       cursor: pointer;
       font-size: .85rem;
       transition: background .2s ease, transform .08s ease;
     }
-    .api-copy:hover { background: rgba(13,189,139,.18); }
-    .api-copy:active { transform: translateY(1px); }
+
+    .api-copy:hover {
+      background: rgba(13, 189, 139, .18);
+    }
+
+    .api-copy:active {
+      transform: translateY(1px);
+    }
+
     .api-note {
       margin-top: .75rem;
       font-size: .9rem;
@@ -94,123 +110,126 @@
     }
   </style>
 
-  </head>
-  <body>
-    <main class="wrapper" role="main">
-      <nav class="navbar navbar-three">
-        <div class="nav-left">
-          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
-          <div class="nav-title">
-            <h6>Die Abenteuer von KIM &amp; TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
+</head>
+
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM &amp; TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>ePA - E-Patientenakte (Aufgabe 5)</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <h3>Panic at the Befund</h3>
+        <p>
+          Nachdem Alf beruhigt ist, dass sein Befund sicher ist,... Stellt er fest, dass er nicht möchte, dass sein
+          Therapeut über seine Triskaidekaphobie Bescheid weiß. Deshalb will er nun den Zugriff seines Therapeuten
+          sperren.
+        </p>
+        <figure style="text-align: center;">
+          <img class="img-rounded-shadow" src="./img/alf_panic.gif" alt="Alf bereitet den Zugriff auf seine ePA vor"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
+
+        <hr />
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Sperre den Therapeuten aus, indem du den Zugriff verweigerst...
+          </p>
+        </div>
+        <br>
+
+        <hr>
+        <h3>🗒️ Informationen zur Mission</h3>
+        <p>
+          Vom <b>FdV</b> aus ist ein POST-Request zu folgendem definierten Endpunkt vorgesehen.
+        </p>
+
+
+        <section class="api-callout">
+          <div class="api-head">
+            <div>
+              <div class="api-title">Geplanter Endpunkt vom FdV</div>
+              <div class="api-sub">POST-Request für gesperrte Nutzer</div>
+            </div>
+          </div>
+
+          <div class="api-body">
+            <div class="api-endpoint">
+              <span class="api-method">POST</span>
+              <code id="endpoint-text" class="api-path">/epa/basic/api/v1/blockedusers</code>
+              <button class="api-copy" type="button" id="copy-endpoint">Copy</button>
+            </div>
+          </div>
+
+          <script>
+            (function () {
+              const btn = document.getElementById('copy-endpoint');
+              const el = document.getElementById('endpoint-text');
+              btn?.addEventListener('click', async () => {
+                try {
+                  await navigator.clipboard.writeText(el.textContent.trim());
+                  const old = btn.textContent;
+                  btn.textContent = 'Copied!';
+                  setTimeout(() => btn.textContent = old, 1000);
+                } catch {
+                  const old = btn.textContent;
+                  btn.textContent = 'Fehler';
+                  setTimeout(() => btn.textContent = old, 1000);
+                }
+              });
+            })();
+          </script>
+        </section>
+        <br>
+
+
+
+        <p>
+        <h4>OpenAPI Spec</h4>
+        <ul>
+          <li><a href="https://github.com/gematik/ePA-Basic/blob/ePA-3.1.3/src/openapi/I_Entitlement_Management.yaml"
+              target="_blank" rel="noopener noreferrer">ePA I_Entitlement_Management</a></li>
+        </ul>
+
+        <h4>Swagger</h4>
+        Wir würden dir empfehlen die Specifikation im Swagger Editor zu öffnen, um die Endpunkte und benötigten Felder
+        besser zu verstehen:
+        <ul>
+          <li><a href="https://editor.swagger.io/" target="_blank" rel="noopener noreferrer">Swagger Editor</a></li>
+        </ul>
+        </p>
+        <hr />
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <label for="solution" class="fx-label">Lösung</label>
+            <div class="fx-input-wrap">
+              <textarea id="solution" name="solution" required class="fx-input"
+                style="resize: none; height: 10.5em; overflow: auto;"></textarea>
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
           </div>
         </div>
-        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
-      </nav>
-
-      <section class="card">
-        <header class="card-header">
-          <h2>ePA - E-Patientenakte</h2>
-        </header>
-        <h3 class="card-title"></h3>
-        <div class="card-body">
-          <p>
-            Nachdem Alf beruhigt ist, dass sein Befund sicher ist,... Stellt er fest, dass er nicht möchte, dass sein Therapeut über seine Triskaidekaphobie Bescheid weiß. Deshalb will er nun den Zugriff seines Therapeuten sperren. 
-          </p>
-          <figure style="text-align: center;">
-            <img
-              class="img-rounded-shadow"
-              src="./img/alf_doc.jpg"
-              alt="Alf bereitet den Zugriff auf seine ePA vor"
-              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
-            >
-          </figure>
-          <hr>
-          <h3>Deine Mission</h3>          
-            <ul>
-              <li>Sperre den Therapeuten aus, indem du den Zugriff verweigerst</li>
-            </ul>
-          
-          <hr>  
-          <h3>Informationen zur Mission</h3>          
-          <p>
-            Vom <b>FdV</b> aus ist ein POST-Request zu folgendem definierten Endpunkt vorgesehen.
-          </p>
-          
-
-          <section class="api-callout">
-            <div class="api-head">
-              <div>
-                <div class="api-title">Geplanter Endpunkt vom FdV</div>
-                <div class="api-sub">POST-Request für gesperrte Nutzer</div>
-              </div>
-            </div>
-
-            <div class="api-body">
-              <div class="api-endpoint">
-                <span class="api-method">POST</span>
-                <code id="endpoint-text" class="api-path">/epa/basic/api/v1/blockedusers</code>
-                <button class="api-copy" type="button" id="copy-endpoint">Copy</button>
-              </div>
-            </div>
-
-            <script>
-              (function(){
-                const btn = document.getElementById('copy-endpoint');
-                const el = document.getElementById('endpoint-text');
-                btn?.addEventListener('click', async () => {
-                  try {
-                    await navigator.clipboard.writeText(el.textContent.trim());
-                    const old = btn.textContent;
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => btn.textContent = old, 1000);
-                  } catch {
-                    const old = btn.textContent;
-                    btn.textContent = 'Fehler';
-                    setTimeout(() => btn.textContent = old, 1000);
-                  }
-                });
-              })();
-            </script>
-          </section>
-          <br>
-          <p>
-            Die OpenAPI-Spezifikation findest du hier:
-          </p>
-            <ul><li><a href="https://github.com/gematik/ePA-Basic/blob/ePA-3.1.3/src/openapi/I_Entitlement_Management.yaml" target="_blank" rel="noopener noreferrer">ePA I_Entitlement_Management</a></li></ul>
-          
-
-          <hr />
-          <p>
-            <h3>OpenAPI Spec</h3>
-            Wir würden dir empfehlen die Specifikation im Swagger Editor zu öffnen, um die Endpunkte und benötigten Felder besser zu verstehen:
-            <ul><li><a href="https://editor.swagger.io/" target="_blank" rel="noopener noreferrer">Swagger Editor</a></li></ul>  
-          </p>
-          <hr />
-<div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <textarea
-                    id="solution"
-                    name="solution"
- 
-                    required
-                    class="fx-input"
-                    style="resize: none; height: 10.5em; overflow: auto;"
-                  ></textarea>
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
 
         <div id="info_text">
           <div class="info-row">
@@ -228,142 +247,199 @@
           </div>
         </div>
         <br />
-      </section>
-    </main>
+    </section>
+  </main>
 
-    <canvas id="fireworksCanvas"></canvas>
+  <canvas id="fireworksCanvas"></canvas>
 
-    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
-      <span class="visually-hidden" aria-hidden="true">?</span>
-    </button>
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden" aria-hidden="true">?</span>
+  </button>
 
-    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h3>Überschrift</h3>
-      <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
-      <ul>
-        <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-        <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-        <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      </ul>
-    </aside>
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Überschrift</h3>
+    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
+    </ul>
+  </aside>
 
-    <div class="flag-tiles" aria-hidden="true"></div>
+  <div class="flag-tiles" aria-hidden="true"></div>
 
-    <script>
-      document.getElementById('submitButton')?.addEventListener('click', function () {
-        // Add stuff here
-      });
-    </script>
-     <script>
-      const url = "epa/wa-5"
-      const localStorageKey = "epa-wa-5"
-    </script>
-    <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceTextfield_FinalTask.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>
-    <script src="./js/fireworks.js"></script>
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script>
+    const url = "epa/wa-5"
+    const localStorageKey = "epa-wa-5"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceTextfield_FinalTask.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
+  <script src="./js/fireworks.js"></script>
 
+  
+  
 <script>
-  (function enforceFinalStateWhenSuccessBoxVisible() {
+document.addEventListener('DOMContentLoaded', () => {
+  (function finalUIController() {
+    const TOKEN_KEY = 'epa-wa-solution';
     const TOKEN_PREFIX = 'ePA Token: ';
-    const HINT_HTML = '<br><span class="token-hint">schreibe dir den token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
-
+    const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
 
     const formEl = document.getElementById('solutionForm');
+    const inputEl = document.getElementById('solution');
     const successEl = document.getElementById('success-message');
     const apiResponseEl = document.getElementById('api-response');
+    const infoBox = document.getElementById('info_text');
+    const inputtext = document.getElementById('solution');
 
     let applied = false;
+    const log = (...a) => console.debug('[FinalUI]', ...a);
 
-    function isVisible(el) {
-      if (!el) return false;
-      const style = window.getComputedStyle(el);
-      return style.display !== 'none' && style.visibility !== 'hidden' && el.offsetParent !== null;
+    function showSuccessBox() {
+      if (!successEl) return;
+      // Sichtbar machen – stil-sicher
+      successEl.style.removeProperty('display'); // falls inline display:none
+      if (getComputedStyle(successEl).display === 'none') {
+        successEl.style.display = 'block';
+      }
+    }
+
+    function markInputSuccess() {
+      if (!inputEl) { log('inputEl fehlt'); return; }
+      inputEl.classList.remove('fx-input--error');
+      inputEl.classList.add('fx-input--success'); // Stelle sicher, dass diese Klasse grün färbt
+      inputEl.readOnly = true;
+      inputEl.setAttribute('aria-readonly', 'true');      
     }
 
     function setTokenHTML() {
-      if (!apiResponseEl) return;
-      
-      //const token = localStorage.getItem(localStorageKey) || '';
+      if (!apiResponseEl) { log('#api-response fehlt'); return; }
       apiResponseEl.classList.add('token-text');
-      const token = computeWaSolution("epa");
+      let token = '';
+      try {
+        token = (typeof computeWaSolution === 'function')
+          ? computeWaSolution('epa')
+          : (localStorage.getItem(TOKEN_KEY) || '');
+      } catch (e) {
+        log('computeWaSolution Fehler, Fallback:', e);
+        token = localStorage.getItem(TOKEN_KEY) || '';
+      }
       apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
     }
 
-    function applyFinalState() {
-      if (applied) return;
-      applied = true;
-
-      // 1) Hide submit/next button within the form
+    function hideActions() {
       const submitBtn = formEl?.querySelector('.fx-btn');
-      const box = document.getElementById('info_text');
       if (submitBtn) {
         submitBtn.style.display = 'none';
-        box.style.display = 'none';
         submitBtn.disabled = true;
         submitBtn.classList.remove('fx-btn--next');
         submitBtn.type = 'button';
         const glow = submitBtn.querySelector('.fx-btn-glow');
         if (glow) glow.style.display = 'none';
       }
+      if (infoBox) infoBox.style.display = 'none';
+      if (inputtext) inputtext.style.display = 'none';
 
-      // 2) Hide any separate .fx-next buttons
       document.querySelectorAll('.fx-next').forEach(btn => {
         btn.style.display = 'none';
-        btn.classList.remove('fx-next--visible');
         btn.disabled = true;
+        btn.classList.remove('fx-next--visible');
       });
-
-      // 3) Token-Text + Hinweis (mit <br> und kursiv)
-      setTokenHTML();
-      startFireworks();
     }
 
-    function checkAndApply() {
-      if (isVisible(successEl)) {
+    function applyFinalState() {
+      if (applied) return;
+      applied = true;
+      //log('applyFinalState');
+
+      // 1) Success-Box sichtbar, damit Token-Text gesehen wird
+      showSuccessBox();
+
+      // 2) Input grün
+      markInputSuccess();
+
+      // 3) Aktionen verstecken
+      hideActions();
+
+      // 4) Token anzeigen
+      setTokenHTML();
+
+      // 5) Feuerwerk
+      try { if (typeof startFireworks === 'function') startFireworks(); } catch (e) { console.warn(e); }
+    }
+
+    function successBoxVisible() {
+      if (!successEl) return false;
+      const cs = getComputedStyle(successEl);
+      return cs.display !== 'none' && cs.visibility !== 'hidden' && successEl.offsetParent !== null;
+    }
+
+    function tryApplyBySuccessBox() {
+      if (successBoxVisible()) {
         applyFinalState();
         return true;
       }
       return false;
     }
 
-    // Initial check
-    checkAndApply();
-
-    // Observe only the success box for style/class changes
-    if (successEl) {
-      const observer = new MutationObserver(() => {
-        if (!applied) checkAndApply();
-      });
-      observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+    // A) Storage-Check
+    let stored = null;
+    try {
+      stored = localStorage.getItem(TOKEN_KEY);
+    } catch (e) {
+      console.warn('localStorage Zugriff fehlgeschlagen:', e);
     }
 
-    // Short rAF polling fallback (max 2s)
-    let start = performance.now();
-    function timedRafLoop(now) {
-      if (applied) return;
-      if (now - start > 2000) return;
-      if (!checkAndApply()) requestAnimationFrame(timedRafLoop);
-    }
-    requestAnimationFrame(timedRafLoop);
+    if (stored && stored.trim().length > 0) {
+      // Sofort finalisieren UND sichtbar machen
+      applyFinalState();
+    } else {
+      // B) Fallback: Success-Box
+      tryApplyBySuccessBox();
 
-    // If token changes later, update only the text
+      if (successEl) {
+        const observer = new MutationObserver(() => {
+          if (!applied) tryApplyBySuccessBox();
+        });
+        observer.observe(successEl, { attributes: true, attributeFilter: ['style', 'class'] });
+      }
+
+      // rAF Fallback (max 2s)
+      let t0 = performance.now();
+      function raf(now) {
+        if (applied) return;
+        if (now - t0 > 2000) return;
+        if (!tryApplyBySuccessBox()) requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // C) Spätere Updates
     window.addEventListener('storage', (e) => {
-      if (e.key === 'solution' && apiResponseEl && applied) {
+      if (e.key === TOKEN_KEY && applied) {
         setTokenHTML();
       }
     });
-
-    // Same-tab updates
     document.addEventListener('token-updated', () => {
-      if (apiResponseEl && applied) {
-        setTokenHTML();
-      }
+      if (applied) setTokenHTML();
     });
   })();
+});
 </script>
 
-  </body>
+
+
+
+</body>
+
 </html>

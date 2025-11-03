@@ -1,0 +1,415 @@
+/* App-Look */
+.app-shell {
+  max-width: 980px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.app-panel {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(13, 189, 139, .08) 0%, rgba(13, 189, 139, 0) 42%),
+    linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .06);
+  color: #e5e7eb;
+  backdrop-filter: saturate(140%) blur(4px);
+  margin-bottom: 1rem;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.app-panel::before {
+  display: none;
+}
+
+/* entfernt obere Linie */
+.app-panel:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 28px 56px rgba(0, 0, 0, .40), inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+
+.panel-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+/* Uploader */
+.uploader {
+  border: 1px dashed rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .03);
+  border-radius: 14px;
+  padding: 1rem;
+  margin: .75rem 0
+}
+
+.uploader-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .75rem
+}
+
+.uploader-title {
+  font-weight: 700;
+  letter-spacing: .2px
+}
+
+.uploader-sub {
+  color: #9ca3af;
+  font-size: .92rem
+}
+
+.uploader-actions {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap
+}
+
+.btn {
+  background: rgba(13, 189, 139, .12);
+  color: #a7f3d0;
+  border: 1px solid rgba(13, 189, 139, .45);
+  padding: .55rem .9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: .92rem;
+  transition: background .18s ease, transform .08s ease, box-shadow .2s ease
+}
+
+.btn:hover {
+  background: rgba(13, 189, 139, .18);
+  box-shadow: 0 8px 20px rgba(13, 189, 139, .18)
+}
+
+.btn:active {
+  transform: translateY(1px)
+}
+
+.file-input {
+  display: none
+}
+
+.dropzone {
+  border: 1px solid rgba(255, 255, 255, .10);
+  background: rgba(255, 255, 255, .02);
+  border-radius: 12px;
+  padding: .9rem;
+  text-align: center;
+  color: #9ca3af
+}
+
+.dropzone.dragover {
+  border-color: rgba(13, 189, 139, .55);
+  background: rgba(13, 189, 139, .08);
+  color: #a7f3d0
+}
+
+.error {
+  color: #f87171;
+  margin-top: .5rem;
+  font-size: .92rem
+}
+
+/* Ergebnis-Karte */
+.rx-card {
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+  background:
+    radial-gradient(1200px 600px at 15% 0%, rgba(96, 165, 250, .12) 0%, rgba(96, 165, 250, 0) 40%),
+    radial-gradient(1000px 500px at 85% 30%, rgba(13, 189, 139, .10) 0%, rgba(13, 189, 139, 0) 45%),
+    linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, .38), inset 0 1px 0 rgba(255, 255, 255, .05);
+}
+
+.rx-card.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0)
+}
+
+.rx-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(180deg, rgba(96, 165, 250, .10), rgba(255, 255, 255, 0));
+  border-bottom: 1px solid rgba(96, 165, 250, .18)
+}
+
+.rx-title h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: .2px;
+  background: linear-gradient(90deg, #fff, #c7d2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent
+}
+
+.rx-sub {
+  margin: .15rem 0 0;
+  font-size: .88rem;
+  color: #9ca3af
+}
+
+.rx-badge {
+  border: 1px solid rgba(13, 189, 139, .45);
+  background: rgba(13, 189, 139, .12);
+  color: #a7f3d0;
+  padding: .25rem .6rem;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: .015em;
+  font-size: .8rem
+}
+
+.rx-body {
+  padding: 1rem 1.25rem 1.1rem;
+  background: rgba(255, 255, 255, .02)
+}
+
+.rx-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: .75rem;
+  margin: .5rem 0
+}
+
+.rx-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+  margin: .6rem 0 .2rem
+}
+
+@media(max-width:900px) {
+  .rx-grid {
+    grid-template-columns: 1fr 1fr
+  }
+
+  .rx-row {
+    grid-template-columns: 140px 1fr
+  }
+}
+
+@media(max-width:560px) {
+  .rx-grid {
+    grid-template-columns: 1fr
+  }
+
+  .rx-row {
+    grid-template-columns: 1fr
+  }
+}
+
+.rx-label {
+  color: #cbd5e1;
+  letter-spacing: .2px
+}
+
+.rx-value {
+  font-size: 1rem
+}
+
+.mono {
+  font-family: ui-monospace, Menlo, Consolas, monospace
+}
+
+.rx-sep {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  margin: .9rem 0
+}
+
+/* Arzneimittel: blau und betont */
+.rx-med-blue {
+  color: #60a5fa;
+  /* Blau */
+  font-weight: 700;
+  letter-spacing: .2px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
+
+/* PZN cyan (bereits vorhanden bei dir, hier vollständig) */
+#rxPzn {
+  color: #22d3ee;
+  font-weight: 700;
+}
+
+/* PZN-ähnlicher Stil für weitere Werte (nur Text, kein Box) */
+.rx-pzn-like {
+  color: #22d3ee;
+  /* Cyan */
+  font-weight: 700;
+}
+
+/* Dreispaltige Zeile: Patient / Verordnet / Kostenträger */
+.rx-triple-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* links / mitte / rechts */
+  gap: .75rem;
+  align-items: start;
+  margin: .6rem 0;
+}
+
+.rx-triple-item {
+  text-align: left;
+}
+
+.rx-triple-item .rx-label {
+  color: #cbd5e1;
+  font-size: .9rem;
+  margin-bottom: .25rem;
+  text-align: left;
+}
+
+.rx-triple-item .rx-value {
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Individuelle Farben für die drei Werte */
+.rx-patient {
+  color: #a7f3d0;
+  font-weight: 600;
+}
+
+/* Mint */
+.rx-doc {
+  color: #c7d2fe;
+  font-weight: 600;
+}
+
+/* Violett/Flieder */
+.rx-insurer {
+  color: #fde68a;
+  font-weight: 600;
+}
+
+/* Amber/Hellgelb */
+
+/* Responsive: untereinander bei kleineren Screens */
+@media (max-width: 900px) {
+  .rx-triple-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .rx-triple-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+:root {
+  --navy: #123b78;
+  /* Navy Blau für Border */
+  --white: #ffffff;
+  --black: #111111;
+  /* Panel-Text */
+}
+
+/* Accordion-Container (optional) */
+.ctf-accordion {
+  max-width: 920px;
+  margin: 1.25rem auto;
+  padding: 0 1rem;
+}
+
+/* Item: weißer Hintergrund, navy Border, runde Ecken */
+.ctf-acc-item {
+  background: var(--white);
+  border: 2px solid var(--navy);
+  /* deutlicher navy Rahmen */
+  border-radius: 16px;
+  /* schön rund */
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+  /* leichtes Tiefengefühl */
+  margin-bottom: 12px;
+}
+
+/* Weißer Header (bleibt weiß), Chevron rechts */
+.ctf-acc-header {
+  width: 100%;
+  background: var(--white);
+  color: var(--navy);
+  /* Überschrift navy für Kontrast */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 14px 16px;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  font: inherit;
+  text-align: left;
+}
+
+.ctf-acc-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.ctf-acc-chevron {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  position: relative;
+  transition: transform .18s ease;
+}
+
+.ctf-acc-chevron::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--navy);
+  border-top: 2px solid var(--navy);
+  transform: rotate(45deg);
+}
+
+.ctf-acc-item[open] .ctf-acc-chevron {
+  transform: rotate(90deg);
+}
+
+/* Panel: Text schwarz beim Aufklappen */
+.ctf-acc-panel {
+  padding: 14px 16px 16px;
+  background: var(--white);
+  /* gleichmäßiger weißer Hintergrund */
+  border-top: 1px solid var(--navy);
+  /* feine Trennung in navy */
+  color: var(--black);
+  /* schwarzer Text im Panel */
+}
+
+.ctf-acc-panel[hidden] {
+  display: none;
+}
+
+.ctf-acc-panel p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--black);
+  /* sicherstellen, dass der Text schwarz bleibt */
+}
+
+/* Optional: Hover-Akzent auf Header */
+.ctf-acc-header:hover {
+  background: #f6f8fb;
+  /* zartes hellgrau/blau als Hover */
+}

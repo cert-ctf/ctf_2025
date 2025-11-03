@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -23,69 +25,90 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Kommunikation im Medizinwesen</h2>
+        <h2>Kommunikation im Medizinwesen (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <h3>KAS Chaos?</h3>
         <p>
-        	Frau Dr. Müller hat über KIM die Laborergebnisse eines Patienten direkt vom Labor erhalten.
+          Frau Dr. Müller hat über KIM die Laborergebnisse eines Patienten direkt vom Labor erhalten.
         </p>
         <p>
-Sie findet die Laborergebnisse aber nicht im Anhang, kannst du ihr helfen die Datei sowie den dringend benötigten <b>Hepatitis B Antigen</b> Wert für den Patienten zu finden!
+          Sie findet die Laborergebnisse aber nicht im Anhang...
         </p>
         <hr>
-        <p>
-          <h3>Feldkennungen</h3>
-          Laborergebnisse folgen stets diesem Aufbau: Feldkennung (FK) gefolgt vom eigentlichen Wert.<br>
-          Falls du die passende FK für einen Wert nicht mehr weißt, findest du hier eine kurze Übersicht:<br>
-        </p>
-          <ul>
-  <li>Du erinnerst dich: Die entsprechende Testbezeichnung findest du unter der FK <b>8411</b>.</li>
-  <li>Jetzt musst du nur noch die FK für das Ergebnis ermitteln.</li>
-  <li>
-    <a href="https://update.kbv.de/ita-update/Labor/Labordatenkommunikation/EXT_ITA_VGEX_LDT_3_2_19_Use_Cases.pdf" target="_blank" rel="noopener noreferrer">
-      Dokumentation der Felder eines Laborauftrags
-    </a>
-  </li>
-</ul>
-        <hr>
-
-          <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="134,5" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
-
-      <div id="info_text">
-        <div class="info-row">
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
-          <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
-              Gesucht wird der Hepatitis B Antigen Wert. <br>
-              Anhang: <a href="./files/KIM.wa.4/ldt.eml" target="_blank" rel="noopener noreferrer">ldt.eml</a>
-            </p>
-          </div>
-          <figure>
-            <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
-          </figure>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Kannst du ihr helfen die Datei, sowie den dringend benötigten <code class="mi-code">Hepatitis B Antigen</code>
+            Wert für den Patienten zu finden?
+          </p>
         </div>
-      </div>
-      <br>
+        <br>
+
+        <hr>
+        <h3>🗒️ Informationen zur Mission </h3>
+        <h4>Feldkennungen</h4>
+        Laborergebnisse folgen stets diesem Aufbau: <br>
+        <ul class="mi-parts">
+          <li>
+            <code class="mi-k">Feldkennung (FK)</code> gefolgt vom eigentlichen Wert</code>
+          </li>
+        </ul>
+        Falls du die passende FK für einen Wert nicht mehr weißt, findest du hier eine kurze Übersicht:<br>
+        <ul>
+          <li>
+
+            <a href="https://update.kbv.de/ita-update/Labor/Labordatenkommunikation/EXT_ITA_VGEX_LDT_3_2_19_Use_Cases.pdf"
+              target="_blank" rel="noopener noreferrer">
+              Dokumentation der Felder eines Laborauftrags
+            </a>
+          </li>
+        </ul>
+        <br>
+        <p>Du erinnerst dich: Die entsprechende Testbezeichnung findest du unter der <code
+            class="mi-code">FK <b>8411</b></code></p>
+
+        Jetzt musst du nur noch die FK für das Ergebnis ermitteln.
+
+        </ul>
+        <hr>
+
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="134,5" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Gesucht wird der Hepatitis B Antigen Wert. <br>
+                Anhang: <a href="./files/KIM.wa.4/ldt.eml" target="_blank" rel="noopener noreferrer">ldt.eml</a>
+              </p>
+            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
+            </figure>
+          </div>
+        </div>
+        <br>
     </section>
   </main>
 
@@ -97,26 +120,29 @@ Sie findet die Laborergebnisse aber nicht im Anhang, kannst du ihr helfen die Da
     <button class="close-btn" aria-label="Schließen">&times;</button>
     <h3>Weitere Infos</h3>
     <p>Hier findest du weitere Hinweise und Tools:</p>
-     <ul>
-      <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a></li>
-      <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener">Dienstkennung KIM</a></li>
+    <ul>
+      <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
+          rel="noopener">Funktionsweise von KIM</a></li>
+      <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank"
+          rel="noopener">Dienstkennung KIM</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
-    
-    <script>
-      const url = "kim/wa-4"
-      const nextQuestionURL = "wa-kim-05.html"
-      const localStorageKey = "kim-wa-4"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>    
 
-    <script>
-      initFlagUI();
-    </script> 
+  <script>
+    const url = "kim/wa-4"
+    const nextQuestionURL = "wa-kim-05.html"
+    const localStorageKey = "kim-wa-4"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
+
+  <script>
+    initFlagUI();
+  </script>
 </body>
+
 </html>

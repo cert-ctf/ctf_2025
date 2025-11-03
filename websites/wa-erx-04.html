@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,7 +9,10 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-02.css">
+  <link rel="stylesheet" href="./css/erx-04.css">
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three">
@@ -24,55 +28,159 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept</h2>
+        <h2>eRX - E-Rezept (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <h3>Der etwas andere QR Code</h3>
+
         <p>
-          Als nächstes musst du nur noch mit dem  String aus der vorherigen Aufgabe eine E-Rezept DatenMatrix erstellen.
+          Aus deinem <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code>  entsteht eine <code class="
+            mi-k">DatenMatrix</code>, die jede Strand‑Apotheke flott scannen kann. Sauber, normgerecht und ohne
+          Sonnenbrand - einmal generieren, überall einlösen.
+        <p><b>Compliance:</b> Beachte die gematik‑Spezifikation und die ISO‑Norm für DataMatrix.</p>
         </p>
-        <p>
-          <code>Task/160.265.857.103.443.29/$accept?ac=d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5</code>
         </p>
-        <p>Diese kannst du dann in deiner Apotheke vorzeigen.</p>
-          <hr>
-        <h3>DataMatrix generieren</h3>
+
+        <section class="erp-id-card">
+          <header class="erp-id-head">
+            <h4 class="erp-id-title">Basis</h4>
+
+            <div style="display:flex; align-items:center; gap:.5rem;">
+
+              <button id="copyTokenBtn" type="button" style="background:rgba(200, 200, 35, 0.12);
+                     color:#9c6926;
+                     border:1px solid rgba(16,185,129,.35);
+                     padding:.35rem .6rem;
+                     border-radius:8px;
+                     cursor:pointer;
+                     font-size:.9rem;">
+                Kopieren
+              </button>
+              <span class="erp-id-badge">E‑Rezept‑Token</span>
+            </div>
+          </header>
+
+          <div class="erp-id-body" style="text-align: left;">
+            <span id="erpTokenText" style="color:var(--erp-a-color); font-weight:500; word-break:break-all;">
+              Task/160.265.857.103.443.29/$accept?ac=d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5
+            </span>
+
+            <!-- Statusmeldung unterhalb der Zeile -->
+            <div id="copyStatus" aria-live="polite" style="margin-top:.5rem; font-size:.9rem; color:#9ca3af;"></div>
+          </div>
+        </section>
+
+
+        <hr>
+        <h3>🛰️ Deine Mission</h3>
+        <div class=" callout-box">
+          <p>
+            Erzeuge aus dem Token‑String eine DatenMatrix, die den gematik‑Spezifikationen für das <code
+              class="mi-code">E‑Rezept‑Datenmodell</code> entspricht und konform zu <code
+              class="mi-code">ISO/IEC 16022:2006</code> ist.
+          </p>
+        </div>
+        <br>
+        <hr>
+
+
+        <h3>🗒️ Informationen zur Mission</h3>
+
+        <section class="mission-info-card">
+          <header class="mission-info-head">
+            <h4 class="mission-info-title">Compliance</h4>
+            <span class="mission-info-badge">DataMatrix · E‑Rezept</span>
+          </header>
+
+          <div class="mission-info-body">
+            <!-- Spezifikationen und Normen -->
+            <h5 class="mission-info-subtitle">Spezifikationen und Normen</h5>
+            <ul class="mission-info-list">
+              <li>
+                E‑Rezept Datenmodell, Abschnitt 2.3.1: Datenträger/DataMatrix
+                <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#2.3.1" target="_blank"
+                  rel="noopener noreferrer">
+                  gemSpec DM eRp 2.3.1
+                </a>
+              </li>
+              <li>
+                Anforderungen an den Einlösetoken/DataMatrix
+                <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#A_19543" target="_blank"
+                  rel="noopener noreferrer">
+                  A_19543
+                </a>
+              </li>
+              <li>
+                DataMatrix‑Standard:
+                <a href="https://www.iso.org/standard/44255.html" target="_blank" rel="noopener noreferrer">
+                  ISO/IEC 16022:2006
+                </a>
+              </li>
+            </ul>
+
+            <!-- Inhalt des Codes -->
+            <h5 class="mission-info-subtitle">Inhalt des Codes (Token)</h5>
+            <ul class="mission-info-list">
+              <li>
+                Nutze den exakten Token‑String aus Aufgabe 3
+              </li>
+              <li>Keine Zeilenumbrüche, keine zusätzlichen Leerzeichen, <strong>UTF‑8</strong>‑Kodierung</li>
+            </ul>
+
+            <!-- Technische Umsetzung -->
+            <h5 class="mission-info-subtitle">Technische Umsetzung (Empfehlungen)</h5>
+            <ul class="mission-info-list">
+              <li>Symbol: <strong>DataMatrix ECC 200</strong> (entspricht ISO/IEC 16022:2006)</li>
+              <li>Fehlerkorrektur: ECC 200 ist integriert; Modulgröße für Druck z. B. <strong>0.6–1.0 mm</strong></li>
+              <li>Quiet Zone: mindestens <strong>1 Modul</strong> (empfohlen <strong>2–4</strong>), hell (weiß)</li>
+              <li>Kontrast: dunkle Module auf hellem Hintergrund, keine Muster im Hintergrund</li>
+              <li>Größe: Smartphone‑Anzeige <strong>240–512 px</strong>; Druck z. B. <strong>25–35 mm</strong>
+                Kantenlänge</li>
+            </ul>
+
+            <!-- Praxishinweise -->
+            <h5 class="mission-info-subtitle">Praxis am Strand</h5>
+            <ul class="mission-info-list">
+              <li>Generiere die DatenMatrix, teste sie mit einer Scanner‑App und zeige sie in der Strand‑Apotheke vor
+              </li>
+              <li>Achte darauf, dass die Anzeige hell genug und nicht spiegelnd ist</li>
+            </ul>
+          </div>
+        </section>
+
+        <h4>DataMatrix generieren</h4>
         <p>
           Du kannst einen DataMatrix Generator verwenden, um die Datenmatrix zu erstellen. <br>Zum Beispiel diesen hier:
-          <ul>
-            <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix generator</a></li>
-          </ul>
+        <ul>
+          <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix
+              generator</a></li>
+        </ul>
         </p>
+        <br>
         <hr>
 
         <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
-            <label for="solutionFile" class="fx-label">Upload Solution File</label>
+          <h3 for="solution" class="fx-label">🎯 Lösung (Upload Solution File)</h3>
 
-            <div class="fx-input-wrap">
-              <input
-                type="file"
-                id="solutionFile"
-                name="solutionFile"
-                accept=".png,image/png"
-                required
-                class="fx-input"
-              />
+          <div class="fx-input-wrap">
+            <input type="file" id="solutionFile" name="solutionFile" accept=".png,image/png" required
+              class="fx-input" />
 
-              <button type="submit" class="fx-btn ">
-                <span class="fx-btn-label">Submit</span>
-                <span class="fx-btn-glow"></span>
-              </button>
-            </div>
+            <button type="submit" class="fx-btn ">
+              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-glow"></span>
+            </button>
+          </div>
 
-            <div id="error-message" class="fx-error" aria-live="polite"></div>
-          </form>
+          <div id="error-message" class="fx-error" aria-live="polite"></div>
+        </form>
 
-          <!-- Erfolgsausgabe -->
-          <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-          </div> 
+        <!-- Erfolgsausgabe -->
+        <div id="success-message" class="fx-success" style="display:none;">
+          <div id="api-response" class="fx-response" aria-live="polite"></div>
         </div>
+      </div>
 
       <div id="info_text">
         <div class="info-row">
@@ -81,7 +189,8 @@
           </figure>
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-              Erstelle eine E-Rezept DatenMatrix wie du ihn von deiner Ärztin erhalten würdest. Verwende dazu den String aus der vorherigen Aufgabe.
+              Erstelle eine E-Rezept DatenMatrix wie du ihn von deiner Ärztin erhalten würdest. Verwende dazu den String
+              aus der vorherigen Aufgabe.
             </p>
           </div>
           <figure>
@@ -103,33 +212,64 @@
     <p>Verwende folgende Tools zur Analyse:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-      <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix generator</a></li>
-      <li><a href="wa-erx-03.html" rel="noopener noreferrer">Aufgabe 3</a></li>
-      <li><a href="wa-erx-05.html" rel="noopener noreferrer">Aufgabe 5</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix
+          generator</a></li>
     </ul>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
   <script>
-      const url = "erx/wa-4"
-      const nextQuestionURL = "wa-erx-05.html"
-      const localStorageKey = "erx-wa-4"
-    </script>
+    const url = "erx/wa-4"
+    const nextQuestionURL = "wa-erx-05.html"
+    const localStorageKey = "erx-wa-4"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/flagServiceImage.js"></script>
+  <script src="./js/help.js"></script>
 
   <script>
-    document.getElementById('submitButton')?.addEventListener('click', function () {
-      // Add stuff here
-    });
+    initFlagUIImage();
   </script>
+
+
   <script>
-      const url = "erx/wa-4"
-      const nextQuestionURL = "wa-erx-05.html"
-      const localStorageKey = "erx-wa-4"
-    </script>
-    <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceImage.js"></script>
-    <script src="./js/help.js"></script>
-    <script src="./js/fireworks.js"></script>
+    (function () {
+      const btn = document.getElementById('copyTokenBtn');
+      const src = document.getElementById('erpTokenText');
+      const status = document.getElementById('copyStatus');
+
+      async function copyText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          // Fallback für sehr alte Browser
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          return ok;
+        }
+      }
+
+      btn?.addEventListener('click', async () => {
+        const token = (src?.textContent || '').trim();
+        const ok = await copyText(token);
+        const old = btn.textContent;
+        btn.textContent = ok ? 'Kopiert!' : 'Fehler';
+      });
+    })();
+  </script>
+
 </body>
+
 </html>

@@ -1,81 +1,95 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Guardians of the TI</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="./css/help.css" />
-  </head>
 
-  <body>
-    <main class="wrapper" role="main">
-      <nav class="navbar navbar-three">
-        <div class="nav-left">
-          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
-          <div class="nav-title">
-            <h6>Die Abenteuer von KIM &amp; TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Guardians of the TI</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/help.css" />
+</head>
+
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM &amp; TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Kommunikation im Medizinwesen (Aufgabe 3)</h2>
+      </header>
+
+      <h3 class="card-title"></h3>
+
+      <div class="card-body">
+        <h3>Dienstkennungs Bingo</h3>
+        <p>
+          Frau Dr. Müller möchte ein E-Rezept zu einer Apotheke verschicken, doch die Nachricht geht
+          einfach nicht durch! <br />
+          Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei. Tatsächlich sieht die Nachricht etwas
+          seltsam aus, schau im Fachportal nach und prüfe, woran es liegt.
+        </p>
+
+        <hr>
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Finde heraus, welche Dienstkennung sie hätte eintragen müssen?
+          </p>
+        </div>
+        <br>
+
+        <hr />
+
+        <h3>🗒️ Informationen zur Mission </h3>
+        <h4>Dienstkennungen</h4>
+
+        <p>
+          Dienstkennungen helfen dem empfangenden System dabei, KIM Nachrichten richtig zuzuordnen und automatisch
+          weiterzuverarbeiten.
+        </p>
+
+        <p>Die Definition geschieht im Header: <code class="mi-code">X-KIM-Dienstkennung</code>
+        </p>
+        <p>
+          Hast du dazu nicht schon einmal im Fachportal der gematik etwas gelesen?
+        </p>
+        <ul>
+          <li>
+            <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank"
+              rel="noopener noreferrer">
+              Dienstkennungen
+            </a>
+          </li>
+        </ul>
+        <hr />
+
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="text" id="solution" name="solution" placeholder="Dienstkennung" required class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
           </div>
         </div>
-        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
-      </nav>
-
-      <section class="card">
-        <header class="card-header">
-          <h2>Kommunikation im Medizinwesen</h2>
-        </header>
-
-        <h3 class="card-title"></h3>
-
-        <div class="card-body">
-          <h3>Dienstkennungs Bingo</h3>
-          <p>
-            Frau Dr. Müller möchte ein E-Rezept zu einer Apotheke verschicken, doch die Nachricht geht
-            einfach nicht durch! <br />
-            Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei. Tatsächlich sieht die Nachricht etwas seltsam aus, schau im Fachportal nach und prüfe, woran es liegt.
-            </p>
-            <p>
-            Welche Dienstkennung hätte sie eintragen müssen?
-          </p>
-          <ul>
-            <li>
-              <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener noreferrer">
-                Dienstkennungen
-              </a>
-            </li>
-          </ul>
-          <hr />
-          <h3>Dienstkennungen</h3>
-          <p>
-            Dienstkennungen helfen dem empfangenden System dabei, KIM Nachrichten richtig zuzuordnen und automatisch
-            weiterzuverarbeiten.
-          </p>
-          <p>Sie werden im Header <code>X-KIM-Dienstkennung</code> definiert.
-          </p>
-          <p>
-            Hast du dazu nicht schon einmal im Fachportal der gematik etwas gelesen?
-          </p>
-          <hr />
-
-          <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="text" id="solution" name="solution" placeholder="Dienstkennung" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
-            </div>
 
         <div id="info_text">
           <div class="info-row">
@@ -98,45 +112,44 @@
         </div>
 
         <br />
-      </section>
-    </main>
+    </section>
+  </main>
 
-    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
-      <span class="visually-hidden">?</span>
-    </button>
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
 
-    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h3>Weitere Infos</h3>
-      <p>Hier findest du weitere Hinweise und Tools:</p>
-      <ul>
-        <li>
-          <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener"
-            >Funktionsweise von KIM</a
-          >
-        </li>
-        <li>
-          <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener"
-            >Dienstkennung KIM</a
-          >
-        </li>
-      </ul>
-    </aside>
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Weitere Infos</h3>
+    <p>Hier findest du weitere Hinweise und Tools:</p>
+    <ul>
+      <li>
+        <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
+          rel="noopener">Funktionsweise von KIM</a>
+      </li>
+      <li>
+        <a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank"
+          rel="noopener">Dienstkennung KIM</a>
+      </li>
+    </ul>
+  </aside>
 
-    <div class="flag-tiles" aria-hidden="true"></div>
+  <div class="flag-tiles" aria-hidden="true"></div>
 
-    <script>
-      const url = "kim/wa-3"
-      const nextQuestionURL = "wa-kim-04.html"
-      const localStorageKey = "kim-wa-3"
-    </script>
-     <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>    
+  <script>
+    const url = "kim/wa-3"
+    const nextQuestionURL = "wa-kim-04.html"
+    const localStorageKey = "kim-wa-3"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
 
-    <script>
-      initFlagUI();
-    </script> 
-  </body>
+  <script>
+    initFlagUI();
+  </script>
+</body>
+
 </html>

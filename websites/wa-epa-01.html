@@ -1,83 +1,101 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Guardians of the TI</title>
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="./css/help.css" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Guardians of the TI</title>
 
-      <style>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/help.css" />
+
+  <style>
     .jwt-card {
-      --bg: #0f172a;           /* Hintergrund (Slate-900) */
-      --panel: #111827;        /* Panel (Gray-900) */
-      --muted: #9ca3af;        /* Sekundär-Text */
-      --text: #e5e7eb;         /* Primär-Text */
-      --accent: #0dbd8b;       /* Akzent */
-      --accent-2: #22d3ee;     /* Zweitakzent */
-      --code-bg: #0b1220;      /* Code-Hintergrund */
-      --code-border: #1f2937;  /* Code-Rand */
-      --shadow: 0 12px 32px rgba(0,0,0,0.45);
+      --bg: #0f172a;
+      /* Hintergrund (Slate-900) */
+      --panel: #111827;
+      /* Panel (Gray-900) */
+      --muted: #9ca3af;
+      /* Sekundär-Text */
+      --text: #e5e7eb;
+      /* Primär-Text */
+      --accent: #0dbd8b;
+      /* Akzent */
+      --accent-2: #22d3ee;
+      /* Zweitakzent */
+      --code-bg: #0b1220;
+      /* Code-Hintergrund */
+      --code-border: #1f2937;
+      /* Code-Rand */
+      --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
       background: linear-gradient(135deg, #0b1020 0%, #0f172a 100%);
       padding: 1.25rem;
       border-radius: 16px;
       color: var(--text);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       max-width: 900px;
       margin: 1rem auto;
     }
+
     .jwt-header {
       display: flex;
       align-items: center;
       gap: .75rem;
       margin-bottom: 1rem;
     }
+
     .jwt-badge {
-      background: linear-gradient(135deg, rgba(13,189,139,.15), rgba(34,211,238,.08));
+      background: linear-gradient(135deg, rgba(13, 189, 139, .15), rgba(34, 211, 238, .08));
       color: #a7f3d0;
-      border: 1px solid rgba(13,189,139,.35);
+      border: 1px solid rgba(13, 189, 139, .35);
       padding: .3rem .6rem;
       border-radius: 999px;
       font-size: .8rem;
       letter-spacing: .02em;
     }
+
     .jwt-title {
       font-size: 1.25rem;
       font-weight: 700;
       letter-spacing: .02em;
     }
+
     .jwt-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1rem;
     }
+
     @media (min-width: 800px) {
       .jwt-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
+
     .jwt-panel {
       background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
       overflow: hidden;
     }
+
     .jwt-panel-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: .6rem .8rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
     }
+
     .jwt-panel-title {
       font-size: .9rem;
       color: var(--muted);
       letter-spacing: .03em;
     }
+
     .jwt-code {
       margin: 0;
       padding: .8rem .9rem;
@@ -89,17 +107,20 @@
       white-space: pre;
       overflow: auto;
     }
+
     .jwt-kv {
       display: flex;
       align-items: center;
       gap: .5rem;
       padding: .75rem .9rem;
     }
+
     .jwt-key {
       color: var(--muted);
       min-width: 120px;
       font-size: .9rem;
     }
+
     .jwt-value {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       background: var(--code-bg);
@@ -112,259 +133,298 @@
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+
     .jwt-actions {
       display: flex;
       gap: .5rem;
       padding: .6rem .8rem .8rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       justify-content: flex-end;
     }
+
     .jwt-btn {
-      background: rgba(13,189,139,.12);
+      background: rgba(13, 189, 139, .12);
       color: #a7f3d0;
-      border: 1px solid rgba(13,189,139,.35);
+      border: 1px solid rgba(13, 189, 139, .35);
       border-radius: 8px;
       padding: .45rem .7rem;
       font-size: .85rem;
       cursor: pointer;
       transition: transform .08s ease, background .2s ease, border-color .2s ease;
     }
-    .jwt-btn:hover { background: rgba(13,189,139,.18); }
-    .jwt-btn:active { transform: translateY(1px); }
+
+    .jwt-btn:hover {
+      background: rgba(13, 189, 139, .18);
+    }
+
+    .jwt-btn:active {
+      transform: translateY(1px);
+    }
+
     .jwt-note {
       margin-top: .75rem;
       font-size: .9rem;
       color: var(--muted);
     }
-    .hl-key   { color: #93c5fd; } /* keys */
-    .hl-str   { color: #a7f3d0; } /* strings */
-    .hl-prop  { color: #fca5a5; } /* properties label */
+
+    .hl-key {
+      color: #93c5fd;
+    }
+
+    /* keys */
+    .hl-str {
+      color: #a7f3d0;
+    }
+
+    /* strings */
+    .hl-prop {
+      color: #fca5a5;
+    }
+
+    /* properties label */
   </style>
-  </head>
-  <body>
-    <main class="wrapper" role="main">
-      <nav class="navbar navbar-three">
-        <div class="nav-left">
-          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
-          <div class="nav-title">
-            <h6>Die Abenteuer von KIM &amp; TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
-          </div>
+</head>
+
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM &amp; TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
         </div>
-        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
-      </nav>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+    </nav>
 
-      <section class="card">
-        <header class="card-header">
-          <h2>ePA - E-Patientenakte</h2>
-        </header>
-        <h3 class="card-title"></h3>
-        <div class="card-body">
-          <p>
-            Alf gewährt der Klinik (in die er demnächst fährt) vorab Zugriff auf seine elektronische Patientenakte (ePA). 
-            Dazu erstellt er ein JSON Web Token (JWT) und übermittelt es an den ePA‑Fachdienst.
-          </p>
-          <figure style="text-align: center;">
-            <img
-              class="img-rounded-shadow"
-              src="./img/alf.jpeg"
-              alt="Alf bereitet den Zugriff auf seine ePA vor"
-              style="max-width: 320px; height: auto; display: block; margin: 0 auto;"
-            >
-          </figure>
-          <p>
-            <b>Deine Mission:</b> Fülle den JWT mit den korrekten Daten aus.
-          </p>
-          <hr>
+    <section class="card">
+      <header class="card-header">
+        <h2>ePA - E-Patientenakte (Aufgabe 1)</h2>
+      </header>
+      <h3 class="card-title"></h3>
+      <div class="card-body">
+        <h3>ePA für alle?!</h3>
 
-          <h3>Informationen zur Mission</h3>
-          <section class="jwt-card">
+        <p>
+          Alf gewährt der Klinik (in die er demnächst fährt) vorab Zugriff auf seine elektronische Patientenakte (ePA).
+          Dazu erstellt er ein JSON Web Token (JWT) und übermittelt es an den ePA‑Fachdienst.
+        </p>
+        <figure style="text-align: center;">
+          <img class="img-rounded-shadow" src="./img/alf.jpeg" alt="Alf bereitet den Zugriff auf seine ePA vor"
+            style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
+        </figure>
+
+        <hr />
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Fülle den JWT mit den korrekten Daten aus.
+          </p>
+        </div>
+        <br>
+  
+        <hr>
+
+<h3>🗒️ Informationen zur Mission</h3>
+        <section class="jwt-card">
           <div class="jwt-header">
-              <span class="jwt-badge">JWT Setup</span>
-              <div class="jwt-title">ePA Zugriffstoken – bereit zum Signieren</div>
-            </div>
+            <span class="jwt-badge">JWT Setup</span>
+            <div class="jwt-title">ePA Zugriffstoken – bereit zum Signieren</div>
+          </div>
 
-            <div class="jwt-grid">
-              <!-- Header -->
-              <div class="jwt-panel">
-                <div class="jwt-panel-header">
-                  <div class="jwt-panel-title">Header</div>
-                  <button class="jwt-btn" data-copy="#jwt-header">Copy</button>
-                </div>
-                <pre id="jwt-header" class="jwt-code">{
-            "<span class="hl-key">alg</span>": "<span class="hl-str">HS256</span>",
-            "<span class="hl-key">typ</span>": "<span class="hl-str">JWT</span>"
-          }</pre>
-              </div>
-
-              <!-- Payload -->
-              <div class="jwt-panel">
-                <div class="jwt-panel-header">
-                  <div class="jwt-panel-title">Payload</div>
-                  <button class="jwt-btn" data-copy="#jwt-payload">Copy</button>
-                </div>
-                <pre id="jwt-payload" class="jwt-code">{
-            "<span class="hl-key">insurantid</span>": "<span class="hl-str">A0005000151099111144</span>",
-            "<span class="hl-key">actorId</span>": "<span class="hl-str">9-2.58.00000035</span>",
-            "<span class="hl-key">displayName</span>": "<span class="hl-str">gematik GmbH</span>",
-            "<span class="hl-key">oid</span>": "<span class="hl-str">1.2.276.0.76.4.58</span>",
-            "<span class="hl-key">validTo</span>": "<span class="hl-str">2025-11-21</span>"
-          }</pre>
-              </div>
-            </div>
-
-            <!-- Secret -->
-            <div class="jwt-panel" style="margin-top:1rem;">
+          <div class="jwt-grid">
+            <!-- Header -->
+            <div class="jwt-panel">
               <div class="jwt-panel-header">
-                <div class="jwt-panel-title">Signatur-Secret</div>
-                <button class="jwt-btn" data-copy="#jwt-secret">Copy</button>
+                <div class="jwt-panel-title">Header</div>
+                <button class="jwt-btn" data-copy="#jwt-header">Copy</button>
               </div>
-              <div class="jwt-kv">
-                <div class="jwt-key"><span class="hl-prop">Algorithmus</span></div>
-                <div class="jwt-value">HS256</div>
-              </div>
-              <div class="jwt-kv">
-                <div class="jwt-key"><span class="hl-prop">Secret</span></div>
-                <div id="jwt-secret" class="jwt-value">0a68eb57c88a5f349e9d27f85e68af4f</div>
-              </div>
-              <div class="jwt-actions">
-                <button class="jwt-btn" id="jwt-copy-all">Alles kopieren</button>
-              </div>
+              <pre id="jwt-header" class="jwt-code">
+{
+  "<span class="hl-key">alg</span>": "<span class="hl-str">HS256</span>",
+  "<span class="hl-key">typ</span>": "<span class="hl-str">JWT</span>"
+}</pre>
             </div>
 
+            <!-- Payload -->
+            <div class="jwt-panel">
+              <div class="jwt-panel-header">
+                <div class="jwt-panel-title">Payload</div>
+                <button class="jwt-btn" data-copy="#jwt-payload">Copy</button>
+              </div>
+              <pre id="jwt-payload" class="jwt-code">
+{
+  "<span class="hl-key">insurantid</span>": "<span class="hl-str">A0005000151099111144</span>",
+  "<span class="hl-key">actorId</span>": "<span class="hl-str">9-2.58.00000035</span>",
+  "<span class="hl-key">displayName</span>": "<span class="hl-str">gematik GmbH</span>",
+  "<span class="hl-key">oid</span>": "<span class="hl-str">1.2.276.0.76.4.58</span>",
+  "<span class="hl-key">validTo</span>": "<span class="hl-str">2025-11-21</span>"
+}</pre>
+            </div>
+          </div>
+
+          <!-- Secret -->
+          <div class="jwt-panel" style="margin-top:1rem;">
+            <div class="jwt-panel-header">
+              <div class="jwt-panel-title">Signatur-Secret</div>
+              <button class="jwt-btn" data-copy="#jwt-secret">Copy</button>
+            </div>
+            <div class="jwt-kv">
+              <div class="jwt-key"><span class="hl-prop">Algorithmus</span></div>
+              <div class="jwt-value">HS256</div>
+            </div>
+            <div class="jwt-kv">
+              <div class="jwt-key"><span class="hl-prop">Secret</span></div>
+              <div id="jwt-secret" class="jwt-value">0a68eb57c88a5f349e9d27f85e68af4f</div>
+            </div>
+            <div class="jwt-actions">
+              <button class="jwt-btn" id="jwt-copy-all">Alles kopieren</button>
+            </div>
+          </div>
 
 
-            <script>
-              (function jwtCopyHelpers(){
-                function getTextFromSelector(sel) {
-                  const el = document.querySelector(sel);
-                  if (!el) return '';
-                  // Nur den Textinhalt extrahieren (ohne HTML-Highlighting)
-                  return el.textContent.trim();
-                }
-                function copyText(txt) {
-                  return navigator.clipboard?.writeText(txt) || Promise.reject('Clipboard API not available');
-                }
-                // Einzelne Copy-Buttons
-                document.querySelectorAll('[data-copy]').forEach(btn => {
-                  btn.addEventListener('click', async () => {
-                    const sel = btn.getAttribute('data-copy');
-                    const txt = getTextFromSelector(sel);
-                    try {
-                      await copyText(txt);
-                      btn.textContent = 'Copied!';
-                      setTimeout(() => btn.textContent = 'Copy', 1200);
-                    } catch (e) {
-                      btn.textContent = 'Fehler';
-                      setTimeout(() => btn.textContent = 'Copy', 1200);
-                    }
-                  });
-                });
-                // „Alles kopieren“
-                document.getElementById('jwt-copy-all')?.addEventListener('click', async (e) => {
-                  const header = getTextFromSelector('#jwt-header');
-                  const payload = getTextFromSelector('#jwt-payload');
-                  const secret = document.getElementById('jwt-secret')?.textContent?.trim() || '';
-                  const bundle = [
-                    'Header:',
-                    header,
-                    '',
-                    'Payload:',
-                    payload,
-                    '',
-                    'Sign (HS256) Secret:',
-                    secret
-                  ].join('\n');
+
+          <script>
+            (function jwtCopyHelpers() {
+              function getTextFromSelector(sel) {
+                const el = document.querySelector(sel);
+                if (!el) return '';
+                // Nur den Textinhalt extrahieren (ohne HTML-Highlighting)
+                return el.textContent.trim();
+              }
+              function copyText(txt) {
+                return navigator.clipboard?.writeText(txt) || Promise.reject('Clipboard API not available');
+              }
+              // Einzelne Copy-Buttons
+              document.querySelectorAll('[data-copy]').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                  const sel = btn.getAttribute('data-copy');
+                  const txt = getTextFromSelector(sel);
                   try {
-                    await copyText(bundle);
-                    e.currentTarget.textContent = 'Alles kopiert!';
-                    setTimeout(() => e.currentTarget.textContent = 'Alles kopieren', 1200);
-                  } catch {
-                    e.currentTarget.textContent = 'Fehler';
-                    setTimeout(() => e.currentTarget.textContent = 'Alles kopieren', 1200);
+                    await copyText(txt);
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => btn.textContent = 'Copy', 1200);
+                  } catch (e) {
+                    btn.textContent = 'Fehler';
+                    setTimeout(() => btn.textContent = 'Copy', 1200);
                   }
                 });
-              })();
-            </script>
-          </section>
+              });
+              // „Alles kopieren“
+              document.getElementById('jwt-copy-all')?.addEventListener('click', async (e) => {
+                const header = getTextFromSelector('#jwt-header');
+                const payload = getTextFromSelector('#jwt-payload');
+                const secret = document.getElementById('jwt-secret')?.textContent?.trim() || '';
+                const bundle = [
+                  'Header:',
+                  header,
+                  '',
+                  'Payload:',
+                  payload,
+                  '',
+                  'Sign (HS256) Secret:',
+                  secret
+                ].join('\n');
+                try {
+                  await copyText(bundle);
+                  e.currentTarget.textContent = 'Alles kopiert!';
+                  setTimeout(() => e.currentTarget.textContent = 'Alles kopieren', 1200);
+                } catch {
+                  e.currentTarget.textContent = 'Fehler';
+                  setTimeout(() => e.currentTarget.textContent = 'Alles kopieren', 1200);
+                }
+              });
+            })();
+          </script>
+        </section>
 
 
-          <br>
-          <hr>
+        <br>
 
-            <h3>Weitere Informationen</h3>
-            <ul>
-              <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_Aktensystem_ePAfueralle/latest/#A_24145" target="_blank" rel="noopener noreferrer">Was bedeuten die Felder der Payload</a></li>
-              <li><a href="https://www.jwt.io/" target="_blank" rel="noopener noreferrer">Was ist ein JWT</a></li>
+        <h3>ℹ️ Weitere Informationen</h3>
+        <ul>
+          <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_Aktensystem_ePAfueralle/latest/#A_24145"
+              target="_blank" rel="noopener noreferrer">Was bedeuten die Felder der Payload</a></li>
+          <li><a href="https://www.jwt.io/" target="_blank" rel="noopener noreferrer">Was ist ein JWT</a></li>
+        </ul>
 
-          
+
           <hr />
-            <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="mail" id="solution" name="solution" placeholder="JWT Result" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
+          <div>
+            <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+              <div class="fx-input-wrap">
+                <input type="mail" id="solution" name="solution" placeholder="JWT Result" required class="fx-input">
+                <button type="submit" class="fx-btn">
+                  <span class="fx-btn-label">Submit</span>
+                  <span class="fx-btn-glow"></span>
+                </button>
+              </div>
+              <div id="error-message" class="fx-error" aria-live="polite"></div>
+            </form>
 
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
+            <div id="success-message" class="fx-success" style="display:none;">
+              <div id="api-response" class="fx-response" aria-live="polite"></div>
             </div>
-
-        <div id="info_text">
-          <div class="info-row">
-            <figure>
-              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
-            </figure>
-            <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
-                Die Antwort ist der generierte JWT
-              </p>
-            </div>
-            <figure>
-              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
-            </figure>
           </div>
-        </div>
-        <br />
-      </section>
-    </main>
 
-    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
-      <span class="visually-hidden" aria-hidden="true">?</span>
-    </button>
+          <div id="info_text">
+            <div class="info-row">
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+              </figure>
+              <div class="info-box">
+                <p id="info_text_field" class="bottom_text">
+                  Die Antwort ist der generierte JWT
+                </p>
+              </div>
+              <figure>
+                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+              </figure>
+            </div>
+          </div>
+          <br />
+    </section>
+  </main>
 
-    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h3>Überschrift</h3>
-      <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
-      <ul>
-        <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
-        <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
-        <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für Deutschland</a></li>
-      </ul>
-    </aside>
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden" aria-hidden="true">?</span>
+  </button>
 
-    <div class="flag-tiles" aria-hidden="true"></div>
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Überschrift</h3>
+    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <ul>
+      <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
+      <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
+          rel="noopener">Fachportal E-Rezept</a></li>
+      <li><a href="https://www.das-e-rezept-fuer-deutschland.de/" target="_blank" rel="noopener">Das E-Rezept für
+          Deutschland</a></li>
+    </ul>
+  </aside>
 
-    <script>
-      document.getElementById('submitButton')?.addEventListener('click', function () {
-        // Add stuff here
-      });
-    </script>
-     <script>
-      const url = "epa/wa-1"
-      const nextQuestionURL = "wa-epa-02.html"
-      const localStorageKey = "epa-wa-1"
-    </script>
-    <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
-    <script src="./js/help.js"></script>
-  </body>
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    document.getElementById('submitButton')?.addEventListener('click', function () {
+      // Add stuff here
+    });
+  </script>
+  <script>
+    const url = "epa/wa-1"
+    const nextQuestionURL = "wa-epa-02.html"
+    const localStorageKey = "epa-wa-1"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
+
+  <script>
+    initFlagUI();
+  </script>
+</body>
+
 </html>

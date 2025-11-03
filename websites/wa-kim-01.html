@@ -1,130 +1,145 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Guardians of the TI</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navbar.css" />
-    <link rel="stylesheet" href="./css/help.css" />
-  </head>
-  <body>
-    <main class="wrapper" role="main">
-      <nav class="navbar navbar-three">
-        <div class="nav-left">
-          <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
-          <div class="nav-title">
-            <h6>Die Abenteuer von KIM &amp; TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Guardians of the TI</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/help.css" />
+</head>
+
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM &amp; TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Kommunikation im Medizinwesen (Aufgabe 1)</h2>
+      </header>
+
+      <div class="card-body">
+        <h3>Fachportal-Scout – Wo steht das eigentlich?</h3>
+        <p>
+          Frau Dr. Müller möchte ihre Praxis an KIM anbinden, dafür muss sie eine Adresse festlegen.<br />
+          Sie möchte jetzt gerne wissen, wie eine solche Adresse überhaupt aussieht.
+        </p>
+
+        <hr />
+        <h3>🛰️ Deine Mission</h3>
+        <div class="callout-box">
+          <p>
+            Kannst du ihr das Beispiel aus den Spezifikationen zeigen?
+          </p>
+        </div>
+        <br>
+        <hr />
+
+        <section>
+          <h3>🗒️ Informationen zur Mission</h3>
+          <h4>Spezifikation durch die gematik</h4>
+          <ul>
+            <li>Die gematik spezifiziert die Funktionsweise jedes Produktes.</li>
+            <li>
+              Die Spezifikationen können im
+              <b><a href="https://gemspec.gematik.de/docs/gemSpec/" target="_blank">gemspec Portal</a></b>
+              der gematik eingesehen werden.
+            </li>
+            <li>
+              Die Spezifikation für KIM findest du unter der Bezeichnung:
+              <ul>
+                <li><strong>FD_KOMLE</strong> (Fachdienst Kommunikation der Leistungserbringer)</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <hr />
+        <div>
+          <form id="solutionForm" class="fx-form">
+            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <div class="fx-input-wrap">
+              <input type="mail" id="solution" name="solution" placeholder="z. B. name@domain.kim.telematik" required
+                class="fx-input">
+              <button type="submit" class="fx-btn">
+                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-glow"></span>
+              </button>
+            </div>
+            <div id="error-message" class="fx-error" aria-live="polite"></div>
+          </form>
+
+          <div id="success-message" class="fx-success" style="display:none;">
+            <div id="api-response" class="fx-response" aria-live="polite"></div>
           </div>
         </div>
-        <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
-      </nav>
 
-      <section class="card">
-        <header class="card-header">
-          <h2>Kommunikation im Medizinwesen</h2>
-        </header>
 
-        <div class="card-body">
-          <h3>Fachportal-Scout – Wo steht das eigentlich?</h3>
-          <p>
-            Frau Dr. Müller möchte ihre Praxis an KIM anbinden, dafür muss sie eine Adresse festlegen.<br />
-            Sie möchte jetzt gerne wissen, wie eine solche Adresse überhaupt aussieht.
-          </p>
-          <p>Kannst du ihr das Beispiel aus den Spezifikationen zeigen?</p>
-          <hr />
-
-          <section>
-            <h4>Spezifikation durch die gematik</h4>
-            <ul>
-              <li>Die gematik spezifiziert die Funktionsweise jedes Produktes.</li>
-              <li>
-                Die Spezifikationen können im
-                <b><a href="https://gemspec.gematik.de/docs/gemSpec/" target="_blank">gemspec Portal</a></b>
-                der gematik eingesehen werden.
-              </li>
-              <li>
-                Die Spezifikation für KIM findest du unter der Bezeichnung:
-                <ul>
-                  <li><strong>FD_KOMLE</strong> (Fachdienst Kommunikation der Leistungserbringer)</li>
-                </ul>
-              </li>
-            </ul>
-          </section>
-
-        <hr />
-            <div>
-              <form id="solutionForm" class="fx-form">
-                <label for="solution" class="fx-label">Lösung</label>
-                <div class="fx-input-wrap">
-                  <input type="mail" id="solution" name="solution" placeholder="z. B. name@domain.kim.telematik" required class="fx-input">
-                  <button type="submit" class="fx-btn">
-                    <span class="fx-btn-label">Submit</span>
-                    <span class="fx-btn-glow"></span>
-                  </button>
-                </div>
-                <div id="error-message" class="fx-error" aria-live="polite"></div>
-              </form>
-
-              <div id="success-message" class="fx-success" style="display:none;">
-                <div id="api-response" class="fx-response" aria-live="polite"></div>
-              </div>           
+        <div id="info_text">
+          <div class="info-row">
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+            <div class="info-box">
+              <p id="info_text_field" class="bottom_text">
+                Gesucht wird die Beispieladresse aus der Spezifikation des Produktes.
+              </p>
             </div>
-        <hr />
-
-          <div id="info_text">
-            <div class="info-row">
-              <figure>
-                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
-              </figure>
-              <div class="info-box">
-                <p id="info_text_field" class="bottom_text">
-                  Gesucht wird die Beispieladresse aus der Spezifikation des Produktes.
-                </p>
-              </div>
-              <figure>
-                <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
-              </figure>
-            </div>
+            <figure>
+              <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
+            </figure>
+          </div>
         </div>
-      </section>
+    </section>
 
-      <br />
-    </main>
+    <br />
+  </main>
 
-    <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
-      <span class="visually-hidden">?</span>
-    </button>
+  <button id="helpButton" aria-label="Hilfe" class="help-fab" type="button">
+    <span class="visually-hidden">?</span>
+  </button>
 
-    <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h3>Weitere Infos</h3>
-      <p>Hier findest du weitere Hinweise und Tools:</p>
-      <ul>
-        <li>
-          <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a>
-        </li>
-        <li>
-          <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/" target="_blank" rel="noopener">Spezifikation Fachdienst KOM-LE</a>
-        </li>
-      </ul>
-    </aside>
+  <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
+    <button class="close-btn" aria-label="Schließen">&times;</button>
+    <h3>Weitere Infos</h3>
+    <p>Hier findest du weitere Hinweise und Tools:</p>
+    <ul>
+      <li>
+        <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
+          rel="noopener">Funktionsweise von KIM</a>
+      </li>
+      <li>
+        <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_FD_KOMLE/latest/" target="_blank"
+          rel="noopener">Spezifikation Fachdienst KOM-LE</a>
+      </li>
+    </ul>
+  </aside>
 
-    <div class="flag-tiles" aria-hidden="true"></div>
-    <script>
-      const url = "kim/wa-1"
-      const nextQuestionURL = "wa-kim-02.html"
-      const localStorageKey = "kim-wa-1"
-    </script>
-    <script src="./js/flagServiceBaseVariable.js"></script>
-    <script src="./js/flagServiceSimple.js"></script>
-    <script src="./js/flagServiceHelper.js"></script>
-    <script src="./js/help.js"></script>    
+  <div class="flag-tiles" aria-hidden="true"></div>
+  <script>
+    const url = "kim/wa-1"
+    const nextQuestionURL = "wa-kim-02.html"
+    const localStorageKey = "kim-wa-1"
+  </script>
+  <script src="./js/flagServiceBaseVariable.js"></script>
+  <script src="./js/flagServiceSimple.js"></script>
+  <script src="./js/flagServiceHelper.js"></script>
+  <script src="./js/help.js"></script>
 
-    <script>
-      initFlagUI();
-    </script>   
-     
-  </body>
+  <script>
+    initFlagUI();
+  </script>
+
+</body>
+
 </html>
