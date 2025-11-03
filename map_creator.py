@@ -55,7 +55,6 @@ for i in range(1, map_count + 1):
 
     # gematik Hauptkarte: verweist auf Floors
     modified_map_gematik = (file_map_gematik
-        .replace("map.tmj", f"{base}_event")
         .replace("map_floor1.tmj", f"{base}_floor1")
         .replace("map_floor2.tmj", f"{base}_floor2")
         .replace("map_floor3.tmj", f"{base}_floor3")
