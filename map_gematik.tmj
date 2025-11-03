@@ -4332,7 +4332,7 @@
                         {
                          "name":"exitUrl",
                          "type":"string",
-                         "value":"https:\/\/play.workadventu.re\/@\/gematik\/ti-guardians\/event\/event#entrypoint"
+                         "value":"https:\/\/play.workadventu.re\/@\/gematik\/ti-guardians\/event#entrypoint"
                         }],
                  "rotation":0,
                  "type":"area",
