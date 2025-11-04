@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guardians of the TI</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/help.css">
+
+  <style>
+    /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
+    .media-text {
+      display: grid;
+      grid-template-columns: 1fr auto; /* Text links, Bild rechts */
+      gap: 24px;
+      align-items: center;
+      padding: 16px 0; /* Einheitliches Innenpadding */
+    }
+
+    .media-text.media-text--image-left {
+      grid-template-columns: auto 1fr; /* Bild links, Text rechts */
+      align-items: center;
+      padding: 16px 0; /* Gleich wie Standard */
+    }
+
+    .media-text__image {
+      width: 160px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .media-text__content p {
+      margin: 0 0 12px;
+      line-height: 1.6;
+    }
+
+    .media-figure {
+      margin: 0;
+      display: grid;
+      justify-items: center; /* zentriert Bild und Caption untereinander */
+      gap: 8px;
+    }
+
+    .media-caption {
+      font-size: 0.75rem; /* einheitlich, gut lesbar */
+      color: #888;
+      line-height: 1.3;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Überschriften: einheitliches Spacing */
+    .section-head {
+      margin: 24px 0 12px; /* Einheitlich für alle Abschnitte */
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* Bildraster */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .image-grid__item {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .image-grid__item img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .image-grid__item img {
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .media-text,
+      .media-text.media-text--image-left {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+      .media-text__image {
+        width: 120px;
+      }
+    }
+
+    .image-row {
+      display: grid;
+      grid-template-columns: auto auto; /* immer zwei Spalten */
+      gap: 16px;
+      justify-content: center; /* zentriert die beiden Spalten */
+      align-items: center;
+      margin-top: 12px;
+      /* Kein media query -> kein Umbruch auf 1 Spalte */
+    }
+
+    /* Bilder: feste Breite, automatische Höhe, bleiben nebeneinander */
+    .image-row img {
+      display: block;
+      width: 420px; /* gewünschte Breite je Ausweis (anpassen nach Bedarf) */
+      height: auto; /* hält das Seitenverhältnis */
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Zentriertes Bild unter dem Text */
+    .centered-image {
+      display: grid;
+      justify-items: center; /* Inhalt (Bild) zentrieren */
+      margin-top: 12px;
+    }
+
+    .centered-image img {
+      display: block;
+      max-width: 100%;
+      width: 640px; /* gewünschte Anzeigegröße, passt sich nach unten an */
+      height: auto;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      cursor: zoom-in; /* optisches Feedback */
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      display: none; /* per JS auf block */
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 92vw; /* Rand auf kleinen Screens */
+      max-height: 88vh;
+      display: grid;
+      justify-items: center;
+    }
+
+    .lightbox-content img {
+      width: auto;
+      height: auto;
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Close-Button oben rechts */
+    .lightbox-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #0b0f1f;
+      border: 0;
+      border-radius: 999px;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .lightbox-close:hover {
+      filter: brightness(0.95);
+    }
+
+    /* Farbige Bullet-Liste */
+    .color-list {
+      list-style: none; /* Standardpunkte aus */
+      padding-left: 0;
+      margin: 12px 0;
+    }
+
+    .color-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: 10px;
+      margin: 6px 0;
+    }
+
+    /* Bullet-Styles */
+    .color-list .bullet {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      margin-top: 4px; /* optische Zentrierung */
+      flex-shrink: 0;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    }
+
+    /* Farben */
+    .b-blue { background: #3a78ff; }   /* blau */
+    .b-ggreen { background: #15ef74; } /* grün */
+    .b-green { background: #28c76f; }  /* grün */
+    .b-orange { background: #f39c12; } /* orange */
+    .b-red { background: #e74c3c; }    /* rot */
+    .b-teal { background: #44fffb; }   /* türkis */
+    .b-purple { background: #9b59b6; } /* lila */
+
+    /* Sub-Liste Einzug */
+    .color-list .sub {
+      margin-left: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+      .image-grid__item img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper" role="main">
+    <nav class="navbar navbar-three" aria-label="Hauptnavigation">
+      <div class="nav-left">
+        <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="gematik Logo">
+        <div class="nav-title">
+          <h6>Die Abenteuer von KIM & TIM</h6>
+          <h4>Kapt. III – Guardians of the TI</h4>
+        </div>
+      </div>
+      <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Event-Logo">
+    </nav>
+
+    <section class="card">
+      <header class="card-header">
+        <h2>Eingangsbereich</h2>
+      </header>
+
+      <div class="card-body">
+        <h3>Map-Übersicht</h3>
+        <p>
+          Die Map gliedert sich in mehrere Bereiche. Verschaffe dir hier einen schnellen Überblick und klicke auf die Karte für eine vergrößerte Ansicht.
+        </p>
+
+        <section class="media-text" aria-labelledby="map-uebersicht">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img id="buildingImg" src="./img/raumplan_event_clear.png" alt="Event-Gebäudeübersicht (klick zum Vergrößern)" style="width:30%">
+              <figcaption class="media-caption"><i>Klicke auf das Bild, um die Ansicht zu vergrößern.</i></figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>Eingangsbereich</h3>
+        <p>
+          Dein Abenteuer startet im Eingangsbereich der Event-Ebene. Von hier gelangst du zu Bühne, Helpdesk, Partner-Bereich und in den TI‑Park.
+        </p>
+        <section class="media-text" aria-labelledby="eingangsbereich">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/map_eingang.png" alt="Kartenansicht – Eingangsbereich">
+              <figcaption class="media-caption">Eingangsbereich der Event-Ebene</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>TI-Ranger & Partner-Bereich</h3>
+        <p>
+          Hier findest du den Helpdesk der TI‑Ranger, den gematik TI_ctf sowie den Partner-Bereich.
+        </p>
+        <section class="media-text" aria-labelledby="tiranger-partner">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/map_tiranger.png" alt="Kartenansicht – TI-Ranger und Partner-Bereich">
+              <figcaption class="media-caption">TI‑Ranger Helpdesk, TI_ctf und Partner-Bereich</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>Bühne</h3>
+        <p>
+          Auf der Bühne wird das Event vorgestellt und offiziell freigegeben.
+        </p>
+        <section class="media-text" aria-labelledby="buehne">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/map_buehne.png" alt="Kartenansicht – Bühne">
+              <figcaption class="media-caption">Bühnenbereich für Ankündigungen und Kick-off</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>Zugang zum TI-Park</h3>
+        <p>
+          Über diesen Bereich betrittst du den TI‑Park und findest die Aufgaben der virtuellen Welt. Bitte betrete den Bereich erst nach Freigabe durch die TI‑Ranger. Deine zugewiesene Tür ist in der Einladungs‑E‑Mail angegeben.
+        </p>
+        <section class="media-text" aria-labelledby="ti-park">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/map_tueren.png" alt="Kartenansicht – Zugangstüren zum TI-Park">
+              <figcaption class="media-caption">Zugangstüren zum TI‑Park</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>Helpdesk</h3>
+        <p>
+          Im Helpdesk unterstützen dich die TI‑Ranger bei Fragen und technischen Anliegen.
+        </p>
+        <section class="media-text" aria-labelledby="helpdesk">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/map_tiranger.png" alt="Kartenansicht – Helpdesk">
+              <figcaption class="media-caption">TI‑Ranger Helpdesk</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <h3>Zonen</h3>
+        <p>
+          Bereiche, in denen die Kamera aktiviert wird, sind in der Map grün markiert und mit einem Lautsprecher‑Symbol gekennzeichnet.
+        </p>
+        <section class="media-text" aria-labelledby="zonen">
+          <div class="media-text__content">
+            <figure class="centered-image media-figure">
+              <img src="./img/speakzone.png" alt="Kartenansicht – Zonen mit Kameraaktivierung">
+              <figcaption class="media-caption">Zonen mit Kameraaktivierung (grün markiert)</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <hr>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-labelledby="lightboxTitle">
+          <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">✕</button>
+            <img id="lightboxImg" src="./img/raumplan_event.png" alt="Gebäudeübersicht – vergrößerte Ansicht">
+          </div>
+        </div>
+
+        <div id="info_text" aria-labelledby="info">
+          <div class="info-row" style="display:grid;justify-items:center;">
+            <img src="./img/gematik-icon.svg" alt="gematik Icon" style="width:20%">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script>
+    // Lightbox-Logik
+    (function () {
+      const triggerImg = document.getElementById('buildingImg');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+
+      // Öffnen bei Klick
+      triggerImg.addEventListener('click', () => {
+        // Optional: anderes Bild für Lightbox setzen
+        // lightboxImg.src = './img/gebaeudeplan@2x.png';
+        lightbox.classList.add('open');
+      });
+
+      // Schließen per Button
+      closeBtn.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
+
+      // Schließen bei Klick auf den Hintergrund (außer Inhalt)
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+        }
+      });
+
+      // ESC zum Schließen
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('open');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
