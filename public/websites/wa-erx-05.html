@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/erx-02.css">
   <link rel="stylesheet" href="./css/erx-04.css">
 </head>
 
@@ -51,6 +52,35 @@
         <br>
         <hr>
         <h3>🗒️ Informationen zur Mission</h3>
+
+        <section class="erp-id-card2" >
+          <header class="erp-id-head">
+            <h4 class="erp-id-title">Basis</h4>
+
+            <div style="display:flex; align-items:center; gap:.5rem;">
+
+              <button id="copyTokenBtn" type="button" style="background:rgba(200, 200, 35, 0.12);
+                     color:#9c6926;
+                     border:1px solid rgba(16,185,129,.35);
+                     padding:.35rem .6rem;
+                     border-radius:8px;
+                     cursor:pointer;
+                     font-size:.9rem;">
+                Kopieren
+              </button>
+              <span class="erp-id-badge">E‑Rezept‑Token</span>
+            </div>
+          </header>
+
+          <div class="erp-id-body" style="text-align: left;">
+            <span id="erpTokenText" style="color:var(--erp-a-color); font-weight:500; word-break:break-all;">
+              Task/160.265.857.103.443.29/$accept?ac=d3e6092ae3af14b5225e2aabe5a4f59b3939a907d6fbb5ce6a760ca71f45d8e5
+            </span>
+
+            <!-- Statusmeldung unterhalb der Zeile -->
+            <div id="copyStatus" aria-live="polite" style="margin-top:.5rem; font-size:.9rem; color:#9ca3af;"></div>
+          </div>
+        </section>
 
 
 
@@ -323,6 +353,41 @@
         });
       })();
     });
+  </script>
+
+
+  <script>
+    (function () {
+      const btn = document.getElementById('copyTokenBtn');
+      const src = document.getElementById('erpTokenText');
+      const status = document.getElementById('copyStatus');
+
+      async function copyText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          // Fallback für sehr alte Browser
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(ta);
+          return ok;
+        }
+      }
+
+      btn?.addEventListener('click', async () => {
+        const token = (src?.textContent || '').trim();
+        const ok = await copyText(token);
+        const old = btn.textContent;
+        btn.textContent = ok ? 'Kopiert!' : 'Fehler';
+      });
+    })();
   </script>
 </body>
 

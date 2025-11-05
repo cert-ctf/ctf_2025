@@ -12,7 +12,7 @@ WA.onInit().then(async () => {
     console.log('Scripting API ready');
 	WA.controls.disableRoomList();
 
-    WA.room.onEnterLayer('silent').subscribe(() => {
+    WA.room.onEnterLayer('quiet').subscribe(() => {
         WA.controls.disablePlayerProximityMeeting();
     });
 

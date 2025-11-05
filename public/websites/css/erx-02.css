@@ -64,6 +64,15 @@
   overflow: hidden;
 }
 
+.erp-id-card2 {
+  margin: 1.25rem auto;
+  border-radius: 16px;
+  background: var(--erp-bg);
+  border: 1px solid rgba(11, 30, 58, .12);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+  overflow: hidden;
+}
+
 .erp-id-head {
   display: flex;
   align-items: center;

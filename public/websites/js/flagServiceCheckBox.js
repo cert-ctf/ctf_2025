@@ -80,13 +80,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const box = document.getElementById('info_text');
         box.style.display = 'none';
 
-        submitBtn.classList.add('fx-btn--next');
-        if (submitBtn) submitBtn.innerHTML = '<span class="fx-next-icon">→</span> Next';
-        const glow = submitBtn.querySelector('.fx-btn-glow');
-        if (glow) glow.style.display = 'none';
+// UI: Vom "Submit" zum "Next" umschalten, ohne innerHTML zu setzen
+submitBtn.classList.add('fx-btn--next');
+submitBtn.type = 'button';
+submitBtn.disabled = false; // sicherstellen, dass wieder klickbar
 
-        submitBtn.type = 'button';
-        submitBtn.addEventListener('click', handleNextNavigate, { once: true });
+// Label austauschen, ohne DOM zu zerstören
+if (submitLabel) {
+  submitLabel.textContent = 'Next';
+} else {
+  // Fallback, falls kein Label vorhanden
+  submitBtn.textContent = 'Next';
+}
+
+// Optional: Icon ergänzen, ohne das Label zu entfernen
+let nextIcon = submitBtn.querySelector('.fx-next-icon');
+if (!nextIcon) {
+  nextIcon = document.createElement('span');
+  nextIcon.className = 'fx-next-icon';
+  nextIcon.textContent = '→';
+  // Icon vor das Label setzen
+  submitBtn.insertBefore(nextIcon, submitBtn.firstChild);
+}
+
+// Glow entfernen, falls vorhanden
+const glow = submitBtn.querySelector('.fx-btn-glow');
+if (glow) glow.style.display = 'none';
+
+// WICHTIG: Event-Listener erst NACH allen Änderungen setzen
+submitBtn.removeEventListener('click', handleNextNavigate); // defensiv
+submitBtn.addEventListener('click', handleNextNavigate, { once: true });
+
 
       } else if (response.status === 400) {
         if (errorEl) errorEl.textContent = 'Wrong answer.';
