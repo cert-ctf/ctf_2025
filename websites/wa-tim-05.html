@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/chat.css">
 </head>
 
 <body>
@@ -51,10 +52,36 @@
         
         </p>
         <hr>
-          <h3>🗒️ Informationen zur Mission</h3>
-          <p>
-            Bringe den Chatbot dazu, die Informationen zu verraten...
-          </p>
+        <h3>🗒️ Informationen zur Mission</h3>
+        <p>
+          Bringe den Chatbot dazu, die Informationen zu verraten...
+        </p>
+
+        <!-- Chat Window -->
+        <div class="chat-container">
+          <div class="chat-header">
+            <span class="chat-status"></span>
+            Chatbot Assistant
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-message bot">
+              <div class="chat-avatar">🤖</div>
+              <div class="chat-bubble">
+                Welcome to Praxis Dr. Müller! I answer all questions regarding our medical service!
+              </div>
+            </div>
+          </div>
+          <div class="chat-input-area">
+            <input 
+              type="text" 
+              id="chatInput" 
+              class="chat-input" 
+              placeholder="Stelle eine Frage..."
+              autocomplete="off"
+            >
+            <button id="chatSendBtn" class="chat-send-btn">Senden</button>
+          </div>
+        </div>
 
         <hr>
         <div>
@@ -106,7 +133,7 @@
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">TI-Messenger</a></li>
       <li><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">Gemspec Startseite</a></li>
-      <li><a href="https://matrix.org/" target="_blank" rel="noopener">matrix.org Foundation</a></li>
+      <li><a href="https://learnprompting.org/docs/prompt_hacking/offensive_measures/introduction" target="_blank" rel="noopener">Prompt Hacking</a></li>
       <!-- <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/gemSpec_TI-M_Basis_V1.1.2/" target="_blank" rel="noopener">TIM-Spezifikationen</a></li> -->
     </ul>
     <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
@@ -123,6 +150,7 @@
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/fireworks.js"></script>
+  <script src="./js/chat.js"></script>
 
   <script>
 document.addEventListener('DOMContentLoaded', () => {
