@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -23,7 +24,7 @@
       border-radius: 999px;
       border: 1px solid var(--border);
       color: var(--muted);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .table-wrap {
@@ -47,7 +48,7 @@
       text-transform: uppercase;
       padding: 14px 16px;
       border-bottom: 1px solid var(--border);
-      background:rgb(13, 14, 78);
+      background: rgb(13, 14, 78);
     }
 
     tbody td {
@@ -91,20 +92,30 @@
       height: 8px;
       border-radius: 50%;
       margin-right: 8px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.2) inset;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
     }
-    .dot.blue { background: var(--accent); }
-    .dot.green { background: var(--accent-2); }
+
+    .dot.blue {
+      background: var(--accent);
+    }
+
+    .dot.green {
+      background: var(--accent-2);
+    }
 
     /* Responsive */
     @media (max-width: 640px) {
+
       thead th:nth-child(3),
       tbody td:nth-child(3) {
-        display: none; /* Ort ausblenden auf sehr kleinen Screens */
+        display: none;
+        /* Ort ausblenden auf sehr kleinen Screens */
       }
+
       .card-header {
         padding: 16px 18px;
       }
+
       .table-wrap {
         padding: 8px;
       }
@@ -112,6 +123,7 @@
   </style>
 
 </head>
+
 <body>
   <main class="wrapper" role="main">
     <nav class="navbar navbar-three" aria-label="Hauptnavigation">
@@ -132,21 +144,64 @@
 
       <div class="card-body">
         <div class="table-wrap">
-        <table aria-describedby="zeitplan">
-          <thead>
-            <tr>
-              <th scope="col">Raum</th>
-              <th scope="col">Team</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="time">11:30&nbsp;Uhr</td>
-              <td class="action">Doors Open</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+          <table aria-describedby="zeitplan">
+            <thead>
+              <tr>
+                <th scope="col">Raum</th>
+                <th scope="col">Team</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+              <tr>
+                <td class="action">Dozenten_Team</td>
+                <td class="location">team_01</td>
+              </tr>
+              <tr>
+                <td class="action">team_noob</td>
+                <td class="location">team_02</td>
+              </tr>
+              <tr>
+                <td class="action">hacker9000</td>
+                <td class="location">team_03</td>
+              </tr>
+              <tr>
+                <td class="action">404</td>
+                <td class="location">team_04</td>
+              </tr>
+              <tr>
+                <td class="action">Safety Fürst</td>
+                <td class="location">team_05</td>
+              </tr>
+              <tr>
+                <td class="action">Sigma</td>
+                <td class="location">team_06</td>
+              </tr>
+              <tr>
+                <td class="action">JuLuLu</td>
+                <td class="location">team_07</td>
+              </tr>
+              <tr>
+                <td class="action">Team 8</td>
+                <td class="location">team_08</td>
+              </tr>
+              <tr>
+                <td class="action">Team7(Profis)</td>
+                <td class="location">team_09</td>
+              </tr>
+              <tr>
+                <td class="action">Disco Pumper</td>
+                <td class="location">team_10</td>
+              </tr>
+              <tr>
+                <td class="action">demo</td>
+                <td class="location">team_11</td>
+              </tr>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
     </section>
   </main>
@@ -154,4 +209,5 @@
   <div class="flag-tiles" aria-hidden="true"></div>
 
 </body>
+
 </html>
