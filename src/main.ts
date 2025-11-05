@@ -11,6 +11,12 @@ let currentPopup: any = undefined;
 WA.onInit().then(async () => {
     console.log('Scripting API ready');
 	WA.controls.disableRoomList();
+
+    WA.room.onEnterLayer('silent').subscribe(() => {
+        WA.controls.disablePlayerProximityMeeting();
+    });
+
+
     const pos = await WA.player.getPosition();
 
 
