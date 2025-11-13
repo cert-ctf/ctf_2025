@@ -3787,23 +3787,6 @@
                  "y":416
                 }, 
                 {
-                 "height":256,
-                 "id":2,
-                 "name":"ti_ctf",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/hello_tictf.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":288,
-                 "x":1344,
-                 "y":1184
-                }, 
-                {
                  "height":0,
                  "id":5,
                  "name":"gematik_door",
@@ -3845,23 +3828,6 @@
                  "width":0,
                  "x":1120,
                  "y":1728
-                }, 
-                {
-                 "height":384,
-                 "id":9,
-                 "name":"atrium",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/atrium.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":576,
-                 "x":320,
-                 "y":1024
                 }, 
                 {
                  "height":0,
@@ -3976,40 +3942,6 @@
                  "width":32,
                  "x":1568,
                  "y":832
-                }, 
-                {
-                 "height":224,
-                 "id":18,
-                 "name":"welcome_cdc",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_cdc.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":416,
-                 "x":1216,
-                 "y":480
-                }, 
-                {
-                 "height":96,
-                 "id":19,
-                 "name":"welcome_cdc",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_firstday.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":192,
-                 "x":1024,
-                 "y":1472
                 }, 
                 {
                  "height":32,
