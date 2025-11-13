@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -17,8 +18,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -26,12 +27,12 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>ePA für alle (Elektronische Patientenakte)</h2>
+        <h2 data-i18n="header.title">ePA für alle (Elektronische Patientenakte)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>👥 Willkommen beim Fachteam ePA für alle</h3>
-        <p>
+        <h3 data-i18n="content.welcome">👥 Willkommen beim Fachteam ePA für alle</h3>
+        <p data-i18n="content.intro">
           Die elektronische Patientenakte (ePA) ist deine persönliche, sichere Gesundheitsakte. Sie bündelt Befunde,
           Medikationspläne sowie Dokumente – und du steuerst, wer was sehen darf.
         </p>
@@ -45,20 +46,20 @@
         <br>
         </p>
 
-        <p>
+        <p data-i18n="content.description">
           In der Sub‑Welt erklären wir dir zuerst die ePA ganz konkret: wie Authentifizierung, Rechtevergabe,
           Dokumentenformate und Protokollierung zusammenspielen. Danach löst du produkt­spezifische Aufgaben rund um
           JWT‑Freigaben, Dokumentenmanagement, Auditlogs und feingranulare Zugriffssteuerung. Teleporter bereit? Los
-          geht’s.
+          geht's.
         </p>
 
         <ul>
-          <li>Über den Teleporter gelangst du in die Aufgabenwelt rund um ePA-Zugriffe, Dokumente und Protokolle.</li>
-          <li>Dort erwartet dich als TI‑Ranger eine interaktive Story mit praxisnahen Aufgaben.</li>
+          <li data-i18n="content.bullet1">Über den Teleporter gelangst du in die Aufgabenwelt rund um ePA-Zugriffe, Dokumente und Protokolle.</li>
+          <li data-i18n="content.bullet2">Dort erwartet dich als TI‑Ranger eine interaktive Story mit praxisnahen Aufgaben.</li>
         </ul>
 
-        <h3>🧩 Story Line</h3>
-        <p>
+        <h3 data-i18n="content.storyTitle">🧩 Story Line</h3>
+        <p data-i18n="content.story1">
           Alf steht kurz vor einem Kliniktermin und möchte, dass die Behandelnden vorbereitet sind – aber nur so viel
           wie nötig. Du begleitest ihn dabei, seine elektronische Patientenakte (ePA) sicher freizugeben, damit die
           Klinik vorab einen Überblick bekommt. Vor Ort geht es um schnelle Orientierung: Was wurde wann verordnet,
@@ -66,7 +67,7 @@
           unnötig viel preiszugeben?
         </p>
 
-        <p>
+        <p data-i18n="content.story2">
           Im Verlauf tauchen neue Befunde auf, die für spätere Behandlungen wichtig sein können. Du hilfst, diese
           korrekt in der ePA zu verankern, prüfst nach dem Klinikbesuch, wer wirklich Zugriff hatte, und unterstützt Alf
           dabei, seine Privatsphäre fein zu justieren. Ziel ist, dass er souverän entscheidet, wer seine sensiblen
@@ -79,7 +80,7 @@
         <div class="info-row">
           <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="info.text">
               Lerne, wie du Alf's ePA verantwortungsvoll freigibst, Medikationsinformationen zielgerichtet nutzt,
               Befunde korrekt einfügst, Zugriffe im Audit‑Log prüfst und Zugriffsrechte feingranular anpasst – damit die
               richtigen Personen das Richtige zur richtigen Zeit sehen.
@@ -97,9 +98,9 @@
   </button>
 
   <div id="helpOverlay" hidden>
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h4>Verweise</h4>
-    Verwende folgende Verweise, um weitere Informationen über ePA zu erhalten:
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h4 data-i18n="help.title">Verweise</h4>
+    <span data-i18n="help.text">Verwende folgende Verweise, um weitere Informationen über ePA zu erhalten:</span>
     <ul>
       <li><a href="http://gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank"
@@ -110,6 +111,12 @@
   <div class="flag-tiles" aria-hidden="true"></div>
 
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page translations
+    window.languageSwitcher.init(getPageTranslations('welcome_epa'));
+  </script>
 </body>
 
 </html>

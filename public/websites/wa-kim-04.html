@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -25,21 +26,21 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Kommunikation im Medizinwesen (Aufgabe 4)</h2>
+        <h2 data-i18n="header.title">Kommunikation im Medizinwesen (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>KAS Chaos?</h3>
-        <p>
+        <h3 data-i18n="content.taskTitle">KAS Chaos?</h3>
+        <p data-i18n="content.taskDescription1">
           Frau Dr. Müller hat über KIM die Laborergebnisse eines Patienten direkt vom Labor erhalten.
         </p>
-        <p>
+        <p data-i18n="content.taskDescription2">
           Sie findet die Laborergebnisse aber nicht im Anhang...
         </p>
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="mission.title">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="mission.description">
             Kannst du ihr helfen die Datei, sowie den dringend benötigten <code class="mi-code">Hepatitis B Antigen</code>
             <b>Feldwert</b> für den Patienten zu finden?
           </p>
@@ -47,20 +48,20 @@
         <br>
 
         <hr>
-        <h3>🗒️ Informationen zur Mission </h3>
-        <h4>Feldkennungen</h4>
-        Laborergebnisse folgen stets diesem Aufbau: <br>
+        <h3 data-i18n="info.title">🗒️ Informationen zur Mission </h3>
+        <h4 data-i18n="info.fieldIdTitle">Feldkennungen</h4>
+        <p data-i18n="info.fieldIdDescription">Laborergebnisse folgen stets diesem Aufbau:</p>
         <ul class="mi-parts">
-          <li>
+          <li data-i18n="info.fieldStructure">
             <code class="mi-k" style="color:purple">Feldlänge</code><code class="mi-k" style="color:rgb(245, 35, 7)">Feldkennung (FK)</code><code class="mi-k">Feldwert</code>
           </li>
         </ul>
-        Falls du die passende FK für einen Wert nicht mehr weißt, findest du hier eine kurze Übersicht:<br>
+        <span data-i18n="info.fieldIdHint">Falls du die passende FK für einen Wert nicht mehr weißt, findest du hier eine kurze Übersicht:</span><br>
         <ul>
           <li>
 
             <a href="https://update.kbv.de/ita-update/Labor/Labordatenkommunikation/EXT_ITA_VGEX_LDT_3_2_19_Use_Cases.pdf"
-              target="_blank" rel="noopener noreferrer">
+              target="_blank" rel="noopener noreferrer" data-i18n="info.fieldDocLink">
               Dokumentation der Felder eines Laborauftrags
             </a>
           </li>
@@ -68,11 +69,11 @@
         <hr>
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
-              <input type="text" id="solution" name="solution" placeholder="134,5" required class="fx-input">
+              <input type="text" id="solution" name="solution" data-i18n="form.placeholder" placeholder="134,5" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -90,7 +91,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="info.text">
                 Gesucht wird der Hepatitis B Antigen Wert. <br>
                 Anhang: <a href="./files/KIM.wa.4/ldt.eml" target="_blank" rel="noopener noreferrer">ldt.eml</a>
               </p>
@@ -109,14 +110,14 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Hier findest du weitere Hinweise und Tools:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Weitere Infos</h3>
+    <p data-i18n="help.text">Hier findest du weitere Hinweise und Tools:</p>
     <ul>
       <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
-          rel="noopener">Funktionsweise von KIM</a></li>
+          rel="noopener" data-i18n="help.link1">Funktionsweise von KIM</a></li>
       <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank"
-          rel="noopener">Dienstkennung KIM</a></li>
+          rel="noopener" data-i18n="help.link2">Dienstkennung KIM</a></li>
     </ul>
   </aside>
 
@@ -134,6 +135,12 @@
 
   <script>
     initFlagUI();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_kim_04'));
   </script>
 </body>
 

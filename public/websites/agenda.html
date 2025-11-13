@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     :root {
@@ -118,8 +119,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="gematik Logo">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Event-Logo">
@@ -127,7 +128,7 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Agenda</h2>
+        <h2 data-i18n="header.title">Agenda</h2>
       </header>
 
       <div class="card-body">
@@ -135,36 +136,36 @@
         <table aria-describedby="zeitplan">
           <thead>
             <tr>
-              <th scope="col">Zeit</th>
-              <th scope="col">Aktion</th>
-              <th scope="col">Ort</th>
+              <th scope="col" data-i18n="common.time">Zeit</th>
+              <th scope="col" data-i18n="common.action">Aktion</th>
+              <th scope="col" data-i18n="common.location">Ort</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="agenda-table-body">
             <tr>
-              <td class="time"><span class="dot green"></span>11:30&nbsp;Uhr</td>
-              <td class="action">Doors Open</td>
-              <td class="location">Virtuelle Welt</td>
+              <td class="time" data-i18n="table.rows.0.0"><span class="dot green"></span>11:30&nbsp;Uhr</td>
+              <td class="action" data-i18n="table.rows.0.1">Doors Open</td>
+              <td class="location" data-i18n="table.rows.0.2">Virtuelle Welt</td>
             </tr>
             <tr>
-              <td class="time"><span class="dot blue"></span>12:00&nbsp;Uhr</td>
-              <td class="action">Begrüßung</td>
-              <td class="location">Bühnenbereich</td>
+              <td class="time" data-i18n="table.rows.1.0"><span class="dot blue"></span>12:00&nbsp;Uhr</td>
+              <td class="action" data-i18n="table.rows.1.1">Begrüßung</td>
+              <td class="location" data-i18n="table.rows.1.2">Bühnenbereich</td>
             </tr>
             <tr>
-              <td class="time"><span class="dot green"></span>12:15&nbsp;Uhr</td>
-              <td class="action">Start der Generalprobe</td>
-              <td class="location">Team‑Portal &amp; CTFd</td>
+              <td class="time" data-i18n="table.rows.2.0"><span class="dot green"></span>12:15&nbsp;Uhr</td>
+              <td class="action" data-i18n="table.rows.2.1">Start der Generalprobe</td>
+              <td class="location" data-i18n="table.rows.2.2">Team‑Portal &amp; CTFd</td>
             </tr>
             <tr>
-              <td class="time"><span class="dot blue"></span>15:15&nbsp;Uhr</td>
-              <td class="action">Ende des Contests</td>
-              <td class="location">Bühnenbereich</td>
+              <td class="time" data-i18n="table.rows.3.0"><span class="dot blue"></span>15:15&nbsp;Uhr</td>
+              <td class="action" data-i18n="table.rows.3.1">Ende des Contests</td>
+              <td class="location" data-i18n="table.rows.3.2">Bühnenbereich</td>
             </tr>
             <tr>
-              <td class="time"><span class="dot green"></span>15:15–15:30&nbsp;Uhr</td>
-              <td class="action">Siegerehrung &amp; Feedback</td>
-              <td class="location">Bühnenbereich</td>
+              <td class="time" data-i18n="table.rows.4.0"><span class="dot green"></span>15:15–15:30&nbsp;Uhr</td>
+              <td class="action" data-i18n="table.rows.4.1">Siegerehrung &amp; Feedback</td>
+              <td class="location" data-i18n="table.rows.4.2">Bühnenbereich</td>
             </tr>
           </tbody>
         </table>
@@ -175,5 +176,11 @@
 
   <div class="flag-tiles" aria-hidden="true"></div>
 
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page translations
+    window.languageSwitcher.init(getPageTranslations('agenda'));
+  </script>
 </body>
 </html>

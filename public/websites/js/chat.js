@@ -3,9 +3,14 @@
   const chatMessages = document.getElementById('chatMessages');
   const chatInput = document.getElementById('chatInput');
   const chatSendBtn = document.getElementById('chatSendBtn');
-  
+  const authKeyContainer = document.getElementById('authKeyContainer');
+  const chatContainer = document.getElementById('chatContainer');
+  const authKeyInput = document.getElementById('authKeyInput');
+  const authKeySubmitBtn = document.getElementById('authKeySubmitBtn');
+  const authKeyError = document.getElementById('authKeyError');
+
   const API_URL = 'https://66fac827b4.ctfd.gematik.de/complete';
-  const AUTH_KEY = 'AI_e8a711c979242f5925864dd0eb902e9b43e8305216ac27d6';
+  let AUTH_KEY = null;
 
   function addMessage(text, isUser = false) {
     const messageDiv = document.createElement('div');
@@ -97,7 +102,7 @@
 
   async function sendMessage() {
     const message = chatInput.value.trim();
-    if (!message) return;
+    if (!message || !AUTH_KEY) return;
 
     // Add user message
     addMessage(message, true);
@@ -155,7 +160,44 @@
     }
   }
 
-  // Event listeners
+  // Handle AUTH_KEY submission
+  function handleAuthKeySubmit() {
+    const key = authKeyInput.value.trim();
+
+    if (!key) {
+      authKeyError.textContent = 'Please enter an AUTH_KEY';
+      return;
+    }
+
+    // Validate key format (starts with AI_ and has sufficient length)
+    if (!key.startsWith('AI_') || key.length < 20) {
+      authKeyError.textContent = 'Invalid AUTH_KEY format. Must start with "AI_" and be at least 20 characters.';
+      return;
+    }
+
+    // Set the AUTH_KEY
+    AUTH_KEY = key;
+
+    // Hide auth container and show chat
+    authKeyContainer.style.display = 'none';
+    chatContainer.style.display = 'block';
+    chatInput.focus();
+  }
+
+  // Auth key event listeners
+  authKeySubmitBtn.addEventListener('click', handleAuthKeySubmit);
+  authKeyInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleAuthKeySubmit();
+    }
+  });
+
+  // Clear error when user types
+  authKeyInput.addEventListener('input', () => {
+    authKeyError.textContent = '';
+  });
+
+  // Chat event listeners
   chatSendBtn.addEventListener('click', sendMessage);
   chatInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
@@ -163,6 +205,6 @@
     }
   });
 
-  // Focus input on load
-  chatInput.focus();
+  // Focus auth input on load
+  authKeyInput.focus();
 })();

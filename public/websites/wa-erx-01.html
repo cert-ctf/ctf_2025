@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/erx-01.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
 </head>
 
@@ -19,8 +20,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -28,11 +29,11 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept (Aufgabe 1)</h2>
+        <h2 data-i18n="header.title">eRX - E-Rezept (Aufgabe 1)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <p>
+        <p data-i18n="content.description1">
           Ach, endlich Urlaub: Sonne, Strand – und das Medikament liegt zu Hause. Kein Problem! Ab zur Apotheke und
           nachfragen. Doch vor der Tür fällt dir ein: Der genaue, eindeutige Name des Präparats ist dir entfallen. Keine
           Panik! Dank des E‑Rezepts kannst du die exakte Bezeichnung jederzeit schnell nachsehen.
@@ -44,17 +45,17 @@
         </figure>
 
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
             Finde die richtige Angabe im E-Rezept, damit es in der Apotheke keine Missverständnisse gibt.
           </p>
         </div>
         <br>
 
         <hr>
-        <h3>🗒️ Informationen zur Mission</h3>
-        <p>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
+        <p data-i18n="content.infoDescription">
           Zum Glück hast du das E‑Rezept als FHIR‑XML vorliegen. Lade die Datei in den E‑Rezept‑Parser und prüfe dort
           die Werte, insbesondere <code class="mi-k">Bezeichnung</code>, <code class="mi-k">PZN</code>, <code
             class="mi-k">Darreichungsform</code>, <code class="mi-k">Packungsgröße</code>, <code
@@ -63,8 +64,8 @@
         </p>
 
 
-        <h4>Unterlagen</h4>
-        <p>
+        <h4 data-i18n="content.documentsTitle">Unterlagen</h4>
+        <p data-i18n="content.documentsDescription">
           Speichere dein E‑Rezept als FHIR‑XML und lade die Datei anschließend im Parser unten hoch. So werden die
           relevanten Felder übersichtlich angezeigt:
         </p>
@@ -76,18 +77,18 @@
           </li>
         </ul>
 
-        <h4>Weitere Informationen</h4>
+        <h4 data-i18n="content.furtherInfoTitle">Weitere Informationen</h4>
         <div class="ctf-accordion">
           <!-- Bezeichnung -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Bezeichnung</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionDesignationTitle">Bezeichnung</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
+              <p data-i18n="content.accordionDesignationText">
                 Die Bezeichnung ist der eindeutige Arzneimittelname im E‑Rezept. Sie umfasst in der Regel Handelsname,
-                Wirkstärke und Darreichungsform (z. B. „Sumatriptan‑1a Pharma 100 mg Tabletten“).
+                Wirkstärke und Darreichungsform (z. B. „Sumatriptan‑1a Pharma 100 mg Tabletten").
               </p>
             </div>
           </section>
@@ -95,11 +96,11 @@
           <!-- PZN -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Pharmazentralnummer (PZN)</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionPznTitle">Pharmazentralnummer (PZN)</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
+              <p data-i18n="content.accordionPznText">
                 Die Pharmazentralnummer (PZN) ist ein bundeseinheitlicher Identifikationsschlüssel für Arzneimittel,
                 Medizinprodukte und weitere apothekenübliche Produkte. Sie dient der eindeutigen Zuordnung in der
                 Apotheke.
@@ -110,14 +111,14 @@
           <!-- Darreichungsform -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Darreichungsform</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionDosageFormTitle">Darreichungsform</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
+              <p data-i18n="content.accordionDosageFormText">
                 Die Darreichungsform beschreibt, in welcher Form das Arzneimittel verabreicht wird (z. B. Tabletten,
                 Kapseln,
-                Tropfen). Im E‑Rezept wird sie häufig als Code abgebildet (z. B. „TAB“ für Tabletten).
+                Tropfen). Im E‑Rezept wird sie häufig als Code abgebildet (z. B. „TAB" für Tabletten).
               </p>
             </div>
           </section>
@@ -125,12 +126,12 @@
           <!-- Packungsgröße -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Packungsgröße</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionPackageSizeTitle">Packungsgröße</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
-                Die Packungsgröße gibt an, wie viele Einheiten in einer Packung enthalten sind (z. B. „12 Stück“).
+              <p data-i18n="content.accordionPackageSizeText">
+                Die Packungsgröße gibt an, wie viele Einheiten in einer Packung enthalten sind (z. B. „12 Stück").
                 Ergänzend kann eine Normgröße (z. B. N1, N2, N3) angegeben sein.
               </p>
             </div>
@@ -139,13 +140,13 @@
           <!-- Dosierung -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Dosierung</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionDosageTitle">Dosierung</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
+              <p data-i18n="content.accordionDosageText">
                 Die Dosierung beschreibt das Einnahmeschema, etwa in Form eines vierteiligen Tagesrasters (z. B.
-                „1‑0‑1‑0“).
+                „1‑0‑1‑0").
                 Sie legt fest, wie oft und in welcher Menge das Arzneimittel eingenommen werden soll.
               </p>
             </div>
@@ -154,14 +155,14 @@
           <!-- Aut‑idem‑Status -->
           <section class="ctf-acc-item" data-acc>
             <button class="ctf-acc-header" type="button" aria-expanded="false">
-              <span class="ctf-acc-title">Aut‑idem‑Status</span>
+              <span class="ctf-acc-title" data-i18n="content.accordionAutIdemTitle">Aut‑idem‑Status</span>
               <span class="ctf-acc-chevron" aria-hidden="true"></span>
             </button>
             <div class="ctf-acc-panel" hidden>
-              <p>
-                Der Aut‑idem‑Status gibt an, ob die Apotheke ein wirkstoffgleiches Präparat abgeben darf. „Erlaubt“
+              <p data-i18n="content.accordionAutIdemText">
+                Der Aut‑idem‑Status gibt an, ob die Apotheke ein wirkstoffgleiches Präparat abgeben darf. „Erlaubt"
                 bedeutet,
-                dass eine Substitution möglich ist; „nicht erlaubt“ verhindert den Austausch.
+                dass eine Substitution möglich ist; „nicht erlaubt" verhindert den Austausch.
               </p>
             </div>
           </section>
@@ -169,7 +170,7 @@
 
         <hr>
 
-        <h3>📠 FHIR-XML Parser</h3>
+        <h3 data-i18n="content.parserTitle">📠 FHIR-XML Parser</h3>
 
         <div class="app-shell">
           <!-- Uploader-Panel -->
@@ -178,16 +179,16 @@
               <section class="uploader">
                 <div class="uploader-head">
                   <div>
-                    <div class="uploader-title">E‑Rezept FHIR‑XML hochladen</div>
-                    <div class="uploader-sub">Datei auswählen oder hier ablegen – wir zeigen die wichtigsten Felder.
+                    <div class="uploader-title" data-i18n="content.uploaderTitle">E‑Rezept FHIR‑XML hochladen</div>
+                    <div class="uploader-sub" data-i18n="content.uploaderSubtitle">Datei auswählen oder hier ablegen – wir zeigen die wichtigsten Felder.
                     </div>
                   </div>
                   <div class="uploader-actions">
-                    <button class="btn" id="pickFileBtn">XML auswählen</button>
+                    <button class="btn" id="pickFileBtn" data-i18n="content.selectXmlButton">XML auswählen</button>
                   </div>
                 </div>
                 <input type="file" id="fileInput" class="file-input" accept=".xml,.XML,text/xml" />
-                <div id="dropzone" class="dropzone">Datei hier ablegen oder auf „XML auswählen“ klicken</div>
+                <div id="dropzone" class="dropzone" data-i18n="content.dropzoneText">Datei hier ablegen oder auf „XML auswählen" klicken</div>
                 <div id="errorBox" class="error" aria-live="polite"></div>
               </section>
             </div>
@@ -273,11 +274,11 @@
         <hr>
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
               <input type="text" id="solution" name="solution" placeholder="1234567" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -297,7 +298,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="form.infoText">
                 Welche PZN hat das verschriebene Medikament?
               </p>
             </div>
@@ -315,9 +316,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -344,6 +345,12 @@
 
   <script>
     initFlagUI();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_01'));
   </script>
 
 </body>

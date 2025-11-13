@@ -1,0 +1,112 @@
+/**
+ * Language Switcher Styles
+ */
+
+.language-switcher {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* For iframe context - ensure body is positioned */
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.lang-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(13, 14, 78, 0.95);
+  border: 1px solid rgba(58, 120, 255, 0.3);
+  border-radius: 24px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.lang-switch-btn:hover {
+  border-color: rgba(58, 120, 255, 0.6);
+  box-shadow: 0 6px 20px rgba(58, 120, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.lang-option {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #9aa3b2;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.lang-option:hover {
+  color: #fff;
+  background: rgba(58, 120, 255, 0.2);
+}
+
+.lang-option.active {
+  color: #fff;
+  background: linear-gradient(135deg, #3a78ff 0%, #15ef74 100%);
+  box-shadow: 0 2px 8px rgba(58, 120, 255, 0.4);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+  user-select: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .language-switcher {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .lang-switch-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .lang-option {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Accessibility */
+.lang-switch-btn:focus {
+  outline: 2px solid #3a78ff;
+  outline-offset: 2px;
+}
+
+.lang-option:focus {
+  outline: 2px solid #3a78ff;
+  outline-offset: 1px;
+}
+
+/* Animation for language switch */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-i18n] {
+  animation: fadeInContent 0.3s ease;
+}

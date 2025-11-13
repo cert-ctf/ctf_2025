@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const label = card.querySelector('.status');
     if (!label) return;
     label.classList.remove('ok','err','empty','loading');
-    if (state === 'ok'){ label.textContent = 'Korrekt'; label.classList.add('ok'); }
-    else if (state === 'err'){ label.textContent = 'Falsch'; label.classList.add('err'); }
-    else if (state === 'loading'){ label.textContent = 'Prüfe…'; label.classList.add('loading'); }
+    if (state === 'ok'){ label.textContent = 'Correct'; label.classList.add('ok'); }
+    else if (state === 'err'){ label.textContent = 'Wrong'; label.classList.add('err'); }
+    else if (state === 'loading'){ label.textContent = 'Checking…'; label.classList.add('loading'); }
     else { label.textContent = '—'; label.classList.add('empty'); }
   }
 

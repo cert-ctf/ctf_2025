@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/languageSwitcher.css">
     <!-- Fallback für lokale Tests (Header hat Vorrang in Prod) -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -17,8 +18,8 @@
         <div class="nav-left">
           <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
           <div class="nav-title">
-            <h6>Die Abenteuer von KIM & TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
+            <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+            <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
           </div>
         </div>
         <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -26,12 +27,12 @@
 
       <section class="card">
         <header class="card-header">
-          <h2>KIM – Kommunikation im Medizinwesen</h2>
+          <h2 data-i18n="header.title">KIM – Kommunikation im Medizinwesen</h2>
         </header>
 
         <div class="card-body">
-          <h3>Was ist das?</h3>
-          <p>
+          <h3 data-i18n="content.whatIs">Was ist das?</h3>
+          <p data-i18n="content.description">
             <strong>KIM</strong> ist das sichere E-Mail-System für Praxen, Apotheken &amp; Co. in Deutschland. Endlich Schluss mit Faxen und unsicheren Mails: KIM sorgt dafür, dass Arztbriefe, Befunde oder Abrechnungen digital, verschlüsselt und garantiert nur zwischen echten, geprüften Teilnehmern der Telematikinfrastruktur (TI) verschickt werden.
           </p>
 
@@ -48,16 +49,16 @@
 
           <hr>
 
-          <h3>Technische Basis</h3>
+          <h3 data-i18n="content.technicalBasis">Technische Basis</h3>
           <ul>
-            <li><b>KIM</b> basiert auf den etablierten E-Mail Standards POP3 und SMTP</li>
-            <li>Kontakte werden im zentralen Verzeichnisdienst vorgehalten</li>
-            <li>Lässt sich mit E-Mail-Programme wie Thunderbird oder Outlook verwenden</li>
+            <li data-i18n="content.technicalPoint1"><b>KIM</b> basiert auf den etablierten E-Mail Standards POP3 und SMTP</li>
+            <li data-i18n="content.technicalPoint2">Kontakte werden im zentralen Verzeichnisdienst vorgehalten</li>
+            <li data-i18n="content.technicalPoint3">Lässt sich mit E-Mail-Programme wie Thunderbird oder Outlook verwenden</li>
           </ul>
 
           <figure>
             <img class="img-rounded-shadow" src="./img/wa-kim-00-kim_nachrichtenversand.png" alt="KIM Nachrichtenversand">
-            <figcaption style="text-align:center">
+            <figcaption style="text-align:center" data-i18n="content.sourceGematikKIM">
               <i>Quelle:
               <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">
                 Gematik Fachportal – Kommunikation im Medizinwesen
@@ -68,12 +69,12 @@
 
           <hr>
 
-          <h3>Aufbau von KIM-Adressen</h3>
+          <h3 data-i18n="content.addressStructure">Aufbau von KIM-Adressen</h3>
           <ul>
-            <li>
+            <li data-i18n="content.addressUserPart">
               <strong>Benutzerteil:</strong> Identifiziert eindeutig den Nutzer oder die Organisation (z. B. Praxisname, Institutionskennzeichen).
             </li>
-            <li>
+            <li data-i18n="content.addressDomainPart">
               <strong>Domänenteil:</strong> Gibt an, dass es sich um eine KIM-Adresse handelt, üblicherweise <code>kim.telematik</code> oder eine Subdomain davon (z. B. <code>anbieter.kim.telematik</code>).
             </li>
           </ul>
@@ -84,7 +85,7 @@
           </div>
 
           <hr>
-          <h3>Weitere Informationen</h3>
+          <h3 data-i18n="content.moreInfo">Weitere Informationen</h3>
           
           <ul>
             <li>
@@ -102,9 +103,9 @@
     </button>
 
     <aside id="helpOverlay" hidden>
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h2>Weitere Infos</h2>
-      <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+      <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+      <h2 data-i18n="help.title">Weitere Infos</h2>
+      <p data-i18n="help.text">Auf der folgenden Seite findest du einen Hinweis dazu:</p>
       <ul>
         <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank" rel="noopener">Funktionsweise von KIM</a></li>
         <li><a href="https://fachportal.gematik.de/toolkit/dienstkennung-kim-kom-le" target="_blank" rel="noopener">Dienstkennung KIM</a></li>
@@ -114,5 +115,10 @@
     <div class="flag-tiles" aria-hidden="true"></div>
 
     <script src="./js/help.js"></script>
+    <script src="./js/translations.js"></script>
+    <script src="./js/languageSwitcher.js"></script>
+    <script>
+      window.languageSwitcher.init(getPageTranslations('wa_kim_00'));
+    </script>
   </body>
 </html>

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/erx-02.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -18,8 +19,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -27,43 +28,43 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept (Aufgabe 3)</h2>
+        <h2 data-i18n="header.title">eRX - E-Rezept (Aufgabe 3)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Abruf am Endpoint</h3>
-        <p>
+        <h3 data-i18n="content.subtitle">Abruf am Endpoint</h3>
+        <p data-i18n="content.description1">
           Sonne, Sand, Strand – der Urlaub läuft perfekt. Fast. Denn ohne dein Ibuprofen wird der Beach‑Volleyball
           schnell zur Schmerz‑Olympiade...
         </p>
-        <p>
+        <p data-i18n="content.description2">
           Dein Arzt meldet sich fix zurück, aber statt eines fertigen QR‑Codes schickt er dir <code
-            class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode“</code>.
+            class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode"</code>.
         </p>
-        <p>
-          Kein Drama: Genau daraus baust du dir am Strand den <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code> selbst und die Apotheke vor Ort kann es direkt einlösen.
+        <p data-i18n="content.description3">
+          Kein Drama: Genau daraus baust du dir am Strand den <code class="mi-k" style="color:#065f46;">E‑Rezept‑Token</code> selbst und die Apotheke vor Ort kann es direkt einlösen.
         </p>
         <figure style=" text-align: center;">
           <img class="img-rounded-shadow" src="./img/erx-03.png" alt="Alf bereitet den Zugriff auf seine ePA vor"
             style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
         </figure>
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class=" callout-box">
-          <p>
-             Setze aus <code class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode“</code> den gültigen
-          <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code> zusammen.
+          <p data-i18n="content.missionDescription">
+             Setze aus <code class="mi-code">Task.Id</code> und <code class="mi-k">„AccessCode"</code> den gültigen
+          <code class="mi-k" style="color:#065f46;">E‑Rezept‑Token</code> zusammen.
           </p>
         </div>
         <br>
         <hr>
 
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
         <p>
         <section class="erp-id-card">
           <header class="erp-id-head">
-            <h4 class="erp-id-title">Aufbau</h4>
-            <span class="erp-id-badge">E‑Rezept‑Token</span>
+            <h4 class="erp-id-title" data-i18n="content.structureTitle">Aufbau</h4>
+            <span class="erp-id-badge" data-i18n="content.tokenBadge">E‑Rezept‑Token</span>
           </header>
 
           <div class="erp-id-body" style="text-align: left;">
@@ -76,7 +77,7 @@
         <br>
         <hr>
 
-        <h4>Weitere Informationen</h4>
+        <h4 data-i18n="content.furtherInfoTitle">Weitere Informationen</h4>
         <ul>
           <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/" target="_blank"
               rel="noopener noreferrer">Spezifikationen zum E-Rezept Datenmodel</a> - <b>A_19554</b></li>
@@ -86,12 +87,12 @@
       <hr>
       <div>
         <form id="solutionForm" class="fx-form">
-          <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+          <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
           <div class="fx-input-wrap">
             <input type="text" id="solution" name="solution" placeholder="Task.id + AccessCode" required
               class="fx-input">
             <button type="submit" class="fx-btn">
-              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
               <span class="fx-btn-glow"></span>
             </button>
           </div>
@@ -109,7 +110,7 @@
             <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
           </figure>
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="form.infoText">
               Gesucht wird die Datenstruktur der Einlöseinformationen.<br>
               <i>Alles nach: <code>2D-Code-Daten = </code></i>
             </p>
@@ -128,9 +129,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -163,6 +164,12 @@
 
   <script>
     initFlagUI();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_03'));
   </script>
 </body>
 

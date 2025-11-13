@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navbar.css" />
   <link rel="stylesheet" href="./css/help.css" />
+  <link rel="stylesheet" href="./css/languageSwitcher.css" />
 
   <style>
     .jwt-card {
@@ -191,8 +192,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM &amp; TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM &amp; TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
@@ -200,13 +201,13 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>ePA - E-Patientenakte (Aufgabe 1)</h2>
+        <h2 data-i18n="header.title">ePA - E-Patientenakte (Aufgabe 1)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>ePA für alle?!</h3>
+        <h3 data-i18n="content.subtitle">ePA für alle?!</h3>
 
-        <p>
+        <p data-i18n="content.description">
           Alf gewährt der Klinik (in die er demnächst fährt) vorab Zugriff auf seine elektronische Patientenakte (ePA).
           Dazu erstellt er ein JSON Web Token (JWT) und übermittelt es an den ePA‑Fachdienst.
         </p>
@@ -216,28 +217,28 @@
         </figure>
 
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
             Fülle den JWT mit den korrekten Daten aus.
           </p>
         </div>
         <br>
-  
+
         <hr>
 
-<h3>🗒️ Informationen zur Mission</h3>
+<h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
         <section class="jwt-card">
           <div class="jwt-header">
-            <span class="jwt-badge">JWT Setup</span>
-            <div class="jwt-title">ePA Zugriffstoken – bereit zum Signieren</div>
+            <span class="jwt-badge" data-i18n="content.jwtSetupTitle">JWT Setup</span>
+            <div class="jwt-title" data-i18n="content.jwtSetupSubtitle">ePA Zugriffstoken – bereit zum Signieren</div>
           </div>
 
           <div class="jwt-grid">
             <!-- Header -->
             <div class="jwt-panel">
               <div class="jwt-panel-header">
-                <div class="jwt-panel-title">Header</div>
+                <div class="jwt-panel-title" data-i18n="content.headerLabel">Header</div>
               </div>
               <pre id="jwt-header" class="jwt-code">
 {
@@ -249,7 +250,7 @@
             <!-- Payload -->
             <div class="jwt-panel">
               <div class="jwt-panel-header">
-                <div class="jwt-panel-title">Payload</div>
+                <div class="jwt-panel-title" data-i18n="content.payloadLabel">Payload</div>
               </div>
               <pre id="jwt-payload" class="jwt-code">
 {
@@ -265,14 +266,14 @@
           <!-- Secret -->
           <div class="jwt-panel" style="margin-top:1rem;">
             <div class="jwt-panel-header">
-              <div class="jwt-panel-title">Signatur-Secret</div>
+              <div class="jwt-panel-title" data-i18n="content.secretLabel">Signatur-Secret</div>
             </div>
             <div class="jwt-kv">
-              <div class="jwt-key"><span class="hl-prop">Algorithmus</span></div>
+              <div class="jwt-key"><span class="hl-prop" data-i18n="content.algorithmLabel">Algorithmus</span></div>
               <div class="jwt-value">HS256</div>
             </div>
             <div class="jwt-kv">
-              <div class="jwt-key"><span class="hl-prop">Secret</span></div>
+              <div class="jwt-key"><span class="hl-prop" data-i18n="content.secretKeyLabel">Secret</span></div>
               <div id="jwt-secret" class="jwt-value">0a68eb57c88a5f349e9d27f85e68af4f</div>
             </div>
             <div class="jwt-actions">
@@ -287,18 +288,18 @@
 
         <br>
 
-        <h3>ℹ️ Weitere Informationen</h3>
+        <h3 data-i18n="content.furtherInfoTitle">ℹ️ Weitere Informationen</h3>
         <ul>
           <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_Aktensystem_ePAfueralle/latest/#A_24145"
-              target="_blank" rel="noopener noreferrer">Was bedeuten die Felder der Payload</a></li>
-          <li><a href="https://www.jwt.io/" target="_blank" rel="noopener noreferrer">Was ist ein JWT</a></li>
+              target="_blank" rel="noopener noreferrer" data-i18n="content.linkPayloadFields">Was bedeuten die Felder der Payload</a></li>
+          <li><a href="https://www.jwt.io/" target="_blank" rel="noopener noreferrer" data-i18n="content.linkWhatIsJwt">Was ist ein JWT</a></li>
         </ul>
 
 
           <hr />
           <div>
             <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="content.solutionLabel">🎯 Lösung</h3>
               <div class="fx-input-wrap">
                 <input type="mail" id="solution" name="solution" placeholder="JWT Result" required class="fx-input">
                 <button type="submit" class="fx-btn">
@@ -320,7 +321,7 @@
                 <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
               </figure>
               <div class="info-box">
-                <p id="info_text_field" class="bottom_text">
+                <p id="info_text_field" class="bottom_text" data-i18n="content.infoText">
                   Die Antwort ist der generierte JWT
                 </p>
               </div>
@@ -338,9 +339,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -366,9 +367,12 @@
   <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     initFlagUI();
+    window.languageSwitcher.init(getPageTranslations('wa_epa_01'));
   </script>
 </body>
 

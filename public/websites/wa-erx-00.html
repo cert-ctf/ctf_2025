@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/languageSwitcher.css">
 
 
 <style>
@@ -180,8 +181,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -189,13 +190,13 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX – E-Rezept</h2>
+        <h2 data-i18n="header.title">eRX – E-Rezept</h2>
       </header>
       <div class="card-body">
-        <h3>Was ist das?</h3>
-        <p>
-          Das <b>elektronische Rezept (E-Rezept)</b> ersetzt den Papierausdruck für verschreibungspflichtige Arzneimittel. 
-          Die Praxis lädt das Rezept in die <b>Telematikinfrastruktur (TI)</b>. 
+        <h3 data-i18n="content.whatIsTitle">Was ist das?</h3>
+        <p data-i18n="content.whatIsDescription1">
+          Das <b>elektronische Rezept (E-Rezept)</b> ersetzt den Papierausdruck für verschreibungspflichtige Arzneimittel.
+          Die Praxis lädt das Rezept in die <b>Telematikinfrastruktur (TI)</b>.
           Mit <b>eGK</b>, <b>E-Rezept-App</b> oder Ausdruck können Sie es in der Apotheke einlösen.
         </p>
 
@@ -211,50 +212,50 @@
         </div>
 
         <hr>
-        <h3>Der Weg von der Praxis zum Medikament</h3>
+        <h3 data-i18n="content.pathTitle">Der Weg von der Praxis zum Medikament</h3>
 
         <ol class="steps">
           <li class="step">
             <div class="step-header">
               <span class="step-icon">1</span>
-              <h4>Rezept erstellen</h4>
+              <h4 data-i18n="content.step1Title">Rezept erstellen</h4>
             </div>
             <ul class="step-details">
-              <li>Praxis signiert das Rezept digital</li>
-              <li>Speicherung in der <b>TI</b></li>
+              <li data-i18n="content.step1Item1">Praxis signiert das Rezept digital</li>
+              <li data-i18n="content.step1Item2">Speicherung in der <b>TI</b></li>
             </ul>
           </li>
 
           <li class="step">
             <div class="step-header">
               <span class="step-icon">2</span>
-              <h4>Rezept einlösen</h4>
+              <h4 data-i18n="content.step2Title">Rezept einlösen</h4>
             </div>
             <ul class="step-details">
-              <li>Mit <b>eGK</b> in der Apotheke</li>
-              <li>Mit Ausdruck und <b>DataMatrix-Code</b></li>
-              <li>Über <b>E-Rezept-App</b> (mit eGK oder Code)</li>
+              <li data-i18n="content.step2Item1">Mit <b>eGK</b> in der Apotheke</li>
+              <li data-i18n="content.step2Item2">Mit Ausdruck und <b>DataMatrix-Code</b></li>
+              <li data-i18n="content.step2Item3">Über <b>E-Rezept-App</b> (mit eGK oder Code)</li>
             </ul>
           </li>
 
           <li class="step">
             <div class="step-header">
               <span class="step-icon">3</span>
-              <h4>Medikament erhalten</h4>
+              <h4 data-i18n="content.step3Title">Medikament erhalten</h4>
             </div>
             <ul class="step-details">
-              <li>Apotheke ruft Rezept aus der <b>TI</b> ab</li>
-              <li>Gibt Medikament aus und bestätigt die Abgabe</li>
+              <li data-i18n="content.step3Item1">Apotheke ruft Rezept aus der <b>TI</b> ab</li>
+              <li data-i18n="content.step3Item2">Gibt Medikament aus und bestätigt die Abgabe</li>
             </ul>
           </li>
         </ol>
 
         <hr>
 
-        <h3>DataMatrix</h3>
-        Die <b>DataMatrix</b> auf dem Papierausdruck enthält die TaskID und den AccessCode, um das Rezept aus der <b>TI</b> abzurufen.
+        <h3 data-i18n="content.dataMatrixTitle">DataMatrix</h3>
+        <span data-i18n="content.dataMatrixDescription">Die <b>DataMatrix</b> auf dem Papierausdruck enthält die TaskID und den AccessCode, um das Rezept aus der <b>TI</b> abzurufen.</span>
         <ul>
-          <li>
+          <li data-i18n="content.dataMatrixStructureLabel">
             Aufbau
             <ul>
               <li>
@@ -272,20 +273,20 @@
         </ul>
 
         <hr>
-        <h3>Aufbau der E-Rezept-ID:</h3>
-        <p>
-          Die E-Rezept-ID besteht aus drei Teilen: 
-          dem <span class="seg-a"><b>Typ</b> (aaa)</span>, 
-          der <span class="seg-b"><b>Rezeptnummer</b> (bbb.bbb.bbb.bbb)</span> 
+        <h3 data-i18n="content.prescriptionIdTitle">Aufbau der E-Rezept-ID:</h3>
+        <p data-i18n="content.prescriptionIdDescription">
+          Die E-Rezept-ID besteht aus drei Teilen:
+          dem <span class="seg-a"><b>Typ</b> (aaa)</span>,
+          der <span class="seg-b"><b>Rezeptnummer</b> (bbb.bbb.bbb.bbb)</span>
           und der <span class="seg-c"><b>Prüfziffer</b> (cc)</span>.
         </p>
-        <p>Bewege die Maus über die farbigen Segmente, um mehr zu erfahren:</p>
+        <p data-i18n="content.prescriptionIdHint">Bewege die Maus über die farbigen Segmente, um mehr zu erfahren:</p>
 
         <div class="code-card">
           <code class="recipe-id">
-            <span class="seg seg-a" data-tip="E-Rezept-Typ" tabindex="0">aaa</span>.
-            <span class="seg seg-b" data-tip="Fortlaufende Rezeptnummer" tabindex="0">bbb.bbb.bbb.bbb</span>.
-            <span class="seg seg-c" data-tip="Prüfziffer" tabindex="0">cc</span>
+            <span class="seg seg-a" data-tip-i18n="content.tooltipType" data-tip="E-Rezept-Typ" tabindex="0">aaa</span>.
+            <span class="seg seg-b" data-tip-i18n="content.tooltipPrescriptionNumber" data-tip="Fortlaufende Rezeptnummer" tabindex="0">bbb.bbb.bbb.bbb</span>.
+            <span class="seg seg-c" data-tip-i18n="content.tooltipCheckDigit" data-tip="Prüfziffer" tabindex="0">cc</span>
           </code>
         </div>
         <br><br>
@@ -299,9 +300,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank" rel="noopener">Fachportal E-Rezept</a></li>
@@ -313,5 +314,10 @@
   <div class="flag-tiles" aria-hidden="true"></div>
 
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_00'));
+  </script>
 </body>
 </html>

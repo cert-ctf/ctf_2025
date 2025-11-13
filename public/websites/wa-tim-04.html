@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -25,13 +26,13 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI-Messenger (Aufgabe 4)</h2>
+        <h2 data-i18n="header.title">TI-Messenger (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <h3>Deprecation Derby</h3>
-        <p>
+        <h3 data-i18n="content.subtitle">Deprecation Derby</h3>
+        <p data-i18n="content.description">
           TIM hat ein sensibles Bild in einem Matrix Raum hochgeladen... Nun will KIM versuchen, die Informationen aus
           den
           Bildern zu stehlen. KIM weiß, dass es eine Weile her gewesen sein muss...
@@ -41,55 +42,55 @@
             style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
         </figure>
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
             Finde das Bild und rette die Welt! 🌍
           </p>
         </div>
         <br>
 
         <hr>
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
 
-        <p>Du hast eine <code class="mi-code">AttachmentID</code> erhalten und Zugriff auf einen Dienst, der mehrere
+        <p data-i18n="content.infoDescription1">Du hast eine <code class="mi-code">AttachmentID</code> erhalten und Zugriff auf einen Dienst, der mehrere
           Endpoints nach
           Matrix-Spezifikation für den Mediendownload anbietet. <b>Deine Mission:</b> Finde den korrekten
           Download-Endpoint, hänge die <code class="mi-code">AttachmentID</code> an und liefere das Bild beim WA-Flag
           Service ab.</p>
-        <p>Triffst du ins Schwarze, verifiziert der Dienst das Bild per Hash aus. Einfach? Fast. Du musst noch die
+        <p data-i18n="content.infoDescription2">Triffst du ins Schwarze, verifiziert der Dienst das Bild per Hash aus. Einfach? Fast. Du musst noch die
           richtige
           Route wählen...</p>
 
         <p>
         <div class="pretty-info">
           <div class="pi-head">
-            <span class="pi-title">Connection Details</span>
+            <span class="pi-title" data-i18n="content.connectionDetailsTitle">Connection Details</span>
           </div>
 
           <pre class="pi-pre"><code>
-<span class="pi-k">Servername/FQDN</span>: <span class="pi-str">https://escapecapitalism.space</span>
+<span class="pi-k">Servername/FQDN</span>: <span class="pi-str">https://5af8d53e05.ctfd.gematik.de</span>
 <span class="pi-k">MediaID</span>: <span class="pi-id">83b9eb79-eeca-4975-b520-466665af3a58</span>
 </code></pre>
         </div>
         </p>
-        <p>
+        <p data-i18n="content.timEndpointsTitle">
           TI-Messenger Endpunkte für Medien:
+        </p>
         <ul>
           <li>
             <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/#A_26262" target="_blank"
               rel="noopener noreferrer">gemSpec A26262</a>
           </li>
         </ul>
-        </p>
         <hr>
         <div>
           <form id="solutionForm" class="fx-form">
-            <label for="solution" class="fx-label">Lösung</label>
+            <label for="solution" class="fx-label" data-i18n="content.solutionLabel">Lösung</label>
             <div class="fx-input-wrap">
               <input type="text" id="solution" name="solution" placeholder="MD 5 Hash" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -107,7 +108,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="content.infoText">
                 Die Antwort ist der <code>MD5 Hash</code> des Bildes
               </p>
             </div>
@@ -125,17 +126,17 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.title">Weitere Infos</h3>
+    <p data-i18n="help.text">Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
       <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/latest/#A_26262" target="_blank"
           rel="noopener">gemSpec_TI-M_Basis</a></li>
       <li><a href="https://spec.matrix.org/v1.11/client-server-api/#get_matrixmediav3downloadservernamemediaid"
           target="_blank" rel="noopener">Deprecated API Info</a></li>
     </ul>
-    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
-      rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
+    <span data-i18n="help.tip"><em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
+      rel="noopener">Fachportal</a> der gematik zum TI-Messenger.</span>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
@@ -148,9 +149,12 @@
   <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     initFlagUI();
+    window.languageSwitcher.init(getPageTranslations('wa_tim_04'));
   </script>
 
 </body>

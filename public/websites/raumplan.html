@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -256,8 +257,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="gematik Logo">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Event-Logo">
@@ -265,12 +266,12 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Eingangsbereich</h2>
+        <h2 data-i18n="header.title">Eingangsbereich</h2>
       </header>
 
       <div class="card-body">
-        <h3>Map-Übersicht</h3>
-        <p>
+        <h3 data-i18n="content.mapOverviewTitle">Map-Übersicht</h3>
+        <p data-i18n="content.mapOverviewText">
           Die Map gliedert sich in mehrere Bereiche. Verschaffe dir hier einen schnellen Überblick und klicke auf die Karte für eine vergrößerte Ansicht.
         </p>
 
@@ -278,85 +279,85 @@
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img id="buildingImg" src="./img/raumplan_event_clear.png" alt="Event-Gebäudeübersicht (klick zum Vergrößern)" style="width:30%; cursor: zoom-in;">
-              <figcaption class="media-caption"><i>Klicke auf das Bild, um die Ansicht zu vergrößern.</i></figcaption>
+              <figcaption class="media-caption"><i data-i18n="content.mapOverviewCaption">Klicke auf das Bild, um die Ansicht zu vergrößern.</i></figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>Eingangsbereich</h3>
-        <p>
+        <h3 data-i18n="content.entranceAreaTitle">Eingangsbereich</h3>
+        <p data-i18n="content.entranceAreaText">
           Dein Abenteuer startet im Eingangsbereich der Event-Ebene. Von hier gelangst du zu Bühne, Helpdesk, Partner-Bereich und in den TI‑Park.
         </p>
         <section class="media-text" aria-labelledby="eingangsbereich">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/map_eingang.png" alt="Kartenansicht – Eingangsbereich">
-              <figcaption class="media-caption">Eingangsbereich der Event-Ebene</figcaption>
+              <figcaption class="media-caption" data-i18n="content.entranceAreaCaption">Eingangsbereich der Event-Ebene</figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>TI-Ranger & Partner-Bereich</h3>
-        <p>
+        <h3 data-i18n="content.tiRangerTitle">TI-Ranger & Partner-Bereich</h3>
+        <p data-i18n="content.tiRangerText">
           Hier findest du den Helpdesk der TI‑Ranger, den gematik TI_ctf sowie den Partner-Bereich.
         </p>
         <section class="media-text" aria-labelledby="tiranger-partner">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/map_tiranger.png" alt="Kartenansicht – TI-Ranger und Partner-Bereich">
-              <figcaption class="media-caption">TI‑Ranger Helpdesk, TI_ctf und Partner-Bereich</figcaption>
+              <figcaption class="media-caption" data-i18n="content.tiRangerCaption">TI‑Ranger Helpdesk, TI_ctf und Partner-Bereich</figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>Bühne</h3>
-        <p>
+        <h3 data-i18n="content.stageTitle">Bühne</h3>
+        <p data-i18n="content.stageText">
           Auf der Bühne wird das Event vorgestellt und offiziell freigegeben.
         </p>
         <section class="media-text" aria-labelledby="buehne">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/map_buehne.png" alt="Kartenansicht – Bühne">
-              <figcaption class="media-caption">Bühnenbereich für Ankündigungen und Kick-off</figcaption>
+              <figcaption class="media-caption" data-i18n="content.stageCaption">Bühnenbereich für Ankündigungen und Kick-off</figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>Zugang zum TI-Park</h3>
-        <p>
+        <h3 data-i18n="content.tiParkAccessTitle">Zugang zum TI-Park</h3>
+        <p data-i18n="content.tiParkAccessText">
           Über diesen Bereich betrittst du den TI‑Park und findest die Aufgaben der virtuellen Welt. Bitte betrete den Bereich erst nach Freigabe durch die TI‑Ranger. Deine zugewiesene Tür ist in der Einladungs‑E‑Mail angegeben.
         </p>
         <section class="media-text" aria-labelledby="ti-park">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/map_tueren.png" alt="Kartenansicht – Zugangstüren zum TI-Park">
-              <figcaption class="media-caption">Zugangstüren zum TI‑Park</figcaption>
+              <figcaption class="media-caption" data-i18n="content.tiParkAccessCaption">Zugangstüren zum TI‑Park</figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>Helpdesk</h3>
-        <p>
+        <h3 data-i18n="content.helpdeskTitle">Helpdesk</h3>
+        <p data-i18n="content.helpdeskText">
           Im Helpdesk unterstützen dich die TI‑Ranger bei Fragen und technischen Anliegen.
         </p>
         <section class="media-text" aria-labelledby="helpdesk">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/map_tiranger.png" alt="Kartenansicht – Helpdesk">
-              <figcaption class="media-caption">TI‑Ranger Helpdesk</figcaption>
+              <figcaption class="media-caption" data-i18n="content.helpdeskCaption">TI‑Ranger Helpdesk</figcaption>
             </figure>
           </div>
         </section>
 
-        <h3>Zonen</h3>
-        <p>
+        <h3 data-i18n="content.zonesTitle">Zonen</h3>
+        <p data-i18n="content.zonesText">
           Bereiche, in denen die Kamera aktiviert wird, sind in der Map grün markiert und mit einem Lautsprecher‑Symbol gekennzeichnet.
         </p>
         <section class="media-text" aria-labelledby="zonen">
           <div class="media-text__content">
             <figure class="centered-image media-figure">
               <img src="./img/speakzone.png" alt="Kartenansicht – Zonen mit Kameraaktivierung">
-              <figcaption class="media-caption">Zonen mit Kameraaktivierung (grün markiert)</figcaption>
+              <figcaption class="media-caption" data-i18n="content.zonesCaption">Zonen mit Kameraaktivierung (grün markiert)</figcaption>
             </figure>
           </div>
         </section>
@@ -416,6 +417,12 @@
         }
       });
     })();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('raumplan'));
   </script>
 </body>
 </html>

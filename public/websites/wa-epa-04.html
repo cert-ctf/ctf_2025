@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navbar.css" />
   <link rel="stylesheet" href="./css/help.css" />
+  <link rel="stylesheet" href="./css/languageSwitcher.css" />
 </head>
 
 <body>
@@ -17,8 +18,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM &amp; TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM &amp; TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
@@ -26,12 +27,12 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>ePA - E-Patientenakte (Aufgabe 4)</h2>
+        <h2 data-i18n="header.title">ePA - E-Patientenakte (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Privacy Patrol: Alf's Befund im Visier</h3>
-        <p>
+        <h3 data-i18n="content.subtitle">Privacy Patrol: Alf's Befund im Visier</h3>
+        <p data-i18n="content.description">
           Alf ist nach einem ziemlich belastenden Klinikbesuch wieder zu Hause. Bevor er zur Ruhe kommt, will er sicher
           sein:
           Hat wirklich nur die Klinik seinen Befund gesehen? Also: Auditlog auf, Spuren lesen, Fakten checken.
@@ -43,9 +44,9 @@
         </figure>
 
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
 
             Analysiere den Auditlog und identifiziere die drei exakt verwendeten Operationen in den relevanten
             Audit-Events.
@@ -55,8 +56,8 @@
         </div>
         <br>
 
-        <h3>🗒️ Informationen zur Mission</h3>
-        <p>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
+        <p data-i18n="content.infoDescription">
           Gefragt sind hier die spezifischen Operationen, welche in den AuditLogs zu finden sind.
 
         <ul>
@@ -72,7 +73,7 @@
         <hr>
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="content.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
               <textarea id="solution" name="solution" required class="fx-input"
                 style="resize: none; height: 10.5em; overflow: auto;"></textarea>
@@ -96,9 +97,9 @@
             </figure>
             <div class="info-box">
               <p id="info_text_field" class="bottom_text">
-                Gefragt sind hier die spezifischen Operationen, genutzt in den drei Audit Events
-                (<code>entity.0.description</code>) <br> <br>
-                Anhang: <a href="./files/ePA.wa.4/auditLog.json" target="_blank"
+                <span data-i18n="content.infoText">Gefragt sind hier die spezifischen Operationen, genutzt in den drei Audit Events
+                (<code>entity.0.description</code>)</span> <br> <br>
+                <span data-i18n="content.attachment">Anhang:</span> <a href="./files/ePA.wa.4/auditLog.json" target="_blank"
                   rel="noopener noreferrer">auditLog.json</a>
               </p>
             </div>
@@ -116,9 +117,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -144,9 +145,12 @@
   <script src="./js/flagServiceTextfield.js"></script>
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     initFlagUITextfield();
+    window.languageSwitcher.init(getPageTranslations('wa_epa_04'));
   </script>
 </body>
 

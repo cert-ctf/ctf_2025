@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 <body>
   <main class="wrapper" role="main">
@@ -14,8 +15,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -23,12 +24,12 @@
 
      <section class="card">
       <header class="card-header">
-          <h2>TI-Messenger</h2>
+          <h2 data-i18n="header.title">TI-Messenger</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Was ist das?</h3>
-        <p>
+        <h3 data-i18n="content.whatIs">Was ist das?</h3>
+        <p data-i18n="content.description">
           Der <b>TI-Messenger</b> ist der Kurznachrichtendienst für das Gesundheitswesen in Deutschland
         </p>
 
@@ -47,58 +48,58 @@
 
 
         <hr>
-        <h3>Funktionen und Vorteile von TIM</h3>
-        <p>
+        <h3 data-i18n="content.featuresTitle">Funktionen und Vorteile von TIM</h3>
+        <p data-i18n="content.featuresDescription">
           <b>TIM</b> bietet viele praktische Funktionen, die den Arbeitsalltag erleichtern: Gruppen-Chats für Teams, Versand von Bildern und Dokumenten, sowie die Möglichkeit, direkt mit Kolleg:innen oder Patient:innen zu kommunizieren. Alle Teilnehmer werden eindeutig über die TI identifiziert, sodass keine unbefugten Personen Zugriff haben.
         </p>
         <ul>
-          <li>Ende-zu-Ende-Verschlüsselung für maximale Sicherheit.</li>
-          <li>Gruppen- und Einzelchats für flexible Kommunikation.</li>
-          <li>Integration in bestehende Praxis- und Krankenhaussoftware.</li>
-          <li>Datenschutz und Vertraulichkeit sind jederzeit gewährleistet.</li>
+          <li data-i18n="content.feature1">Ende-zu-Ende-Verschlüsselung für maximale Sicherheit.</li>
+          <li data-i18n="content.feature2">Gruppen- und Einzelchats für flexible Kommunikation.</li>
+          <li data-i18n="content.feature3">Integration in bestehende Praxis- und Krankenhaussoftware.</li>
+          <li data-i18n="content.feature4">Datenschutz und Vertraulichkeit sind jederzeit gewährleistet.</li>
         </ul>
-        <p>
+        <p data-i18n="content.moreInfoText">
           Weitere Informationen und technische Details findest du im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal</a> der gematik.
         </p>
         <hr>
         <section>
-          <h3>Technische Basis</h3>
+          <h3 data-i18n="content.technicalBasis">Technische Basis</h3>
           <ul>
-            <li><b>TIM</b> basiert auf dem offenen <b>Matrix-Protokoll</b>, das von der Matrix.org Foundation entwickelt wurde.</li>
-            <li>Open-Source-Implementierungen sind in Behörden, Bundeswehr und Bildungswesen im Einsatz.</li>
-            <li>Vorteile: moderne Sicherheitsstandards, Interoperabilität, flexible und skalierbare Infrastruktur.</li>
+            <li data-i18n="content.techPoint1"><b>TIM</b> basiert auf dem offenen <b>Matrix-Protokoll</b>, das von der Matrix.org Foundation entwickelt wurde.</li>
+            <li data-i18n="content.techPoint2">Open-Source-Implementierungen sind in Behörden, Bundeswehr und Bildungswesen im Einsatz.</li>
+            <li data-i18n="content.techPoint3">Vorteile: moderne Sicherheitsstandards, Interoperabilität, flexible und skalierbare Infrastruktur.</li>
           </ul>
         </section>
         <hr>
-        <h3>Verzeichnisdienst (VZD)</h3>
-        <p>Der <b>Verzeichnisdienst (VZD)</b> ist das zentrale Adressbuch für die Telematikinfrastruktur (TI). Über den <b>VZD</b> finden Sie die Kontaktdaten anderer medizinischer Einrichtungen schnell und einfach. So können Sie per <b>KIM</b> oder <b>TI-Messenger</b> ohne Umwege in den Austausch mit Kolleginnen oder Kollegen treten. Außerdem werden im <b>VZD</b> Basisdaten (bspw. Adressdaten und Zertifikate) von Leistungserbringern wie Ärztinnen und Ärzten, Apothekerinnen und Apothekern sowie von Organisationen des Gesundheitswesens bereitgestellt.</p>
+        <h3 data-i18n="content.vzdTitle">Verzeichnisdienst (VZD)</h3>
+        <p data-i18n="content.vzdDescription">Der <b>Verzeichnisdienst (VZD)</b> ist das zentrale Adressbuch für die Telematikinfrastruktur (TI). Über den <b>VZD</b> finden Sie die Kontaktdaten anderer medizinischer Einrichtungen schnell und einfach. So können Sie per <b>KIM</b> oder <b>TI-Messenger</b> ohne Umwege in den Austausch mit Kolleginnen oder Kollegen treten. Außerdem werden im <b>VZD</b> Basisdaten (bspw. Adressdaten und Zertifikate) von Leistungserbringern wie Ärztinnen und Ärzten, Apothekerinnen und Apothekern sowie von Organisationen des Gesundheitswesens bereitgestellt.</p>
         <hr>
-        <h3>Produktvarianten</h3>
+        <h3 data-i18n="content.variantsTitle">Produktvarianten</h3>
         <ul>
           <li>
             <strong>TI-M Pro</strong>
             <ul>
-              <li>Einfache, sektorenübergreifende Ad-hoc-Kommunikation zwischen den Heilberufen</li>
+              <li data-i18n="content.proDescription">Einfache, sektorenübergreifende Ad-hoc-Kommunikation zwischen den Heilberufen</li>
             </ul>
           </li>
           <li>
             <strong>TI-M ePA</strong>
             <ul>
-              <li>Kommunikation zwischen Heilberufen und Versicherten sowie Austausch zwischen Versicherten und Kassen</li>
+              <li data-i18n="content.epaDescription">Kommunikation zwischen Heilberufen und Versicherten sowie Austausch zwischen Versicherten und Kassen</li>
             </ul>
           </li>
           <li>
             <strong>TI-M Connect</strong>
             <ul>
-              <li>Austausch per Videochat und Videosprechstunden.</li>
+              <li data-i18n="content.connectDescription">Austausch per Videochat und Videosprechstunden.</li>
             </ul>
           </li>
         </ul>
         <br>
           <figure>
           <img class="img-rounded-shadow" src="./img/wa-tim-00-tim_roadmap.png" alt="TIM Nachrichtenversand">
-          <figcaption style="text-align:center">
-            <i>Quelle: 
+          <figcaption style="text-align:center" data-i18n="content.sourceGematikTIM">
+            <i>Quelle:
             <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">
               Gematik Fachportal – TI-Messenger
             </a>
@@ -114,9 +115,9 @@
   </button>
 
   <aside id="helpOverlay" hidden>
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h2>Weitere Infos</h2>
-    <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h2 data-i18n="help.furtherInfo">Weitere Infos</h2>
+    <p data-i18n="help.text">Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">gematik Anwendungen TI-Messenger</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">Fachportal TI-Messenger</a></li>
@@ -128,5 +129,12 @@
 
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page-specific translations
+    const translations = getPageTranslations('wa_tim_00');
+    window.languageSwitcher.init(translations);
+  </script>
 </body>
 </html>

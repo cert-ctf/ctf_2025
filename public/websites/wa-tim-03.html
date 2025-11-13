@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     .alarm-callout {
@@ -86,8 +87,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -95,22 +96,22 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI-Messenger (Aufgabe 3)</h2>
+        <h2 data-i18n="header.title">TI-Messenger (Aufgabe 3)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <h3>Federation Fakes</h3>
+        <h3 data-i18n="content.taskTitle">Federation Fakes</h3>
         <div class="alarm-callout" role="alert">
           <span class="ac-icon" aria-hidden="true">🚨</span>
           <div class="ac-text">
-            <strong>Alarmstufe Rot!</strong><br> Jemand hat sich in unseren hochsicheren Kommunikationsraum
-            eingeschlichen...
+            <strong data-i18n="content.alertTitle">Alarmstufe Rot!</strong><br> <span data-i18n="content.alertText1">Jemand hat sich in unseren hochsicheren Kommunikationsraum
+            eingeschlichen...</span>
             <figure style="text-align: center;">
               <img src="./img/maulwurf.png" alt="KIM Nachrichtenversand"
                 style="max-width: 320px; height: auto; display: block; margin: 0 auto;">
             </figure>
-            ...und liest Staatsgeheimnisse mit.
+            <span data-i18n="content.alertText2">...und liest Staatsgeheimnisse mit.</span>
           </div>
           <span class="ac-icon" aria-hidden="true">🚨</span>
         </div>
@@ -118,9 +119,9 @@
 
 
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="common.yourMission">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="mission.description">
             Identifiziere den Maulwurf und melde ihn an die zuständigen Autoritäten. Bleib ruhig, arbeite präzise – und
             vertraue deinen Augen nicht blind, denn der Angreifer spielt mit subtilen Zeichen.
           </p>
@@ -128,8 +129,8 @@
         <br>
 
         <hr>
-        <h3>🗒️ Informationen zur Mission </h3>
-        <p>
+        <h3 data-i18n="common.missionInfo">🗒️ Informationen zur Mission </h3>
+        <p data-i18n="info.description">
           Wir haben Zugriff auf die aktuellen Raumteilnehmer
           (<code><a href="files/TIM.wa.3/room_members.json" target="_blank" rel="noopener noreferrer">room_members.json</a></code>)
           und eine signierte, zugelassene Föderationsliste
@@ -140,24 +141,24 @@
 
 
         <ul>
-          <li>Vergleiche alle MXIDs aus <code class="mi-k">room_members.json</code> mit den zulässigen Einträgen aus
+          <li data-i18n="info.instruction1">Vergleiche alle MXIDs aus <code class="mi-k">room_members.json</code> mit den zulässigen Einträgen aus
             <code class="mi-k">fedlist-jws.txt</code>.
           </li>
-          <li>Markiere Teilnehmer, die nicht in der Föderationsliste enthalten sind oder deren MXID von der zugelassenen
+          <li data-i18n="info.instruction2">Markiere Teilnehmer, die nicht in der Föderationsliste enthalten sind oder deren MXID von der zugelassenen
             Schreibweise abweicht.</li>
-          <li>Achte besonders auf Homograph-Angriffe</li>
+          <li data-i18n="info.instruction3">Achte besonders auf Homograph-Angriffe</li>
         </ul>
 
         </p>
         <hr>
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung (Upload Solution File)</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung (Upload Solution File)</h3>
             <div class="fx-input-wrap">
-              <input type="text" id="solution" name="solution" placeholder="@username:homeserver.tld" required
+              <input type="text" id="solution" name="solution" data-i18n="form.placeholder" placeholder="@username:homeserver.tld" required
                 class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -175,7 +176,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon" />
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="info.text">
                 Die Antwort ist die <code class="mi-code">mxid</code> des Intruders.
               </p>
             </div>
@@ -193,15 +194,15 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.furtherInfo">Weitere Infos</h3>
+    <p data-i18n="help.text">Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
 
-      <li><a href="https://matrix.org/docs/older/faq/" target="_blank" rel="noopener">matrix.org – MXID</a></li>
-      <li><a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener">CyberChef – Datenanalyse,
+      <li><a href="https://matrix.org/docs/older/faq/" target="_blank" rel="noopener" data-i18n="help.link1">matrix.org – MXID</a></li>
+      <li><a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener" data-i18n="help.link2">CyberChef – Datenanalyse,
           Encoding/Decoding</a></li>
-      <li><a href="https://util.unicode.org/UnicodeJsps/confusables.jsp" target="_blank" rel="noopener">Unicode
+      <li><a href="https://util.unicode.org/UnicodeJsps/confusables.jsp" target="_blank" rel="noopener" data-i18n="help.link3">Unicode
           Confusables – Homoglyphen erkennen (til.unicode.org)</a></li>
     </ul>
   </aside>
@@ -220,9 +221,11 @@
   <script>
     initFlagUI();
   </script>
-</body>
 
-</html>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_tim_03'));
+  </script>
 </body>
-
 </html>

@@ -46,7 +46,7 @@ function clearStorage() {
   }
 
   if (!prefix) {
-    console.warn('Kein Präfix gefunden. Erwartet Keys wie "<prefix>-wa-1" oder "<prefix>-wa-solution".');
+    console.warn('No prefix found. Expected keys like "<prefix>-wa-1" or "<prefix>-wa-solution".');
     return [];
   }
 
@@ -68,7 +68,7 @@ function clearStorage() {
     }
   });
 
-  console.log(`Präfix: "${prefix}" – gelöscht:`, removed.length ? removed : '(nichts gefunden)');
+  console.log(`Prefix: "${prefix}" – deleted:`, removed.length ? removed : '(nothing found)');
   //return removed;
 }
 // Beispiel:
@@ -102,7 +102,7 @@ function listStorage() {
   }
 
   if (!prefix) {
-    console.warn('Kein Präfix gefunden. Erwartet Keys wie "<prefix>-wa-1" oder "<prefix>-wa-solution".');
+    console.warn('No prefix found. Expected keys like "<prefix>-wa-1" or "<prefix>-wa-solution".');
     return [];
   }
 
@@ -118,10 +118,10 @@ function listStorage() {
 
   // 3) Ausgabe
   if (results.length) {
-    console.log(`Gefundener Präfix: "${prefix}"`);
+    console.log(`Found prefix: "${prefix}"`);
     console.table(results);
   } else {
-    console.log(`Keine Einträge mit Präfix "${prefix}" gefunden.`);
+    console.log(`No entries found with prefix "${prefix}".`);
   }
 
   return results;
@@ -146,7 +146,7 @@ function initFlagUI() {
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl || !inputEl) {
-    console.warn('[Flag] Formular-Elemente nicht gefunden. Abbruch.');
+    console.warn('[Flag] Form elements not found. Aborting.');
     return;
   }
 
@@ -157,7 +157,7 @@ function initFlagUI() {
     if (typeof nextQuestionURL === 'string' && nextQuestionURL.length > 0) {
       window.location.href = nextQuestionURL;
     } else {
-      console.warn('[Flag] nextQuestionURL ist nicht gesetzt.');
+      console.warn('[Flag] nextQuestionURL is not set.');
     }
   }
 
@@ -313,7 +313,7 @@ function initFlagUIImage() {
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl || !inputEl) {
-    console.warn('[Flag(File)] Formular- oder Datei-Input nicht gefunden. Abbruch.');
+    console.warn('[Flag(File)] Form or file input not found. Aborting.');
     return;
   }
 
@@ -324,7 +324,7 @@ function initFlagUIImage() {
     if (typeof nextQuestionURL === 'string' && nextQuestionURL.length > 0) {
       window.location.href = nextQuestionURL;
     } else {
-      console.warn('[Flag(File)] nextQuestionURL ist nicht gesetzt.');
+      console.warn('[Flag(File)] nextQuestionURL is not set.');
     }
   }
 
@@ -436,12 +436,12 @@ function initFlagUIImage() {
 
       const file = inputEl.files?.[0];
       if (!file) {
-        if (errorEl) errorEl.textContent = 'Bitte eine PNG- oder JPEG-Datei auswählen.';
+        if (errorEl) errorEl.textContent = 'Please select a PNG or JPEG file.';
         inputEl.classList.add('fx-input--error');
         return;
       }
       if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
-        if (errorEl) errorEl.textContent = 'Nur PNG oder JPEG Bilder sind erlaubt.';
+        if (errorEl) errorEl.textContent = 'Only PNG or JPEG images are allowed.';
         inputEl.classList.add('fx-input--error');
         return;
       }
@@ -479,7 +479,7 @@ function initFlagUIImage() {
           submitBtn.disabled = false;
 
         } else if (response.status === 400) {
-          if (errorEl) errorEl.textContent = 'Falsche Antwort oder ungültige Datei.';
+          if (errorEl) errorEl.textContent = 'Wrong answer or invalid file.';
           inputEl.classList.remove('fx-input--success');
           inputEl.readOnly = false;
           inputEl.removeAttribute('aria-readonly');
@@ -493,7 +493,7 @@ function initFlagUIImage() {
           const glow = submitBtn.querySelector('.fx-btn-glow');
           if (glow) glow.style.display = '';
         } else {
-          if (errorEl) errorEl.textContent = 'Unerwarteter Fehler. Bitte später erneut versuchen.';
+          if (errorEl) errorEl.textContent = 'Unexpected error. Please try again later.';
           submitBtn.disabled = false;
           submitBtn.classList.remove('fx-btn--next');
           submitBtn.type = 'submit';
@@ -502,7 +502,7 @@ function initFlagUIImage() {
           if (glow) glow.style.display = '';
         }
       } catch (error) {
-        if (errorEl) errorEl.textContent = 'Netzwerkfehler: ' + error;
+        if (errorEl) errorEl.textContent = 'Network error: ' + error;
         submitBtn.disabled = false;
         submitBtn.classList.remove('fx-btn--next');
         submitBtn.type = 'submit';
@@ -546,7 +546,7 @@ function initFlagUICheckBox() {
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl) {
-    console.warn('[Flag] Formular #solutionForm nicht gefunden. Abbruch.');
+    console.warn('[Flag] Form #solutionForm not found. Aborting.');
     return;
   }
 
@@ -555,11 +555,11 @@ function initFlagUICheckBox() {
   let submitLabel = submitBtn ? submitBtn.querySelector('.fx-btn-label') : null;
 
   if (!submitBtn) {
-    console.warn('[Flag] Submit-Button (.fx-btn) im Formular nicht gefunden. Abbruch.');
+    console.warn('[Flag] Submit button (.fx-btn) not found in form. Aborting.');
     return;
   }
   if (!submitLabel) {
-    console.warn('[Flag] .fx-btn-label im Button nicht gefunden. Textwechsel ggf. nicht sichtbar.');
+    console.warn('[Flag] .fx-btn-label not found in button. Text change may not be visible.');
   }
 
   // Optional: Info-Box
@@ -585,7 +585,7 @@ function initFlagUICheckBox() {
     if (typeof nextQuestionURL === 'string' && nextQuestionURL.length > 0) {
       window.location.href = nextQuestionURL;
     } else {
-      console.warn('[Flag] nextQuestionURL ist nicht gesetzt.');
+      console.warn('[Flag] nextQuestionURL is not set.');
     }
   }
 
@@ -662,7 +662,7 @@ function initFlagUICheckBox() {
    */
   function checkStorage(flagKey) {
     if (typeof localStorageKey === 'undefined') {
-      console.warn('[Flag] localStorageKey ist nicht definiert.');
+      console.warn('[Flag] localStorageKey is not defined.');
       applyNeutralUI();
       return false;
     }
@@ -709,17 +709,17 @@ function initFlagUICheckBox() {
         }
       }
       if (!payload || !payload.solution?.length) {
-        if (errorEl) errorEl.textContent = 'Keine Nachrichten gefunden. Bitte Seite aktualisieren oder IDs prüfen.';
+        if (errorEl) errorEl.textContent = 'No messages found. Please refresh page or check IDs.';
         return;
       }
 
       // Optional: Button-Loading
       submitBtn.disabled = true;
-      if (submitLabel) submitLabel.textContent = 'Sende…';
+      if (submitLabel) submitLabel.textContent = 'Sending…';
 
       try {
         if (typeof baseURL === 'undefined' || typeof url === 'undefined') {
-          throw new Error('baseURL oder url ist nicht definiert.');
+          throw new Error('baseURL or url is not defined.');
         }
         const endpoint =
           (baseURL.endsWith('/') ? baseURL : baseURL + '/') +
@@ -797,7 +797,7 @@ function initFlagUITextfield() {
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl || !inputEl) {
-    console.warn('[Flag] Formular-Elemente nicht gefunden. Abbruch.');
+    console.warn('[Flag] Form elements not found. Aborting.');
     return;
   }
 
@@ -808,7 +808,7 @@ function initFlagUITextfield() {
     if (typeof nextQuestionURL === 'string' && nextQuestionURL.length > 0) {
       window.location.href = nextQuestionURL;
     } else {
-      console.warn('[Flag] nextQuestionURL ist nicht gesetzt.');
+      console.warn('[Flag] nextQuestionURL is not set.');
     }
   }
 

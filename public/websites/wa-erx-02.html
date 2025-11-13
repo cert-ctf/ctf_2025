@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/erx-02.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -18,8 +19,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -27,17 +28,17 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept (Aufgabe 2)</h2>
+        <h2 data-i18n="header.title">eRX - E-Rezept (Aufgabe 2)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Flow was!</h3>
-        <p>
+        <h3 data-i18n="content.subtitle">Flow was!</h3>
+        <p data-i18n="content.description1">
           Du hast die erste Hürde gemeistert und dein E‑Rezept erfolgreich analysiert. Jetzt kommt der knifflige Teil:
           Damit die Apotheke den richtigen Prozess startet, muss der passende <code
             class="mi-k">E‑Rezept‑FlowType </code> angegeben werden.
         </p>
-        <p>
+        <p data-i18n="content.description2">
           Klingt trocken? Keine Sorge – Medikamente gibt es nicht "nur" an der Tiki-Bar....
         </p>
         <figure style="text-align: center;">
@@ -46,22 +47,22 @@
         </figure>
         <hr>
 
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
              Irgendwie ist der E-Rezept Typ verloren gegangen. Welcher <code class="mi-k">E‑Rezept‑FlowType</code> muss hier für ein Apothekenpflichtige Arzneimittel eingetragen werden?
           </p>
         </div>
         <br>
         <hr>
 
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
 
 
         <section class="erp-id-card">
           <header class="erp-id-head">
-            <h4 class="erp-id-title">Aufbau</h4>
-            <span class="erp-id-badge">E-Rezept ID</span>
+            <h4 class="erp-id-title" data-i18n="content.structureTitle">Aufbau</h4>
+            <span class="erp-id-badge" data-i18n="content.prescriptionIdBadge">E-Rezept ID</span>
           </header>
 
           <div class="erp-id-body">
@@ -78,15 +79,15 @@
             <div class="erp-id-grid">
               <div class="erp-id-item">
                 <div class="erp-id-label">aaa</div>
-                <div class="erp-id-value">FlowState / E‑Rezept‑Typ</div>
+                <div class="erp-id-value" data-i18n="content.aaaLabel">FlowState / E‑Rezept‑Typ</div>
               </div>
               <div class="erp-id-item">
                 <div class="erp-id-label">bbb.bbb.bbb.bbb</div>
-                <div class="erp-id-value">Fortlaufende Rezeptnummer</div>
+                <div class="erp-id-value" data-i18n="content.bbbLabel">Fortlaufende Rezeptnummer</div>
               </div>
               <div class="erp-id-item">
                 <div class="erp-id-label">cc</div>
-                <div class="erp-id-value">Prüfziffer</div>
+                <div class="erp-id-value" data-i18n="content.ccLabel">Prüfziffer</div>
               </div>
             </div>
           </div>
@@ -96,11 +97,11 @@
 
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
               <input type="text" id="solution" name="solution" placeholder="Flowtype" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -117,7 +118,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="form.infoText">
                 Vielleicht steht etwas darüber in der Spezifikation Datenmodell E-Rezept.
               </p>
             </div>
@@ -135,9 +136,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -163,6 +164,12 @@
 
   <script>
     initFlagUI();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_02'));
   </script>
 
 

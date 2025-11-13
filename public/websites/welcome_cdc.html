@@ -8,6 +8,7 @@
   <!-- Bestehende Styles beibehalten -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -121,8 +122,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -130,22 +131,22 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Cyber Defence Center (CDC)</h2>
+        <h2 data-i18n="header.title">Cyber Defence Center (CDC)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <div class="section-head">Kurzbeschreibung</div>
+        <div class="section-head" data-i18n="content.descriptionTitle">Kurzbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Das Cyber Defense Center (CDC) der gematik sind wir eine zentrale Drehscheibe für Cybersecurity in der digitalen Gesundheitsversorgung. Unser Auftrag: die Telematikinfrastruktur (TI) und die Systeme unserer Partner zuverlässig schützen, Angriffe früh erkennen und wirksam abwehren – rund um die Uhr. 
+            <p data-i18n="content.description">
+              Das Cyber Defense Center (CDC) der gematik sind wir eine zentrale Drehscheibe für Cybersecurity in der digitalen Gesundheitsversorgung. Unser Auftrag: die Telematikinfrastruktur (TI) und die Systeme unserer Partner zuverlässig schützen, Angriffe früh erkennen und wirksam abwehren – rund um die Uhr.
             </p>
-            <div class="section-head">Unsere Mission</div>
+            <div class="section-head" data-i18n="content.missionTitle">Unsere Mission</div>
             <ul>
-              <li>Schutz der TI und angrenzender Systeme vor Cyberbedrohungen</li>
-              <li>Schnelle, koordinierte Reaktion auf Sicherheitsvorfälle</li>
-              <li>Transparente Zusammenarbeit mit Betreibern der TI, der Security Community sowie Behörden </li>
+              <li data-i18n="content.mission1">Schutz der TI und angrenzender Systeme vor Cyberbedrohungen</li>
+              <li data-i18n="content.mission2">Schnelle, koordinierte Reaktion auf Sicherheitsvorfälle</li>
+              <li data-i18n="content.mission3">Transparente Zusammenarbeit mit Betreibern der TI, der Security Community sowie Behörden </li>
             </ul>  
           </div>
           <img
@@ -155,43 +156,43 @@
           />
         </section>
 
-        <div class="section-head">Interview</div>
+        <div class="section-head" data-i18n="content.interviewTitle">Interview</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/slabinski.png" alt="Sebastian Labinski" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.sebastianLabinski">
               Sebastian Labinski<br>Abteilungsleiter CDC
             </figcaption>
           </figure>
 
           <div class="media-text__content">
             <i>
-            <p>Das CDC versteht sich als operative Schaltstelle für die Sicherheit der Telematikinfrastruktur (TI). Das Team vereint Blue Teaming-, Red Teaming- und SecOps Aspekte unter einem Dach, arbeitet datengetrieben mit hohem Automatisierungsgrad und setzt auf klar definierte, standardisierte Prozesse. Ziel ist es, Bedrohungen früh zu erkennen, Incidents koordiniert zu bewältigen und die Resilienz der TI messbar zu erhöhen. </p>
-            <p>Durch kontinuierliches Security Monitoring, Threat Detection, Vulnerability Management sowie gezielte Penetrationstests werden Anomalien, Bedrohungen und Schwachstellen frühzeitig erkannt. Diese Prozesse werden in Zusammenarbeit mit den Anbietern der TI  kontinuierlich weiter ausgebaut.  </p>
-            <p>Die Zusammenarbeit und der Austausch mit den Sicherheitsorganisationen unserer Anbieter aber auch externen Partnern wie CERT-Verbünden, BSI und BfDI und der Security Community ist essenziell, um in einer Welt mit stetig zunehmenden Bedrohungen, den Überblick zu behalten und sich kontinuierlich gemeinsam weiterzuentwickeln.</p>
-            <p>Sicherheit ist Teamsport und unser Anspruch ist es, die richtigen Informationen zur richtigen Zeit an die richtigen Stellen zu bringen.</p>
+            <p data-i18n="content.interview1">Das CDC versteht sich als operative Schaltstelle für die Sicherheit der Telematikinfrastruktur (TI). Das Team vereint Blue Teaming-, Red Teaming- und SecOps Aspekte unter einem Dach, arbeitet datengetrieben mit hohem Automatisierungsgrad und setzt auf klar definierte, standardisierte Prozesse. Ziel ist es, Bedrohungen früh zu erkennen, Incidents koordiniert zu bewältigen und die Resilienz der TI messbar zu erhöhen. </p>
+            <p data-i18n="content.interview2">Durch kontinuierliches Security Monitoring, Threat Detection, Vulnerability Management sowie gezielte Penetrationstests werden Anomalien, Bedrohungen und Schwachstellen frühzeitig erkannt. Diese Prozesse werden in Zusammenarbeit mit den Anbietern der TI  kontinuierlich weiter ausgebaut.  </p>
+            <p data-i18n="content.interview3">Die Zusammenarbeit und der Austausch mit den Sicherheitsorganisationen unserer Anbieter aber auch externen Partnern wie CERT-Verbünden, BSI und BfDI und der Security Community ist essenziell, um in einer Welt mit stetig zunehmenden Bedrohungen, den Überblick zu behalten und sich kontinuierlich gemeinsam weiterzuentwickeln.</p>
+            <p data-i18n="content.interview4">Sicherheit ist Teamsport und unser Anspruch ist es, die richtigen Informationen zur richtigen Zeit an die richtigen Stellen zu bringen.</p>
 
-          </i>    
+          </i>
           </div>
         </section>
 
-        <div class="section-head">Unser Arbeitsansatz</div>
+        <div class="section-head" data-i18n="content.approachTitle">Unser Arbeitsansatz</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>Wir bringen Menschen, Prozesse und Technologien zu einem schlagkräftigen Sicherheitsbetrieb zusammen. In interdisziplinären Teams, die auch Mitarbeitende aus anderen Bereichen der gematik mit einbeziehen, arbeiten wir eng zusammen, nutzen Detection- sowie Response-Tools, folgen etablierten Best Practices und regulatorischen Vorgaben und stimmen sich eng mit Partnern, Herstellern und Institutionen ab. So schaffen wir Klarheit, schnelle Reaktionsfähigkeit und eine verlässlich geschützte Telematikinfrastruktur. </p>
+            <p data-i18n="content.approach">Wir bringen Menschen, Prozesse und Technologien zu einem schlagkräftigen Sicherheitsbetrieb zusammen. In interdisziplinären Teams, die auch Mitarbeitende aus anderen Bereichen der gematik mit einbeziehen, arbeiten wir eng zusammen, nutzen Detection- sowie Response-Tools, folgen etablierten Best Practices und regulatorischen Vorgaben und stimmen sich eng mit Partnern, Herstellern und Institutionen ab. So schaffen wir Klarheit, schnelle Reaktionsfähigkeit und eine verlässlich geschützte Telematikinfrastruktur. </p>
           </div>
           <figure class="media-figure">
             <img class="media-text__image" src="./img/gcert_info_1.png" alt="" />
-            <figcaption class="media-caption">
-              
+            <figcaption class="media-caption" data-i18n="content.emptyCaption">
+
             </figcaption>
           </figure>
         </section>
 
-        <div class="section-head">Vertrauen und Kooperation</div>
+        <div class="section-head" data-i18n="content.cooperationTitle">Vertrauen und Kooperation</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>Als Mitglied des Deutschen CERT-Verbunds sowie des Europäischen CERT Verbundes Trusted Introducer arbeiten wir eng mit nationalen und internationalen Computer Emergency Response Teams zusammen, um Bedrohungsinformationen auszutauschen, Vorfälle koordiniert zu behandeln und Best Practices in der Incident Response zu etablieren. </p>
+            <p data-i18n="content.cooperation">Als Mitglied des Deutschen CERT-Verbunds sowie des Europäischen CERT Verbundes Trusted Introducer arbeiten wir eng mit nationalen und internationalen Computer Emergency Response Teams zusammen, um Bedrohungsinformationen auszutauschen, Vorfälle koordiniert zu behandeln und Best Practices in der Incident Response zu etablieren. </p>
                 <ul>
                 <li><a href="https://www.cert-verbund.de/" target="_blank" rel="noopener">CERT-Verbund</a></li>
                 <li><a href="https://www.trusted-introducer.org/" target="_blank" rel="noopener">Trusted Introducer</a></li>
@@ -199,8 +200,8 @@
           </div>
           <figure class="media-figure">
             <img class="media-text__image2" src="./img/gcert_info_4.png" alt="" />
-            <figcaption class="media-caption">
-  
+            <figcaption class="media-caption" data-i18n="content.emptyCaption">
+
             </figcaption>
           </figure>
         </section>
@@ -221,5 +222,10 @@
   </script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('welcome_cdc'));
+  </script>
 </body>
 </html>

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -17,8 +18,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -26,12 +27,12 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>E-Rezept (eRX)</h2>
+        <h2 data-i18n="header.title">E-Rezept (eRX)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>👥 Willkommen beim Fachteam eRX </h3>
-        <p>
+        <h3 data-i18n="content.welcome">👥 Willkommen beim Fachteam eRX </h3>
+        <p data-i18n="content.intro">
           Das eRezept (eRX) ist die moderne, digitale Verordnung für Medikamente. Es verbindet Praxis, Patient:in und
           Apotheke sicher über die TI – Ende-zu-Ende geschützt, nachvollziehbar und papierlos.
         </p>
@@ -45,32 +46,32 @@
         <br>
         </p>
 
-        <p>
+        <p data-i18n="content.description">
           In der Sub‑Welt erklären wir dir zuerst die eRX‑Bausteine: Authentifizierung, Berechtigungsprüfung,
           Token/Task‑Modelle, DatenMatrix/QR‑Code, und die Einlösungsschnittstellen. Danach löst du produktspezifische
-          Challenges - Teleporter bereit? Los geht’s.
+          Challenges - Teleporter bereit? Los geht's.
         </p>
 
         <ul>
-          <li>Über den Teleporter gelangst du in die Aufgabenwelt rund um eRezept‑Verordnungen, QR‑Codes und
+          <li data-i18n="content.bullet1">Über den Teleporter gelangst du in die Aufgabenwelt rund um eRezept‑Verordnungen, QR‑Codes und
             Einlösungsprozesse.</li>
-          <li>Dort erwartet dich als TI‑Ranger eine interaktive Story mit praxisnahen Aufgaben.</li>
+          <li data-i18n="content.bullet2">Dort erwartet dich als TI‑Ranger eine interaktive Story mit praxisnahen Aufgaben.</li>
         </ul>
 
-        <h3>🧩 Story Line</h3>
-        <p>
+        <h3 data-i18n="content.storyTitle">🧩 Story Line</h3>
+        <p data-i18n="content.story1">
           Du bist im Urlaub, brauchst dringend dein Medikament und kontaktierst deine Praxis über den TI‑Messenger. Kurz
           Bedarf schildern, Identität geprüft – die Verordnung kommt als eRezept sicher in deiner eRezept‑App an. In der
           Ferienapotheke zeigst du das eRezept per App‑Code oder direkt digital vor. Die Apotheke ruft die Verordnung
           ab, prüft sie und gibt dir das Medikament aus: ohne Papier, ohne Umweg, mit klarer Dokumentation.
         </p>
-        <p>
+        <p data-i18n="content.story2">
           Entlang des Urlaubs‑Szenarios lernst du, wie aus Task.Id und AccessCode ein gültiger eRezept‑Token entsteht,
           wie daraus eine normgerechte DatenMatrix generiert wird und wie die Apotheke die Einlösung bestätigt. Keine
           Sorge: Wir spoilern nicht – du entdeckst die Schritte genau dann, wenn du sie brauchst.
         </p>
 
-        <p>
+        <p data-i18n="content.story3">
           Mit TI-Messenger und eRezept wird aus einer Urlaubspanik ein Routineprozess: sichere Kommunikation, schnelle
           Ausstellung, nahtlose Einlösung – genau dann, wenn du es brauchst.
         </p>
@@ -81,7 +82,7 @@
         <div class="info-row">
           <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="info.text">
               Erfahre, wie du im eRezept (eRX) relevante Patientendaten findest, Verordnungen korrekt validierst und
               Berechtigungen prüfst – inklusive Erkennen möglicher Manipulationen. Zusätzlich lernst du, wie
               QR‑Code/DatenMatrix funktionieren und sicher genutzt werden, wie der passende FlowType gewählt wird und
@@ -100,9 +101,9 @@
   </button>
 
   <div id="helpOverlay" hidden>
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h4>Verweise</h4>
-    Verwende folgende Verweise, um weitere Informationen über e-Rezept zu erhalten:
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h4 data-i18n="help.title">Verweise</h4>
+    <span data-i18n="help.text">Verwende folgende Verweise, um weitere Informationen über e-Rezept zu erhalten:</span>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -114,6 +115,11 @@
 
   </script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('welcome_erx'));
+  </script>
 </body>
 
 </html>

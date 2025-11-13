@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navbar.css" />
   <link rel="stylesheet" href="./css/help.css" />
+  <link rel="stylesheet" href="./css/languageSwitcher.css" />
 </head>
 
 <body>
@@ -17,8 +18,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM &amp; TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM &amp; TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
@@ -26,17 +27,18 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>ePA - E-Patientenakte (Aufgabe 3)</h2>
+        <h2 data-i18n="header.title">ePA - E-Patientenakte (Aufgabe 3)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Mix mit Risiko</h3>
-        <p>
-          Nach einem turbulenten Klinikaufenthalt stellen die Mitarbeitenden fest: Er leidet an einer speziellen Phobie, die in Kombination mit seinen verordneten Medikamenten zu unglücklichen Wechselwirkungen geführt hat. 
-        </p> 
-          <p> 
-          Damit andere Behandler schnell, sicher und richtig reagieren können, soll der Befund in die elektronische Patientenakte (ePA) hochgeladen werden. 
-        </p>   
+        <h3 data-i18n="content.subtitle">Mix mit Risiko</h3>
+        <p data-i18n="content.description1">
+          Nach einem turbulenten Klinikaufenthalt stellen die Mitarbeitenden fest: Er leidet an einer speziellen Phobie, die in Kombination mit seinen verordneten Medikamenten zu unglücklichen Wechselwirkungen geführt hat.
+        </p>
+          <p data-i18n="content.description2">
+          Damit andere Behandler schnell, sicher und richtig reagieren können, soll der Befund in die elektronische Patientenakte (ePA) hochgeladen werden.
+        </p>
+          <p data-i18n="content.description3">
           Der Clou: Die entscheidende Diagnose steckt nicht plakativ im Klartext, sondern verborgen in der gelieferten ePA-Upload-Payload – einem ITI‑41 Paket mit eingebettetem PDF. Nur wer den Befund richtig aus der Nachricht extrahiert, kann die Diagnose eindeutig bestimmen und Alfs Behandlung auf Kurs bringen.
         </p>
 
@@ -46,18 +48,18 @@
         </figure>
 
         <hr />
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class="callout-box">
           <p>
-            Finde die korrekte Diagnose aus dem extrahierten PDF, die im bereitgestellten <a href="https://profiles.ihe.net/ITI/TF/Volume2/ITI-41.html" target="_blank" rel="noopener noreferrer">ITI-41</a> Upload-Paket steckt. Analysiere nur die bereitgestellte XML-Payload und bestimme die genaue Diagnose.
+            <span data-i18n="content.missionDescription1">Finde die korrekte Diagnose aus dem extrahierten PDF, die im bereitgestellten</span> <a href="https://profiles.ihe.net/ITI/TF/Volume2/ITI-41.html" target="_blank" rel="noopener noreferrer">ITI-41</a> <span data-i18n="content.missionDescription2">Upload-Paket steckt. Analysiere nur die bereitgestellte XML-Payload und bestimme die genaue Diagnose.</span>
           </p>
         </div>
         <br>
         <hr>
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
 
-        <h4>Technischer Hintergrund</h4>
-        <p>
+        <h4 data-i18n="content.technicalBackgroundTitle">Technischer Hintergrund</h4>
+        <p data-i18n="content.technicalBackground">
           Der Upload erfolgt über die Operation <strong>Provide and Register Document Set‑b</strong>
           (ITI‑41). Dabei kommt es insbesondere darauf an, die Metadaten korrekt zu
           annotieren (z.&nbsp;B. Dokumenttyp, Patient, Autor, Zeitstempel, Klassifikationen),
@@ -72,29 +74,29 @@
           </li>
         </ul>
 
-        <h4>Weitere Hinweise</h4>
+        <h4 data-i18n="content.furtherHintsTitle">Weitere Hinweise</h4>
           <ul>
-            <li>
-              Die Diagnose ist als Klartext im PDF enthalten.                
+            <li data-i18n="content.hint1">
+              Die Diagnose ist als Klartext im PDF enthalten.
             </li>
-            <li>
-              Du benötigst keine speziellen Zugänge, Zertifikate oder Live-Endpoints.                
+            <li data-i18n="content.hint2">
+              Du benötigst keine speziellen Zugänge, Zertifikate oder Live-Endpoints.
             </li>
-            <li>
-              Tools nach Wahl: Base64-Decoder, Terminal, Online-Tool oder kleines Skript.            
+            <li data-i18n="content.hint3">
+              Tools nach Wahl: Base64-Decoder, Terminal, Online-Tool oder kleines Skript.
             </li>
           </ul>
 
 
-        <h4>Bereitgestellte Datei</h4>
+        <h4 data-i18n="content.providedFileTitle">Bereitgestellte Datei</h4>
         <div class="info-box"
           style="border:1px solid #e5e7eb;border-radius:10px;padding:0.9rem 1rem;background:#f9fafb;margin:1rem 0;">
 
           <p style="margin:0.4rem 0 0;">
-            Es wird eine <a href="./files/ePA.wa.3/uploadDocument.xml" target="_blank"
-              rel="noopener noreferrer">Datei</a> bereitgestellt, die die Payload für die SOAP-Anfrage an das
+            <span data-i18n="content.providedFileDescription1">Es wird eine</span> <a href="./files/ePA.wa.3/uploadDocument.xml" target="_blank"
+              rel="noopener noreferrer" data-i18n="content.linkFile">Datei</a> <span data-i18n="content.providedFileDescription2">bereitgestellt, die die Payload für die SOAP-Anfrage an das
             ePA-Aktensystem enthält.
-            Diese folgt der Spezifikation <strong>IHE ITI‑41</strong>.
+            Diese folgt der Spezifikation <strong>IHE ITI‑41</strong>.</span>
           </p>
         </div>
 
@@ -103,7 +105,7 @@
 
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="content.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
               <input type="mail" id="solution" name="solution" placeholder="z. B. Phantom-13" required class="fx-input">
               <button type="submit" class="fx-btn">
@@ -126,8 +128,8 @@
             </figure>
             <div class="info-box">
               <p id="info_text_field" class="bottom_text">
-                Die Antwort ist die Diagnose, aus dem PDF Dokument<br> <br>
-                Anhang: <a href="./files/ePA.wa.3/uploadDocument.xml" target="_blank"
+                <span data-i18n="content.infoText">Die Antwort ist die Diagnose, aus dem PDF Dokument</span><br> <br>
+                <span data-i18n="content.attachment">Anhang:</span> <a href="./files/ePA.wa.3/uploadDocument.xml" target="_blank"
                   rel="noopener noreferrer">uploadDocument.xml</a>
               </p>
             </div>
@@ -145,9 +147,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse der Protokolle:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse der Protokolle:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -173,9 +175,12 @@
   <script src="./js/flagServiceSimple.js"></script>
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     initFlagUI();
+    window.languageSwitcher.init(getPageTranslations('wa_epa_03'));
   </script>
 </body>
 

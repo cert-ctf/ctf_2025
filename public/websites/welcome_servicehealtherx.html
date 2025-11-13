@@ -8,6 +8,7 @@
   <!-- Bestehende Styles beibehalten -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -214,8 +215,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -223,22 +224,22 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>service health erx GmbH</h2>
+        <h2 data-i18n="header.title">service health erx GmbH</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <div class="section-head">Kurzbeschreibung</div>
+        <div class="section-head" data-i18n="content.descriptionTitle">Kurzbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.description1">
               Die service health erx GmbH ist ein spezialisierter Beratungs- und Technologiepartner
               im Bereich Health-Tech mit Sitz in Berlin. Unser interdisziplinäres Team aus Software
               Entwickler:innen, IT-Architekt:innen und Zulassungsexpert:innen entwickelt
               maßgeschneiderte Lösungen für Akteure des deutschen Gesundheitswesens, wie
-              Primärsystemanbieter, Krankenkassen und Kliniken. 
-            </p> 
-            <p>
+              Primärsystemanbieter, Krankenkassen und Kliniken.
+            </p>
+            <p data-i18n="content.description2">
               Dabei verfolgen wir den Ansatz
               alle eigenen Produkte Open Source zu entwickeln. Diese Prinzipien von
               Zusammenarbeit, Transparenz und Innovation durch Wissenstransfer leiten auch
@@ -257,74 +258,78 @@
           /></a>
         </section>
 
-        
 
-        <div class="section-head">Interview</div>
+
+
+        <div class="section-head" data-i18n="content.interviewTitle">Interview</div>
         <section class="media-text media-text--image-left" id="interview">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/service_health_erx_frame.png" alt="Manuel Blechschmidt & David Matthaei" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.manuelDavid">
               Manuel Blechschmidt<br>David Matthaei
             </figcaption>
           </figure>
 
           <div class="media-text__content">
             <i>
-              <p>
+              <p data-i18n="content.interview1">
                 Die service health GmbH beteiligt sich in diesem Jahr zum zweiten Mal am TI Capture
                 The Flag (CTF) der gematik GmbH. Wie im letzten Jahr haben wir gemeinsam mit der
                 gematik technische Aufgaben und Challenges entwickelt, die die Teilnehmenden vor
                 spannende sicherheitsrelevante Rätsel rund um die Telematikinfrastruktur (TI) stellen.
-              </p>  
-              <p>
+              </p>
+              <p data-i18n="content.interview2">
                 Im Sinne unseres Open-Source-Ansatzes, liegt uns als TI-Expert:innen der Austausch
                 mit der Community besonders am Herzen. Wir freuen uns also gemeinsam zu lernen,
                 Wissen zu teilen und die TI noch sicherer zu machen.
               </p>
-            </i>    
+            </i>
           </div>
         </section>
 
-        <div class="section-head">Weitere Informationen</div>
+        <div class="section-head" data-i18n="content.moreInfoTitle">Weitere Informationen</div>
 <section class="product-cards" aria-label="Service-Karten">
   <!-- Karte 1: Telematikinfrastruktur -->
   <article class="product-card" data-tilt style="background:#abbbea;">
-    <h3 class="product-card__title">Telematikinfrastruktur</h3>
+    <h3 class="product-card__title" data-i18n="content.card1Title">Telematikinfrastruktur</h3>
     <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
       <img src="./img/sherx_Telematikinfrastruktur.png" alt="Telematikinfrastruktur">
     </figure>
     <a class="product-card__cta"
        href="https://www.service-health.de/telematikinfrastruktur"
        target="_blank" rel="noopener noreferrer"
-       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;"
+       data-i18n="content.moreLink">
       MEHR
     </a>
   </article>
 
   <!-- Karte 2: FHIR API -->
   <article class="product-card" data-tilt style="background:#97b2e9;">
-    <h3 class="product-card__title">FHIR API</h3>
+    <h3 class="product-card__title" data-i18n="content.card2Title">FHIR API</h3>
     <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
       <img src="./img/sherx_FHIRAPI.png" alt="FHIR API">
     </figure>
     <a class="product-card__cta"
        href="https://www.service-health.de/fhir-api"
        target="_blank" rel="noopener noreferrer"
-       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;"
+       data-i18n="content.moreLink">
       MEHR
     </a>
   </article>
 
   <!-- Karte 3: Telemedizin -->
   <article class="product-card" data-tilt style="background:#92bbef;">
-    <h3 class="product-card__title">Telemedizin</h3>
+    <h3 class="product-card__title" data-i18n="content.card3Title">Telemedizin</h3>
     <figure class="product-card__figure" style="background: transparent; border: none; box-shadow: none;">
       <img src="./img/sherx_Telemedizin.png" alt="Telemedizin">
     </figure>
     <a class="product-card__cta"
        href="https://www.service-health.de/telemedizin"
        target="_blank" rel="noopener noreferrer"
-       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;">
+       style="color:#fff; text-decoration:none; font-weight:800; letter-spacing:.02em; display:inline-flex; align-items:center; gap:6px; padding:0; margin:0 18px 18px; border:none; background:transparent; outline:none;"
+       data-i18n="content.moreLink">
       MEHR
     </a>
   </article>
@@ -390,5 +395,11 @@
   </script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page translations
+    window.languageSwitcher.init(getPageTranslations('welcome_servicehealtherx'));
+  </script>
 </body>
 </html>

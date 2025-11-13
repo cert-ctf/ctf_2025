@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/tim02.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
 </head>
 
@@ -18,8 +19,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -27,32 +28,32 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI-Messenger (Aufgabe 2)</h2>
+        <h2 data-i18n="header.title">TI-Messenger (Aufgabe 2)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
         <p>
-        <h3>Welche Nachricht ist gültig?</h3>
-        Während eines Serverausfalls koordiniert das Team die Behandlung von Patient Heinrich Böll per TI‑Messenger.
+        <h3 data-i18n="content.taskTitle">Welche Nachricht ist gültig?</h3>
+        <span data-i18n="content.scenario">Während eines Serverausfalls koordiniert das Team die Behandlung von Patient Heinrich Böll per TI‑Messenger.
         Der Chefarzt hebt temporär Berechtigungen an, damit das Pflege-Team den Raum für die Reanimation kennzeichnen
-        kann.
+        kann.</span>
         </p>
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="common.yourMission">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="mission.description">
             Identifiziere aus den eingehenden Events die zulässigen Aktionen.
           </p>
         </div>
         <br>
 
         <hr>
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="common.missionInfo">🗒️ Informationen zur Mission</h3>
         <p>
-        <h4>PowerLevel</h4>
-        Power Level (deutsch: „Berechtigungsstufe“ oder „Machtlevel“) bezeichnet das Rechte- und Rollensystem innerhalb
+        <h4 data-i18n="info.powerLevelTitle">PowerLevel</h4>
+        <span data-i18n="info.powerLevelDescription">Power Level (deutsch: „Berechtigungsstufe" oder „Machtlevel") bezeichnet das Rechte- und Rollensystem innerhalb
         eines Raumes (Room). Es handelt sich um ein numerisches Rechtemodell, das festlegt, welche Aktionen ein Nutzer
-        in einem Raum durchführen darf.
+        in einem Raum durchführen darf.</span>
         <ul>
           <li>m.room.topic requires power level ≥ 25</li>
           <li>m.room.name requires power level ≥ 50</li>
@@ -64,17 +65,17 @@
         </p>
 
         <p>
-        <h4>Abarbeitung</h4>
-        <h5>1) Sortierung</h5>
+        <h4 data-i18n="info.processingTitle">Abarbeitung</h4>
+        <h5 data-i18n="info.sortingTitle">1) Sortierung</h5>
         <div style="margin-left: 24px;">
           <ol>
-            <li>timestamp (aufsteigend)</li>
-            <li>Power Level Events zuerst</li>
-            <li>Event-ID (alphabetisch)</li>
+            <li data-i18n="info.sortStep1">timestamp (aufsteigend)</li>
+            <li data-i18n="info.sortStep2">Power Level Events zuerst</li>
+            <li data-i18n="info.sortStep3">Event-ID (alphabetisch)</li>
           </ol>
         </div>
 
-        <h5>2) Berechtigungen prüfen</h5>
+        <h5 data-i18n="info.checkTitle">2) Berechtigungen prüfen</h5>
 
 
         Weitere Informationen: <a href="files/TIM.wa.2/general_description.png" target="_blank">Prozessablauf
@@ -110,7 +111,7 @@
             <div>
 
 
-              <h3>Messages (Drag & Drop zum Sortieren)</h3>
+              <h3 data-i18n="form.messagesTitle">Messages (Drag & Drop zum Sortieren)</h3>
               <div class="message-ui">
                 <div class="mu-container">
 
@@ -263,7 +264,7 @@
 
               <div class="fx-input-wrap">
                 <button type="submit" class="fx-btn">
-                  <span class="fx-btn-label">Submit</span>
+                  <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                   <span class="fx-btn-glow"></span>
                 </button>
               </div>
@@ -283,7 +284,7 @@
               <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
             </figure>
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="info.text">
                 Folge den Schritten aus der Abarbeitungsdefinition
                 <!--<li><a href="files/TIM.wa.2/general_description.png" target="_blank">Prozessablauf Diagramm</a></li>-->
                 <!--<li><a href="files/TIM.wa.2/healthcare_matrix_ctf.json" target="_blank">healthcare_matrix_ctf.json</a>-->
@@ -303,17 +304,17 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Auf der folgenden Seite findest du einen Hinweis dazu:</p>
+    <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+    <h3 data-i18n="help.furtherInfo">Weitere Infos</h3>
+    <p data-i18n="help.text">Auf der folgenden Seite findest du einen Hinweis dazu:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/ti-messenger" target="_blank" rel="noopener">TI-Messenger</a></li>
       <li><a href="https://gemspec.gematik.de/" target="_blank" rel="noopener">Gemspec Startseite</a></li>
       <li><a href="https://matrix.org/" target="_blank" rel="noopener">matrix.org Foundation</a></li>
       <!-- <li><a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_TI-M_Basis/gemSpec_TI-M_Basis_V1.1.2/" target="_blank" rel="noopener">TIM-Spezifikationen</a></li> -->
     </ul>
-    <em>Tipp:</em> Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
-      rel="noopener">Fachportal</a> der gematik zum TI-Messenger.
+    <em data-i18n="help.tip">Tipp:</em> <span data-i18n="help.tipText">Schau mal im <a href="https://fachportal.gematik.de/anwendungen/ti-messenger" target="_blank"
+      rel="noopener">Fachportal</a> der gematik zum TI-Messenger.</span>
   </aside>
 
   <div class="flag-tiles" aria-hidden="true"></div>
@@ -327,9 +328,14 @@
   <script src="./js/flagServiceCheckBox.js"></script>
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     initFlagUICheckBox();
+    // Initialize language switcher with page-specific translations
+    const translations = getPageTranslations('wa_tim_02');
+    window.languageSwitcher.init(translations);
   </script>
 
   <script src="./js/tim02.js"></script>

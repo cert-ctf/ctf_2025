@@ -8,6 +8,7 @@
   <!-- Bestehende Styles beibehalten -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -227,8 +228,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -236,24 +237,23 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Wilkommen bei der gematik</h2>
+        <h2 data-i18n="header.title">Wilkommen bei der gematik</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <div class="section-head">Kurzbeschreibung</div>
+        <div class="section-head" data-i18n="content.descriptionTitle">Kurzbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>Willkommen zu eurem ersten Tag als TI-Ranger im Cyber Defense Center der gematik. Wir freuen uns sehr, euch begrüßen zu dürfen.</p>
+            <p data-i18n="content.description">Willkommen zu eurem ersten Tag als TI-Ranger im Cyber Defense Center der gematik. Wir freuen uns sehr, euch begrüßen zu dürfen.</p>
           </div>
         </section>
 
-        <div class="section-head">Wer wir sind</div>
+        <div class="section-head" data-i18n="content.whoWeAreTitle">Wer wir sind</div>
         <section class="media-text" style="padding: 0px 0;">
           <div class="media-text__content">
-            <p>
-              <p>In der gematik arbeiten die Fachteams mit ihrem umfangreichen Knowhow über E-Health und Informationssicherheit tagtäglich daran, die Infrastruktur für das digitale Gesundheitswesen weiterzuentwickeln. Dafür stehen sie mit mit allen Akteuren, Stakeholdern und Partnern im Gesundheitswesen  im engen Austausch. Die gematik treibt dabei in zentraler Position zum Wohle aller die Digitalisierung weiter voran und gestaltet diese mit.</p>
-            </p>
+            <p data-i18n="content.whoWeAre">
+              In der gematik arbeiten die Fachteams mit ihrem umfangreichen Knowhow über E-Health und Informationssicherheit tagtäglich daran, die Infrastruktur für das digitale Gesundheitswesen weiterzuentwickeln. Dafür stehen sie mit mit allen Akteuren, Stakeholdern und Partnern im Gesundheitswesen  im engen Austausch. Die gematik treibt dabei in zentraler Position zum Wohle aller die Digitalisierung weiter voran und gestaltet diese mit.</p>
           </div>
           <img
             class="media-text__image"
@@ -265,25 +265,25 @@
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/kluedke.png" alt="Katrin Lüdke" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.katrinLuedke">
               Katrin Lüdke<br>Bereichsassistenz Sicherheit
             </figcaption>
           </figure>
 
           <div class="media-text__content">
-            <i>       
-            <p>Sicherheit in der digitalen Medizin beruht auf weit mehr als der reinen Verschlüsselung von Informationen. Sie entsteht durch das harmonische Zusammenspiel zahlreicher Faktoren, die gemeinsam das Fundament für vertrauenswürdige und zukunftsfähige Lösungen bilden.</p>
-            <p>Transparenz, Zusammenarbeit und Interoperabilität sind dabei ebenso entscheidend wie ein gemeinsames Verständnis und das koordinierte Zusammenwirken interdisziplinärer Teams.</p>
-            <p>Nur durch dieses Zusammenspiel entsteht ein ganzheitlicher Sicherheitsansatz, der den Schutz sensibler Daten gewährleistet und zugleich Innovation im Gesundheitswesen fördert.</p>              
+            <i>
+            <p data-i18n="content.interview1">Sicherheit in der digitalen Medizin beruht auf weit mehr als der reinen Verschlüsselung von Informationen. Sie entsteht durch das harmonische Zusammenspiel zahlreicher Faktoren, die gemeinsam das Fundament für vertrauenswürdige und zukunftsfähige Lösungen bilden.</p>
+            <p data-i18n="content.interview2">Transparenz, Zusammenarbeit und Interoperabilität sind dabei ebenso entscheidend wie ein gemeinsames Verständnis und das koordinierte Zusammenwirken interdisziplinärer Teams.</p>
+            <p data-i18n="content.interview3">Nur durch dieses Zusammenspiel entsteht ein ganzheitlicher Sicherheitsansatz, der den Schutz sensibler Daten gewährleistet und zugleich Innovation im Gesundheitswesen fördert.</p>
           </i>
           </div>
         </section>
 
-        <div class="section-head">Wie geht es weiter?</div>
+        <div class="section-head" data-i18n="content.nextStepsTitle">Wie geht es weiter?</div>
         <section class="media-text">
           <div class="media-text__content">
-            
-            <p>Ihr erhaltet hiermit eure Ausweise, mit denen ihr euch größtenteils frei im Gebäude bewegen könnt.</p>
+
+            <p data-i18n="content.nextSteps">Ihr erhaltet hiermit eure Ausweise, mit denen ihr euch größtenteils frei im Gebäude bewegen könnt.</p>
             
             <div class="image-row">
               <img src="./img/kim_ausweis_v2.png" alt="MA-Ausweis 1">
@@ -291,16 +291,16 @@
             </div>
         </section>
 
-        <div class="section-head">Raumplan</div>
+        <div class="section-head" data-i18n="content.floorPlanTitle">Raumplan</div>
           <section class="media-text">
             <div class="media-text__content">
-              <p>Unsere TI_CTF-Kolleginnen und -Kollegen, welche die Mission Control auf der rechten Seite aufgestellt haben freuen sich über euren Besuch. Im Atrium finden aktuell spannende Vorträge rund um die gematik und die Telematikinfrastruktur statt.</p>
-              <p>Verschafft euch am besten zunächst einen Überblick auf unserem Gebäudeplan:</p>
+              <p data-i18n="content.floorPlan1">Unsere TI_CTF-Kolleginnen und -Kollegen, welche die Mission Control auf der rechten Seite aufgestellt haben freuen sich über euren Besuch. Im Atrium finden aktuell spannende Vorträge rund um die gematik und die Telematikinfrastruktur statt.</p>
+              <p data-i18n="content.floorPlan2">Verschafft euch am besten zunächst einen Überblick auf unserem Gebäudeplan:</p>
 
               <!-- Zentriertes Bild -->
               <div class="centered-image">
                 <img id="buildingImg" src="./img/raumplan_clear.png" alt="Gebäudeübersicht">
-                <figcaption class="media-caption">
+                <figcaption class="media-caption" data-i18n="content.clickToExpand">
               <br><i>Klicke auf das Bild zur erweiterten Ansicht</i>
             </figcaption>
               </div>
@@ -315,58 +315,58 @@
           </div>
         </div>
 
-        <div class="section-head">Zonen & Laufwege</div>
+        <div class="section-head" data-i18n="content.zonesTitle">Zonen & Laufwege</div>
           <section class="media-text">
             <div class="media-text__content">
-              <p>Orientiert euch an den farbcodierten Laufwegen. So gelangt ihr schnell und ohne Umwege durch das Gebäude zu den richtigen Stationen:</p>
+              <p data-i18n="content.zonesIntro">Orientiert euch an den farbcodierten Laufwegen. So gelangt ihr schnell und ohne Umwege durch das Gebäude zu den richtigen Stationen:</p>
 
               <ul class="color-list">
                 <li>
                   <span class="bullet b-blue" aria-hidden="true"></span>
-                  <span>Info Bereiche</span>
+                  <span data-i18n="content.zone1">Info Bereiche</span>
                 </li>
                 <li>
                   <span class="bullet b-ggreen" aria-hidden="true"></span>
                   <span>
-                    Leitlinie zu den Aufgaben
+                    <span data-i18n="content.zone2Main">Leitlinie zu den Aufgaben</span>
                     <ul class="color-list sub">
                       <li>
                         <span class="bullet b-orange" aria-hidden="true"></span>
-                        <span>Kommunikation im Medizinwesen (KIM) (2.OG)</span>
+                        <span data-i18n="content.zone2Sub1">Kommunikation im Medizinwesen (KIM) (2.OG)</span>
                       </li>
                       <li>
                         <span class="bullet b-red" aria-hidden="true"></span>
-                        <span>TI‑Messenger (TI-M) (2.OG)</span>
+                        <span data-i18n="content.zone2Sub2">TI‑Messenger (TI-M) (2.OG)</span>
                       </li>
                       <li>
                         <span class="bullet b-green" aria-hidden="true"></span>
-                        <span>ePA für alle (3.OG)</span>
+                        <span data-i18n="content.zone2Sub3">ePA für alle (3.OG)</span>
                       </li>
                       <li>
                         <span class="bullet b-purple" aria-hidden="true"></span>
-                        <span>e‑Rezept (eRX) (3.OG)</span>
+                        <span data-i18n="content.zone2Sub4">e‑Rezept (eRX) (3.OG)</span>
                       </li>
                     </ul>
                   </span>
                 </li>
                 <li>
                   <span class="bullet b-teal" aria-hidden="true"></span>
-                  <span>Leitlinie zum TI‑Gateway (4.OG) (Finale)</span>
+                  <span data-i18n="content.zone3">Leitlinie zum TI‑Gateway (4.OG) (Finale)</span>
                 </li>
               </ul>
             </div>
           </section>
           
 
-          <div class="section-head">Fahrstühle & Teleporter</div>
+          <div class="section-head" data-i18n="content.elevatorsTitle">Fahrstühle & Teleporter</div>
           <section class="media-text">
             <div class="media-text__content">
-              <p>In den Fachbereichen sowie in den Sub‑Welten stehen euch Teleporter zur Verfügung, mit denen ihr spontan zwischen den Stationen wechseln könnt. Für den Wechsel zwischen den Stockwerken empfehlen wir die Nutzung der Fahrstühle.</p>
+              <p data-i18n="content.elevators">In den Fachbereichen sowie in den Sub‑Welten stehen euch Teleporter zur Verfügung, mit denen ihr spontan zwischen den Stationen wechseln könnt. Für den Wechsel zwischen den Stockwerken empfehlen wir die Nutzung der Fahrstühle.</p>
 
               <!-- Zentriertes Bild -->
               <div class="image-row">
                 <img src="./img/info_fahrstuhl.png" alt="Fahrstühle ">
-                <figcaption class="media-caption">
+                <figcaption class="media-caption" data-i18n="content.emptyCaption">
             </figcaption>
               </div>
             </div>
@@ -409,5 +409,11 @@
   })();
 </script>
 
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page translations
+    window.languageSwitcher.init(getPageTranslations('welcome_firstday'));
+  </script>
 </body>
 </html>
