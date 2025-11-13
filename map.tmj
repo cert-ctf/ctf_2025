@@ -2800,6 +2800,33 @@
                  "y":2290.3335
                 }, 
                 {
+                 "height":397.333,
+                 "id":177,
+                 "name":"Jitsi_Stage",
+                 "properties":[
+                        {
+                         "name":"jitsiRoom",
+                         "type":"string",
+                         "value":"stage"
+                        }, 
+                        {
+                         "name":"jitsiRoomAdminTag",
+                         "type":"string",
+                         "value":"speaker"
+                        }, 
+                        {
+                         "name":"openWebsiteClosable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":731.333,
+                 "x":739.3335,
+                 "y":1688.3335
+                }, 
+                {
                  "height":267.333,
                  "id":178,
                  "name":"Jitsi_ehex",
