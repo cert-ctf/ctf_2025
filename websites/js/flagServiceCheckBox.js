@@ -23,6 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Button auf "Next" umschalten ---
   function switchToNextUI() {
+    // Button klonen, um ALLE alten Events und Browser-Submit-Mechaniken zu entfernen
+    const newBtn = submitBtn.cloneNode(true);
+    submitBtn.parentNode.replaceChild(newBtn, submitBtn);
+    submitBtn = newBtn;
+
     submitBtn.classList.add('fx-btn--next');
     submitBtn.type = 'button';
     submitBtn.disabled = false;
@@ -33,14 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = 'Next';
     }
 
-    // Kein extra Icon hinzufügen → Pfeil kommt aus CSS
     const glow = submitBtn.querySelector('.fx-btn-glow');
     if (glow) glow.style.display = 'none';
 
-    // 🟢 Klick-Handler sicher neu setzen
-    submitBtn.removeEventListener('click', handleNextNavigate);
+    // Jetzt sauberen Next-Handler setzen
     submitBtn.addEventListener('click', handleNextNavigate);
-  }
+  } 
 
   // --- Lösung aus Checkboxen ermitteln ---
   function getSolutionFromUI() {
