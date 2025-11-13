@@ -11,7 +11,7 @@ input_file_map_kim     = 'dist/map_kim.tmj'
 input_file_map_tim     = 'dist/map_tim.tmj'
 
 output_folder = "."
-map_count = 96
+map_count = 108
 
 # Hilfsfunktionen
 def read_map(map_name):
