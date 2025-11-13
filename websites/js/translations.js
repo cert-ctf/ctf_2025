@@ -16,7 +16,7 @@ const commonTranslations = {
       furtherInfoText: 'Hier findest du weitere Hinweise und Tools:'
     },
     common: {
-      submit: 'Submit',
+      
       solution: 'Lösung',
       yourMission: 'Deine Mission',
       missionInfo: 'Informationen zur Mission',
@@ -39,7 +39,7 @@ const commonTranslations = {
       furtherInfoText: 'Here you can find additional hints and tools:'
     },
     common: {
-      submit: 'Submit',
+      
       solution: 'Solution',
       yourMission: 'Your Mission',
       missionInfo: 'Mission Information',
@@ -1851,7 +1851,7 @@ const pageTranslations = {
         text: 'Verwende folgende Tools zur Analyse:'
       },
       common: {
-        submit: 'Submit'
+        
       }
     },
     en: {
@@ -1905,7 +1905,7 @@ const pageTranslations = {
         text: 'Use the following tools for analysis:'
       },
       common: {
-        submit: 'Submit'
+        
       }
     }
   },
@@ -1955,7 +1955,7 @@ const pageTranslations = {
         text: 'Verwende folgende Tools zur Analyse:'
       },
       common: {
-        submit: 'Submit'
+        
       }
     },
     en: {
@@ -2002,7 +2002,7 @@ const pageTranslations = {
         text: 'Use the following tools for analysis:'
       },
       common: {
-        submit: 'Submit'
+        
       }
     }
   },
