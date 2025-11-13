@@ -40,8 +40,8 @@ formEl.addEventListener('submit', async function(event) {
         localStorage.setItem(localStorageKey, data.token);
       }
 
-      // Erfolg anzeigen: Token-Text formatiert und navy-blau
-      //apiResponseEl.textContent = `Der Token ist: ${String(data.token ?? '')}.`;
+      // Show success: Token text formatted and navy-blue
+      //apiResponseEl.textContent = `The token is: ${String(data.token ?? '')}.`;
       //apiResponseEl.classList.add('token-text'); // CSS: .token-text { color: navy; font-weight: 700; }
 
       // Box sichtbar lassen

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navbar.css" />
   <link rel="stylesheet" href="./css/help.css" />
+  <link rel="stylesheet" href="./css/languageSwitcher.css" />
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik" />
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM &amp; TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM &amp; TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo" />
@@ -25,14 +26,14 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Kommunikation im Medizinwesen (Aufgabe 3)</h2>
+        <h2 data-i18n="header.title">Kommunikation im Medizinwesen (Aufgabe 3)</h2>
       </header>
 
       <h3 class="card-title"></h3>
 
       <div class="card-body">
-        <h3>Dienstkennungs Bingo</h3>
-        <p>
+        <h3 data-i18n="content.taskTitle">Dienstkennungs Bingo</h3>
+        <p data-i18n="content.taskDescription">
           Frau Dr. Müller möchte ein E-Rezept zu einer Apotheke verschicken, doch die Nachricht geht
           einfach nicht durch! <br />
           Sie erhält eine Meldung, dass die Dienstkennung nicht korrekt sei. Tatsächlich sieht die Nachricht etwas
@@ -40,9 +41,9 @@
         </p>
 
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="mission.title">🛰️ Deine Mission</h3>
         <div class="callout-box">
-          <p>
+          <p data-i18n="mission.description">
             Finde heraus, welche Dienstkennung sie hätte eintragen müssen?
           </p>
         </div>
@@ -50,17 +51,17 @@
 
         <hr />
 
-        <h3>🗒️ Informationen zur Mission </h3>
-        <h4>Dienstkennungen</h4>
+        <h3 data-i18n="info.title">🗒️ Informationen zur Mission </h3>
+        <h4 data-i18n="info.serviceIdTitle">Dienstkennungen</h4>
 
-        <p>
+        <p data-i18n="info.serviceIdDescription">
           Dienstkennungen helfen dem empfangenden System dabei, KIM Nachrichten richtig zuzuordnen und automatisch
           weiterzuverarbeiten.
         </p>
 
-        <p>Die Definition geschieht im Header: <code class="mi-code">X-KIM-Dienstkennung</code>
+        <p data-i18n="info.serviceIdHeader">Die Definition geschieht im Header: <code class="mi-code">X-KIM-Dienstkennung</code>
         </p>
-        <p>
+        <p data-i18n="info.serviceIdHint">
           Hast du dazu nicht schon einmal im Fachportal der gematik etwas gelesen?
         </p>
         <ul>
@@ -75,11 +76,11 @@
 
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
-              <input type="text" id="solution" name="solution" placeholder="Dienstkennung" required class="fx-input">
+              <input type="text" id="solution" name="solution" data-i18n="form.placeholder" placeholder="Dienstkennung" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -98,7 +99,7 @@
             </figure>
 
             <div class="info-box">
-              <p id="info_text_field" class="bottom_text">
+              <p id="info_text_field" class="bottom_text" data-i18n="info.text">
                 Gesucht wird die richtige Dienstkennung für ein <b>E-Rezept</b>. <br />
                 Anhang:
                 <a href="./files/KIM.wa.3/zuweisung.txt" target="_blank" rel="noopener noreferrer">zuweisung.txt</a>
@@ -120,9 +121,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Hier findest du weitere Hinweise und Tools:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Weitere Infos</h3>
+    <p data-i18n="help.text">Hier findest du weitere Hinweise und Tools:</p>
     <ul>
       <li>
         <a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
@@ -149,6 +150,12 @@
 
   <script>
     initFlagUI();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_kim_03'));
   </script>
 </body>
 

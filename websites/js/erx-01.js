@@ -137,13 +137,13 @@ function parseBundle(xml) {
 function parseXMLString(xmlStr) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(xmlStr, 'application/xml');
-  if (doc.querySelector('parsererror')) throw new Error('Ungültige XML-Datei');
+  if (doc.querySelector('parsererror')) throw new Error('Invalid XML file');
   return doc;
 }
 function readFileAsText(file) {
   return new Promise((res, rej) => {
     const r = new FileReader();
-    r.onerror = () => rej('Fehler beim Lesen der Datei');
+    r.onerror = () => rej('Error reading file');
     r.onload = () => res(r.result);
     r.readAsText(file);
   });
@@ -159,7 +159,7 @@ $('fileInput')?.addEventListener('change', async (e) => {
     const txt = await readFileAsText(file);
     const xml = parseXMLString(txt);
     parseBundle(xml);
-alert("Error at parsing - PZN konnte nicht korrekt ausgelesen werden!")
+alert("Error at parsing - PZN could not be read correctly!")
   } catch (err) { showError(String(err)); }
 });
 

@@ -8,6 +8,7 @@
   <!-- Bestehende Styles beibehalten -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -113,8 +114,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -122,15 +123,15 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Security Operations Center (SOC)</h2>
+        <h2 data-i18n="header.title">Security Operations Center (SOC)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <div class="section-head">Kurzbeschreibung</div>
+        <div class="section-head" data-i18n="content.descriptionTitle">Kurzbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.description">
               Das Security Operation Center (SOC) der gematik ist die zentrale Einheit für Erkennung, Bewertung und Reaktion auf Sicherheitsvorfälle. Wir überwachen Systeme rund um die Uhr, identifizieren Bedrohungen frühzeitig und koordinieren Gegenmaßnahmen – mit einem klaren Ziel: die Vertraulichkeit, Integrität und Verfügbarkeit unserer IT sicherzustellen und die Reaktionsfähigkeit der Organisation zu stärken.
             </p>
           </div>
@@ -141,28 +142,28 @@
           />
         </section>
 
-        <div class="section-head">Interview</div>
+        <div class="section-head" data-i18n="content.interviewTitle">Interview</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/isubay.png" alt="Ismail Subay" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.ismailSubay">
               Ismail Subay<br>Incident Responder (SOC)
             </figcaption>
           </figure>
 
           <div class="media-text__content">
-            <i>            
-            <p>Im SOC arbeiten wir täglich an der ruhigen, strukturierten Abwehrlinie unserer Organisation: rund um die Uhr überwachen wir Systeme, triagieren Alarme und reagieren auf Sicherheitsvorfälle. Wir sichten Meldungen im SIEM, prüfen ihre Relevanz und priorisieren sorgfältig, bevor wir – wenn es erforderlich ist – koordinierte Maßnahmen auslösen. Dazu gehören forensische Analysen, gezielte Containment‑Schritte und ein klares Reporting an die Verantwortlichen.</p>
-            <p>Ein gutes SOC lebt von breiten Skills, klaren Prozessen und gelassenen Händen. Jede und jeder bringt eigene Schwerpunkte mit – von Detection Engineering über Forensik bis zu Threat Intelligence – und doch halten wir einen gemeinsamen Wissensstandard, damit Übergaben reibungslos funktionieren und Entscheidungen belastbar bleiben. Regelmäßige Übungen mit praxisnahen Szenarien gehören für uns dazu: Sie schärfen unsere Mustererkennung, helfen unter Zeitdruck ruhig zu bleiben und beschleunigen den Wissenstransfer im Team. Das macht uns im echten Incident spürbar schneller und präziser.</p>
-            <p>Qualität und Transparenz sichern wir mit strukturierter Triage, dokumentierten Playbooks und klaren Kommunikationswegen. Jeder Vorfall hat bei uns einen nachvollziehbaren Lebenszyklus – von der Erkennung über die Analyse und die eingeleiteten Maßnahmen bis zur Nachbetrachtung mit Lessons Learned. So verbessern wir kontinuierlich unsere Use‑Cases und stärken die Resilienz der gesamten Organisation.</p>
+            <i>
+            <p data-i18n="content.interview1">Im SOC arbeiten wir täglich an der ruhigen, strukturierten Abwehrlinie unserer Organisation: rund um die Uhr überwachen wir Systeme, triagieren Alarme und reagieren auf Sicherheitsvorfälle. Wir sichten Meldungen im SIEM, prüfen ihre Relevanz und priorisieren sorgfältig, bevor wir – wenn es erforderlich ist – koordinierte Maßnahmen auslösen. Dazu gehören forensische Analysen, gezielte Containment‑Schritte und ein klares Reporting an die Verantwortlichen.</p>
+            <p data-i18n="content.interview2">Ein gutes SOC lebt von breiten Skills, klaren Prozessen und gelassenen Händen. Jede und jeder bringt eigene Schwerpunkte mit – von Detection Engineering über Forensik bis zu Threat Intelligence – und doch halten wir einen gemeinsamen Wissensstandard, damit Übergaben reibungslos funktionieren und Entscheidungen belastbar bleiben. Regelmäßige Übungen mit praxisnahen Szenarien gehören für uns dazu: Sie schärfen unsere Mustererkennung, helfen unter Zeitdruck ruhig zu bleiben und beschleunigen den Wissenstransfer im Team. Das macht uns im echten Incident spürbar schneller und präziser.</p>
+            <p data-i18n="content.interview3">Qualität und Transparenz sichern wir mit strukturierter Triage, dokumentierten Playbooks und klaren Kommunikationswegen. Jeder Vorfall hat bei uns einen nachvollziehbaren Lebenszyklus – von der Erkennung über die Analyse und die eingeleiteten Maßnahmen bis zur Nachbetrachtung mit Lessons Learned. So verbessern wir kontinuierlich unsere Use‑Cases und stärken die Resilienz der gesamten Organisation.</p>
           </i>
           </div>
         </section>
 
-        <div class="section-head">Prozessbeschreibung</div>
+        <div class="section-head" data-i18n="content.processTitle">Prozessbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.process1">
               Ein SOC ist die operative Schaltstelle der Informationssicherheit. Hier laufen
               sicherheitsrelevante Daten und Ereignisse zusammen – von Echtzeit‑Telemetrie bis Forensik.
               Das SOC überwacht Systeme kontinuierlich, erkennt Anomalien, bewertet Risiken und leitet
@@ -170,14 +171,14 @@
             </p>
 
             <ul>
-              <li>Security Monitoring und Alarm‑Triage</li>
-              <li>Bedrohungserkennung mit SIEM und Detection‑Use‑Cases</li>
-              <li>Incident Response, Containment und Recovery</li>
-              <li>Forensik, Threat Intelligence und Schwachstellen‑Koordination</li>
-              <li>Reporting, Lessons Learned und laufende Verbesserung der Use‑Cases</li>
+              <li data-i18n="content.processItem1">Security Monitoring und Alarm‑Triage</li>
+              <li data-i18n="content.processItem2">Bedrohungserkennung mit SIEM und Detection‑Use‑Cases</li>
+              <li data-i18n="content.processItem3">Incident Response, Containment und Recovery</li>
+              <li data-i18n="content.processItem4">Forensik, Threat Intelligence und Schwachstellen‑Koordination</li>
+              <li data-i18n="content.processItem5">Reporting, Lessons Learned und laufende Verbesserung der Use‑Cases</li>
             </ul>
 
-            <p>
+            <p data-i18n="content.process2">
               Das SOC hält den Betrieb sicher, reagiert schnell und sorgt dafür, dass
               Sicherheitsereignisse strukturiert und wirksam behandelt werden – menschlich,
               transparent und mit Fokus auf das Wesentliche.
@@ -195,5 +196,11 @@
   </script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    // Initialize language switcher with page translations
+    window.languageSwitcher.init(getPageTranslations('welcome_soc'));
+  </script>
 </body>
 </html>

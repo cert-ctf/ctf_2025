@@ -8,6 +8,7 @@
   <!-- Bestehende Styles beibehalten -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Funktionsstyles für Media-Abschnitte & Überschriften: konsistente Abstände */
@@ -113,8 +114,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -122,21 +123,21 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI Capture the Flag (TI_ctf)</h2>
+        <h2 data-i18n="header.title">TI Capture the Flag (TI_ctf)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
 
-        <div class="section-head">Kurzbeschreibung</div>
+        <div class="section-head" data-i18n="content.briefDescriptionTitle">Kurzbeschreibung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.briefDescription1">
               Das TI Capture the Flag (TI_ctf) ist der jährliche Cybersecurity‑Wettbewerb der gematik rund um
               die Telematikinfrastruktur (TI). In einer virtuellen Welt lösen Teams kreative Challenges zu
               Kernbausteinen wie e‑Rezept, ePA, KIM, TI‑Messenger und TI‑Gateway, sammeln Flags und messen sich
               im Team – vom Einsteiger bis zum Profi.
             </p>
-            <p>
+            <p data-i18n="content.briefDescription2">
               Seit 2021 bringt das TI_ctf die Community zusammen: ein offener, spielerischer
               Cybersecurity‑Wettbewerb rund um die Telematikinfrastruktur (TI) – von Einsteiger bis Profi.
             </p>
@@ -148,30 +149,30 @@
           />
         </section>
 
-        <div class="section-head">Interview</div>
+        <div class="section-head" data-i18n="content.interviewTitle">Interview</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/tobias.png" alt="Tobias Kirschke" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.tobiasKirschke">
               Tobias Kirschke<br>Projektleitung TI_ctf
             </figcaption>
           </figure>
 
           <div class="media-text__content">
             <i>
-            <p>Die Idee zu einem eigenen CTF bei der gematik hat uns früh begleitet. Unser CISO, Holm Diening, hat den Gedanken 2001 in unser Team getragen – und der Wunsch, ein offenes, wiederkehrendes Event aufzubauen, ist seitdem stetig gewachsen. Für mich war es die passende Verbindung aus Kreativität und Cyber Security. Von den ersten Schritten bis hin zu einem eigenen Framework durfte ich vieles mitgestalten und dabei auch viel lernen.
-            <p>Seit dem Anfang entwerfe ich die Logos, Storylines und Maps – immer gemeinsam mit einem engagierten Team und mit Liebe zum Detail. Was mich antreibt, ist der Moment, in dem Idee, Technik und Spielspaß zusammenfinden und für die Community ein stimmiges Erlebnis entsteht.</p>
-            <p>Unser Ziel bleibt unverändert: ein öffentliches, jährliches CTF für den deutschsprachigen Raum, welches wir gemeinsam mit unseren Partnern in einer simulierten Umgebung ausrichten. Wir präsentieren unsere Produkte dabei als wechselnde Themenwelt – nicht, um Schwachstellen zu suchen, sondern um Lernen, Austausch und Teamgeist spielerisch zu fördern.</p>
+            <p data-i18n="content.interview1">Die Idee zu einem eigenen CTF bei der gematik hat uns früh begleitet. Unser CISO, Holm Diening, hat den Gedanken 2001 in unser Team getragen – und der Wunsch, ein offenes, wiederkehrendes Event aufzubauen, ist seitdem stetig gewachsen. Für mich war es die passende Verbindung aus Kreativität und Cyber Security. Von den ersten Schritten bis hin zu einem eigenen Framework durfte ich vieles mitgestalten und dabei auch viel lernen.
+            <p data-i18n="content.interview2">Seit dem Anfang entwerfe ich die Logos, Storylines und Maps – immer gemeinsam mit einem engagierten Team und mit Liebe zum Detail. Was mich antreibt, ist der Moment, in dem Idee, Technik und Spielspaß zusammenfinden und für die Community ein stimmiges Erlebnis entsteht.</p>
+            <p data-i18n="content.interview3">Unser Ziel bleibt unverändert: ein öffentliches, jährliches CTF für den deutschsprachigen Raum, welches wir gemeinsam mit unseren Partnern in einer simulierten Umgebung ausrichten. Wir präsentieren unsere Produkte dabei als wechselnde Themenwelt – nicht, um Schwachstellen zu suchen, sondern um Lernen, Austausch und Teamgeist spielerisch zu fördern.</p>
             <!-- <p>„Ziel eines Capture‑the‑Flag‑Events (CTF) ist es, in ein Computersystem einzudringen und die Flag zu finden. Als Security Analysts im Cyber Defense Center nehmen wir selbst gern an CTFs teil, um unser Wissen an spannenden Aufgaben zu erweitern und anzuwenden – und um den Teamgeist intern zu stärken.</p>
-            <p>Unser Ziel ist es, ein öffentliches, jährliches CTF für den deutschsprachigen Raum zu organisieren, in dem wir gemeinsam mit unseren Partnern unsere Produkte in einem spielerischen Hacking‑Wettbewerb präsentieren und Aufgaben in einer simulierten Umgebung bereitstellen. Wir nutzen das Event nicht, um Bugs oder Schwachstellen in unseren Produkten zu finden, unsere Produkte dienen uns vielmehr als jährlich wechselndes Thema.“</p>-->
+            <p>Unser Ziel ist es, ein öffentliches, jährliches CTF für den deutschsprachigen Raum zu organisieren, in dem wir gemeinsam mit unseren Partnern unsere Produkte in einem spielerischen Hacking‑Wettbewerb präsentieren und Aufgaben in einer simulierten Umgebung bereitstellen. Wir nutzen das Event nicht, um Bugs oder Schwachstellen in unseren Produkten zu finden, unsere Produkte dienen uns vielmehr als jährlich wechselndes Thema."</p>-->
           </i>
           </div>
         </section>
 
-        <div class="section-head">Eigenentwicklung</div>
+        <div class="section-head" data-i18n="content.inHouseDevelopmentTitle">Eigenentwicklung</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.inHouseDevelopment">
               Neben unseren Aufgaben im Cyber Defense Center zur 360‑Grad‑Sicherheit in der TI entwickeln wir TI_ctf komplett in Eigenregie: vom Event‑Branding und den Logos über die virtuellen Maps und das Design unserer CTFd‑Plattform bis hin zu allen Challenges und Aufgaben. Alles stammt aus unserem Team – mit viel Liebe zum Detail und Fokus auf einen sicheren, lehrreichen und spielerischen Wettbewerb.
             </p>
           </div>
@@ -191,11 +192,11 @@
         </section>
 
         <br>
-        <div class="section-head">Unser Jahreszyklus: Von der Idee bis zur Flag</div>
+        <div class="section-head" data-i18n="content.annualCycleTitle">Unser Jahreszyklus: Von der Idee bis zur Flag</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Nach dem Event ist vor dem Event: Im Januar starten wir mit frischem Kopf und großer Lust in die neue Runde. Den Auftakt macht die Suche nach einer starken Storyline zum jeweiligen TI‑Produkt – ein roter Faden, der Technik und Spielspaß verbindet. Und doch beginnt es fast immer mit dem Gefühl: Ein Logo und ein Slogan müssen her. Wir lassen uns von Klassikern aus Film und Spiel inspirieren, von dem, womit wir aufgewachsen sind und was uns bis heute begeistert. So entstehen Wortspiele und Anlehnungen, die neugierig machen: Von „Capture the TI‑eRx“ bis zur „KIM & TIM“-Reihe – jedes Jahr fordernd, jedes Jahr fesselnd. Der Moment, in dem Name und Bild zusammenpassen, ist der Startschuss: Jetzt nimmt das Event Form an.
+            <p data-i18n="content.annualCycle">
+              Nach dem Event ist vor dem Event: Im Januar starten wir mit frischem Kopf und großer Lust in die neue Runde. Den Auftakt macht die Suche nach einer starken Storyline zum jeweiligen TI‑Produkt – ein roter Faden, der Technik und Spielspaß verbindet. Und doch beginnt es fast immer mit dem Gefühl: Ein Logo und ein Slogan müssen her. Wir lassen uns von Klassikern aus Film und Spiel inspirieren, von dem, womit wir aufgewachsen sind und was uns bis heute begeistert. So entstehen Wortspiele und Anlehnungen, die neugierig machen: Von „Capture the TI‑eRx" bis zur „KIM & TIM"-Reihe – jedes Jahr fordernd, jedes Jahr fesselnd. Der Moment, in dem Name und Bild zusammenpassen, ist der Startschuss: Jetzt nimmt das Event Form an.
             </p>
           </div>
         </section>
@@ -213,13 +214,13 @@
         </div>
 
         <br>
-        <div class="section-head">Vom Entwurf zum Pixel: Branding in Handarbeit</div>
+        <div class="section-head" data-i18n="content.brandingTitle">Vom Entwurf zum Pixel: Branding in Handarbeit</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Die ersten Entwürfe sind die schwierigsten – so ist das mit guten Ideen. Wir setzen uns zusammen, skizzieren, verwerfen, verbessern. Wir nehmen den Pinsel sprichwörtlich selbst in die Hand und feilen an jeder Linie, bis Form, Farbe und Aussage stimmen. Dieses handgemachte Branding ist unser Versprechen: Wir gehen den extra Schritt. Und wenn das Logo schließlich sitzt, spüren wir dieses Kribbeln: „Dieses Jahr wird wieder großartig.“ Es ist mehr als ein Bild – es ist der Puls des Events, der uns den Ton für alles Weitere vorgibt.            
+            <p data-i18n="content.branding1">
+              Die ersten Entwürfe sind die schwierigsten – so ist das mit guten Ideen. Wir setzen uns zusammen, skizzieren, verwerfen, verbessern. Wir nehmen den Pinsel sprichwörtlich selbst in die Hand und feilen an jeder Linie, bis Form, Farbe und Aussage stimmen. Dieses handgemachte Branding ist unser Versprechen: Wir gehen den extra Schritt. Und wenn das Logo schließlich sitzt, spüren wir dieses Kribbeln: „Dieses Jahr wird wieder großartig." Es ist mehr als ein Bild – es ist der Puls des Events, der uns den Ton für alles Weitere vorgibt.
             </p>
-            <p>
+            <p data-i18n="content.branding2">
               Und dann ist er plötzlich da: der passende Slogan. Nach wochenlanger, manchmal frustrierter Suche fällt er einem beim Teekochen ein – klar, stimmig, genau richtig. Solche goldenen Momente tragen uns durch die langen Phasen des Tüftelns und erinnern daran, warum wir drangeblieben sind: weil aus Beharrlichkeit und Freude am Detail etwas entsteht, das begeistert.
             </p>
           </div>
@@ -248,125 +249,125 @@
         </section>
 
         <br>
-        <div class="section-head">Map‑Design und Story‑Engineering</div>
+        <div class="section-head" data-i18n="content.mapDesignTitle">Map‑Design und Story‑Engineering</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Maps zu gestalten ist, als würde man ein Buch schreiben: Die erste Seite kostet am meisten Mut. Wir investieren Zeit und Energie in Storylines, Aufgaben und einen runden Schliff, damit der Rundgang durch die Welt sich stimmig und spannend anfühlt. Jede Station soll Sinn machen, fair sein, überraschen – für Einsteiger wie für Profis. Wir arbeiten an Räumen, die leiten statt verwirren, und an Aufgaben, die herausfordern statt frustrieren. Unser Ziel ist klar: Ein Erlebnis, das trägt. Wer die Map betritt, soll neugierig werden und am Ende zufrieden sagen: „Das hat sich gelohnt.“            
+            <p data-i18n="content.mapDesign">
+              Maps zu gestalten ist, als würde man ein Buch schreiben: Die erste Seite kostet am meisten Mut. Wir investieren Zeit und Energie in Storylines, Aufgaben und einen runden Schliff, damit der Rundgang durch die Welt sich stimmig und spannend anfühlt. Jede Station soll Sinn machen, fair sein, überraschen – für Einsteiger wie für Profis. Wir arbeiten an Räumen, die leiten statt verwirren, und an Aufgaben, die herausfordern statt frustrieren. Unser Ziel ist klar: Ein Erlebnis, das trägt. Wer die Map betritt, soll neugierig werden und am Ende zufrieden sagen: „Das hat sich gelohnt."
             </p>
           </div>
         </section>
 
-        <div class="section-head">Bereitstellung in WorkAdventure: Automatisiert per API</div>
+        <div class="section-head" data-i18n="content.workadventureTitle">Bereitstellung in WorkAdventure: Automatisiert per API</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Sechs Maps für jedes Team? Per Hand wäre das ein Kraftakt – also automatisieren wir. Mit API‑Calls an WorkAdventure provisionieren wir die Welten reproduzierbar, effizient und sauber. Neben dem Design zeigen wir hier unsere Skript‑ und Integrationsfähigkeiten: Templates, Konfigurationen und QA greifen ineinander, sodass aus einer Idee eine skalierbare Infrastruktur wird. So bleibt die kreative Energie da, wo sie hingehört: in die Inhalte. Den Rest erledigt unsere Automatisierung verlässlich im Hintergrund.            
+            <p data-i18n="content.workadventure">
+              Sechs Maps für jedes Team? Per Hand wäre das ein Kraftakt – also automatisieren wir. Mit API‑Calls an WorkAdventure provisionieren wir die Welten reproduzierbar, effizient und sauber. Neben dem Design zeigen wir hier unsere Skript‑ und Integrationsfähigkeiten: Templates, Konfigurationen und QA greifen ineinander, sodass aus einer Idee eine skalierbare Infrastruktur wird. So bleibt die kreative Energie da, wo sie hingehört: in die Inhalte. Den Rest erledigt unsere Automatisierung verlässlich im Hintergrund.
             </p>
           </div>
         </section>
 
-        <div class="section-head">Teilnehmermanagement: Skalierbar und empathisch</div>
+        <div class="section-head" data-i18n="content.participantManagementTitle">Teilnehmermanagement: Skalierbar und empathisch</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.participantManagement">
               Von der Registrierung bis zur Bestätigung begleiten wir unsere Community mit klaren Prozessen und freundlicher Kommunikation. Wir haben den Weg durchgespielt – von handgeschriebenen E‑Mails bis zur vollautomatischen Einladung. Ab rund 180 Teilnehmern ist Automatisierung nicht mehr Kür, sondern Pflicht: saubere Datenflüsse, belastbare Zustellung, transparente Schritte. Dabei bleibt eines unverändert: Wir kümmern uns. Die Technik skaliert, die Haltung bleibt persönlich.
             </p>
           </div>
           <figure class="media-figure">
             <img class="media-text__image" src="./img/ravci.png" alt="Robin Avci" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.robinAvci">
               Robin Avci<br>Teilnehmermanagement
             </figcaption>
           </figure>
         </section>
 
-        <div class="section-head">Zusammenarbeit mit Partnern: Iterativ und transparent</div>
+        <div class="section-head" data-i18n="content.partnerCollaborationTitle">Zusammenarbeit mit Partnern: Iterativ und transparent</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/cimmisch.png" alt="Christoph Immisch" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.christophImmisch">
               Christoph Immisch<br>Partnermanagement
             </figcaption>
           </figure>
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.partnerCollaboration">
               Frühzeitig gehen wir in den Schulterschluss mit unseren Partnern. In regelmäßigen Abstimmungen teilen wir Ideen, priorisieren gemeinsam und erleben im Wochenrhythmus, wie das Projekt wächst. Anforderungen werden synchronisiert, Inhalte abgestimmt, Tests geplant und Ergebnisse freigegeben. Diese Transparenz schafft Vertrauen – und sorgt dafür, dass das, was wir bauen, wirklich trägt. Am Ende sind es die gemeinsamen Meilensteine, die das Event stark machen.
             </p>
           </div>
         </section>
 
-        <div class="section-head">Kommunikation: Präzise, schnell und mit voller Power</div>
+        <div class="section-head" data-i18n="content.communicationTitle">Kommunikation: Präzise, schnell und mit voller Power</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
-              Frühzeitig verzahnen wir unsere Kampagne mit den Kanälen – von Social Media bis zur Website. Täglich beobachten wir die Anmeldezahlen, erkennen Muster und schärfen die Botschaften nach. Wir testen Hooks, variieren Visuals und justieren die Posting-Zeiten, damit jede Nachricht dort landet, wo sie Wirkung entfaltet.            
+            <p data-i18n="content.communication1">
+              Frühzeitig verzahnen wir unsere Kampagne mit den Kanälen – von Social Media bis zur Website. Täglich beobachten wir die Anmeldezahlen, erkennen Muster und schärfen die Botschaften nach. Wir testen Hooks, variieren Visuals und justieren die Posting-Zeiten, damit jede Nachricht dort landet, wo sie Wirkung entfaltet.
             </p>
-            <p>
-              In kurzen Feedback-Schleifen werden Texte, Bilder und Videos abgestimmt, freigegeben und publiziert. Transparenz ist dabei unser Taktgeber: Was performt, wird skaliert. Was nicht zieht, wird verbessert – sofort und nachvollziehbar. So entsteht ein klarer Rhythmus aus Planen, Messen, Optimieren.            
+            <p data-i18n="content.communication2">
+              In kurzen Feedback-Schleifen werden Texte, Bilder und Videos abgestimmt, freigegeben und publiziert. Transparenz ist dabei unser Taktgeber: Was performt, wird skaliert. Was nicht zieht, wird verbessert – sofort und nachvollziehbar. So entsteht ein klarer Rhythmus aus Planen, Messen, Optimieren.
             </p>
-            <p>
-              Gemeinsam mit dem Team und unseren Partnern erhöhen wir die Sichtbarkeit – iterativ und zielgerichtet. Jeder Post hat einen Zweck, jeder CTA eine Richtung: Aufmerksamkeit in Anmeldungen verwandeln. Am Ende zählt der Effekt: Mehr Reichweite, mehr Engagement, mehr Momentum für ein starkes Event.            
+            <p data-i18n="content.communication3">
+              Gemeinsam mit dem Team und unseren Partnern erhöhen wir die Sichtbarkeit – iterativ und zielgerichtet. Jeder Post hat einen Zweck, jeder CTA eine Richtung: Aufmerksamkeit in Anmeldungen verwandeln. Am Ende zählt der Effekt: Mehr Reichweite, mehr Engagement, mehr Momentum für ein starkes Event.
             </p>
           </div>
           <figure class="media-figure">
             <img class="media-text__image" src="./img/atietjen.png" alt="Andre Tietjen" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.andreTietjen">
               Andre Tietjen<br>Kommunikation
             </figcaption>
           </figure>
         </section>
 
-        <div class="section-head">Aufgabenmanagement: Organisieren, Prüfen, Bereitstellen</div>
+        <div class="section-head" data-i18n="content.taskManagementTitle">Aufgabenmanagement: Organisieren, Prüfen, Bereitstellen</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/ssander_brille.png" alt="Stefan Sander" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.stefanSander">
               Stefan Sander<br>Aufgabenmanagement
             </figcaption>
           </figure>
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.taskManagement1">
               Bei unserem CTF möchten wir Aufgaben entwickeln, die euch zeigen, wie die Produkte der Telematikinfrastruktur wirklich funktionieren. Dafür sprechen wir intensiv mit den Fachteams und tauchen in die Spezifikationen ein – so stellen wir sicher, dass die Aufgaben nicht nur spannend, sondern auch fachlich korrekt sind.
             </p>
-            <p>  
+            <p data-i18n="content.taskManagement2">
               Das Ganze teilen wir auf: Im Workadventure lernt ihr die Grundlagen spielerisch kennen. Im eigentlichen CTF könnt ihr dann mit kniffligeren Aufgaben zeigen, was ihr draufhabt – immer basierend auf dem, was ihr vorher gelernt habt. Außerdem holen wir uns Unterstützung von gematiker:innen und externen Partner:innen, die eigene Aufgaben beisteuern.
             </p>
-            <p> 
+            <p data-i18n="content.taskManagement3">
               Alle Aufgaben prüfen wir sorgfältig und entwickeln passende Lösungswege. So können wir euch während des Events gezielt Hinweise geben, falls ihr mal nicht weiterkommt. Unser Ziel: Ihr sollt Spaß haben, gemeinsam lernen und am Ende ein gutes Gefühl für die TI bekommen.
             </p>
           </div>
         </section>
 
-        <div class="section-head">Challenges mit Know-How und Liebe zum Detail</div>
+        <div class="section-head" data-i18n="content.challengesTitle">Challenges mit Know-How und Liebe zum Detail</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.challenges1">
               Unsere Challenges für dieses Jahr entstehen direkt aus der TI‑Praxis: passend zu Produkt und Spezifikation, kuratiert von Spezialistinnen und Spezialisten mit jahrelanger CTF‑Erfahrung. </p>
             </p>
-            <p>
-              2025 sind wir stark aufgestellt: Mit echter Begeisterung für Cybersecurity und tiefem Know‑how in e‑Rezept, ePA, KIM, TI‑Messenger und TI‑Gateway. Wir entwickeln die Umgebungen stetig weiter und liefern realistische, lustige und anspruchsvolle Aufgaben nah am Wesen der Telematikinfrastruktur.            
+            <p data-i18n="content.challenges2">
+              2025 sind wir stark aufgestellt: Mit echter Begeisterung für Cybersecurity und tiefem Know‑how in e‑Rezept, ePA, KIM, TI‑Messenger und TI‑Gateway. Wir entwickeln die Umgebungen stetig weiter und liefern realistische, lustige und anspruchsvolle Aufgaben nah am Wesen der Telematikinfrastruktur.
             </p>
           </div>
           <figure class="media-figure">
             <img class="media-text__image" src="./img/wmroczowski_brille.png" alt="Willy Mroczowski" />
-            <figcaption class="media-caption">
+            <figcaption class="media-caption" data-i18n="team.willyMroczowski">
               Willy Mroczowski<br>Aufgabenmanagement
             </figcaption>
           </figure>
         </section>
 
-        <div class="section-head">Fünf Jahre TI_ctf: Dankbarkeit und Antrieb</div>
+        <div class="section-head" data-i18n="content.fiveYearsTitle">Fünf Jahre TI_ctf: Dankbarkeit und Antrieb</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.fiveYears">
               Fünf Jahre TI_ctf bedeuten: viel Erfahrung, viele Geschichten und eine wachsende Beliebtheit, über die wir uns ehrlich freuen. Wir machen das für euch – für die Community, die Lernfreude, den Teamgeist. Wir lieben die Idee eines eigenen CTF‑Events und leben sie jedes Jahr aufs Neue. Unser Dank gilt allen Teilnehmerinnen und Teilnehmern, die diesen Traum möglich machen. Und unser Antrieb bleibt: besser werden, neugierig bleiben, mit Leidenschaft gestalten. Das nächste Jahr beginnt im Januar – und wir können es kaum erwarten.
             </p>
           </div>
         </section>
 
         <p class="note">
-          Mehr Informationen: <a href="https://ctf.gematik.de/" target="_blank" rel="noopener">ctf.gematik.de</a>
+          <span data-i18n="content.moreInfo">Mehr Informationen:</span> <a href="https://ctf.gematik.de/" target="_blank" rel="noopener">ctf.gematik.de</a>
         </p>
       </div>
     </section>
@@ -381,5 +382,10 @@
   </script>
   <script src="./js/help.js"></script>
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('hello_tictf'));
+  </script>
 </body>
 </html>

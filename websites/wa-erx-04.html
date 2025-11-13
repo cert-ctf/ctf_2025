@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/erx-02.css">
   <link rel="stylesheet" href="./css/erx-04.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -19,8 +20,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -28,27 +29,27 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept (Aufgabe 4)</h2>
+        <h2 data-i18n="header.title">eRX - E-Rezept (Aufgabe 4)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>Der etwas andere QR Code</h3>
+        <h3 data-i18n="content.subtitle">Der etwas andere QR Code</h3>
 
-        <p>
-          Aus deinem <code class="mi-k" style="color:#065f46;"">E‑Rezept‑Token</code>  entsteht eine <code class="
+        <p data-i18n="content.description1">
+          Aus deinem <code class="mi-k" style="color:#065f46;">E‑Rezept‑Token</code>  entsteht eine <code class="
             mi-k">DatenMatrix</code>, die jede Strand‑Apotheke flott scannen kann. Sauber, normgerecht und ohne
           Sonnenbrand - einmal generieren, überall einlösen.
-        <p><b>Compliance:</b> Beachte die gematik‑Spezifikation und die ISO‑Norm für DataMatrix.</p>
+        <p data-i18n="content.description2"><b>Compliance:</b> Beachte die gematik‑Spezifikation und die ISO‑Norm für DataMatrix.</p>
         </p>
         </p>
 
         <section class="erp-id-card">
           <header class="erp-id-head">
-            <h4 class="erp-id-title">Basis</h4>
+            <h4 class="erp-id-title" data-i18n="content.basisTitle">Basis</h4>
 
             <div style="display:flex; align-items:center; gap:.5rem;">
 
-              <button id="copyTokenBtn" type="button" style="background:rgba(200, 200, 35, 0.12);
+              <button id="copyTokenBtn" type="button" data-i18n="content.copyButton" style="background:rgba(200, 200, 35, 0.12);
                      color:#9c6926;
                      border:1px solid rgba(16,185,129,.35);
                      padding:.35rem .6rem;
@@ -57,7 +58,7 @@
                      font-size:.9rem;">
                 Kopieren
               </button>
-              <span class="erp-id-badge">E‑Rezept‑Token</span>
+              <span class="erp-id-badge" data-i18n="content.tokenBadge">E‑Rezept‑Token</span>
             </div>
           </header>
 
@@ -73,9 +74,9 @@
 
 
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class=" callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
             Erzeuge aus dem Token‑String eine DatenMatrix, die den gematik‑Spezifikationen für das <code
               class="mi-code">E‑Rezept‑Datenmodell</code> entspricht und konform zu <code
               class="mi-code">ISO/IEC 16022:2006</code> ist.
@@ -85,33 +86,33 @@
         <hr>
 
 
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
 
         <section class="mission-info-card">
           <header class="mission-info-head">
-            <h4 class="mission-info-title">Compliance</h4>
-            <span class="mission-info-badge">DataMatrix · E‑Rezept</span>
+            <h4 class="mission-info-title" data-i18n="content.complianceTitle">Compliance</h4>
+            <span class="mission-info-badge" data-i18n="content.complianceBadge">DataMatrix · E‑Rezept</span>
           </header>
 
           <div class="mission-info-body">
             <!-- Spezifikationen und Normen -->
-            <h5 class="mission-info-subtitle">Spezifikationen und Normen</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.specificationsTitle">Spezifikationen und Normen</h5>
             <ul class="mission-info-list">
-              <li>
+              <li data-i18n="content.specItem1">
                 E‑Rezept Datenmodell, Abschnitt 2.3.1: Datenträger/DataMatrix
                 <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#2.3.1" target="_blank"
                   rel="noopener noreferrer">
                   gemSpec DM eRp 2.3.1
                 </a>
               </li>
-              <li>
+              <li data-i18n="content.specItem2">
                 Anforderungen an den Einlösetoken/DataMatrix
                 <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#A_19543" target="_blank"
                   rel="noopener noreferrer">
                   A_19543
                 </a>
               </li>
-              <li>
+              <li data-i18n="content.specItem3">
                 DataMatrix‑Standard:
                 <a href="https://www.iso.org/standard/44255.html" target="_blank" rel="noopener noreferrer">
                   ISO/IEC 16022:2006
@@ -120,37 +121,37 @@
             </ul>
 
             <!-- Inhalt des Codes -->
-            <h5 class="mission-info-subtitle">Inhalt des Codes (Token)</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.tokenContentTitle">Inhalt des Codes (Token)</h5>
             <ul class="mission-info-list">
-              <li>
+              <li data-i18n="content.tokenItem1">
                 Nutze den exakten Token‑String aus Aufgabe 3
               </li>
-              <li>Keine Zeilenumbrüche, keine zusätzlichen Leerzeichen, <strong>UTF‑8</strong>‑Kodierung</li>
+              <li data-i18n="content.tokenItem2">Keine Zeilenumbrüche, keine zusätzlichen Leerzeichen, <strong>UTF‑8</strong>‑Kodierung</li>
             </ul>
 
             <!-- Technische Umsetzung -->
-            <h5 class="mission-info-subtitle">Technische Umsetzung (Empfehlungen)</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.technicalImplementationTitle">Technische Umsetzung (Empfehlungen)</h5>
             <ul class="mission-info-list">
-              <li>Symbol: <strong>DataMatrix ECC 200</strong> (entspricht ISO/IEC 16022:2006)</li>
-              <li>Fehlerkorrektur: ECC 200 ist integriert; Modulgröße für Druck z. B. <strong>0.6–1.0 mm</strong></li>
-              <li>Quiet Zone: mindestens <strong>1 Modul</strong> (empfohlen <strong>2–4</strong>), hell (weiß)</li>
-              <li>Kontrast: dunkle Module auf hellem Hintergrund, keine Muster im Hintergrund</li>
-              <li>Größe: Smartphone‑Anzeige <strong>240–512 px</strong>; Druck z. B. <strong>25–35 mm</strong>
+              <li data-i18n="content.technicalItem1">Symbol: <strong>DataMatrix ECC 200</strong> (entspricht ISO/IEC 16022:2006)</li>
+              <li data-i18n="content.technicalItem2">Fehlerkorrektur: ECC 200 ist integriert; Modulgröße für Druck z. B. <strong>0.6–1.0 mm</strong></li>
+              <li data-i18n="content.technicalItem3">Quiet Zone: mindestens <strong>1 Modul</strong> (empfohlen <strong>2–4</strong>), hell (weiß)</li>
+              <li data-i18n="content.technicalItem4">Kontrast: dunkle Module auf hellem Hintergrund, keine Muster im Hintergrund</li>
+              <li data-i18n="content.technicalItem5">Größe: Smartphone‑Anzeige <strong>240–512 px</strong>; Druck z. B. <strong>25–35 mm</strong>
                 Kantenlänge</li>
             </ul>
 
             <!-- Praxishinweise -->
-            <h5 class="mission-info-subtitle">Praxis am Strand</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.practicalTitle">Praxis am Strand</h5>
             <ul class="mission-info-list">
-              <li>Generiere die DatenMatrix, teste sie mit einer Scanner‑App und zeige sie in der Strand‑Apotheke vor
+              <li data-i18n="content.practicalItem1">Generiere die DatenMatrix, teste sie mit einer Scanner‑App und zeige sie in der Strand‑Apotheke vor
               </li>
-              <li>Achte darauf, dass die Anzeige hell genug und nicht spiegelnd ist</li>
+              <li data-i18n="content.practicalItem2">Achte darauf, dass die Anzeige hell genug und nicht spiegelnd ist</li>
             </ul>
           </div>
         </section>
 
-        <h4>DataMatrix generieren</h4>
-        <p>
+        <h4 data-i18n="content.generatorTitle">DataMatrix generieren</h4>
+        <p data-i18n="content.generatorDescription">
           Du kannst einen DataMatrix Generator verwenden, um die Datenmatrix zu erstellen. <br>Zum Beispiel diesen hier:
         <ul>
           <li><a href="https://barcode.tec-it.com/de/DataMatrix" target="_blank" rel="noopener noreferrer">DataMatrix
@@ -161,14 +162,14 @@
         <hr>
 
         <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
-          <h3 for="solution" class="fx-label">🎯 Lösung (Upload Solution File)</h3>
+          <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung (Upload Solution File)</h3>
 
           <div class="fx-input-wrap">
             <input type="file" id="solutionFile" name="solutionFile" accept=".png,image/png" required
               class="fx-input" />
 
             <button type="submit" class="fx-btn ">
-              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
               <span class="fx-btn-glow"></span>
             </button>
           </div>
@@ -188,7 +189,7 @@
             <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
           </figure>
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="form.infoText">
               Erstelle eine E-Rezept DatenMatrix wie du ihn von deiner Ärztin erhalten würdest. Verwende dazu den String
               aus der vorherigen Aufgabe.
             </p>
@@ -207,9 +208,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -233,6 +234,12 @@
 
   <script>
     initFlagUIImage();
+  </script>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_04'));
   </script>
 
 

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/help.css">
+    <link rel="stylesheet" href="./css/languageSwitcher.css">
 
     <style>
       /* Lightbox Overlay */
@@ -77,23 +78,23 @@
         <div class="nav-left">
           <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
           <div class="nav-title">
-            <h6>Die Abenteuer von KIM & TIM</h6>
-            <h4>Kapt. III – Guardians of the TI</h4>
+            <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+            <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
           </div>
         </div>
         <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
       </nav>
       <section class="card">
         <header class="card-header">
-          <h2>ePA - E-Patientenakte</h2>
+          <h2 data-i18n="header.title">ePA - E-Patientenakte</h2>
         </header>
         <h3 class="card-title"></h3>
         <div class="card-body">
-          <h3>Was ist das?</h3>
-          <p>
-            In der <b>elektronischen Patientenakte (ePA) „für alle“</b> werden medizinisch relevante Informationen strukturiert gebündelt – von Befunden und Medikation bis hin zu Entlassbriefen. Dadurch sind die Daten im Versorgungsalltag unmittelbar verfügbar und können gezielt in Entscheidungen einfließen. 
+          <h3 data-i18n="content.whatIsTitle">Was ist das?</h3>
+          <p data-i18n="content.whatIsDescription1">
+            In der <b>elektronischen Patientenakte (ePA) „für alle"</b> werden medizinisch relevante Informationen strukturiert gebündelt – von Befunden und Medikation bis hin zu Entlassbriefen. Dadurch sind die Daten im Versorgungsalltag unmittelbar verfügbar und können gezielt in Entscheidungen einfließen.
           </p>
-          <p>
+          <p data-i18n="content.whatIsDescription2">
             Im Behandlungskontext ist der Zugriff für beteiligte Leistungserbringer ohne erneute Freigabe zulässig, sofern kein dokumentierter Widerspruch vorliegt. Das entlastet Prozesse, verhindert Medienbrüche und verbessert die Kontinuität der Versorgung.
           </p>
           <div style="position:relative;width:100%;padding-bottom:56.25%;background:#000;overflow:hidden;border-radius:8px;">
@@ -108,21 +109,21 @@
         </div>
 
           <hr>
-          <h3>eML - elektronische Medikationsliste</h3>
-          <p>
-            Die <b>elektronische Medikationsliste (eML)</b> stellt eine strukturierte Übersicht über Verordnungs- und Ausgabedaten aus dem E-Rezept-Fachdienst bereit. 
+          <h3 data-i18n="content.emlTitle">eML - elektronische Medikationsliste</h3>
+          <p data-i18n="content.emlDescription">
+            Die <b>elektronische Medikationsliste (eML)</b> stellt eine strukturierte Übersicht über Verordnungs- und Ausgabedaten aus dem E-Rezept-Fachdienst bereit.
           </p>
           <figure>
             <img id="emlImage" class="img-rounded-shadow" src="./img/eml.png" alt="Elektronische Medikationsliste" style="cursor: zoom-in;">
-            <figcaption class="visually-hidden">Zur Vergrößerung klicken</figcaption>
+            <figcaption class="visually-hidden" data-i18n="content.clickToEnlarge">Zur Vergrößerung klicken</figcaption>
           </figure>
           <br>
           <hr>
-          <h3>FHIR</h3>
-          <p>
+          <h3 data-i18n="content.fhirTitle">FHIR</h3>
+          <p data-i18n="content.fhirDescription1">
             <b>FHIR</b> steht für "Fast Healthcare Interoperability Resources" und ist ein Standard für den Austausch von Gesundheitsinformationen. <b>FHIR</b> wurde entwickelt, um die Interoperabilität zwischen verschiedenen Gesundheitssystemen zu verbessern und den Austausch von Daten zu erleichtern.
           </p>
-          <p>
+          <p data-i18n="content.fhirDescription2">
             Es basiert auf modernen Web-Technologien wie RESTful APIs und verwendet standardisierte Datenformate wie JSON, XML und RDF.
           </p>
           <figure>
@@ -138,9 +139,9 @@
       <span class="visually-hidden" aria-hidden="true">?</span>
     </button>
     <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-      <button class="close-btn" aria-label="Schließen">&times;</button>
-      <h3>Weiterführende Informationen</h3>
-      <p>Verwende folgende Webseiten zur Unterstützung:</p>
+      <button class="close-btn" data-i18n="help.close" aria-label="Schließen">&times;</button>
+      <h3 data-i18n="help.title">Weiterführende Informationen</h3>
+      <p data-i18n="help.text">Verwende folgende Webseiten zur Unterstützung:</p>
       <ul>
         <li><a href="https://www.gematik.de/anwendungen/epa-fuer-alle" target="_blank" rel="noopener">ePA für alle</a></li>
         <li><a href="https://fachportal.gematik.de/anwendungen/elektronische-patientenakte-fuer-alle" target="_blank" rel="noopener">Fachportal <b>ePA</b> für alle</a></li>
@@ -163,6 +164,11 @@
       });
     </script>
     <script src="./js/help.js"></script>
+    <script src="./js/translations.js"></script>
+    <script src="./js/languageSwitcher.js"></script>
+    <script>
+      window.languageSwitcher.init(getPageTranslations('wa_epa_00'));
+    </script>
 
     <script>
 (function() {

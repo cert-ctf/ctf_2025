@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./css/help.css">
   <link rel="stylesheet" href="./css/erx-02.css">
   <link rel="stylesheet" href="./css/erx-04.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 
 <body>
@@ -19,8 +20,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -28,38 +29,38 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>eRX - E-Rezept (Aufgabe 5)</h2>
+        <h2 data-i18n="header.title">eRX - E-Rezept (Aufgabe 5)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <p>
+        <p data-i18n="content.description1">
           Strandtag gerettet: Dein Ibuprofen ist abgeholt, die Sonne scheint, die Wellen rauschen. Jetzt fehlt nur der
           letzte Schritt, damit alles offiziell ist: Die Apotheke muss bestätigen, dass dein E‑Rezept tatsächlich
           eingelöst wurde.
         </p>
-        <p>
+        <p data-i18n="content.description2">
           Keine Sorge – mit einem kurzen Call an den passenden Endpunkt holst du dir die <code
             class="mi-code">Transaktions‑ID</code> und schließt die Mission ab.
         </p>
 
 
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="content.missionTitle">🛰️ Deine Mission</h3>
         <div class=" callout-box">
-          <p>
+          <p data-i18n="content.missionDescription">
             Fordere die Transaktions‑ID der Apotheke an, um die Einlösung des E‑Rezepts zu bestätigen.
         </div>
         <br>
         <hr>
-        <h3>🗒️ Informationen zur Mission</h3>
+        <h3 data-i18n="content.infoTitle">🗒️ Informationen zur Mission</h3>
 
         <section class="erp-id-card2" >
           <header class="erp-id-head">
-            <h4 class="erp-id-title">Basis</h4>
+            <h4 class="erp-id-title" data-i18n="content.basisTitle">Basis</h4>
 
             <div style="display:flex; align-items:center; gap:.5rem;">
 
-              <button id="copyTokenBtn" type="button" style="background:rgba(200, 200, 35, 0.12);
+              <button id="copyTokenBtn" type="button" data-i18n="content.copyButton" style="background:rgba(200, 200, 35, 0.12);
                      color:#9c6926;
                      border:1px solid rgba(16,185,129,.35);
                      padding:.35rem .6rem;
@@ -68,7 +69,7 @@
                      font-size:.9rem;">
                 Kopieren
               </button>
-              <span class="erp-id-badge">E‑Rezept‑Token</span>
+              <span class="erp-id-badge" data-i18n="content.tokenBadge">E‑Rezept‑Token</span>
             </div>
           </header>
 
@@ -86,14 +87,14 @@
 
         <section class="mission-info-card">
           <header class="mission-info-head">
-            <h4 class="mission-info-title">Bestätigung der Einlösung</h4>
-            <span class="mission-info-badge">Transaktions‑ID via $eu‑close</span>
+            <h4 class="mission-info-title" data-i18n="content.confirmationTitle">Bestätigung der Einlösung</h4>
+            <span class="mission-info-badge" data-i18n="content.confirmationBadge">Transaktions‑ID via $eu‑close</span>
           </header>
 
           <div class="mission-info-body">
-            <h5 class="mission-info-subtitle">Spezifikation</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.specificationTitle">Spezifikation</h5>
             <ul class="mission-info-list">
-              <li>
+              <li data-i18n="content.specItem1">
                 Spezifikation des E‑Rezept‑Dokuments:
                 <a href="https://gemspec.gematik.de/docs/gemSpec/gemSpec_DM_eRp/latest/#741-e-rezept-dokument"
                   target="_blank" rel="noopener noreferrer">
@@ -102,34 +103,34 @@
               </li>
             </ul>
             <!-- Voraussetzungen -->
-            <h5 class="mission-info-subtitle">Voraussetzungen</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.prerequisitesTitle">Voraussetzungen</h5>
             <ul class="mission-info-list">
-              <li>FQDN der Apotheke/Dispense‑Instanz</li>
-              <li>Task.id deines E‑Rezepts (z. B. aus dem Token)</li>
-              <li>Ggf. erforderliche Authentisierung/Headers gemäß Umgebung</li>
+              <li data-i18n="content.prerequisite1">FQDN der Apotheke/Dispense‑Instanz</li>
+              <li data-i18n="content.prerequisite2">Task.id deines E‑Rezepts (z. B. aus dem Token)</li>
+              <li data-i18n="content.prerequisite3">Ggf. erforderliche Authentisierung/Headers gemäß Umgebung</li>
             </ul>
 
             <!-- Request -->
-            <h5 class="mission-info-subtitle">Request</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.requestTitle">Request</h5>
             <ul class="mission-info-list">
-              <li>URL: <code>https://escapecapitalism.space/Task/&lt;id&gt;/$eu-close</code></li>
-              <li>Methode: <strong>POST</strong> (oder <strong>GET</strong>)</li>
-              <li>Inhalt: Kein Body nötig, sofern Spezifikation und Umgebung dies so vorsehen</li>
+              <li data-i18n="content.requestItem1">URL: <code>https://5af8d53e05.ctfd.gematik.de/Task/&lt;id&gt;/$eu-close</code></li>
+              <li data-i18n="content.requestItem2">Methode: <strong>POST</strong> (oder <strong>GET</strong>)</li>
+              <li data-i18n="content.requestItem3">Inhalt: Kein Body nötig, sofern Spezifikation und Umgebung dies so vorsehen</li>
             </ul>
 
             <!-- Erfolgskriterium -->
-            <h5 class="mission-info-subtitle">Erfolgskriterium</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.successCriteriaTitle">Erfolgskriterium</h5>
             <ul class="mission-info-list">
-              <li>Response enthält die <strong>Transaktions‑ID</strong></li>
-              <li>Mit dieser ID ist der Abschluss dokumentiert und das Rezept als <strong>dispensiert</strong> markiert
+              <li data-i18n="content.successCriteriaItem1">Response enthält die <strong>Transaktions‑ID</strong></li>
+              <li data-i18n="content.successCriteriaItem2">Mit dieser ID ist der Abschluss dokumentiert und das Rezept als <strong>dispensiert</strong> markiert
               </li>
             </ul>
 
             <!-- Strand-Praxis -->
-            <h5 class="mission-info-subtitle">Strand‑Praxis</h5>
+            <h5 class="mission-info-subtitle" data-i18n="content.practicalTitle">Strand‑Praxis</h5>
             <ul class="mission-info-list">
-              <li>Führe den Call aus, prüfe die Transaktions‑ID, bewahre sie sicher auf (Screenshot/Notiz)/li>
-              <li>Bei schlechter Verbindung: Wiederholen oder auf WLAN der Strandbar ausweichen – Hauptsache, die
+              <li data-i18n="content.practicalItem1">Führe den Call aus, prüfe die Transaktions‑ID, bewahre sie sicher auf (Screenshot/Notiz)</li>
+              <li data-i18n="content.practicalItem2">Bei schlechter Verbindung: Wiederholen oder auf WLAN der Strandbar ausweichen – Hauptsache, die
                 Bestätigung kommt durch</li>
             </ul>
           </div>
@@ -139,11 +140,11 @@
 
         <div>
           <form id="solutionForm" class="fx-form">
-            <h3 for="solution" class="fx-label">🎯 Lösung</h3>
+            <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung</h3>
             <div class="fx-input-wrap">
               <input type="mail" id="solution" name="solution" placeholder="12345678910" required class="fx-input">
               <button type="submit" class="fx-btn">
-                <span class="fx-btn-label">Submit</span>
+                <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
                 <span class="fx-btn-glow"></span>
               </button>
             </div>
@@ -162,7 +163,7 @@
             <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
           </figure>
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="form.infoText">
               Gib die Transaktions‑ID an, die du beim Aufrufen des Endpunkts erhältst.
             </p>
           </div>
@@ -182,9 +183,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Überschrift</h3>
-    <p>Verwende folgende Tools zur Analyse:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Überschrift</h3>
+    <p data-i18n="help.text">Verwende folgende Tools zur Analyse:</p>
     <ul>
       <li><a href="https://www.gematik.de/anwendungen/e-rezept" target="_blank" rel="noopener">E-Rezept</a></li>
       <li><a href="https://fachportal.gematik.de/anwendungen/elektronisches-rezept" target="_blank"
@@ -204,13 +205,22 @@
   <script src="./js/flagServiceHelper.js"></script>
   <script src="./js/help.js"></script>
   <script src="./js/fireworks.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       (function finalUIController() {
         const TOKEN_KEY = 'erx-wa-solution';
         const TOKEN_PREFIX = 'eRX Token: ';
-        const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+        const getHintHTML = () => {
+          const lang = window.languageSwitcher?.getCurrentLanguage() || 'de';
+          const hints = {
+            de: 'schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe',
+            en: 'write down the token, you need it for the final TI Gateway task'
+          };
+          return '<br><span class="token-hint">' + hints[lang] + '</span>';
+        };
 
         const formEl = document.getElementById('solutionForm');
         const inputEl = document.getElementById('solution');
@@ -251,7 +261,7 @@
             log('computeWaSolution Fehler, Fallback:', e);
             token = localStorage.getItem(TOKEN_KEY) || '';
           }
-          apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + HINT_HTML;
+          apiResponseEl.innerHTML = TOKEN_PREFIX + String(token) + getHintHTML();
         }
 
         function hideActions() {
@@ -388,6 +398,10 @@
         btn.textContent = ok ? 'Kopiert!' : 'Fehler';
       });
     })();
+  </script>
+
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_erx_05'));
   </script>
 </body>
 

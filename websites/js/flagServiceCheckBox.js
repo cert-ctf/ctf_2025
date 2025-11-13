@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiResponseEl = document.getElementById('api-response');
 
   if (!formEl) {
-    console.error('solutionForm nicht gefunden.');
+    console.error('solutionForm not found.');
     return;
   }
 
   const submitBtn = formEl.querySelector('.fx-btn');
   const submitLabel = submitBtn?.querySelector('.fx-btn-label');
 
-  // Sicherstellen, dass Button existiert
+  // Ensure button exists
   if (!submitBtn) {
-    console.error('Submit-Button (.fx-btn) nicht im Formular gefunden.');
+    console.error('Submit-Button (.fx-btn) not found in form.');
     return;
   }
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const payload = getSolutionFromUI();
     if (!payload || !payload.solution?.length) {
-      if (errorEl) errorEl.textContent = 'Keine Nachrichten gefunden. Bitte Seite aktualisieren oder IDs prüfen.';
+      if (errorEl) errorEl.textContent = 'No messages found. Please refresh the page or check IDs.';
       return;
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       // Optional: Button-Feedback
       submitBtn.disabled = true;
-      if (submitLabel) submitLabel.textContent = 'Sende…';
+      if (submitLabel) submitLabel.textContent = 'Sending…';
 
       const response = await fetch(baseURL + url, {
         method: 'POST',
@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
         if (data.token) localStorage.setItem(localStorageKey, data.token);
 
-        // Anzeige
+        // Display
         //if (successEl) successEl.style.display = 'block';
         //if (apiResponseEl) {
-        //  apiResponseEl.textContent = `Der Token ist: ${String(data.token ?? '')}.`;
+        //  apiResponseEl.textContent = `The token is: ${String(data.token ?? '')}.`;
         //  apiResponseEl.classList.add('token-text');
         // }
 

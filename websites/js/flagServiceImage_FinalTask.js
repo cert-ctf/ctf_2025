@@ -41,12 +41,12 @@ formEl.addEventListener('submit', async function(event) {
 
   const file = inputEl.files?.[0];
   if (!file) {
-    errorEl.textContent = 'Bitte eine PNG- oder JPEG-Datei auswählen.';
+    errorEl.textContent = 'Please select a PNG or JPEG file.';
     inputEl.classList.add('fx-input--error');
     return;
   }
   if (!['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
-    errorEl.textContent = 'Nur PNG oder JPEG Bilder sind erlaubt.';
+    errorEl.textContent = 'Only PNG or JPEG images are allowed.';
     inputEl.classList.add('fx-input--error');
     return;
   }
@@ -73,8 +73,8 @@ formEl.addEventListener('submit', async function(event) {
         localStorage.setItem(localStorageKey, data.token);
       }
 
-      // Erfolg anzeigen: Token-Text formatiert und navy-blau
-      //apiResponseEl.textContent = `Der Token ist: ${String(data.token ?? '')}.`;
+      // Show success: Token text formatted and navy-blue
+      //apiResponseEl.textContent = `The token is: ${String(data.token ?? '')}.`;
       //apiResponseEl.classList.add('token-text');
 
       // Box sichtbar machen
@@ -104,8 +104,8 @@ formEl.addEventListener('submit', async function(event) {
       submitBtn.addEventListener('click', handleNextNavigate, { once: true });
 
     } else if (response.status === 400) {
-      // Wrong answer / ungültige Datei
-      errorEl.textContent = 'Falsche Antwort oder ungültige Datei.';
+      // Wrong answer / invalid file
+      errorEl.textContent = 'Wrong answer or invalid file.';
       inputEl.classList.remove('fx-input--success');
       inputEl.readOnly = false;
       inputEl.removeAttribute('aria-readonly');
@@ -121,9 +121,9 @@ formEl.addEventListener('submit', async function(event) {
       if (glow) glow.style.display = '';
 
     } else {
-      errorEl.textContent = 'Unerwarteter Fehler. Bitte später erneut versuchen.';
+      errorEl.textContent = 'Unexpected error. Please try again later.';
 
-      // Button zurücksetzen
+      // Reset button
       submitBtn.disabled = false;
       submitBtn.classList.remove('fx-btn--next');
       submitBtn.type = 'submit';
@@ -133,9 +133,9 @@ formEl.addEventListener('submit', async function(event) {
       if (glow) glow.style.display = '';
     }
   } catch (error) {
-    errorEl.textContent = 'Netzwerkfehler: ' + error;
+    errorEl.textContent = 'Network error: ' + error;
 
-    // Button zurücksetzen
+    // Reset button
     submitBtn.disabled = false;
     submitBtn.classList.remove('fx-btn--next');
     submitBtn.type = 'submit';

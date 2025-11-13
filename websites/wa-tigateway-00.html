@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <!-- Neu: ausgelagerte Styles -->
   <link rel="stylesheet" href="./css/ti-gateway.css">
@@ -21,8 +22,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -30,25 +31,25 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>TI-Gateway (das große Finale)</h2>
+        <h2 data-i18n="header.title">TI-Gateway (das große Finale)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <div class="section-head">Was ist das TI‑Gateway?</div>
+        <div class="section-head" data-i18n="content.whatIsTitle">Was ist das TI‑Gateway?</div>
         <section class="media-text">
           <div class="media-text__content">
-            <p>
+            <p data-i18n="content.whatIsDescription1">
               Das TI-Gateway ist eine neue, moderne und softwarebasierte Lösung, die den Zugang zur deutschen
               Telematikinfrastruktur (TI) vereinfacht, indem der herkömmliche Hardware-Konnektor vor Ort entfällt.
               Stattdessen wird der Anschluss über einen Highspeed-Konnektor in einem gesicherten, zertifizierten
               Rechenzentrum des TI-Gateway-Anbieters realisiert.</p>
-            <p>Dies entlastet Leistungserbringer von Wartungsarbeiten und erhöht gleichzeitig die Sicherheit und
+            <p data-i18n="content.whatIsDescription2">Dies entlastet Leistungserbringer von Wartungsarbeiten und erhöht gleichzeitig die Sicherheit und
               Verfügbarkeit der TI-Anwendungen wie dem E-Rezept, ePA, KIM oder TI-M.</p>
             </p>
 
-            Schau dir das Video an:
+            <span data-i18n="content.videoPrompt">Schau dir das Video an:</span>
 
-            <a href="https://www.youtube.com/watch?v=PUtThaDR1gU" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/watch?v=PUtThaDR1gU" target="_blank" rel="noopener noreferrer" data-i18n="content.videoLink">
               Neuer Zugang zur TI: So funktioniert das TI-Gateway!
             </a>
 
@@ -56,45 +57,45 @@
           <img class="media-text__image" src="./img/tigateway.png" alt="Illustration zum TI Capture the Flag" />
         </section>
 
-        <div class="section-head">Merkmale</div>
+        <div class="section-head" data-i18n="content.featuresTitle">Merkmale</div>
         <ul>
-          <li><strong>Vertrauensanker:</strong> Sichere Authentifizierung und Zertifikatsprüfung</li>
-          <li><strong>Transport:</strong> Geschützte, standardisierte Kommunikation in die TI</li>
-          <li><strong>Routing:</strong> Weiterleitung zu Fachanwendungen und Fachdiensten</li>
-          <li><strong>Protokollierung & Compliance:</strong> Nachvollziehbare, regelkonforme Kommunikation</li>
+          <li data-i18n="content.feature1[html]"><strong>Vertrauensanker:</strong> Sichere Authentifizierung und Zertifikatsprüfung</li>
+          <li data-i18n="content.feature2[html]"><strong>Transport:</strong> Geschützte, standardisierte Kommunikation in die TI</li>
+          <li data-i18n="content.feature3[html]"><strong>Routing:</strong> Weiterleitung zu Fachanwendungen und Fachdiensten</li>
+          <li data-i18n="content.feature4[html]"><strong>Protokollierung & Compliance:</strong> Nachvollziehbare, regelkonforme Kommunikation</li>
         </ul>
         <br>
 
-        <div class="section-head">Deine Mission</div>
+        <div class="section-head" data-i18n="content.missionTitle">Deine Mission</div>
         <section class="media-text media-text--image-left">
           <figure class="media-figure">
             <img class="media-text__image" src="./img/icon_goal.png" alt="" />
           </figure>
 
           <div class="media-text__content">
-            <p><b>Ziel:</b> Verbinde alle Anwendungen mit dem TI‑Gateway und sichere den Zugang.</p>
+            <p data-i18n="content.missionGoal[html]"><b>Ziel:</b> Verbinde alle Anwendungen mit dem TI‑Gateway und sichere den Zugang.</p>
             <ol>
-              <li>Meistere die Subwelten von <strong>ePA</strong>, <strong>eRX</strong>, <strong>TI‑M</strong> und
+              <li data-i18n="content.missionStep1[html]">Meistere die Subwelten von <strong>ePA</strong>, <strong>eRX</strong>, <strong>TI‑M</strong> und
                 <strong>KIM</strong>. Löse dort alle Aufgaben, um die jeweiligen <strong>finalen Codes</strong> zu
                 erhalten.</li>
-              <li>Aktiviere anschließend die vier Zords – <strong>eRX</strong>, <strong>ePA</strong>,
+              <li data-i18n="content.missionStep2[html]">Aktiviere anschließend die vier Zords – <strong>eRX</strong>, <strong>ePA</strong>,
                 <strong>KIM</strong> und <strong>TIM</strong> – mit genau diesen finalen Codes.</li>
-              <li>Jeder korrekte Code lädt den entsprechenden Zord mit Energie.</li>
-              <li>Sind alle vier Zords aktiv, verriegelt das zentrale Schloss und das TI‑Gateway ist verbunden.</li>
-              <li>Am Ende erhältet ihr dir die Flag zur Freischaltung der StoryLine Aufgabe in <b>CTFd</b>.</li>
+              <li data-i18n="content.missionStep3">Jeder korrekte Code lädt den entsprechenden Zord mit Energie.</li>
+              <li data-i18n="content.missionStep4">Sind alle vier Zords aktiv, verriegelt das zentrale Schloss und das TI‑Gateway ist verbunden.</li>
+              <li data-i18n="content.missionStep5[html]">Am Ende erhältet ihr dir die Flag zur Freischaltung der StoryLine Aufgabe in <b>CTFd</b>.</li>
             </ol>
           </div>
         </section>
 
-        <div class="section-head">Hinweise</div>
+        <div class="section-head" data-i18n="content.hintsTitle">Hinweise</div>
         <section class="media-text">
           <div class="media-text__content">
             <ul>
-              <li>Die finalen Codes erhältst du nur, wenn du die jeweiligen Subwelten vollständig abschließt.</li>
-              <li>Du kannst jeden Zord einzeln aktivieren; falsche Eingaben werden sofort angezeigt.</li>
-              <li>Erst wenn alle vier Zords „Korrekt“ melden, ist die Verbindung vollständig.</li>
-              <li>Mit <strong>MEGAZORD PRÜFEN</strong> startest du die finale Sequenz.</li>
-              <li>Teamwork der Anwendungen + präzise Eingaben = IT’S MORPHIN TIME!</li>
+              <li data-i18n="content.hint1">Die finalen Codes erhältst du nur, wenn du die jeweiligen Subwelten vollständig abschließt.</li>
+              <li data-i18n="content.hint2">Du kannst jeden Zord einzeln aktivieren; falsche Eingaben werden sofort angezeigt.</li>
+              <li data-i18n="content.hint3">Erst wenn alle vier Zords „Korrekt" melden, ist die Verbindung vollständig.</li>
+              <li data-i18n="content.hint4[html]">Mit <strong>MEGAZORD PRÜFEN</strong> startest du die finale Sequenz.</li>
+              <li data-i18n="content.hint5">Teamwork der Anwendungen + präzise Eingaben = IT'S MORPHIN TIME!</li>
             </ul>
 
           </div>
@@ -104,7 +105,7 @@
         <hr>
 
 
-        <h3>Aufgaben Übersicht</h3>
+        <h3 data-i18n="content.tasksOverview">Aufgaben Übersicht</h3>
         <section class="ranger-progress morph-scope">
           <div class="rp-list" id="rp-list">
             <!-- Cards werden per JS erzeugt -->
@@ -114,7 +115,7 @@
 
         <hr>
         <div class="section-head">
-          <h3>Morphin Console (IT’S MORPHIN TIME!)</h3>
+          <h3 data-i18n="content.consoleTitle">Morphin Console (IT'S MORPHIN TIME!)</h3>
         </div>
 
         <!-- 1:1 Morphin Console innerhalb der mg-card -->
@@ -262,6 +263,12 @@
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">…</aside>-->
 
   <div class="flag-tiles" aria-hidden="true"></div>
+
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_tigateway_00'));
+  </script>
 </body>
 
 </html>
@@ -425,6 +432,7 @@ function makeCard(productId, displayName){
   const footer = document.createElement("button");
   footer.className = `rp-copy-footer ${productId}`;
   footer.type = "button";
+  footer.setAttribute('data-i18n', 'content.tokenCopy');
   footer.textContent = "Token kopieren";
   footer.disabled = solvedCount !== TOTAL;
   footer.addEventListener("click", () => {

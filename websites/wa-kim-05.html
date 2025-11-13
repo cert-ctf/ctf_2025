@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 
   <style>
     /* Grundfeld */
@@ -69,8 +70,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -78,28 +79,28 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Kommunikation im Medizinwesen (Aufgabe 5)</h2>
+        <h2 data-i18n="header.title">Kommunikation im Medizinwesen (Aufgabe 5)</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
-        <h3>eEB, dat hätt' man jern!</h3>
-        <p>
+        <h3 data-i18n="content.taskTitle">eEB, dat hätt' man jern!</h3>
+        <p data-i18n="content.taskDescription1">
           "Immer wieder is et dat selbe", sagt Frau Dr. Müller, "Schon widda ham se ihre Karte verjessen!".
         </p>
-        <p>
+        <p data-i18n="content.taskDescription2">
           Kurz bevor Frau Dr. Müller sich dazu entscheidet, Imkerin zu werden und die Praxis zu verlassen, erzählt ihr
           jemand von der elektronischen Ersatzbescheinigung (eEB) und dass der Patient sicherlich eine bei seiner
           Krankenkasse anfordern kann.
         </p>
-        <p>
+        <p data-i18n="content.taskDescription3">
           Wie kann diese jetzt aber an die Praxis geschickt werden?
         </p>
 
         <hr>
-        <h3>🛰️ Deine Mission</h3>
+        <h3 data-i18n="mission.title">🛰️ Deine Mission</h3>
 
         <div class="callout-box">
-          <p>Erstelle den Praxis QR-Code, damit der Patient seine eEB über KIM schicken kann, und rette ihren Tag!</p>
+          <p data-i18n="mission.description">Erstelle den Praxis QR-Code, damit der Patient seine eEB über KIM schicken kann, und rette ihren Tag!</p>
         </div>
         <br>
 
@@ -107,20 +108,20 @@
 
 
         <hr>
-        <h3>🗒️ Informationen zur Mission </h3>
-        <p>
+        <h3 data-i18n="info.title">🗒️ Informationen zur Mission </h3>
+        <p data-i18n="info.emailInfo">
           Frau Dr. Müller hat sich inzwischen eine neue KIM Mail besorgt:
         </p>
         <ul>
           <li><code class="mi-code">praxis@mueller.kim.telematik</code></li>
         </ul>
-        <h4>elektronische Ersatzbescheinigung (eEB) </h4>
-        <p>
+        <h4 data-i18n="info.eebTitle">elektronische Ersatzbescheinigung (eEB) </h4>
+        <p data-i18n="info.eebDescription1">
           Gesetzlich Versicherte können der Praxis auf diesem Weg eine elektronische Ersatzbescheinigung (eEB) zukommen
           lassen. Diese dient dem Versicherungsnachweis, wenn beim Praxisbesuch ausnahmsweise keine elektronische
           Gesundheitskarte vorgelegt werden kann.
         </p>
-        <p>
+        <p data-i18n="info.eebDescription2">
           Dafür muss ein QR-Code erstellt werden der die KIM-Adresse der Praxis enthält. Dann kann über die App der
           jeweiligen Krankenkasse die eEB an die Praxis geschickt werden.
         </p>
@@ -132,14 +133,14 @@
         <hr>
 
         <form id="solutionForm" class="fx-form" enctype="multipart/form-data">
-          <h3 for="solution" class="fx-label">🎯 Lösung (Upload Solution File)</h3>
+          <h3 for="solution" class="fx-label" data-i18n="form.solutionLabel">🎯 Lösung (Upload Solution File)</h3>
 
           <div class="fx-input-wrap">
             <input type="file" id="solutionFile" name="solutionFile" accept=".png,image/png" required
               class="fx-input" />
 
             <button type="submit" class="fx-btn ">
-              <span class="fx-btn-label">Submit</span>
+              <span class="fx-btn-label" data-i18n="common.submit">Submit</span>
               <span class="fx-btn-glow"></span>
             </button>
           </div>
@@ -159,7 +160,7 @@
             <img class="info-icon" src="./img/help.svg" draggable="false" alt="Hilfe Icon">
           </figure>
           <div class="info-box">
-            <p id="info_text_field" class="bottom_text">
+            <p id="info_text_field" class="bottom_text" data-i18n="info.text">
               Erstelle eine Data-Matrix und lade es hoch.
             </p>
           </div>
@@ -179,9 +180,9 @@
   </button>
 
   <aside id="helpOverlay" hidden aria-modal="true" role="dialog">
-    <button class="close-btn" aria-label="Schließen">&times;</button>
-    <h3>Weitere Infos</h3>
-    <p>Hier findest du weitere Hinweise und Tools:</p>
+    <button class="close-btn" aria-label="Schließen" data-i18n="help.close">&times;</button>
+    <h3 data-i18n="help.title">Weitere Infos</h3>
+    <p data-i18n="help.text">Hier findest du weitere Hinweise und Tools:</p>
     <ul>
       <li><a href="https://fachportal.gematik.de/anwendungen/kommunikation-im-medizinwesen" target="_blank"
           rel="noopener">Funktionsweise von KIM</a></li>
@@ -207,6 +208,12 @@
   <script src="./js/flagServiceHelper.js" defer></script>
   <script src="./js/help.js" defer></script>
 
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('wa_kim_05'));
+  </script>
+
  <script>
 document.addEventListener('DOMContentLoaded', () => {
   (function kimFinalUIController() {
@@ -215,7 +222,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const TOKEN_KEY = typeof localStorageKey === 'string' ? localStorageKey : 'kim-wa-solution';
 
     const TOKEN_PREFIX = 'KIM Token: ';
-    const HINT_HTML = '<br><span class="token-hint">schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe</span>';
+    const getHintHTML = () => {
+      const lang = window.languageSwitcher?.getCurrentLanguage() || 'de';
+      const hints = {
+        de: 'schreibe dir den Token auf, du benötigst es für die finale TI-Gateway Aufgabe',
+        en: 'write down the token, you need it for the final TI Gateway task'
+      };
+      return '<br><span class="token-hint">' + hints[lang] + '</span>';
+    };
 
     // DOM
     const formEl = document.getElementById('solutionForm');
@@ -271,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // HTML setzen (mit Hint)
-      const html = TOKEN_PREFIX + String(token) + HINT_HTML;
+      const html = TOKEN_PREFIX + String(token) + getHintHTML();
       apiResponseEl.innerHTML = html;
 
       // Falls der Container selbst versteckt wäre:

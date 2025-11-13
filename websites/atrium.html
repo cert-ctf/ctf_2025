@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/help.css">
+  <link rel="stylesheet" href="./css/languageSwitcher.css">
 </head>
 <body>
   <main class="wrapper" role="main">
@@ -15,8 +16,8 @@
       <div class="nav-left">
         <img class="bordered" src="./img/gematik-icon.svg" draggable="false" alt="Gematik">
         <div class="nav-title">
-          <h6>Die Abenteuer von KIM & TIM</h6>
-          <h4>Kapt. III – Guardians of the TI</h4>
+          <h6 data-i18n="nav.subtitle">Die Abenteuer von KIM & TIM</h6>
+          <h4 data-i18n="nav.title">Kapt. III – Guardians of the TI</h4>
         </div>
       </div>
       <img class="nav-right" src="./img/logo.svg" draggable="false" alt="Logo">
@@ -24,7 +25,7 @@
 
     <section class="card">
       <header class="card-header">
-        <h2>Atrium</h2>
+        <h2 data-i18n="header.title">Atrium</h2>
       </header>
       <h3 class="card-title"></h3>
       <div class="card-body">
@@ -40,8 +41,8 @@
           <img class="info-icon" src="./img/help.svg" draggable="false" oncontextmenu="return false;" alt="Tim">
           <div class="info-box">
             <p id="info_text_field" class="bottom_text">
-                Hier erwarten dich spannende Vorträge von unserem 
-                <a href="https://www.youtube.com/@gematikgmbh" target="_blank" rel="noopener" title="YouTube‑Kanal der gematik">
+                <span data-i18n="content.infoText">Hier erwarten dich spannende Vorträge von unserem</span>
+                <a href="https://www.youtube.com/@gematikgmbh" target="_blank" rel="noopener" title="YouTube‑Kanal der gematik" data-i18n="content.youtubeChannel">
                     YouTube‑Kanal
                 </a>
             </p>
@@ -162,5 +163,10 @@
   </script>
 
   <script src="./js/background.js"></script>
+  <script src="./js/translations.js"></script>
+  <script src="./js/languageSwitcher.js"></script>
+  <script>
+    window.languageSwitcher.init(getPageTranslations('atrium'));
+  </script>
 </body>
 </html>
