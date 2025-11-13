@@ -2325,156 +2325,6 @@
                  "y":621.666666666667
                 }, 
                 {
-                 "height":64,
-                 "id":136,
-                 "name":"Web_Agenda_0",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/agenda.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":64,
-                 "x":1120.66666666667,
-                 "y":2976.33
-                }, 
-                {
-                 "height":64,
-                 "id":137,
-                 "name":"Web_Raumplan",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/raumplan.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":64,
-                 "x":1023.99998333333,
-                 "y":2976.33333333333
-                },
-            
-                {
-                 "height":291.833333333333,
-                 "id":138,
-                 "name":"Web_Welcome",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":223.333333333333,
-                 "x":991,
-                 "y":3302.33333333333
-                }, 
-                {
-                 "height":32,
-                 "id":139,
-                 "name":"Web_Agenda_1",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/agenda.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":32,
-                 "x":927.969696969697,
-                 "y":2303.78787878788
-                }, 
-                {
-                 "height":32,
-                 "id":141,
-                 "name":"Web_Agenda_2",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/agenda.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":32,
-                 "x":1247.78788333333,
-                 "y":2304.1818
-                }, 
-                {
-                 "height":32,
-                 "id":142,
-                 "name":"Web_Teams_01",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/teams.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":32,
-                 "x":543.787883333334,
-                 "y":1727.51513333333
-                }, 
-                {
-                 "height":32,
-                 "id":143,
-                 "name":"Web_Teams_02",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/teams.html"
-                        }, 
-                        {
-                         "name":"openWebsiteTrigger",
-                         "type":"string",
-                         "value":"onaction"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":32,
-                 "x":1631.12121666667,
-                 "y":1726.84846666666
-                }, 
-                {
                  "height":258.667,
                  "id":144,
                  "name":"Jitsi_Dual_CPR",
@@ -2506,7 +2356,8 @@
                  "width":2240,
                  "x":0,
                  "y":0
-                }, 
+                },
+            
                 {
                  "height":32,
                  "id":148,
@@ -2958,33 +2809,6 @@
                  "width":449.333,
                  "x":313.3335,
                  "y":2290.3335
-                }, 
-                {
-                 "height":397.333,
-                 "id":177,
-                 "name":"Jitsi_Stage",
-                 "properties":[
-                        {
-                         "name":"jitsiRoom",
-                         "type":"string",
-                         "value":"stage"
-                        }, 
-                        {
-                         "name":"jitsiRoomAdminTag",
-                         "type":"string",
-                         "value":"speaker"
-                        }, 
-                        {
-                         "name":"openWebsiteClosable",
-                         "type":"bool",
-                         "value":false
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":731.333,
-                 "x":739.3335,
-                 "y":1688.3335
                 }, 
                 {
                  "height":267.333,
