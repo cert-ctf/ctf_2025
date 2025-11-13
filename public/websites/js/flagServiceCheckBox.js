@@ -1,51 +1,27 @@
+// ---------------------------------------------------------
+// GLOBAL VARS
+// ---------------------------------------------------------
+let submitBtn;
+let submitLabel;
+let inputEl;
+
 document.addEventListener('DOMContentLoaded', () => {
   const formEl = document.getElementById('solutionForm');
-  const inputEl = document.getElementById('solution');
+  inputEl = document.getElementById('solution');
   const errorEl = document.getElementById('error-message');
   const successEl = document.getElementById('success-message');
+  const apiResponseEl = document.getElementById('api-response');
 
-  if (!formEl) {
-    console.error('solutionForm not found.');
-    return;
-  }
+  if (!formEl) return console.error('solutionForm not found.');
 
-  const submitBtn = formEl.querySelector('.fx-btn');
-  const submitLabel = submitBtn?.querySelector('.fx-btn-label');
-  if (!submitBtn) {
-    console.error('Submit-Button (.fx-btn) not found in form.');
-    return;
-  }
+  submitBtn = formEl.querySelector('.fx-btn');
+  submitLabel = submitBtn ? submitBtn.querySelector('.fx-btn-label') : null;
 
-  // --- Navigation zur nächsten Seite ---
-  function handleNextNavigate() {
-    window.location.href = nextQuestionURL;
-  }
+  if (!submitBtn) return console.error('Submit-Button (.fx-btn) not found.');
 
-  // --- Button auf "Next" umschalten ---
-  function switchToNextUI() {
-  submitBtn.classList.add('fx-btn--next');
-  submitBtn.type = 'button';
-  submitBtn.disabled = false;
-
-  // Next-Label setzen
-  if (submitLabel) {
-    submitLabel.textContent = 'Next';
-  } else {
-    submitBtn.textContent = 'Next';
-  }
-
-  // Glow ausblenden
-  const glow = submitBtn.querySelector('.fx-btn-glow');
-  if (glow) glow.style.display = 'none';
-
-  // 🔥 Form-Submit vollständig verhindern
-  formEl.addEventListener('submit', e => e.preventDefault());
-
-  // 🔥 Sauberer Next-Handler statt addEventListener (überschreibt selbst alte Handler)
-  submitBtn.onclick = handleNextNavigate;
-}
-
-  // --- Lösung aus Checkboxen ermitteln ---
+  // ---------------------------------------------------------
+  // --- Lösung aus Checkboxen ermitteln
+  // ---------------------------------------------------------
   function getSolutionFromUI() {
     const list = document.getElementById('muList');
     if (!list) return null;
@@ -56,23 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const solution = items.map(item => {
       const id = item.dataset.id;
       const cb = item.querySelector('.mu-checkbox');
-      const checked = !!(cb && cb.checked);
-      return { [id]: checked };
+      return { [id]: !!(cb && cb.checked) };
     });
 
     return { solution };
   }
 
-  // --- Prüfen, ob Aufgabe schon gelöst ---
-  try {
-    if (localStorage.getItem(localStorageKey)) {
-      switchToNextUI();
-    }
-  } catch (e) {
-    console.warn('localStorage access failed:', e);
-  }
-
-  // --- Submit-Handler ---
+  // ---------------------------------------------------------
+  // --- Submit Handler
+  // ---------------------------------------------------------
   formEl.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -81,18 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const payload = getSolutionFromUI();
     if (!payload || !payload.solution?.length) {
-      if (errorEl) errorEl.textContent = 'No messages found. Please refresh the page or check IDs.';
+      if (errorEl) errorEl.textContent = 'No messages selected.';
       return;
     }
 
-    if (inputEl) {
-      inputEl.value = JSON.stringify(payload);
-    }
-
-    let submissionSucceeded = false;
+    if (inputEl) inputEl.value = JSON.stringify(payload);
 
     try {
-      submitBtn.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
       if (submitLabel) submitLabel.textContent = 'Sending…';
 
       const response = await fetch(baseURL + url, {
@@ -105,40 +69,76 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
 
         if (data.token) {
-          try {
-            localStorage.setItem(localStorageKey, data.token);
-          } catch (e) {
-            console.warn('localStorage set failed:', e);
-          }
+          try { localStorage.setItem(localStorageKey, data.token); } 
+          catch (e) { console.warn('localStorage set failed:', e); }
         }
 
-        // Info-Text ausblenden
-        const box = document.getElementById('info_text');
-        if (box) box.style.display = 'none';
+        // Input sperren + Success-State
+        if (inputEl) {
+          inputEl.classList.remove('fx-input--error');
+          inputEl.classList.add('fx-input--success');
+          inputEl.readOnly = true;
+          inputEl.setAttribute('aria-readonly', 'true');
+        }
 
-        // 🟢 Direkt auf "Next" schalten & Navigation aktivieren
-        switchToNextUI();
-        submissionSucceeded = true;
+        // --- Submit-Button zu Next ---
+        if (submitBtn) {
+          submitBtn.classList.add('fx-btn--next');
+          submitBtn.type = 'button';
+          submitBtn.onclick = handleNextNavigate;
+        }
+
+        if (submitLabel) submitLabel.innerHTML = '<span class="fx-next-icon">→</span> Next';
+
+        const glow = submitBtn ? submitBtn.querySelector('.fx-btn-glow') : null;
+        if (glow) glow.style.display = 'none';
 
       } else if (response.status === 400) {
         if (errorEl) errorEl.textContent = 'Wrong answer.';
+        if (inputEl) {
+          inputEl.classList.remove('fx-input--success');
+          inputEl.readOnly = false;
+          inputEl.removeAttribute('aria-readonly');
+          inputEl.classList.add('fx-input--error');
+        }
       } else {
         if (errorEl) errorEl.textContent = 'An unexpected error occurred.';
       }
 
-    } catch (error) {
-      if (errorEl) errorEl.textContent = 'Network error: ' + error;
+    } catch (err) {
+      if (errorEl) errorEl.textContent = 'Network error: ' + err;
     } finally {
-      submitBtn.disabled = false;
-      if (!submissionSucceeded) {
-        if (submitLabel) submitLabel.textContent = 'Submit';
+      if (submitBtn) submitBtn.disabled = false;
+      if (!submitBtn?.classList.contains('fx-btn--next') && submitLabel) {
+        submitLabel.textContent = 'Submit';
       }
     }
   });
 
-  // --- Glow-Effekt für Button ---
-  const glow = submitBtn.querySelector('.fx-btn-glow');
-  if (glow) {
+  // ---------------------------------------------------------
+  // --- Entferne Error-State beim Tippen
+  // ---------------------------------------------------------
+  if (inputEl) {
+    inputEl.addEventListener('input', () => {
+      if (inputEl.classList.contains('fx-input--error')) {
+        inputEl.classList.remove('fx-input--error');
+      }
+    });
+  }
+
+  // ---------------------------------------------------------
+  // --- Navigation zur nächsten Frage
+  // ---------------------------------------------------------
+  function handleNextNavigate() {
+    window.location.href = nextQuestionURL;
+  }
+
+  // ---------------------------------------------------------
+  // --- Glow-Effekt
+  // ---------------------------------------------------------
+  (function setupGlow() {
+    const glow = submitBtn ? submitBtn.querySelector('.fx-btn-glow') : null;
+    if (!submitBtn || !glow) return;
     submitBtn.addEventListener('mousemove', (e) => {
       const rect = submitBtn.getBoundingClientRect();
       const mx = ((e.clientX - rect.left) / rect.width) * 100;
@@ -146,5 +146,22 @@ document.addEventListener('DOMContentLoaded', () => {
       glow.style.setProperty('--mx', mx + '%');
       glow.style.setProperty('--my', my + '%');
     });
+  })();
+
+  // ---------------------------------------------------------
+  // --- Bereits gelöst? (localStorage)
+  // ---------------------------------------------------------
+  try {
+    if (localStorage.getItem(localStorageKey)) {
+      if (submitBtn) {
+        submitBtn.classList.add('fx-btn--next');
+        submitBtn.type = 'button';
+        submitBtn.onclick = handleNextNavigate;
+      }
+      if (submitLabel) submitLabel.innerHTML = '<span class="fx-next-icon">→</span> Next';
+    }
+  } catch (e) {
+    console.warn('localStorage access failed:', e);
   }
+
 });
