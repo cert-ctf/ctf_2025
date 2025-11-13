@@ -1411,23 +1411,6 @@
                  "width":0,
                  "x":1312,
                  "y":800
-                }, 
-                {
-                 "height":224,
-                 "id":8,
-                 "name":"welcome_tigateway",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-tigateway-00.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":416,
-                 "x":736,
-                 "y":480
                 }],
          "opacity":1,
          "type":"objectgroup",

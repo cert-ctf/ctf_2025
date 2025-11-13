@@ -1792,40 +1792,6 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":224,
-                 "id":1,
-                 "name":"welcome_erx",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_erx.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":128,
-                 "x":576,
-                 "y":480
-                }, 
-                {
-                 "height":224,
-                 "id":2,
-                 "name":"welcome_soc",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_soc.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":416,
-                 "x":1184,
-                 "y":480
-                }, 
-                {
                  "height":0,
                  "id":3,
                  "name":"door_erx",
@@ -1953,23 +1919,6 @@
                  "width":0,
                  "x":1312,
                  "y":800
-                }, 
-                {
-                 "height":224,
-                 "id":8,
-                 "name":"welcome_epa",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_epa.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":128,
-                 "x":1024,
-                 "y":480
                 }, 
                 {
                  "height":0,

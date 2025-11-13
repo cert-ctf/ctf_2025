@@ -1654,40 +1654,6 @@
          "name":"floorLayer",
          "objects":[
                 {
-                 "height":224,
-                 "id":1,
-                 "name":"welcome_kim",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_kim.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":128,
-                 "x":576,
-                 "y":480
-                }, 
-                {
-                 "height":224,
-                 "id":2,
-                 "name":"welcome_tim",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/welcome_tim.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":128,
-                 "x":1024,
-                 "y":481
-                }, 
-                {
                  "height":0,
                  "id":3,
                  "name":"door_kim",

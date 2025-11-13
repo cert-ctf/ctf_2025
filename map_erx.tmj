@@ -1233,57 +1233,6 @@
                  "width":32,
                  "x":1184,
                  "y":704
-                }, 
-                {
-                 "height":96,
-                 "id":3,
-                 "name":"welcome_erx",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-erx-00.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":96,
-                 "x":1152,
-                 "y":1472
-                }, 
-                {
-                 "height":96,
-                 "id":4,
-                 "name":"welcome_erx",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-erx-00.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":96,
-                 "x":448,
-                 "y":1472
-                }, 
-                {
-                 "height":96,
-                 "id":5,
-                 "name":"aufgabe",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-erx-01.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":160,
-                 "x":800,
-                 "y":1120
                 }],
          "opacity":1,
          "type":"objectgroup",

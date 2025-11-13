@@ -816,40 +816,6 @@
                  "y":1056
                 }, 
                 {
-                 "height":96,
-                 "id":10,
-                 "name":"welcome_kim",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-kim-00.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":192,
-                 "x":1120,
-                 "y":576
-                }, 
-                {
-                 "height":128,
-                 "id":11,
-                 "name":"aufgabe",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-kim-01.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":192,
-                 "x":832,
-                 "y":768
-                }, 
-                {
                  "height":256,
                  "id":16,
                  "name":"house_kim",

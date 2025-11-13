@@ -980,23 +980,6 @@
                  "y":896
                 }, 
                 {
-                 "height":128,
-                 "id":3,
-                 "name":"aufgabe",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-epa-01.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":160,
-                 "x":896,
-                 "y":704
-                }, 
-                {
                  "height":416,
                  "id":4,
                  "name":"house_epa",
@@ -1006,23 +989,6 @@
                  "width":800,
                  "x":416,
                  "y":672
-                }, 
-                {
-                 "height":96,
-                 "id":6,
-                 "name":"welcome_epa",
-                 "properties":[
-                        {
-                         "name":"openWebsite",
-                         "type":"string",
-                         "value":"websites\/wa-epa-00.html"
-                        }],
-                 "rotation":0,
-                 "type":"area",
-                 "visible":true,
-                 "width":128,
-                 "x":1184,
-                 "y":1120
                 }, 
                 {
                  "height":64,
