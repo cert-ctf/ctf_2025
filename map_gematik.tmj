@@ -3897,26 +3897,26 @@
                  "y":960
                 }, 
                 {
-                 "height":32,
+                 "height":128,
                  "id":25,
                  "name":"popup_sea",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":96,
-                 "x":640,
-                 "y":736
+                 "width":128,
+                 "x":608,
+                 "y":640
                 }, 
                 {
-                 "height":32,
+                 "height":128,
                  "id":26,
                  "name":"popup_sgm",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":96,
-                 "x":1088,
-                 "y":736
+                 "width":128,
+                 "x":1056,
+                 "y":640
                 }, 
                 {
                  "height":128,

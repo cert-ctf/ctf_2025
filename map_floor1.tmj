@@ -1817,15 +1817,15 @@
                  "y":608
                 }, 
                 {
-                 "height":32,
+                 "height":128,
                  "id":10,
                  "name":"popup_ops",
                  "rotation":0,
                  "type":"area",
                  "visible":true,
-                 "width":96,
+                 "width":128,
                  "x":1376,
-                 "y":736
+                 "y":640
                 }],
          "opacity":1,
          "type":"objectgroup",
