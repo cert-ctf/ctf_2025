@@ -23,27 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Button auf "Next" umschalten ---
   function switchToNextUI() {
-    // Button klonen, um ALLE alten Events und Browser-Submit-Mechaniken zu entfernen
-    const newBtn = submitBtn.cloneNode(true);
-    submitBtn.parentNode.replaceChild(newBtn, submitBtn);
-    submitBtn = newBtn;
+  submitBtn.classList.add('fx-btn--next');
+  submitBtn.type = 'button';
+  submitBtn.disabled = false;
 
-    submitBtn.classList.add('fx-btn--next');
-    submitBtn.type = 'button';
-    submitBtn.disabled = false;
+  // Next-Label setzen
+  if (submitLabel) {
+    submitLabel.textContent = 'Next';
+  } else {
+    submitBtn.textContent = 'Next';
+  }
 
-    if (submitLabel) {
-      submitLabel.textContent = 'Next';
-    } else {
-      submitBtn.textContent = 'Next';
-    }
+  // Glow ausblenden
+  const glow = submitBtn.querySelector('.fx-btn-glow');
+  if (glow) glow.style.display = 'none';
 
-    const glow = submitBtn.querySelector('.fx-btn-glow');
-    if (glow) glow.style.display = 'none';
+  // 🔥 Form-Submit vollständig verhindern
+  formEl.addEventListener('submit', e => e.preventDefault());
 
-    // Jetzt sauberen Next-Handler setzen
-    submitBtn.addEventListener('click', handleNextNavigate);
-  } 
+  // 🔥 Sauberer Next-Handler statt addEventListener (überschreibt selbst alte Handler)
+  submitBtn.onclick = handleNextNavigate;
+}
 
   // --- Lösung aus Checkboxen ermitteln ---
   function getSolutionFromUI() {
