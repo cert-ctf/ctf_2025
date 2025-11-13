@@ -1252,7 +1252,7 @@
                         {
                          "name":"playAudio",
                          "type":"string",
-                         "value":"rimba.mp3"
+                         "value":"websites\/files\/rimba.mp3"
                         }],
                  "rotation":0,
                  "type":"area",
