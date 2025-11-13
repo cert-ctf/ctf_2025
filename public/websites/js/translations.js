@@ -80,39 +80,40 @@ const pageTranslations = {
       }
     }
   },
-
   agenda: {
-    de: {
-      header: {
-        title: 'Agenda'
-      },
-      table: {
-        headers: ['Zeit', 'Aktion', 'Ort'],
-        rows: [
-          ['<span class="dot green"></span>11:30&nbsp;Uhr', 'Doors Open', 'Virtuelle Welt'],
-          ['<span class="dot blue"></span>12:00&nbsp;Uhr', 'Begrüßung', 'Bühnenbereich'],
-          ['<span class="dot green"></span>12:15&nbsp;Uhr', 'Start der Generalprobe', 'Team‑Portal &amp; CTFd'],
-          ['<span class="dot blue"></span>15:15&nbsp;Uhr', 'Ende des Contests', 'Bühnenbereich'],
-          ['<span class="dot green"></span>15:15–15:30&nbsp;Uhr', 'Siegerehrung &amp; Feedback', 'Bühnenbereich']
-        ]
-      }
+  de: {
+    header: {
+      title: 'Agenda'
     },
-    en: {
-      header: {
-        title: 'Agenda'
-      },
-      table: {
-        headers: ['Time', 'Action', 'Location'],
-        rows: [
-          ['<span class="dot green"></span>11:30&nbsp;AM', 'Doors Open', 'Virtual World'],
-          ['<span class="dot blue"></span>12:00&nbsp;PM', 'Welcome', 'Stage Area'],
-          ['<span class="dot green"></span>12:15&nbsp;PM', 'Start of Dress Rehearsal', 'Team Portal &amp; CTFd'],
-          ['<span class="dot blue"></span>3:15&nbsp;PM', 'End of Contest', 'Stage Area'],
-          ['<span class="dot green"></span>3:15–3:30&nbsp;PM', 'Award Ceremony &amp; Feedback', 'Stage Area']
-        ]
-      }
+    table: {
+      headers: ['Zeit', 'Aktion', 'Ort'],
+      rows: [
+        ['<span class="dot green"></span>09:30&nbsp;Uhr', 'Doors Open', 'Virtuelle Welt'],
+        ['<span class="dot blue"></span>09:45&nbsp;Uhr', 'Begrüßung', 'Bühnen Bereich'],
+        ['<span class="dot green"></span>10:00&nbsp;Uhr', 'Start des CTF-Contests', 'Team Portal &amp; CTFd'],
+        ['<span class="dot blue"></span>18:00&nbsp;Uhr', 'Ende des Contests', 'Bühnen Bereich'],
+        ['<span class="dot green"></span>18:15–18:30&nbsp;Uhr', 'Siegerehrung &amp; Preisverleihung', 'Bühnen Bereich'],
+        ['<span class="dot blue"></span>19:00&nbsp;Uhr', 'Verabschiedung &amp; Ende der Veranstaltung', 'Bühnen Bereich']
+      ]
     }
   },
+  en: {
+    header: {
+      title: 'Agenda'
+    },
+    table: {
+      headers: ['Time', 'Action', 'Location'],
+      rows: [
+        ['<span class="dot green"></span>9:30&nbsp;AM', 'Doors Open', 'Virtual World'],
+        ['<span class="dot blue"></span>9:45&nbsp;AM', 'Welcome', 'Stage Area'],
+        ['<span class="dot green"></span>10:00&nbsp;AM', 'Start of the CTF Contest', 'Team Portal &amp; CTFd'],
+        ['<span class="dot blue"></span>6:00&nbsp;PM', 'End of Contest', 'Stage Area'],
+        ['<span class="dot green"></span>6:15–6:30&nbsp;PM', 'Award Ceremony &amp; Prize Giving', 'Stage Area'],
+        ['<span class="dot blue"></span>7:00&nbsp;PM', 'Farewell &amp; End of Event', 'Stage Area']
+      ]
+    }
+  }
+},
 
   teams: {
     de: {
