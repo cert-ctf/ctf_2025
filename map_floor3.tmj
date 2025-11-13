@@ -1411,6 +1411,28 @@
                  "width":0,
                  "x":1312,
                  "y":800
+                }, 
+                {
+                 "height":32,
+                 "id":11,
+                 "name":"popup_gf",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":608,
+                 "y":736
+                }, 
+                {
+                 "height":32,
+                 "id":12,
+                 "name":"popup_it",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":1376,
+                 "y":736
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1602,7 +1624,7 @@
          "y":0
         }],
  "nextlayerid":77,
- "nextobjectid":11,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -3895,6 +3895,39 @@
                  "width":32,
                  "x":1312,
                  "y":960
+                }, 
+                {
+                 "height":32,
+                 "id":25,
+                 "name":"popup_sea",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":640,
+                 "y":736
+                }, 
+                {
+                 "height":32,
+                 "id":26,
+                 "name":"popup_sgm",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":1088,
+                 "y":736
+                }, 
+                {
+                 "height":128,
+                 "id":27,
+                 "name":"popup_bender",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":160,
+                 "x":1024,
+                 "y":1024
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4833,7 +4866,7 @@
          "y":0
         }],
  "nextlayerid":80,
- "nextobjectid":25,
+ "nextobjectid":28,
  "orientation":"orthogonal",
  "properties":[
         {

@@ -1006,6 +1006,17 @@
                  "width":32,
                  "x":320,
                  "y":1120
+                }, 
+                {
+                 "height":128,
+                 "id":14,
+                 "name":"popup_epa",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":128,
+                 "x":704,
+                 "y":864
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1258,7 +1269,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "properties":[
         {

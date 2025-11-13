@@ -825,6 +825,17 @@
                  "width":544,
                  "x":480,
                  "y":736
+                }, 
+                {
+                 "height":128,
+                 "id":17,
+                 "name":"popup_kim",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":128,
+                 "x":480,
+                 "y":768
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1077,7 +1088,7 @@
          "y":0
         }],
  "nextlayerid":19,
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "properties":[
         {

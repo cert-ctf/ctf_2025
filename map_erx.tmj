@@ -1233,6 +1233,33 @@
                  "width":32,
                  "x":1184,
                  "y":704
+                }, 
+                {
+                 "height":1824,
+                 "id":6,
+                 "name":"waves",
+                 "properties":[
+                        {
+                         "name":"audioLoop",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"audioVolume",
+                         "type":"string",
+                         "value":"1"
+                        }, 
+                        {
+                         "name":"playAudio",
+                         "type":"string",
+                         "value":"rimba.mp3"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":1600,
+                 "x":0,
+                 "y":224
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1514,7 +1541,7 @@
          "y":0
         }],
  "nextlayerid":27,
- "nextobjectid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "properties":[
         {

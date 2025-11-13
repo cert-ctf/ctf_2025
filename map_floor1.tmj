@@ -1815,6 +1815,17 @@
                  "width":32,
                  "x":288,
                  "y":608
+                }, 
+                {
+                 "height":32,
+                 "id":10,
+                 "name":"popup_ops",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":96,
+                 "x":1376,
+                 "y":736
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2006,7 +2017,7 @@
          "y":0
         }],
  "nextlayerid":77,
- "nextobjectid":10,
+ "nextobjectid":11,
  "orientation":"orthogonal",
  "properties":[
         {

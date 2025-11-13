@@ -48,7 +48,22 @@ WA.onInit().then(() => {
     }) 
 
     
+    WA.room.area.onEnter('popup_epa').subscribe(() => {
+        currentPopup = WA.ui.openPopup("popup_epa","Null Problemo!",[]);          
+    })
+    WA.room.area.onLeave('popup_epa').subscribe(closePopup)
 
+    WA.room.area.onEnter('popup_kim').subscribe(() => {
+        currentPopup = WA.ui.openPopup("popup_kim","Dr. Wright erwartet euch bereits",[]);          
+    })
+    WA.room.area.onLeave('popup_kim').subscribe(closePopup)
+    
+    function closePopup(){
+        if (currentPopup !== undefined) {
+            currentPopup.close();
+            currentPopup = undefined;
+        }
+    }
 	
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
