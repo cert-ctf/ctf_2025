@@ -1017,6 +1017,33 @@
                  "width":128,
                  "x":704,
                  "y":864
+                }, 
+                {
+                 "height":1600,
+                 "id":15,
+                 "name":"waves",
+                 "properties":[
+                        {
+                         "name":"audioLoop",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"audioVolume",
+                         "type":"string",
+                         "value":"1"
+                        }, 
+                        {
+                         "name":"playAudio",
+                         "type":"string",
+                         "value":"alf_lofi.mp3"
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":1600,
+                 "x":0,
+                 "y":0
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1269,7 +1296,7 @@
          "y":0
         }],
  "nextlayerid":22,
- "nextobjectid":15,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "properties":[
         {
